@@ -1,3 +1,4 @@
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -121,3 +122,115 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
         </section>
 
       </div>
+
+      {/* Before / After -- full width */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-16">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Before and after</h2>
+
+          {/* Before */}
+          <div className="mb-12">
+            <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">Before</p>
+            <div className="border border-border overflow-hidden bg-[#f8f8f8]">
+              <Image
+                src="/images/flanksource-after.svg"
+                alt="Flanksource original dashboard layout"
+                width={1800}
+                height={1169}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
+          {/* After */}
+          <div>
+            <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">After</p>
+            <div className="border border-border overflow-hidden bg-[#f8f8f8]">
+              <Image
+                src="/images/flanksource-before.svg"
+                alt="Flanksource redesigned dashboard"
+                width={1440}
+                height={900}
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lower content */}
+      <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+
+        {/* Insights */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="space-y-6">
+            {project.insights.map((insight, i) => (
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{insight}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Reflection */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="space-y-6">
+            {project.learnings.map((learning, i) => (
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{learning}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tools */}
+        <section className="mb-16 pb-16 border-b border-border">
+          <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Tools</h3>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => (
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full border border-border text-foreground/40">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* Navigation */}
+      <div className="border-t border-border">
+        <div className="max-w-3xl mx-auto px-6 py-10">
+          <div className="flex justify-between">
+            {prevProject ? (
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200"
+              >
+                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
+                <div>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Previous</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
+                </div>
+              </Link>
+            ) : <div />}
+            {nextProject ? (
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200 text-right"
+              >
+                <div>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Next</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
+                </div>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
+            ) : <div />}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
