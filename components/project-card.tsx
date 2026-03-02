@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import { Project } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
 
@@ -12,9 +14,18 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
       <article>
         {/* Thumbnail */}
         <div className={`relative bg-[#09332C] overflow-hidden ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-bold text-[#F7EDDA]/10 select-none">{project.title}</span>
-          </div>
+          {project.thumbnail ? (
+            <Image
+              src={project.thumbnail}
+              alt={project.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-3xl md:text-4xl font-bold text-[#F7EDDA]/10 select-none">{project.title}</span>
+            </div>
+          )}
           <div className="absolute top-4 right-4">
             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <ArrowUpRight size={14} className="text-[#F7EDDA]" />
