@@ -1,4 +1,3 @@
-```tsx
 "use client";
 import { useState } from "react";
 import { projects, getAllTags, ProjectTag } from "@/lib/projects";
@@ -42,4 +41,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-```

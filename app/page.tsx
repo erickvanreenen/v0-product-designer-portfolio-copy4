@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { ArrowRight } from "lucide-react";

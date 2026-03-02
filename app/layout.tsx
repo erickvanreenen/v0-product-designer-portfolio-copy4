@@ -1,4 +1,3 @@
-```tsx
 import React from "react"
 import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
@@ -59,4 +58,3 @@ export default function RootLayout({
     </html>
   );
 }
-```

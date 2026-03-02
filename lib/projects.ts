@@ -1,4 +1,3 @@
-export type ProjectTag = 
   | "E-commerce" 
   | "Omnichannel" 
   | "App" 

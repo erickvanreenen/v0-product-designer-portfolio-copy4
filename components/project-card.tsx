@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Project } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
 
