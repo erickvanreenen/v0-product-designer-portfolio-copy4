@@ -121,17 +121,6 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
           </p>
         </section>
 
-        {/* Tools */}
-        <section className="mb-16 pb-16 border-b border-border">
-          <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Tools</h3>
-          <div className="flex flex-wrap gap-2">
-            {project.tools.map((tool) => (
-              <span key={tool} className="text-xs px-3 py-1.5 rounded-full border border-border text-foreground/40">
-                {tool}
-              </span>
-            ))}
-          </div>
-        </section>
       </div>
 
       {/* Navigation */}

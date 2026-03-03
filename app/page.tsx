@@ -12,10 +12,10 @@ export default function HomePage() {
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-28 md:py-40">
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
-            Senior UX/UI Designer
+            UX 75% / UI 25% DESIGNER
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#09332C] max-w-2xl tracking-tight">
-            Shape Strategy. Build Systems. Drive Outcomes.
+            Fusing user needs with business outcomes.
           </h1>
           <p className="text-lg text-foreground/50 mt-6 max-w-xl">
             Designing for e-commerce, omnichannel, and EdTech.
