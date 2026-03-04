@@ -242,7 +242,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Strategic option explored */}
         <section className="mb-24">
-          <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Option considered</p>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Option considered</p>
           <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Pay on Sign Up</h2>
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
             Move payment to the start. Use the cart as the entry point. Auto-deduce customer profile from order.
@@ -287,6 +287,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               <div className="flex items-start gap-6">
                 <span className="text-xs text-[#FFA74F]/40 font-bold mt-0.5">03</span>
                 <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Solves acquisition only. The retention problem remains unresolved.</p>
+              </div>
+              <div className="flex items-start gap-6">
+                <span className="text-xs text-[#FFA74F]/40 font-bold mt-0.5">04</span>
+                <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Order changes post-payment introduce refund risk. Reduced orders take 2+ days to reflect — creating billing confusion at the point of highest user trust.</p>
               </div>
             </div>
           </div>
