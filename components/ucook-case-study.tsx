@@ -240,6 +240,46 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
+        {/* Strategic option explored */}
+        <section className="mb-24">
+          <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Option considered</p>
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Pay on Sign Up</h2>
+          <p className="text-base text-foreground/70 leading-relaxed mb-10">
+            Move payment to the start. Use the cart as the entry point. Auto-deduce customer profile from order.
+          </p>
+
+          {/* Flow */}
+          <div className="overflow-x-auto pb-2 mb-10">
+            <div className="flex items-center gap-2 min-w-max">
+              {["Meal Kit Page", "Add to Cart", "Checkout", "Address + Banking", "Pay", "Auto-profile"].map((step, i, arr) => (
+                <React.Fragment key={step}>
+                  <div className="px-4 py-2.5 border border-border rounded text-xs text-foreground/60 whitespace-nowrap">{step}</div>
+                  {i < arr.length - 1 && <span className="text-foreground/20 text-xs">→</span>}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+
+          {/* Risks */}
+          <div className="bg-[#09332C] rounded-lg p-8 md:p-10">
+            <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-8">Risks identified</p>
+            <div className="space-y-6">
+              <div className="flex items-start gap-6">
+                <span className="text-xs text-[#FFA74F]/40 font-bold mt-0.5">01</span>
+                <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Subscription model not communicated before payment. Users commit without understanding recurring billing.</p>
+              </div>
+              <div className="flex items-start gap-6">
+                <span className="text-xs text-[#FFA74F]/40 font-bold mt-0.5">02</span>
+                <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Pause and cancel functionality unclear at point of commitment.</p>
+              </div>
+              <div className="flex items-start gap-6">
+                <span className="text-xs text-[#FFA74F]/40 font-bold mt-0.5">03</span>
+                <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Solves acquisition only. The retention problem remains unresolved.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Solution */}
         <section className="mb-24">
           <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Solution</h2>
@@ -257,6 +297,32 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Structural redesign</h3>
               <p className="text-sm text-foreground/50">Measurable funnel with payment decision.</p>
             </div>
+          </div>
+
+          {/* Journey map */}
+          <div className="mt-16 mb-16">
+            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Revised user journeys</h3>
+            <div className="space-y-3">
+              {[
+                ["Homepage", "Sign Up", "Plans"],
+                ["Homepage", "Sign Up", "Get Started"],
+                ["Homepage", "Sign Up", "Meal Kits", "Get Started"],
+                ["Homepage", "Let's Get Started", "Plans"],
+              ].map((steps, i) => (
+                <div key={i} className="flex items-center gap-1.5 flex-wrap">
+                  {steps.map((step, j) => (
+                    <React.Fragment key={j}>
+                      <span className="text-xs px-2.5 py-1.5 border border-border rounded text-foreground/40">{step}</span>
+                      <span className="text-foreground/20 text-xs">→</span>
+                    </React.Fragment>
+                  ))}
+                  <span className="text-xs px-2.5 py-1.5 bg-[#09332C] text-[#F7EDDA]/70 rounded">Plans</span>
+                  <span className="text-foreground/20 text-xs">→</span>
+                  <span className="text-xs px-2.5 py-1.5 border border-[#F0531C]/30 text-[#F0531C] rounded">Activated</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-foreground/25 mt-5">Four paths. One outcome. No dead ends.</p>
           </div>
 
           {/* Wireframes */}
