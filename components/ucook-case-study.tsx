@@ -178,12 +178,19 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </section>
 
         {/* Constraints */}
-        <section className="mb-24 bg-[#09332C] rounded-lg p-8 md:p-10">
-          <h2 className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-8">Constraints</h2>
-          <div className="space-y-6">
-            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">No baseline funnel existed for testing.</p>
-            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Billing logic was complex and misaligned with user mental models.</p>
-            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Earlier payment introduced operational refund risk.</p>
+        <section className="mb-24 bg-white rounded-lg p-8 md:p-10 border border-border">
+          <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Constraints</h2>
+          <div className="space-y-5">
+            {[
+              "No baseline funnel existed for testing.",
+              "Billing logic was complex and misaligned with user mental models.",
+              "Earlier payment introduced operational refund risk.",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
+                <p className="text-sm text-foreground/65 leading-relaxed">{item}</p>
+              </div>
+            ))}
           </div>
         </section>
 
