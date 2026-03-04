@@ -249,13 +249,25 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </p>
 
           {/* Flow */}
-          <div className="overflow-x-auto pb-2 mb-10">
-            <div className="flex items-center gap-2 min-w-max">
-              {["Meal Kit Page", "Add to Cart", "Checkout", "Address + Banking", "Pay", "Auto-profile"].map((step, i, arr) => (
-                <React.Fragment key={step}>
-                  <div className="px-4 py-2.5 border border-border rounded text-xs text-foreground/60 whitespace-nowrap">{step}</div>
-                  {i < arr.length - 1 && <span className="text-foreground/20 text-xs">→</span>}
-                </React.Fragment>
+          <div className="mb-10">
+            <div className="grid grid-cols-3 gap-px bg-border rounded-lg overflow-hidden mb-px">
+              {["Meal Kit Page", "Add to Cart", "Checkout"].map((step, i) => (
+                <div key={step} className="bg-background p-5">
+                  <p className="text-xs text-foreground/20 font-bold mb-2">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="text-sm text-foreground/60">{step}</p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-px bg-border rounded-lg overflow-hidden">
+              {[
+                { label: "Address + Banking", step: 4 },
+                { label: "Pay", step: 5, accent: true },
+                { label: "Auto-profile", step: 6 },
+              ].map(({ label, step, accent }) => (
+                <div key={label} className={`p-5 ${accent ? "bg-[#F0531C]/5" : "bg-background"}`}>
+                  <p className={`text-xs font-bold mb-2 ${accent ? "text-[#F0531C]/30" : "text-foreground/20"}`}>{String(step).padStart(2, "0")}</p>
+                  <p className={`text-sm ${accent ? "text-[#F0531C]/60" : "text-foreground/60"}`}>{label}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -302,27 +314,31 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           {/* Journey map */}
           <div className="mt-16 mb-16">
             <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Revised user journeys</h3>
-            <div className="space-y-3">
+            <div className="border border-border rounded-lg overflow-hidden">
               {[
-                ["Homepage", "Sign Up", "Plans"],
+                ["Homepage", "Sign Up"],
                 ["Homepage", "Sign Up", "Get Started"],
                 ["Homepage", "Sign Up", "Meal Kits", "Get Started"],
-                ["Homepage", "Let's Get Started", "Plans"],
-              ].map((steps, i) => (
-                <div key={i} className="flex items-center gap-1.5 flex-wrap">
-                  {steps.map((step, j) => (
-                    <React.Fragment key={j}>
-                      <span className="text-xs px-2.5 py-1.5 border border-border rounded text-foreground/40">{step}</span>
-                      <span className="text-foreground/20 text-xs">→</span>
-                    </React.Fragment>
-                  ))}
-                  <span className="text-xs px-2.5 py-1.5 bg-[#09332C] text-[#F7EDDA]/70 rounded">Plans</span>
-                  <span className="text-foreground/20 text-xs">→</span>
-                  <span className="text-xs px-2.5 py-1.5 border border-[#F0531C]/30 text-[#F0531C] rounded">Activated</span>
+                ["Homepage", "Let's Get Started"],
+              ].map((steps, i, arr) => (
+                <div key={i} className={`flex items-center justify-between gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {steps.map((step, j) => (
+                      <React.Fragment key={j}>
+                        <span className="text-xs text-foreground/40">{step}</span>
+                        <span className="text-foreground/15 text-xs">→</span>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <span className="text-xs px-3 py-1.5 bg-[#09332C] text-[#F7EDDA]/70 rounded font-medium">Plans</span>
+                    <span className="text-foreground/15 text-xs">→</span>
+                    <span className="text-xs px-3 py-1.5 border border-[#F0531C]/25 text-[#F0531C] rounded font-medium">Activated</span>
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-foreground/25 mt-5">Four paths. One outcome. No dead ends.</p>
+            <p className="text-xs text-foreground/25 mt-4">Four paths. One outcome. No dead ends.</p>
           </div>
 
           {/* Wireframes */}
