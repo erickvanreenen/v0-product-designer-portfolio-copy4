@@ -16,13 +16,13 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         <div className="pb-4">
           <div className="flex flex-wrap gap-1.5 mb-2">
             {project.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="text-xs text-foreground/30">{tag}</span>
+              <span key={tag} className="text-xs text-foreground/40">{tag}</span>
             ))}
           </div>
           <h3 className="text-lg font-bold text-[#09332C] group-hover:text-[#F0531C] transition-colors duration-200 mb-1">
             {project.title}
           </h3>
-          <p className="text-sm text-foreground/50 line-clamp-2">
+          <p className="text-sm text-foreground/65 line-clamp-2">
             {project.subtitle}
           </p>
         </div>
@@ -51,7 +51,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         {featured && project.outcomes[0] && (
           <div className="mt-4 pt-4 border-t border-border">
             <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Key outcome</p>
-            <p className="text-sm text-foreground/50">{project.outcomes[0]}</p>
+            <p className="text-sm text-foreground/65">{project.outcomes[0]}</p>
           </div>
         )}
       </article>
