@@ -42,98 +42,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "faithful-to-nature",
-    title: "Faithful to Nature",
-    subtitle: "Omnichannel platform redesign in a complex, dev-first environment",
-    tags: ["E-commerce", "Redesign", "UX Strategy", "Omnichannel"],
-    role: "Lead UX/UI Designer",
-    team: "CEO, Co-CEO, CTO, BE Architecture Dev, Acumatica Dev, 2× BE Devs, 2× FE Devs, Product Owner, Project Manager, UX/UI Designer",
-    timeline: "September 2024 – Present",
-    tools: ["Figma", "Miro", "Jira"],
-    thumbnail: "/images/ftn-thumbnail.jpg",
-    thumbnailLogo: "/images/logo-ftn.svg",
-    outcomes: [
-      "Consistent filtering system shipped across all category levels",
-      "Omnichannel collection options introduced — 17 in-store locations + scheduled delivery",
-      "UX advocacy embedded in a previously dev-first product team",
-      "Systems thinking applied across Magento 1 → 2 migration constraints"
-    ],
-    summary: "Lone lead UX/UI designer on South Africa's largest online wellness platform. Working inside a dev-first, low-UX-maturity environment to redesign a complex omnichannel platform migrating from Magento 1 to Magento 2.",
-    context: "Faithful to Nature is one of South Africa's largest online wellness retailers. Rapid expansion into brick-and-mortar stores has moved the platform into a full omnichannel environment. The Magento 1 to Magento 2 migration started around 2020. Multiple designers came and went before I joined as the lone lead UX/UI designer in September 2024.",
-    goals: [
-      "Introduce consistent UX patterns across a fragmented platform",
-      "Design within legacy M1 constraints and staggered data availability",
-      "Advocate for user needs in a dev-first, low-UX-maturity environment",
-      "Deliver omnichannel collection and delivery options"
-    ],
-    research: "Immersed in the existing platform to map UX debt and misaligned historical decisions. Identified filtering inconsistencies across category levels and gaps in delivery and collection options. Mapped omnichannel dependencies across logistics, data availability, and legacy systems.",
-    insights: [
-      "Dev-first culture created significant UX debt — patterns changed across category levels",
-      "Design was constrained by data availability, not user need",
-      "Legacy M1 dependencies limited what was buildable on M2",
-      "Systems thinking was non-negotiable — every decision had downstream consequences",
-      "Advocating for UX required translating user needs into business and technical language"
-    ],
-    iaFlows: "",
-    designExploration: "",
-    finalUI: "",
-    testing: "Ongoing. Designs reviewed against M1 constraints, data availability, and omnichannel logistics before sign-off. Each feature required cross-functional alignment across tech, product, and operations.",
-    outcome: "Consistent filtering system shipped. Omnichannel collection and delivery options in progress. UX practice established in a previously dev-first environment. Project ongoing.",
-    learnings: [
-      "Balancing UX ideals against data availability and technical constraints is a distinct skill",
-      "Systems thinking at scale requires mapping dependencies before designing solutions",
-      "Low-UX-maturity environments require evidence-led advocacy, not assumption"
-    ],
-    images: []
-  },
-  {
-    slug: "yumease",
-    title: "YumEase",
-    subtitle: "Mobile app design from inception to launch",
-    tags: ["App", "UX Strategy"],
-    role: "Sole UX Designer",
-    team: "2 Developers, Product Manager, QA Tester",
-    timeline: "July 2023 - August 2024",
-    tools: ["Figma", "Miro", "Jira"],
-    thumbnail: "/images/yumease-thumbnail.jpg",
-    outcomes: [
-      "Successfully launched app",
-      "4.5 star average rating",
-      "Reduced onboarding drop-off by 40%",
-      "Positive user feedback on ease of use"
-    ],
-    summary: "As the sole UX Designer, I shaped the entire user experience of YumEase from concept to launch, working within a cross-functional team to deliver an intuitive and delightful mobile app.",
-    context: "YumEase needed a user-centered approach to design a new mobile app in a competitive market. As the only designer on the team, I was responsible for all aspects of the user experience.",
-    goals: [
-      "Create an intuitive onboarding experience",
-      "Design a simple and efficient core user flow",
-      "Establish a cohesive visual design system",
-      "Ensure accessibility across the app"
-    ],
-    research: "Conducted user interviews, competitive analysis, and created personas to understand user needs and behaviors. Used findings to inform all design decisions throughout the project.",
-    insights: [
-      "Users valued simplicity over feature richness",
-      "Quick access to core functionality was essential",
-      "Social proof significantly influenced user trust",
-      "Clear progress indicators reduced anxiety"
-    ],
-    iaFlows: "Designed information architecture that prioritized the most common user tasks. Created detailed user flows and journey maps to ensure a smooth experience from first open to regular use.",
-    designExploration: "Explored multiple visual directions and interaction patterns. Conducted rapid prototyping and testing cycles to validate concepts before development.",
-    finalUI: "Delivered a clean, modern design system with consistent components, clear typography, and an approachable color palette that reflected the app's friendly personality.",
-    testing: "Iterative usability testing throughout development with both internal and external users. Quick feedback loops allowed for rapid improvements.",
-    outcome: "App launched successfully with positive user reception. Achieved 4.5 star rating with users specifically praising the intuitive design and ease of use.",
-    learnings: [
-      "Importance of close collaboration with developers",
-      "Value of early and frequent user testing",
-      "Benefits of design system documentation"
-    ],
-    images: [
-      { src: "/images/yumease-personas.jpg", caption: "User personas developed from research" },
-      { src: "/images/yumease-flows.jpg", caption: "User flow mapping for core functionality", wide: true },
-      { src: "/images/yumease-screens.jpg", caption: "Final app screens showing key features", wide: true }
-    ]
-  },
-  {
     slug: "ucook",
     title: "UCOOK",
     subtitle: "Sign-up usability investigation and funnel redesign",
@@ -183,97 +91,49 @@ export const projects: Project[] = [
     ]
   },
   {
-    slug: "uni4-online",
-    title: "UNi4 Online Aggregator",
-    subtitle: "Multi-brand education platform consolidation",
-    tags: ["EdTech", "UX Strategy", "Leadership"],
-    role: "Visual Team Lead & UX Designer",
-    team: "Junior Designers, Learning Designers, Project Manager",
-    timeline: "May 2021 - August 2024",
-    tools: ["Figma", "Miro", "Articulate 360", "Adobe Creative Suite"],
-    thumbnail: "/images/uni4-thumbnail.jpg",
+    slug: "faithful-to-nature",
+    title: "Faithful to Nature",
+    subtitle: "Omnichannel platform redesign in a complex, dev-first environment",
+    tags: ["E-commerce", "Redesign", "UX Strategy", "Omnichannel"],
+    role: "Lead UX/UI Designer",
+    team: "CEO, Co-CEO, CTO, BE Architecture Dev, Acumatica Dev, 2× BE Devs, 2× FE Devs, Product Owner, Project Manager, UX/UI Designer",
+    timeline: "September 2024 – Present",
+    tools: ["Figma", "Miro", "Jira"],
+    thumbnail: "/images/ftn-thumbnail.jpg",
+    thumbnailLogo: "/images/logo-ftn.svg",
     outcomes: [
-      "Increased team productivity significantly",
-      "Met all KPIs consistently",
-      "Improved designer collaboration",
-      "Successful aggregator platform design"
+      "Consistent filtering system shipped across all category levels",
+      "Omnichannel collection options introduced — 17 in-store locations + scheduled delivery",
+      "UX advocacy embedded in a previously dev-first product team",
+      "Systems thinking applied across Magento 1 → 2 migration constraints"
     ],
-    summary: "Led the visual design team while designing the UX for a new aggregator website that consolidates multiple education brands onto a single platform.",
-    context: "UNi4 Online faced challenges with designers working in isolation, leading to inconsistent outputs and difficulty meeting KPIs. Additionally, there was a need to consolidate multiple education brands onto one platform.",
+    summary: "Lone lead UX/UI designer on South Africa's largest online wellness platform. Working inside a dev-first, low-UX-maturity environment to redesign a complex omnichannel platform migrating from Magento 1 to Magento 2.",
+    context: "Faithful to Nature is one of South Africa's largest online wellness retailers. Rapid expansion into brick-and-mortar stores has moved the platform into a full omnichannel environment. The Magento 1 to Magento 2 migration started around 2020. Multiple designers came and went before I joined as the lone lead UX/UI designer in September 2024.",
     goals: [
-      "Streamline design team workflows",
-      "Improve team collaboration and morale",
-      "Design unified aggregator platform",
-      "Create consistent brand experiences"
+      "Introduce consistent UX patterns across a fragmented platform",
+      "Design within legacy M1 constraints and staggered data availability",
+      "Advocate for user needs in a dev-first, low-UX-maturity environment",
+      "Deliver omnichannel collection and delivery options"
     ],
-    research: "Analyzed existing workflows, conducted team interviews, and studied competitor education platforms to inform both team process improvements and platform design.",
+    research: "Immersed in the existing platform to map UX debt and misaligned historical decisions. Identified filtering inconsistencies across category levels and gaps in delivery and collection options. Mapped omnichannel dependencies across logistics, data availability, and legacy systems.",
     insights: [
-      "Designers needed clearer project visibility",
-      "Regular check-ins improved team morale",
-      "Users needed seamless navigation between brands",
-      "Content consistency was crucial for trust"
+      "Dev-first culture created significant UX debt — patterns changed across category levels",
+      "Design was constrained by data availability, not user need",
+      "Legacy M1 dependencies limited what was buildable on M2",
+      "Systems thinking was non-negotiable — every decision had downstream consequences",
+      "Advocating for UX required translating user needs into business and technical language"
     ],
-    iaFlows: "Designed information architecture that allowed users to navigate between brands while maintaining clear context. Created unified design patterns that worked across all brands.",
-    designExploration: "Explored approaches that balanced individual brand identities with platform consistency. Tested concepts with stakeholders and end users.",
-    finalUI: "Delivered a cohesive design system that maintained brand distinction while providing a unified user experience across the aggregator platform.",
-    testing: "User testing with students and internal stakeholders to validate navigation patterns and content organization.",
-    outcome: "Team productivity increased significantly, KPIs were consistently met, and the aggregator platform received positive feedback from stakeholders.",
+    iaFlows: "",
+    designExploration: "",
+    finalUI: "",
+    testing: "Ongoing. Designs reviewed against M1 constraints, data availability, and omnichannel logistics before sign-off. Each feature required cross-functional alignment across tech, product, and operations.",
+    outcome: "Consistent filtering system shipped. Omnichannel collection and delivery options in progress. UX practice established in a previously dev-first environment. Project ongoing.",
     learnings: [
-      "Leadership requires balancing individual needs with team goals",
-      "Process improvements can dramatically impact output quality",
-      "Design systems need flexibility for multi-brand contexts"
+      "Balancing UX ideals against data availability and technical constraints is a distinct skill",
+      "Systems thinking at scale requires mapping dependencies before designing solutions",
+      "Low-UX-maturity environments require evidence-led advocacy, not assumption"
     ],
-    images: [
-      { src: "/images/uni4-kanban.jpg", caption: "Kanban workflow implementation for design team" },
-      { src: "/images/uni4-aggregator.jpg", caption: "Aggregator platform design exploration", wide: true }
-    ]
-  },
-  {
-    slug: "edtech-interactive-learning",
-    title: "EdTech Interactive Learning Experience",
-    subtitle: "Designing an intuitive, interactive online learning experience using Articulate Rise",
-    tags: ["EdTech", "UX Strategy"],
-    role: "Learning Experience Designer",
-    team: "Solo Project",
-    timeline: "2024",
-    tools: ["Articulate Rise", "Figma", "Miro"],
-    thumbnail: "/images/edtech-thumbnail.jpg",
-    outcomes: [
-      "Created engaging interactive learning modules",
-      "Improved learner engagement through multimedia content",
-      "Delivered accessible, responsive learning experience",
-      "Streamlined knowledge retention through interactive assessments"
-    ],
-    summary: "Designed and developed an interactive online learning experience using Articulate Rise, focusing on creating an intuitive, engaging, and accessible educational journey for learners.",
-    context: "This project showcases my EdTech capabilities, demonstrating how UX principles can be applied to educational content design. The goal was to create an interactive learning experience that engages users while effectively communicating complex information.",
-    goals: [
-      "Create an engaging and intuitive learning flow",
-      "Apply instructional design principles to content structure",
-      "Ensure accessibility across devices and user needs",
-      "Balance visual engagement with educational effectiveness"
-    ],
-    research: "Applied learning science principles and UX research methodologies to understand how users best absorb and retain information in digital learning environments.",
-    insights: [
-      "Chunked content improves comprehension and reduces cognitive load",
-      "Interactive elements increase engagement and retention",
-      "Clear navigation and progress indicators reduce learner anxiety",
-      "Multimedia variety caters to different learning styles"
-    ],
-    iaFlows: "Structured the learning experience with clear progression, logical content grouping, and intuitive navigation that guides learners through the material at their own pace.",
-    designExploration: "Explored various content presentation methods and interactive elements to find the optimal balance between engagement and educational effectiveness.",
-    finalUI: "Delivered a polished, responsive learning experience with clean typography, thoughtful use of imagery, and interactive assessments that reinforce key concepts.",
-    testing: "Conducted user testing with sample learners to validate the learning flow, content clarity, and interaction patterns.",
-    outcome: "Successfully created an interactive learning experience that demonstrates the intersection of UX design and educational content development.",
-    learnings: [
-      "Instructional design and UX design share many common principles",
-      "Interactivity should serve the learning objective, not distract from it",
-      "Accessibility is crucial in educational content"
-    ],
-    images: [
-      { src: "/images/edtech-structure.jpg", caption: "Learning experience structure and flow" },
-      { src: "/images/edtech-interactions.jpg", caption: "Interactive elements and assessments", wide: true }
-    ],
-    externalLink: "https://rise.articulate.com/share/XCDWEAquTje11b1vjAzKZahmZziR0gaj#/lessons/rMXP5z-dQk-xwn-pu5qgWJAxQpOXijVW"
+    images: []
   },
   {
     slug: "flanksource",
@@ -356,6 +216,146 @@ export const projects: Project[] = [
       "Quick iteration demands tight scope"
     ],
     images: []
+  },
+  {
+    slug: "yumease",
+    title: "YumEase",
+    subtitle: "Mobile app design from inception to launch",
+    tags: ["App", "UX Strategy"],
+    role: "Sole UX Designer",
+    team: "2 Developers, Product Manager, QA Tester",
+    timeline: "July 2023 - August 2024",
+    tools: ["Figma", "Miro", "Jira"],
+    thumbnail: "/images/yumease-thumbnail.jpg",
+    outcomes: [
+      "Successfully launched app",
+      "4.5 star average rating",
+      "Reduced onboarding drop-off by 40%",
+      "Positive user feedback on ease of use"
+    ],
+    summary: "As the sole UX Designer, I shaped the entire user experience of YumEase from concept to launch, working within a cross-functional team to deliver an intuitive and delightful mobile app.",
+    context: "YumEase needed a user-centered approach to design a new mobile app in a competitive market. As the only designer on the team, I was responsible for all aspects of the user experience.",
+    goals: [
+      "Create an intuitive onboarding experience",
+      "Design a simple and efficient core user flow",
+      "Establish a cohesive visual design system",
+      "Ensure accessibility across the app"
+    ],
+    research: "Conducted user interviews, competitive analysis, and created personas to understand user needs and behaviors. Used findings to inform all design decisions throughout the project.",
+    insights: [
+      "Users valued simplicity over feature richness",
+      "Quick access to core functionality was essential",
+      "Social proof significantly influenced user trust",
+      "Clear progress indicators reduced anxiety"
+    ],
+    iaFlows: "Designed information architecture that prioritized the most common user tasks. Created detailed user flows and journey maps to ensure a smooth experience from first open to regular use.",
+    designExploration: "Explored multiple visual directions and interaction patterns. Conducted rapid prototyping and testing cycles to validate concepts before development.",
+    finalUI: "Delivered a clean, modern design system with consistent components, clear typography, and an approachable color palette that reflected the app's friendly personality.",
+    testing: "Iterative usability testing throughout development with both internal and external users. Quick feedback loops allowed for rapid improvements.",
+    outcome: "App launched successfully with positive user reception. Achieved 4.5 star rating with users specifically praising the intuitive design and ease of use.",
+    learnings: [
+      "Importance of close collaboration with developers",
+      "Value of early and frequent user testing",
+      "Benefits of design system documentation"
+    ],
+    images: [
+      { src: "/images/yumease-personas.jpg", caption: "User personas developed from research" },
+      { src: "/images/yumease-flows.jpg", caption: "User flow mapping for core functionality", wide: true },
+      { src: "/images/yumease-screens.jpg", caption: "Final app screens showing key features", wide: true }
+    ]
+  },
+  {
+    slug: "edtech-interactive-learning",
+    title: "EdTech Interactive Learning Experience",
+    subtitle: "Designing an intuitive, interactive online learning experience using Articulate Rise",
+    tags: ["EdTech", "UX Strategy"],
+    role: "Learning Experience Designer",
+    team: "Solo Project",
+    timeline: "2024",
+    tools: ["Articulate Rise", "Figma", "Miro"],
+    thumbnail: "/images/edtech-thumbnail.jpg",
+    outcomes: [
+      "Created engaging interactive learning modules",
+      "Improved learner engagement through multimedia content",
+      "Delivered accessible, responsive learning experience",
+      "Streamlined knowledge retention through interactive assessments"
+    ],
+    summary: "Designed and developed an interactive online learning experience using Articulate Rise, focusing on creating an intuitive, engaging, and accessible educational journey for learners.",
+    context: "This project showcases my EdTech capabilities, demonstrating how UX principles can be applied to educational content design. The goal was to create an interactive learning experience that engages users while effectively communicating complex information.",
+    goals: [
+      "Create an engaging and intuitive learning flow",
+      "Apply instructional design principles to content structure",
+      "Ensure accessibility across devices and user needs",
+      "Balance visual engagement with educational effectiveness"
+    ],
+    research: "Applied learning science principles and UX research methodologies to understand how users best absorb and retain information in digital learning environments.",
+    insights: [
+      "Chunked content improves comprehension and reduces cognitive load",
+      "Interactive elements increase engagement and retention",
+      "Clear navigation and progress indicators reduce learner anxiety",
+      "Multimedia variety caters to different learning styles"
+    ],
+    iaFlows: "Structured the learning experience with clear progression, logical content grouping, and intuitive navigation that guides learners through the material at their own pace.",
+    designExploration: "Explored various content presentation methods and interactive elements to find the optimal balance between engagement and educational effectiveness.",
+    finalUI: "Delivered a polished, responsive learning experience with clean typography, thoughtful use of imagery, and interactive assessments that reinforce key concepts.",
+    testing: "Conducted user testing with sample learners to validate the learning flow, content clarity, and interaction patterns.",
+    outcome: "Successfully created an interactive learning experience that demonstrates the intersection of UX design and educational content development.",
+    learnings: [
+      "Instructional design and UX design share many common principles",
+      "Interactivity should serve the learning objective, not distract from it",
+      "Accessibility is crucial in educational content"
+    ],
+    images: [
+      { src: "/images/edtech-structure.jpg", caption: "Learning experience structure and flow" },
+      { src: "/images/edtech-interactions.jpg", caption: "Interactive elements and assessments", wide: true }
+    ],
+    externalLink: "https://rise.articulate.com/share/XCDWEAquTje11b1vjAzKZahmZziR0gaj#/lessons/rMXP5z-dQk-xwn-pu5qgWJAxQpOXijVW"
+  },
+  {
+    slug: "uni4-online",
+    title: "UNi4 Online Aggregator",
+    subtitle: "Multi-brand education platform consolidation",
+    tags: ["EdTech", "UX Strategy", "Leadership"],
+    role: "Visual Team Lead & UX Designer",
+    team: "Junior Designers, Learning Designers, Project Manager",
+    timeline: "May 2021 - August 2024",
+    tools: ["Figma", "Miro", "Articulate 360", "Adobe Creative Suite"],
+    thumbnail: "/images/uni4-thumbnail.jpg",
+    outcomes: [
+      "Increased team productivity significantly",
+      "Met all KPIs consistently",
+      "Improved designer collaboration",
+      "Successful aggregator platform design"
+    ],
+    summary: "Led the visual design team while designing the UX for a new aggregator website that consolidates multiple education brands onto a single platform.",
+    context: "UNi4 Online faced challenges with designers working in isolation, leading to inconsistent outputs and difficulty meeting KPIs. Additionally, there was a need to consolidate multiple education brands onto one platform.",
+    goals: [
+      "Streamline design team workflows",
+      "Improve team collaboration and morale",
+      "Design unified aggregator platform",
+      "Create consistent brand experiences"
+    ],
+    research: "Analyzed existing workflows, conducted team interviews, and studied competitor education platforms to inform both team process improvements and platform design.",
+    insights: [
+      "Designers needed clearer project visibility",
+      "Regular check-ins improved team morale",
+      "Users needed seamless navigation between brands",
+      "Content consistency was crucial for trust"
+    ],
+    iaFlows: "Designed information architecture that allowed users to navigate between brands while maintaining clear context. Created unified design patterns that worked across all brands.",
+    designExploration: "Explored approaches that balanced individual brand identities with platform consistency. Tested concepts with stakeholders and end users.",
+    finalUI: "Delivered a cohesive design system that maintained brand distinction while providing a unified user experience across the aggregator platform.",
+    testing: "User testing with students and internal stakeholders to validate navigation patterns and content organization.",
+    outcome: "Team productivity increased significantly, KPIs were consistently met, and the aggregator platform received positive feedback from stakeholders.",
+    learnings: [
+      "Leadership requires balancing individual needs with team goals",
+      "Process improvements can dramatically impact output quality",
+      "Design systems need flexibility for multi-brand contexts"
+    ],
+    images: [
+      { src: "/images/uni4-kanban.jpg", caption: "Kanban workflow implementation for design team" },
+      { src: "/images/uni4-aggregator.jpg", caption: "Aggregator platform design exploration", wide: true }
+    ]
   }
 ];
 

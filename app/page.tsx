@@ -4,7 +4,10 @@ import { ProjectCard } from "@/components/project-card";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
-  const featuredProjects = projects.slice(0, 4);
+  const featuredSlugs = ["ucook", "faithful-to-nature", "flanksource", "edtech-interactive-learning"];
+  const featuredProjects = featuredSlugs
+    .map((slug) => projects.find((p) => p.slug === slug))
+    .filter(Boolean) as typeof projects;
 
   return (
     <div>
