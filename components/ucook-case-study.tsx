@@ -449,6 +449,14 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             </p>
           </div>
 
+          {/* ROI context */}
+          <div className="border-t border-border pt-10 mt-10">
+            <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R25.5k</p>
+            <p className="text-sm text-foreground/50 mt-2 max-w-lg">
+              6-month ROI (Aug–Jan). Real-world retention reached 10% vs. 3.7% on the old funnel — a 6.3% delta on R405k in new-user orders.
+            </p>
+          </div>
+
           {/* Pending */}
           <div className="mt-12 pt-8 border-t border-border">
             <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Pending</h3>
