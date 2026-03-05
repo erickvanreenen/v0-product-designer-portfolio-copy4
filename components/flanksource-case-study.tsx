@@ -13,90 +13,109 @@ interface Props {
 
 export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Props) {
   return (
-    <article>
+    <div>
       {/* Hero */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-foreground/30 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
-            Back
-          </Link>
-
-          <div className="flex flex-wrap gap-2 mb-6">
+      <section className="bg-white border-b border-border">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/40">
-                {tag}
-              </span>
+              <span key={tag} className="text-xs text-foreground/40">{tag}</span>
             ))}
           </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-xl text-[#F0531C] font-medium mb-6">
+          <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
             {project.subtitle}
           </p>
 
-          {/* Meta */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
-            <div>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Role</p>
+          {/* Meta grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-14">
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Role</p>
               <p className="text-sm text-foreground">{project.role}</p>
             </div>
-            <div>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Team</p>
-              <a href="https://nygaard.design/" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200">
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Team</p>
+              <a
+                href="https://nygaard.design/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200"
+              >
                 {project.team}
               </a>
             </div>
-            <div>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Timeline</p>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Timeline</p>
               <p className="text-sm text-foreground">{project.timeline}</p>
             </div>
-            <div>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Tools</p>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Tools</p>
               <p className="text-sm text-foreground">{project.tools.join(", ")}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Outcomes */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 py-10">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">Outcomes</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.outcomes.map((outcome, i) => (
-              <p key={i} className="text-sm text-foreground/65 leading-relaxed">{outcome}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Content */}
       <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
 
         {/* Context */}
         <section className="mb-24">
-          <p className="text-lg text-foreground leading-relaxed">
-            {project.context.replace("Mission Control was built to close that gap.", "").trim()}{" "}
-            <strong>{"Mission Control was built to close that gap."}</strong>
+          <p className="text-lg text-foreground leading-relaxed mb-6">
+            Flanksource began as a Kubernetes consulting firm. Teams were drowning in data but lacked context.{" "}
+            <strong>Mission Control was built to close that gap.</strong>
           </p>
+          <p className="text-base text-foreground/65 leading-relaxed">
+            They had metrics dashboards, log tools, and Git for config — but nothing tying them together. Engineers needed one place to understand the health of their systems and act on it.
+          </p>
+        </section>
+
+        {/* The Challenge */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">The Challenge</h2>
+
+          <section className="mb-10 bg-white rounded-lg p-8 md:p-10">
+            <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">What we were up against</h2>
+            <div className="space-y-5">
+              {[
+                "Engineers needed context, not more data — existing tools created noise without signal.",
+                "Key components were siloed across separate views with no single entry point.",
+                "Actionable items were buried inside individual tools — nothing surfaced by default.",
+                "Unfamiliar terminology required deep domain learning before any design could begin.",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
+                  <p className="text-sm text-foreground/65 leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </section>
 
         {/* Brief */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Brief</h2>
-          <p className="text-base text-foreground/70 leading-relaxed mb-8">
-            Design a dashboard that surfaces actionables and service health — bringing catalog, health checks, notifications, playbooks, and topology into a single view.
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Brief</h2>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Dashboard redesign</p>
+
+          <p className="text-base text-foreground/65 leading-relaxed mb-10">
+            Design a single dashboard that surfaces actionable insights and system health — consolidating five major platform components into one scannable view.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {["Topology", "Playbooks", "Catalog", "Health Checks", "Notifications"].map((item) => (
-              <div key={item} className="border border-border px-4 py-3">
-                <p className="text-xs font-medium text-foreground">{item}</p>
+
+          {/* Five components */}
+          <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Five components to unify</h3>
+          <div className="grid md:grid-cols-2 gap-px bg-border mb-12">
+            {[
+              { label: "01", title: "Topology", desc: "System relationships and infrastructure map." },
+              { label: "02", title: "Playbooks", desc: "Runbooks for responding to incidents and alerts." },
+              { label: "03", title: "Catalog", desc: "Service catalogue with metadata and ownership." },
+              { label: "04", title: "Health Checks", desc: "Real-time pass/fail state of services." },
+              { label: "05", title: "Notifications", desc: "Alerts and updates requiring attention." },
+            ].map((item) => (
+              <div key={item.label} className="bg-white p-8">
+                <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <p className="text-sm font-semibold text-foreground mb-2">{item.title}</p>
+                <p className="text-xs text-foreground/50 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -105,17 +124,19 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
         {/* Process */}
         <section className="mb-24">
           <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Process</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="space-y-6">
             {[
-              { step: "01", label: "Domain immersion", desc: "Learned the terminology and understood component functions." },
-              { step: "02", label: "Data vis exploration", desc: "Explored methods to communicate system health clearly." },
-              { step: "03", label: "Ideate and wireframe", desc: "Translated component data into dashboard layouts." },
-              { step: "04", label: "Structural design", desc: "Produced final representations for review." },
+              { step: "01", label: "Domain immersion", desc: "Logged into the beta platform. Learned terminology and understood each component function before touching Figma." },
+              { step: "02", label: "Data visualisation exploration", desc: "Explored methods to communicate system health clearly — balancing density with scannability." },
+              { step: "03", label: "Ideate and wireframe", desc: "Translated component data into dashboard layouts. Mapped what surfaces by default vs. on demand." },
+              { step: "04", label: "Structural design", desc: "Produced final dashboard representations for review with the Flanksource product team." },
             ].map((item) => (
-              <div key={item.step}>
-                <p className="text-xs text-[#F0531C] font-medium mb-2">{item.step}</p>
-                <p className="text-sm font-bold text-foreground mb-1">{item.label}</p>
-                <p className="text-xs text-foreground/50 leading-relaxed">{item.desc}</p>
+              <div key={item.step} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5 shrink-0">{item.step}</span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">{item.label}</p>
+                  <p className="text-sm text-foreground/65 leading-relaxed">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -123,15 +144,14 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
       </div>
 
-      {/* Before / After -- full width */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Before and after</h2>
+      {/* Before / After — full width */}
+      <section className="bg-white border-t border-border">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-12">Before and after</h2>
 
-          {/* Before */}
           <div className="mb-12">
-            <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">Before</p>
-            <div className="border border-border overflow-hidden bg-[#f8f8f8]">
+            <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Before</p>
+            <div className="border border-border overflow-hidden">
               <Image
                 src="/images/flanksource-after.svg"
                 alt="Flanksource original dashboard layout"
@@ -142,10 +162,9 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             </div>
           </div>
 
-          {/* After */}
           <div>
-            <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">After</p>
-            <div className="border border-border overflow-hidden bg-[#f8f8f8]">
+            <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">After</p>
+            <div className="border border-border overflow-hidden">
               <Image
                 src="/images/flanksource-before.svg"
                 alt="Flanksource redesigned dashboard"
@@ -158,7 +177,6 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
         </div>
       </section>
 
-      {/* Lower content */}
       <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
 
         {/* Insights */}
@@ -167,8 +185,21 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
               <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-xs text-foreground/20 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-sm text-foreground/70 leading-relaxed">{insight}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Outcomes */}
+        <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
+          <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Outcomes</h2>
+          <div className="space-y-5">
+            {project.outcomes.map((outcome, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
+                <p className="text-sm text-foreground/65 leading-relaxed">{outcome}</p>
               </div>
             ))}
           </div>
@@ -180,7 +211,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-xs text-foreground/20 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-sm text-foreground/70 leading-relaxed">{learning}</p>
               </div>
             ))}
@@ -220,6 +251,6 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
           </div>
         </div>
       </div>
-    </article>
+    </div>
   );
 }
