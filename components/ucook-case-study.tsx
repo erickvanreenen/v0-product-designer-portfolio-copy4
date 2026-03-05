@@ -108,15 +108,15 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           <div className="grid md:grid-cols-3 gap-px bg-border">
             <div className="bg-white p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-foreground/20">3.7%</p>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mt-2">old completion rate</p>
+              <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">old completion rate</p>
             </div>
             <div className="bg-white p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mt-2">new completion rate</p>
+              <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
             <div className="bg-white p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#09332C]">~R1.3M</p>
-              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
+              <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
           </div>
         </div>
