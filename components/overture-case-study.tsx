@@ -4,6 +4,7 @@ import React from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+// ArrowLeft retained for navigation section
 
 interface OvertureCaseStudyProps {
   project: Project;
@@ -13,43 +14,41 @@ interface OvertureCaseStudyProps {
 
 export function OvertureCaseStudy({ project, nextProject, prevProject }: OvertureCaseStudyProps) {
   return (
-    <div className="min-h-screen">
+    <div>
       {/* Hero */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-foreground/30 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
-            Back
-          </Link>
-
-          <div className="flex flex-wrap gap-2 mb-6">
+      <section className="bg-white border-b border-border">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/40">
-                {tag}
-              </span>
+              <span key={tag} className="text-xs text-foreground/40">{tag}</span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-xl text-[#F0531C] font-medium">
+          <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
             {project.subtitle}
           </p>
-        </div>
-      </section>
 
-      {/* Outcomes */}
-      <section className="bg-[#09332C]">
-        <div className="max-w-5xl mx-auto px-6 py-10">
-          <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-6">Outcomes</p>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {project.outcomes.map((outcome, i) => (
-              <p key={i} className="text-sm text-[#F7EDDA]/70 leading-relaxed">{outcome}</p>
-            ))}
+          {/* Meta grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-14">
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Role</p>
+              <p className="text-sm text-foreground">{project.role}</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Team</p>
+              <p className="text-sm text-foreground">Erick van Reenen, Brent Nygaard</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Timeline</p>
+              <p className="text-sm text-foreground">{project.timeline}</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Tools</p>
+              <p className="text-sm text-foreground">{project.tools.join(", ")}</p>
+            </div>
           </div>
         </div>
       </section>

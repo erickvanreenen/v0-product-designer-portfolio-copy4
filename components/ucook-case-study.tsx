@@ -33,7 +33,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
   }, [showModal, closeModal]);
 
   return (
-    <>
+    <div>
     {/* Modal */}
     {showModal && (
       <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeModal}>
@@ -63,46 +63,41 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </div>
       </div>
     )}
-    <div className="min-h-screen">
+    <div>
       {/* Hero */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-foreground/30 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
-          >
-            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
-            Back
-          </Link>
-
-          <div className="flex flex-wrap gap-2 mb-6">
+      <section className="bg-white border-b border-border">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/40">
-                {tag}
-              </span>
+              <span key={tag} className="text-xs text-foreground/40">{tag}</span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-xl text-[#F0531C] font-medium mb-6">
+          <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
             Sign-up funnel redesign.
           </p>
 
-          {/* Meta */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
-            {[
-              { label: "Role", value: project.role },
-              { label: "Company", value: "Silvertree (UCOOK)" },
-              { label: "Year", value: project.timeline },
-              { label: "Methods", value: "Mixed methods" },
-            ].map((item) => (
-              <div key={item.label}>
-                <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">{item.label}</p>
-                <p className="text-sm text-foreground">{item.value}</p>
-              </div>
-            ))}
+          {/* Meta grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-14">
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Role</p>
+              <p className="text-sm text-foreground">{project.role}</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Company</p>
+              <p className="text-sm text-foreground">Silvertree (UCOOK)</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Year</p>
+              <p className="text-sm text-foreground">{project.timeline}</p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-2">Methods</p>
+              <p className="text-sm text-foreground">Mixed methods</p>
+            </div>
           </div>
         </div>
       </section>
@@ -515,6 +510,6 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </div>
       </div>
     </div>
-    </>
+    </div>
   );
 }
