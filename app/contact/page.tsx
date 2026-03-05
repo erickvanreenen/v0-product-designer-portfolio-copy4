@@ -62,7 +62,7 @@ export default function ContactPage() {
                   <input
                     type="text" id="name" name="name"
                     value={formState.name} onChange={handleChange} required
-                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                   <input
                     type="email" id="email" name="email"
                     value={formState.email} onChange={handleChange} required
-                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <textarea
                     id="message" name="message"
                     value={formState.message} onChange={handleChange} required rows={4}
-                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-[#09332C] transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200 resize-none"
                     placeholder="Tell me about your project."
                   />
                 </div>
