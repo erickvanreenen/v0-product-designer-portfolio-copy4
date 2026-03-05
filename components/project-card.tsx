@@ -10,10 +10,10 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   return (
-    <Link href={`/projects/${project.slug}`} className="group block">
-      <article>
-        {/* Content above image */}
-        <div className="pb-4">
+    <Link href={`/projects/${project.slug}`} className="group flex flex-col h-full">
+      <article className="flex flex-col h-full">
+        {/* Content above image — grows to equalise row height */}
+        <div className="pb-4 flex-1">
           <div className="flex flex-wrap gap-1.5 mb-2">
             {project.tags.slice(0, 3).map((tag) => (
               <span key={tag} className="text-xs text-foreground/40">{tag}</span>
