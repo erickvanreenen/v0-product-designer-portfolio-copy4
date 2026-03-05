@@ -451,9 +451,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* ROI context */}
           <div className="border-t border-border pt-10 mt-10">
-            <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R25.5k</p>
+            <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
             <p className="text-sm text-foreground/50 mt-2 max-w-lg">
-              6-month ROI (Aug–Jan). Real-world retention reached 10% vs. 3.7% on the old funnel — a 6.3% delta on R405k in new-user orders.
+              6-month ROI (Aug–Jan). 10% of users who started sign-up completed it — constituting 100% of new clients and R405k in revenue. The old funnel at 3.7% would have captured only 37% of that cohort. The redesign unlocked the remaining 63%.
             </p>
           </div>
 
