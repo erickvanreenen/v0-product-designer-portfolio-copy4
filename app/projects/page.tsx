@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                 EdTech
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-16 md:gap-12">
               {edtechProjects.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}

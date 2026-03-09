@@ -65,7 +65,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </div>
 
         {featured && project.outcomes[0] && (
-          <div className="mt-4 pt-4 border-t border-border">
+          <div className="mt-4 pt-4">
             <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Key outcome</p>
             <p className="text-sm text-foreground/65">{project.outcomes[0]}</p>
           </div>
