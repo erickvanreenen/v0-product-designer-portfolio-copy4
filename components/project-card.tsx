@@ -53,7 +53,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         <div className="flex flex-col flex-1 px-6 pt-5 pb-6 gap-4">
 
           {/* Role label */}
-          <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest">
+          <p className="text-xs text-foreground/60 font-medium uppercase tracking-widest">
             {project.role}
           </p>
 
