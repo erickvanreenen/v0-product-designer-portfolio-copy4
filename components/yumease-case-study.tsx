@@ -1,4 +1,5 @@
 "use client";
+import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -66,7 +67,10 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* The Brief */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Brief</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
+            </div>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
             Design an intuitive mobile app from zero. Prioritise onboarding clarity, core flow efficiency, and a cohesive visual system — all within a tight cross-functional team of two developers, a PM, and QA.
@@ -85,7 +89,10 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Research */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Research</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Research</h2>
+            </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
             User interviews, competitive analysis, and persona development shaped every design decision. Research ran alongside design — not before it.
           </p>
@@ -104,7 +111,10 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Process */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Process</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Process</h2>
+            </div>
           <div className="space-y-6">
             {[
               { step: "01", label: "Information architecture", desc: "Prioritised the most common user tasks. Created flows and journey maps from first open to habitual use." },
@@ -125,7 +135,10 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Screens */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Screens</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Screens</h2>
+            </div>
           <div className="space-y-4">
             <div className="border border-border overflow-hidden">
               <Image
@@ -155,7 +168,10 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">

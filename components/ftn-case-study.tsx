@@ -1,4 +1,5 @@
 "use client";
+import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -68,7 +69,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
 
         {/* The Environment */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">The Environment</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">The Environment</h2>
+            </div>
 
           <section className="mb-10 bg-white rounded-lg p-8 md:p-10">
             <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Working conditions</h2>
@@ -98,7 +102,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
 
         {/* Team */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Team</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Team</h2>
+            </div>
           <div className="grid md:grid-cols-2 gap-px bg-border">
             {[
               "CEO",
@@ -122,7 +129,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
 
         {/* Filtering System */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Consistent filtering system</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Consistent filtering system</h2>
+            </div>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Shipped</p>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
@@ -180,7 +190,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
 
         {/* Omnichannel collection options */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Omnichannel collection options</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Omnichannel collection options</h2>
+            </div>
           <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-10">In progress</p>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
@@ -252,7 +265,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">

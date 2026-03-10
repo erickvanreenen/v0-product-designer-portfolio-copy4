@@ -1,4 +1,5 @@
 "use client";
+import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -66,7 +67,10 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Brief */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Brief</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
+            </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
             Design and develop an interactive online learning experience that engages learners through structured content, progressive disclosure, and interactive assessments — all fully responsive and accessible.
           </p>
@@ -83,7 +87,10 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Design principles */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Approach</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Approach</h2>
+            </div>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Learning science meets UX</p>
 
           <div className="grid md:grid-cols-2 gap-px bg-border mb-12">
@@ -104,7 +111,10 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Insights */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Insights</h2>
+            </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -118,7 +128,10 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         {/* Live course CTA */}
         {project.externalLink && (
           <section className="mb-24">
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Live experience</h2>
+            <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Live experience</h2>
+            </div>
             <a
               href={project.externalLink}
               target="_blank"
@@ -159,7 +172,10 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">

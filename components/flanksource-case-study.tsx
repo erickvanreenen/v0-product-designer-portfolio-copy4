@@ -1,4 +1,5 @@
 "use client";
+import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -76,7 +77,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* The Challenge */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">The Challenge</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">The Challenge</h2>
+            </div>
 
           <section className="mb-10 bg-white rounded-lg p-8 md:p-10">
             <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">What we were up against</h2>
@@ -98,7 +102,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Brief */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Brief</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
+            </div>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Dashboard redesign</p>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
@@ -126,7 +133,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Process */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Process</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Process</h2>
+            </div>
           <div className="space-y-6">
             {[
               { step: "01", label: "Domain immersion", desc: "Logged into the beta platform. Learned terminology and understood each component function before touching Figma." },
@@ -150,7 +160,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
       {/* Before / After — full width */}
       <section className="bg-white border-t border-border">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-12">Before and after</h2>
+          <div className="flex items-center gap-3 mb-12">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Before and after</h2>
+            </div>
 
           {/* Side by side */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -249,7 +262,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Insights */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Insights</h2>
+            </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -275,7 +291,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">

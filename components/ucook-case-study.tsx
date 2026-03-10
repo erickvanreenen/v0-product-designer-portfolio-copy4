@@ -1,4 +1,5 @@
 "use client";
+import { LogoMark } from "@/components/logo-mark";
 
 import React, { useState, useCallback, useEffect } from "react";
 import { Project } from "@/lib/projects";
@@ -147,7 +148,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Problem */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">The Problem</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">The Problem</h2>
+            </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div>
@@ -171,7 +175,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Goals */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Goals</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Goals</h2>
+            </div>
           <div className="space-y-6">
             {project.goals.map((goal, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -201,7 +208,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Research */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Research</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Research</h2>
+            </div>
           <p className="text-sm text-foreground/40 mb-10">Seven stages. Mixed methods.</p>
 
           <div className="space-y-0">
@@ -241,7 +251,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Insights */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Insights</h2>
+            </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -255,7 +268,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         {/* Strategic option explored */}
         <section className="mb-24">
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Option considered</p>
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Pay on Sign Up</h2>
+          <div className="flex items-center gap-3 mb-4">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Pay on Sign Up</h2>
+            </div>
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
             Move payment to the start. Use the cart as the entry point. Auto-deduce customer profile from order.
           </p>
@@ -310,7 +326,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Solution */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Solution</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Solution</h2>
+            </div>
 
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
             Two workstreams. Quick wins shipped independently. The structural redesign tackled the funnel itself.
@@ -395,7 +414,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Results */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Results</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Results</h2>
+            </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             {/* Old */}
@@ -475,7 +497,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="flex items-center gap-3 mb-10">
+              <LogoMark size={16} opacity={0.25} />
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">
