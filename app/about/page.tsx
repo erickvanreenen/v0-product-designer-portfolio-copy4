@@ -43,23 +43,43 @@ const aiTools = [
   "Figma AI (Pencil)", "Figma Make", "Stitch by Google",
 ];
 
-const interests = [
-  { label: "Father" },
-  { label: "Trail runner" },
-  { label: "Ocean swimmer" },
-];
+// The 4-dot logo mark as an inline SVG component
+function LogoMark({ size = 28, color = "#F0531C", opacity = 1 }: { size?: number; color?: string; opacity?: number }) {
+  const r = size * 0.21;
+  const offset = size * 0.27;
+  const mid = size / 2;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" style={{ opacity }}>
+      <circle cx={mid - offset} cy={mid - offset} r={r} fill={color} />
+      <circle cx={mid + offset} cy={mid - offset} r={r} fill={color} />
+      <circle cx={mid - offset} cy={mid + offset} r={r} fill={color} />
+      <circle cx={mid + offset} cy={mid + offset} r={r} fill={color} />
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white border-b border-border overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
-            About
-          </h1>
-          <p className="text-lg text-[#F0531C] max-w-2xl mb-14">
-            Senior UX Designer. Cape Town.
+
+          {/* Logo mark + name block */}
+          <div className="flex items-start gap-5 mb-10">
+            <div className="mt-1 shrink-0">
+              <LogoMark size={36} color="#F0531C" />
+            </div>
+            <div>
+              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Erick van Reenen</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-[#09332C] tracking-tight leading-none">
+                Designer.<br />Researcher.<br />Problem solver.
+              </h1>
+            </div>
+          </div>
+
+          <p className="text-lg text-foreground/60 max-w-xl leading-relaxed mb-14">
+            UX-first. Strategic thinking. Fifteen years building things people actually use.
           </p>
 
           {/* Contact details — meta tile style */}
@@ -82,36 +102,48 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
 
         {/* Bio */}
-        <section className="mb-24 max-w-2xl">
-          <p className="text-base text-foreground leading-relaxed mb-6">
-            I bring a diverse background spanning entrepreneurship, business development, branding, product design, education design, and UX/UI.
-          </p>
-          <p className="text-base text-foreground leading-relaxed">
-            I work research-first — uncovering user needs and shaping experiences that align with business goals.
-          </p>
+        <section className="mb-24">
+          <div className="max-w-2xl">
+            <p className="text-xl text-foreground font-medium leading-relaxed mb-6">
+              I came to UX through a longer route than most.
+            </p>
+            <p className="text-base text-foreground/65 leading-relaxed mb-5">
+              Retail owner at 19. Clothing designer. Brand director. Learning experience designer. Each chapter taught me something different about people, systems, and what it takes to build things that work.
+            </p>
+            <p className="text-base text-foreground/65 leading-relaxed">
+              Now I work research-first — uncovering what users actually need and translating that into experiences that hold up under real conditions.
+            </p>
+          </div>
         </section>
 
-        {/* Interests */}
+        {/* Beyond work — with dot motif */}
         <section className="mb-24 pb-24 border-b border-border">
-          <h2 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-8">Beyond work</h2>
-          <div className="grid grid-cols-3 gap-px bg-border max-w-lg">
-            {interests.map((item) => (
-              <div key={item.label} className="bg-background p-6">
-                <p className="text-sm text-foreground">{item.label}</p>
-              </div>
+          <div className="flex items-center gap-3 mb-8">
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-xs text-foreground/50 font-medium uppercase tracking-widest">Beyond work</h2>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {["Father", "Trail runner", "Ocean swimmer"].map((item) => (
+              <span key={item} className="inline-flex items-center gap-2 text-sm text-foreground/70 border border-border rounded-full px-4 py-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] shrink-0" />
+                {item}
+              </span>
             ))}
           </div>
         </section>
 
         {/* Experience */}
         <section className="mb-24 pb-24 border-b border-border">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-12">Experience</h2>
+          <div className="flex items-center gap-3 mb-12">
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Experience</h2>
+          </div>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
               <div key={`${exp.company}-${exp.title}`} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#F0531C] flex-shrink-0 mt-1.5" />
-                  {i < arr.length - 1 && <div className="w-px flex-1 bg-border" />}
+                  <div className="w-2 h-2 rounded-full bg-[#F0531C] flex-shrink-0 mt-1.5" />
+                  {i < arr.length - 1 && <div className="w-px flex-1 bg-border mt-1" />}
                 </div>
                 <div className="pb-10">
                   <p className="text-xs text-foreground/50 font-medium mb-1">{exp.period}</p>
@@ -126,7 +158,10 @@ export default function AboutPage() {
 
         {/* Education */}
         <section className="mb-24 pb-24 border-b border-border">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-12">Education</h2>
+          <div className="flex items-center gap-3 mb-12">
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Education</h2>
+          </div>
           <div className="space-y-8">
             {education.map((edu) => (
               <div key={edu.title} className="flex items-start gap-8">
@@ -141,8 +176,11 @@ export default function AboutPage() {
         </section>
 
         {/* Skills + Tooling */}
-        <section className="mb-24 pb-24 border-b border-border">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-12">Skills + Tooling</h2>
+        <section className="mb-0 pb-24 border-b border-border">
+          <div className="flex items-center gap-3 mb-12">
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Skills + Tooling</h2>
+          </div>
           <div className="space-y-12">
             <div>
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">Skills</h3>
@@ -177,26 +215,34 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Get in Touch */}
-        <section>
-          <div className="border-t border-border pt-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
-              Open to opportunities.
-            </h2>
-            <p className="text-foreground/50 mb-8">
-              Let's discuss a project or just say hello.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
-            >
-              Get in touch
-              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </Link>
-          </div>
-        </section>
-
       </div>
+
+      {/* Get in Touch — white bg, full width */}
+      <section className="bg-white border-t border-border">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="flex items-start gap-5">
+            <div className="mt-1 shrink-0">
+              <LogoMark size={28} color="#F0531C" />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
+                Open to opportunities.
+              </h2>
+              <p className="text-foreground/50 mb-8 max-w-md">
+                Available for full-time roles, contract work, and interesting problems. Let's talk.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
+              >
+                Get in touch
+                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
