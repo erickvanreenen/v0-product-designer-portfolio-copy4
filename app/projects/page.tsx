@@ -3,7 +3,6 @@ import { useState } from "react";
 import { projects, getAllTags, ProjectTag } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { TagFilter } from "@/components/tag-filter";
-import { LogoMark } from "@/components/logo-mark";
 
 const EDTECH_SLUGS = ["edtech-interactive-learning", "uni4-online"];
 
@@ -26,14 +25,9 @@ export default function ProjectsPage() {
     <div>
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="flex items-start gap-5 mb-4">
-            <div className="mt-2 shrink-0">
-              <LogoMark size={44} />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight">
-              Projects
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
+            Projects
+          </h1>
           <p className="text-[#F0531C] max-w-lg">
             UX work spanning e-commerce, apps, and education.
           </p>

@@ -4,7 +4,6 @@ import React from "react";
 import { useState } from "react";
 import { Mail, Linkedin, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { LogoMark } from "@/components/logo-mark";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -29,14 +28,9 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="flex items-start gap-5 mb-8">
-            <div className="mt-2 shrink-0">
-              <LogoMark size={44} />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight">
-              Contact
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-8">
+            Contact
+          </h1>
           <blockquote className="max-w-2xl">
             <p className="text-xl md:text-2xl font-bold text-[#09332C] leading-snug tracking-tight">
               "The world needs dreamers and the world needs doers. But above all, what the world needs most are dreamers that do."
