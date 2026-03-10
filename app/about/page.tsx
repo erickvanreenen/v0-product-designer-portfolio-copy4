@@ -63,7 +63,6 @@ export default function AboutPage() {
               <LogoMark size={36} color="#F0531C" />
             </div>
             <div>
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Erick van Reenen</p>
               <h1 className="text-4xl md:text-6xl font-bold text-[#09332C] tracking-tight leading-none">
                 Designer.<br />Researcher.<br />Problem solver.
               </h1>
