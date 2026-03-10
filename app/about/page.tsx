@@ -45,7 +45,7 @@ const aiTools = [
 
 // The 4-dot logo mark as an inline SVG component
 function LogoMark({ size = 28, color = "#F0531C", opacity = 1 }: { size?: number; color?: string; opacity?: number }) {
-  const r = size * 0.21;
+  const r = size * 0.25;
   const offset = size * 0.27;
   const mid = size / 2;
   return (
