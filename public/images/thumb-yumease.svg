@@ -1,62 +1,54 @@
 <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="500" fill="#09332C"/>
-
-  <!-- Subtle background radial fade -->
-  <radialGradient id="yglow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#F7EDDA" stop-opacity="0.04"/>
-    <stop offset="100%" stop-color="#F7EDDA" stop-opacity="0"/>
-  </radialGradient>
-  <rect width="800" height="500" fill="url(#yglow)"/>
-
-  <!-- Phone outer shell -->
-  <rect x="280" y="30" width="240" height="440" rx="28" fill="#F7EDDA" fill-opacity="0.06" stroke="#F7EDDA" stroke-opacity="0.22" stroke-width="1.5"/>
-
-  <!-- Phone side button -->
-  <rect x="518" y="120" width="4" height="40" rx="2" fill="#F7EDDA" fill-opacity="0.20"/>
-  <rect x="278" y="100" width="4" height="30" rx="2" fill="#F7EDDA" fill-opacity="0.20"/>
-  <rect x="278" y="140" width="4" height="30" rx="2" fill="#F7EDDA" fill-opacity="0.20"/>
-
-  <!-- Screen area -->
-  <rect x="294" y="50" width="212" height="400" rx="20" fill="#09332C"/>
-  <rect x="294" y="50" width="212" height="400" rx="20" fill="#F7EDDA" fill-opacity="0.03"/>
-
-  <!-- Status bar -->
-  <rect x="310" y="62" width="50" height="5" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="420" y="62" width="30" height="5" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-
-  <!-- App header -->
-  <rect x="294" y="80" width="212" height="44" rx="0" fill="#F7EDDA" fill-opacity="0.06"/>
-  <rect x="310" y="92" width="80" height="8" rx="3" fill="#F7EDDA" fill-opacity="0.40"/>
-  <circle cx="483" cy="102" r="10" fill="#F7EDDA" fill-opacity="0.12"/>
-
-  <!-- Search bar -->
-  <rect x="308" y="136" width="184" height="26" rx="13" fill="#F7EDDA" fill-opacity="0.08" stroke="#F7EDDA" stroke-opacity="0.12" stroke-width="1"/>
-  <rect x="322" y="146" width="60" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-
-  <!-- Menu card 1 — featured -->
-  <rect x="308" y="176" width="184" height="80" rx="7" fill="#F0531C" fill-opacity="0.18" stroke="#F0531C" stroke-opacity="0.30" stroke-width="1"/>
-  <rect x="320" y="190" width="80" height="8" rx="3" fill="#F0531C" fill-opacity="0.65"/>
-  <rect x="320" y="206" width="100" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.22"/>
-  <rect x="320" y="220" width="60" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.16"/>
-  <rect x="440" y="186" width="36" height="36" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-
-  <!-- Menu card 2 -->
-  <rect x="308" y="268" width="184" height="64" rx="7" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.12" stroke-width="1"/>
-  <rect x="320" y="280" width="70" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.30"/>
-  <rect x="320" y="296" width="90" height="5" rx="2" fill="#F7EDDA" fill-opacity="0.15"/>
-  <rect x="440" y="276" width="36" height="36" rx="5" fill="#F7EDDA" fill-opacity="0.12"/>
-
-  <!-- Menu card 3 -->
-  <rect x="308" y="344" width="184" height="64" rx="7" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.12" stroke-width="1"/>
-  <rect x="320" y="356" width="80" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.25"/>
-  <rect x="320" y="372" width="60" height="5" rx="2" fill="#F7EDDA" fill-opacity="0.15"/>
-  <rect x="440" y="352" width="36" height="36" rx="5" fill="#F7EDDA" fill-opacity="0.10"/>
-
-  <!-- Bottom CTA -->
-  <rect x="308" y="422" width="184" height="18" rx="9" fill="#F0531C" fill-opacity="0.75"/>
-  <rect x="360" y="428" width="80" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.50"/>
-
-  <!-- 4.5 star rating — outside phone, bottom left -->
-  <text x="100" y="370" fill="#FFA74F" fill-opacity="0.85" font-size="30" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="700">4.5★</text>
-  <text x="100" y="390" fill="#F7EDDA" fill-opacity="0.22" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" letter-spacing="2">APP RATING</text>
+  <rect width="800" height="500" fill="#F0EDE8"/>
+  <!-- Grid -->
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="60" y1="0" x2="60" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="120" y1="0" x2="120" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="180" y1="0" x2="180" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="360" y1="0" x2="360" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="420" y1="0" x2="420" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="540" y1="0" x2="540" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="660" y1="0" x2="660" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="780" y1="0" x2="780" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <!-- Menu items → Menu hub → Cart → Order → Delivery -->
+  <!-- Item A → Menu -->
+  <polyline points="130,100 130,162 280,162" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Item B → Menu -->
+  <polyline points="165,265 165,162 280,162" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Item C → Menu -->
+  <polyline points="395,98 280,98 280,162" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Item D → Cart -->
+  <polyline points="450,252 500,252 500,172" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Menu → Cart -->
+  <polyline points="280,162 500,162 500,172" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Cart → Order -->
+  <polyline points="500,172 600,172 600,332" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Order → Delivery -->
+  <polyline points="600,332 600,432 710,432" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- User → Cart -->
+  <polyline points="112,382 112,172 500,172" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Nodes -->
+  <circle cx="280" cy="162" r="50" fill="#F0531C"/>
+  <circle cx="130" cy="100" r="30" fill="#FFA74F"/>
+  <circle cx="165" cy="265" r="26" fill="#09332C"/>
+  <circle cx="395" cy="98" r="28" fill="#09332C"/>
+  <circle cx="450" cy="252" r="22" fill="#FFA74F"/>
+  <circle cx="500" cy="172" r="38" fill="#09332C"/>
+  <circle cx="112" cy="382" r="32" fill="#09332C"/>
+  <circle cx="600" cy="332" r="46" fill="#F0531C"/>
+  <circle cx="710" cy="432" r="26" fill="#09332C"/>
+  <circle cx="698" cy="198" r="20" fill="#FFA74F"/>
+  <circle cx="360" cy="395" r="14" fill="#09332C"/>
 </svg>

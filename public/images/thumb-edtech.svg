@@ -1,55 +1,56 @@
 <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="500" fill="#09332C"/>
-
-  <!-- Progress track line -->
-  <line x1="100" y1="250" x2="700" y2="250" stroke="#F7EDDA" stroke-opacity="0.12" stroke-width="2"/>
-  <!-- Completed segment (orange) -->
-  <line x1="100" y1="250" x2="520" y2="250" stroke="#F0531C" stroke-opacity="0.45" stroke-width="2"/>
-
-  <!-- MODULE NODES — 5 connected circles -->
-
-  <!-- Node 1 — completed -->
-  <circle cx="100" cy="250" r="44" fill="#F7EDDA" fill-opacity="0.10" stroke="#F7EDDA" stroke-opacity="0.25" stroke-width="1.5"/>
-  <circle cx="100" cy="250" r="30" fill="#F7EDDA" fill-opacity="0.16"/>
-  <text x="100" y="246" fill="#F7EDDA" fill-opacity="0.65" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="600" text-anchor="middle" letter-spacing="1">01</text>
-  <text x="100" y="260" fill="#F7EDDA" fill-opacity="0.35" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="1">INTRO</text>
-  <!-- Check mark inner ring -->
-  <circle cx="100" cy="250" r="18" fill="none" stroke="#F7EDDA" stroke-opacity="0.35" stroke-width="1"/>
-
-  <!-- Node 2 — completed -->
-  <circle cx="250" cy="250" r="44" fill="#F7EDDA" fill-opacity="0.10" stroke="#F7EDDA" stroke-opacity="0.25" stroke-width="1.5"/>
-  <circle cx="250" cy="250" r="30" fill="#F7EDDA" fill-opacity="0.16"/>
-  <text x="250" y="246" fill="#F7EDDA" fill-opacity="0.65" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="600" text-anchor="middle" letter-spacing="1">02</text>
-  <text x="250" y="260" fill="#F7EDDA" fill-opacity="0.35" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="1">THEORY</text>
-  <circle cx="250" cy="250" r="18" fill="none" stroke="#F7EDDA" stroke-opacity="0.35" stroke-width="1"/>
-
-  <!-- Node 3 — completed -->
-  <circle cx="400" cy="250" r="44" fill="#F7EDDA" fill-opacity="0.10" stroke="#F7EDDA" stroke-opacity="0.25" stroke-width="1.5"/>
-  <circle cx="400" cy="250" r="30" fill="#F7EDDA" fill-opacity="0.16"/>
-  <text x="400" y="246" fill="#F7EDDA" fill-opacity="0.65" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="600" text-anchor="middle" letter-spacing="1">03</text>
-  <text x="400" y="260" fill="#F7EDDA" fill-opacity="0.35" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="1">APPLY</text>
-  <circle cx="400" cy="250" r="18" fill="none" stroke="#F7EDDA" stroke-opacity="0.35" stroke-width="1"/>
-
-  <!-- Node 4 — ACTIVE (orange) -->
-  <circle cx="550" cy="250" r="52" fill="#F0531C" fill-opacity="0.10" stroke="#F0531C" stroke-opacity="0.55" stroke-width="2"/>
-  <circle cx="550" cy="250" r="36" fill="#F0531C" fill-opacity="0.20"/>
-  <circle cx="550" cy="250" r="22" fill="#F0531C" fill-opacity="0.55"/>
-  <text x="550" y="246" fill="#F7EDDA" fill-opacity="0.90" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="700" text-anchor="middle" letter-spacing="1">04</text>
-  <text x="550" y="260" fill="#F7EDDA" fill-opacity="0.60" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="1">ASSESS</text>
-
-  <!-- Node 5 — upcoming (outline only) -->
-  <circle cx="700" cy="250" r="44" fill="none" stroke="#F7EDDA" stroke-opacity="0.14" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <circle cx="700" cy="250" r="22" fill="none" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-  <text x="700" y="246" fill="#F7EDDA" fill-opacity="0.25" font-size="10" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="600" text-anchor="middle" letter-spacing="1">05</text>
-  <text x="700" y="260" fill="#F7EDDA" fill-opacity="0.15" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="1">REVIEW</text>
-
-  <!-- Progress label top -->
-  <text x="100" y="158" fill="#F0531C" fill-opacity="0.55" font-size="11" font-family="ui-sans-serif,system-ui,sans-serif" letter-spacing="2">MODULE 4 OF 5</text>
-  <rect x="100" y="168" width="290" height="4" rx="2" fill="#F7EDDA" fill-opacity="0.08"/>
-  <rect x="100" y="168" width="232" height="4" rx="2" fill="#F0531C" fill-opacity="0.50"/>
-
-  <!-- Small content blocks under active node -->
-  <rect x="486" y="330" width="128" height="8" rx="2" fill="#F0531C" fill-opacity="0.30"/>
-  <rect x="498" y="348" width="104" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.12"/>
-  <rect x="506" y="362" width="88" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.08"/>
+  <rect width="800" height="500" fill="#F0EDE8"/>
+  <!-- Grid -->
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="60" y1="0" x2="60" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="120" y1="0" x2="120" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="180" y1="0" x2="180" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="360" y1="0" x2="360" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="420" y1="0" x2="420" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="540" y1="0" x2="540" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="660" y1="0" x2="660" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="780" y1="0" x2="780" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <!-- Sequential learning path: M1 → M2 → M3 → M4(active) → M5 -->
+  <!-- M1 → M2 (up then right) -->
+  <polyline points="100,250 100,165 248,165" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- M2 → M3 (down then right) -->
+  <polyline points="248,165 248,268 385,268" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- M3 → M4 (up then right) -->
+  <polyline points="385,268 385,162 522,162" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- M4 → M5 (down then right) -->
+  <polyline points="522,162 522,265 680,265" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- M3 → Branch A -->
+  <polyline points="385,268 268,268 268,372" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- M4 → Branch B -->
+  <polyline points="522,162 440,162 440,395" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Sub resource node from M2 -->
+  <polyline points="248,165 160,165 160,95" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Nodes -->
+  <circle cx="100" cy="250" r="34" fill="#09332C"/>
+  <circle cx="248" cy="165" r="34" fill="#09332C"/>
+  <circle cx="385" cy="268" r="34" fill="#09332C"/>
+  <!-- M4 active (orange, larger) -->
+  <circle cx="522" cy="162" r="46" fill="#F0531C"/>
+  <!-- M5 upcoming (amber) -->
+  <circle cx="680" cy="265" r="30" fill="#FFA74F"/>
+  <!-- Branch nodes -->
+  <circle cx="268" cy="372" r="24" fill="#FFA74F"/>
+  <circle cx="440" cy="395" r="22" fill="#09332C"/>
+  <!-- Sub-resource -->
+  <circle cx="160" cy="95" r="18" fill="#09332C"/>
+  <!-- Accent -->
+  <circle cx="605" cy="395" r="16" fill="#FFA74F"/>
+  <circle cx="720" cy="162" r="14" fill="#09332C"/>
 </svg>

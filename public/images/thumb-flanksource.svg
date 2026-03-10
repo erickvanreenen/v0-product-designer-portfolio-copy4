@@ -1,60 +1,54 @@
 <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="500" fill="#09332C"/>
-
-  <!-- Dashboard header bar -->
-  <rect x="60" y="44" width="680" height="36" rx="5" fill="#F7EDDA" fill-opacity="0.08" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-  <!-- Nav dots in header -->
-  <circle cx="88" cy="62" r="5" fill="#F7EDDA" fill-opacity="0.25"/>
-  <circle cx="106" cy="62" r="5" fill="#F7EDDA" fill-opacity="0.12"/>
-  <circle cx="124" cy="62" r="5" fill="#F7EDDA" fill-opacity="0.12"/>
-  <!-- Header search bar -->
-  <rect x="300" y="52" width="200" height="16" rx="8" fill="#F7EDDA" fill-opacity="0.06"/>
-
-  <!-- LEFT large card — main topology view -->
-  <rect x="60" y="100" width="420" height="240" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-  <!-- Card label -->
-  <rect x="78" y="116" width="80" height="8" rx="2" fill="#F7EDDA" fill-opacity="0.25"/>
-  <!-- Bar chart inside (5 bars) -->
-  <rect x="78" y="180" width="28" height="100" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="116" y="200" width="28" height="80" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="154" y="160" width="28" height="120" rx="2" fill="#F0531C" fill-opacity="0.70"/>
-  <rect x="192" y="210" width="28" height="70" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="230" y="190" width="28" height="90" rx="2" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="268" y="220" width="28" height="60" rx="2" fill="#F7EDDA" fill-opacity="0.12"/>
-  <!-- Baseline -->
-  <line x1="78" y1="282" x2="380" y2="282" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-
-  <!-- TOP RIGHT card — health status -->
-  <rect x="500" y="100" width="240" height="110" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-  <rect x="518" y="116" width="60" height="8" rx="2" fill="#F7EDDA" fill-opacity="0.25"/>
-  <!-- Status rows -->
-  <circle cx="525" cy="154" r="5" fill="#F0531C" fill-opacity="0.90"/>
-  <rect x="540" y="150" width="100" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.20"/>
-  <circle cx="525" cy="174" r="5" fill="#F7EDDA" fill-opacity="0.35"/>
-  <rect x="540" y="170" width="80" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.15"/>
-  <circle cx="525" cy="194" r="5" fill="#F7EDDA" fill-opacity="0.35"/>
-  <rect x="540" y="190" width="90" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.15"/>
-
-  <!-- MIDDLE RIGHT card — notifications -->
-  <rect x="500" y="228" width="240" height="112" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.10" stroke-width="1"/>
-  <rect x="518" y="244" width="70" height="8" rx="2" fill="#F7EDDA" fill-opacity="0.25"/>
-  <!-- Mini line chart -->
-  <polyline points="518,300 550,280 582,295 614,265 646,278 678,258 710,270 726,260" fill="none" stroke="#F0531C" stroke-opacity="0.60" stroke-width="2"/>
-  <polyline points="518,310 550,308 582,312 614,305 646,315 678,302 710,308 726,300" fill="none" stroke="#F7EDDA" stroke-opacity="0.20" stroke-width="1.5"/>
-
-  <!-- BOTTOM ROW — three small cards -->
-  <rect x="60" y="362" width="200" height="88" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.08" stroke-width="1"/>
-  <rect x="78" y="376" width="60" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.22"/>
-  <text x="78" y="432" fill="#F0531C" fill-opacity="0.75" font-size="22" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="700">24</text>
-
-  <rect x="280" y="362" width="200" height="88" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.08" stroke-width="1"/>
-  <rect x="298" y="376" width="70" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.22"/>
-  <rect x="298" y="400" width="120" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="298" y="416" width="90" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.10"/>
-
-  <rect x="500" y="362" width="240" height="88" rx="6" fill="#F7EDDA" fill-opacity="0.07" stroke="#F7EDDA" stroke-opacity="0.08" stroke-width="1"/>
-  <rect x="518" y="376" width="80" height="7" rx="2" fill="#F7EDDA" fill-opacity="0.22"/>
-  <!-- Small progress bar -->
-  <rect x="518" y="408" width="180" height="8" rx="4" fill="#F7EDDA" fill-opacity="0.10"/>
-  <rect x="518" y="408" width="112" height="8" rx="4" fill="#F0531C" fill-opacity="0.65"/>
+  <rect width="800" height="500" fill="#F0EDE8"/>
+  <!-- Grid -->
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="60" y1="0" x2="60" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="120" y1="0" x2="120" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="180" y1="0" x2="180" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="360" y1="0" x2="360" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="420" y1="0" x2="420" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="540" y1="0" x2="540" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="660" y1="0" x2="660" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="780" y1="0" x2="780" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <!-- Connections: services → monitor hub, center-to-center right-angle -->
+  <!-- API → Monitor -->
+  <polyline points="155,110 155,265 400,265" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- DB → Monitor -->
+  <polyline points="320,90 320,265 400,265" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Cache → Monitor -->
+  <polyline points="490,115 490,265 400,265" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Queue → Monitor -->
+  <polyline points="650,100 650,265 456,265" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Monitor → Alerts -->
+  <polyline points="400,265 185,265 185,405" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Monitor → Dashboard -->
+  <polyline points="400,265 590,265 590,400" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Monitor → Logs -->
+  <polyline points="400,265 400,400 718,400" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Nodes: Services top row -->
+  <circle cx="155" cy="110" r="36" fill="#F0531C"/>
+  <circle cx="320" cy="90" r="44" fill="#09332C"/>
+  <circle cx="490" cy="115" r="30" fill="#09332C"/>
+  <circle cx="650" cy="100" r="28" fill="#FFA74F"/>
+  <!-- Monitor hub (center) -->
+  <circle cx="400" cy="265" r="56" fill="#09332C"/>
+  <!-- Output nodes bottom -->
+  <circle cx="185" cy="405" r="36" fill="#F0531C"/>
+  <circle cx="590" cy="400" r="42" fill="#09332C"/>
+  <circle cx="718" cy="400" r="22" fill="#FFA74F"/>
+  <!-- Accent nodes -->
+  <circle cx="88" cy="375" r="14" fill="#FFA74F"/>
+  <circle cx="740" cy="170" r="16" fill="#09332C"/>
 </svg>

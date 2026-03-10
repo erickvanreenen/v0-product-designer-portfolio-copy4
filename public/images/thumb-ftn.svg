@@ -1,50 +1,53 @@
 <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="500" fill="#09332C"/>
-
-  <!-- Filter bar at top -->
-  <rect x="150" y="58" width="500" height="32" rx="16" fill="#F7EDDA" fill-opacity="0.08" stroke="#F7EDDA" stroke-opacity="0.12" stroke-width="1"/>
-  <!-- Filter pills inside bar -->
-  <rect x="166" y="66" width="72" height="16" rx="8" fill="#F0531C" fill-opacity="0.80"/>
-  <rect x="248" y="66" width="64" height="16" rx="8" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="322" y="66" width="80" height="16" rx="8" fill="#F7EDDA" fill-opacity="0.18"/>
-  <rect x="412" y="66" width="56" height="16" rx="8" fill="#F7EDDA" fill-opacity="0.18"/>
-
-  <!-- Product grid — 8 × 5 tiles -->
-  <!-- Row 1 (y=116) -->
-  <rect x="150" y="116" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="234" y="116" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="318" y="116" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="402" y="116" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="486" y="116" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="570" y="116" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-
-  <!-- Row 2 (y=192) -->
-  <rect x="150" y="192" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="234" y="192" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="318" y="192" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-  <rect x="402" y="192" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="486" y="192" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="570" y="192" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-
-  <!-- Row 3 (y=268) -->
-  <rect x="150" y="268" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="234" y="268" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-  <rect x="318" y="268" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="402" y="268" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="486" y="268" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-  <rect x="570" y="268" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-
-  <!-- Row 4 (y=344) -->
-  <rect x="150" y="344" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-  <rect x="234" y="344" width="72" height="60" rx="5" fill="#F0531C" fill-opacity="0.25"/>
-  <rect x="318" y="344" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="402" y="344" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-  <rect x="486" y="344" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.14"/>
-  <rect x="570" y="344" width="72" height="60" rx="5" fill="#F7EDDA" fill-opacity="0.09"/>
-
-  <!-- Small image placeholder lines inside a few tiles -->
-  <rect x="162" y="130" width="48" height="6" rx="2" fill="#F7EDDA" fill-opacity="0.20"/>
-  <rect x="162" y="158" width="32" height="4" rx="2" fill="#F7EDDA" fill-opacity="0.15"/>
-  <rect x="246" y="130" width="48" height="6" rx="2" fill="#F0531C" fill-opacity="0.40"/>
-  <rect x="246" y="158" width="32" height="4" rx="2" fill="#F0531C" fill-opacity="0.30"/>
+  <rect width="800" height="500" fill="#F0EDE8"/>
+  <!-- Grid -->
+  <line x1="0" y1="60" x2="800" y2="60" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="120" x2="800" y2="120" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="180" x2="800" y2="180" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="240" x2="800" y2="240" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="360" x2="800" y2="360" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="420" x2="800" y2="420" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="60" y1="0" x2="60" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="120" y1="0" x2="120" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="180" y1="0" x2="180" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="360" y1="0" x2="360" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="420" y1="0" x2="420" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="480" y1="0" x2="480" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="540" y1="0" x2="540" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="660" y1="0" x2="660" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="720" y1="0" x2="720" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <line x1="780" y1="0" x2="780" y2="500" stroke="#09332C" stroke-opacity="0.09" stroke-width="1"/>
+  <!-- Hub-and-spoke: Search hub → product categories -->
+  <!-- Hub → Supplements (upper-left) -->
+  <polyline points="400,195 195,195 195,135" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Hub → Skincare (upper-right) -->
+  <polyline points="400,195 590,195 590,140" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Hub → Food (lower-left) -->
+  <polyline points="400,195 400,345 210,345" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Hub → Household (lower-right) -->
+  <polyline points="400,195 400,320 625,320" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Supplements → product node -->
+  <polyline points="195,135 100,135 100,210" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Skincare → product node -->
+  <polyline points="590,140 700,140 700,215" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Food → product node -->
+  <polyline points="210,345 130,345 130,415" fill="none" stroke="#09332C" stroke-opacity="0.65" stroke-width="1.5"/>
+  <!-- Nodes -->
+  <circle cx="400" cy="195" r="52" fill="#F0531C"/>
+  <circle cx="195" cy="135" r="36" fill="#09332C"/>
+  <circle cx="590" cy="140" r="32" fill="#09332C"/>
+  <circle cx="210" cy="345" r="34" fill="#09332C"/>
+  <circle cx="625" cy="320" r="30" fill="#09332C"/>
+  <circle cx="100" cy="210" r="20" fill="#FFA74F"/>
+  <circle cx="700" cy="215" r="22" fill="#FFA74F"/>
+  <circle cx="130" cy="415" r="18" fill="#FFA74F"/>
+  <circle cx="680" cy="420" r="16" fill="#09332C"/>
+  <circle cx="360" cy="430" r="20" fill="#F0531C"/>
+  <circle cx="310" cy="90" r="18" fill="#FFA74F"/>
+  <circle cx="730" cy="360" r="14" fill="#FFA74F"/>
 </svg>
