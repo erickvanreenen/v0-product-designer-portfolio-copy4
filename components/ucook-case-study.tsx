@@ -267,11 +267,13 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Strategic option explored */}
         <section className="mb-24">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Option considered</p>
           <div className="flex items-center gap-3 mb-4">
-              <LogoMark size={16} opacity={0.25} />
+            <LogoMark size={16} opacity={0.25} />
+            <div>
+              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Option considered</p>
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Pay on Sign Up</h2>
             </div>
+          </div>
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
             Move payment to the start. Use the cart as the entry point. Auto-deduce customer profile from order.
           </p>
