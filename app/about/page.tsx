@@ -99,8 +99,11 @@ export default function AboutPage() {
             <p className="text-base text-foreground/65 leading-relaxed mb-5">
               Retail owner at 19. Clothing designer. Brand director. Learning experience designer. Each chapter taught me something different about people, systems, and what it takes to build things that work.
             </p>
+            <p className="text-base text-foreground/65 leading-relaxed mb-5">
+              Good design changes how people experience the world. I blend creativity, empathy, and curiosity — driven by a deep desire to understand the people I design for and with.
+            </p>
             <p className="text-base text-foreground/65 leading-relaxed">
-              Now I work research-first — uncovering what users actually need and translating that into experiences that hold up under real conditions.
+              Research is the foundation. I use it to uncover real needs and shape experiences that resonate with what people actually want. A dedicated problem-solver and advocate for quality — balancing innovation with solutions that hold up under real conditions.
             </p>
           </div>
         </section>
@@ -112,7 +115,7 @@ export default function AboutPage() {
             <h2 className="text-xs text-foreground/50 font-medium uppercase tracking-widest">Beyond work</h2>
           </div>
           <div className="flex flex-wrap gap-3">
-            {["Father", "Trail runner", "Ocean swimmer"].map((item) => (
+            {["Father", "Nature", "Tai Chi", "Meditation", "Breathwork", "Trail runner", "Ocean swimmer"].map((item) => (
               <span key={item} className="inline-flex items-center gap-2 text-sm text-foreground/70 border border-border rounded-full px-4 py-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] shrink-0" />
                 {item}
