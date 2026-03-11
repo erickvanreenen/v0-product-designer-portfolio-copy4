@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="mt-2 shrink-0">
               <LogoMark size={44} />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-[#09332C] tracking-tight leading-none">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight leading-none">
               Follow the curiosity.
             </h1>
           </div>

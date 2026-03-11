@@ -28,7 +28,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-8">
             Contact
           </h1>
           <blockquote className="max-w-2xl">
@@ -99,9 +99,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-4">Direct</h2>
               <div className="space-y-4">
-                <Link href="mailto:erickvanreenen@gmail.com" className="flex items-center gap-3 text-foreground hover:text-[#F0531C] transition-colors duration-200 group">
-                  <Mail size={16} className="text-foreground/50" />
-                  <span className="text-sm">erickvanreenen@gmail.com</span>
+                <Link href="mailto:erickvanreenen@gmail.com" className="flex items-center gap-3 text-foreground hover:text-[#F0531C] transition-colors duration-200 group min-w-0">
+                  <Mail size={16} className="text-foreground/50 shrink-0" />
+                  <span className="text-sm truncate">erickvanreenen@gmail.com</span>
                   <ArrowUpRight size={12} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
                 <Link href="tel:+27620969497" className="flex items-center gap-3 text-foreground hover:text-[#F0531C] transition-colors duration-200">

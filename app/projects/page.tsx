@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     <div>
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
             Projects
           </h1>
           <p className="text-[#F0531C] max-w-lg">
