@@ -103,7 +103,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       </section>
 
       {/* Key metrics */}
-      <section className="bg-[#f1f1f1] border-b border-border">
+      <section className="bg-[#f1f1f1]">
         <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
           <div className="grid md:grid-cols-3 gap-px bg-[#dcdcdc]">
             <div className="bg-[#f1f1f1] p-8 text-center">
