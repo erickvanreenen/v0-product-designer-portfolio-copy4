@@ -82,23 +82,22 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </p>
 
           {/* Meta grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-14">
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Role</p>
-              <p className="text-sm text-foreground">{project.role}</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Company</p>
-              <p className="text-sm text-foreground">Silvertree (UCOOK)</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Year</p>
-              <p className="text-sm text-foreground">{project.timeline}</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Methods</p>
-              <p className="text-sm text-foreground">Mixed methods</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 mt-14 -mx-6 bg-[#F7EDDA]">
+            {[
+              { label: "Role", value: project.role },
+              { label: "Company", value: "Silvertree (UCOOK)" },
+              { label: "Year", value: project.timeline },
+              { label: "Methods", value: "Mixed methods" },
+            ].map((item, i) => (
+              <div key={item.label} className={`px-6 py-6 min-w-0 overflow-hidden border-[#E8E0D4] ${
+                i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
+              } ${
+                i === 2 || i === 3 ? "border-t md:border-t-0" : ""
+              }`}>
+                <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <p className="text-sm text-foreground break-words">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
