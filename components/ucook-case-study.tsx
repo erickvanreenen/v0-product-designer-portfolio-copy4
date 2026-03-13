@@ -103,18 +103,18 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       </section>
 
       {/* Key metrics */}
-      <section className="bg-[#F7EDDA] border-b border-border">
+      <section className="bg-[#f1f1f1] border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-          <div className="grid md:grid-cols-3 gap-px bg-[#E8DFD0]">
-            <div className="bg-[#F7EDDA] p-8 text-center">
+          <div className="grid md:grid-cols-3 gap-px bg-[#dcdcdc]">
+            <div className="bg-[#f1f1f1] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-foreground/20">3.7%</p>
               <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">old completion rate</p>
             </div>
-            <div className="bg-[#F7EDDA] p-8 text-center">
+            <div className="bg-[#f1f1f1] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
               <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
-            <div className="bg-[#F7EDDA] p-8 text-center">
+            <div className="bg-[#f1f1f1] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#09332C]">~R1.3M</p>
               <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
