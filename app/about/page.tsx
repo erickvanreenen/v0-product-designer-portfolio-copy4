@@ -79,7 +79,7 @@ export default function AboutPage() {
               { label: "Phone", value: "+27 620 969 497" },
               { label: "Status", value: "Full Time, Contract, Freelance" },
             ].map((item) => (
-              <div key={item.label} className="bg-background p-6 min-w-0 overflow-hidden">
+              <div key={item.label} className="bg-transparent p-6 min-w-0 overflow-hidden">
                 <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">{item.label}</p>
                 <p className="text-sm text-foreground break-all">{item.value}</p>
               </div>
