@@ -53,16 +53,18 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
           )}
 
           {/* Meta */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 mt-12 pt-8 border-t border-border">
             {[
               { label: "Role", value: project.role },
               { label: "Team", value: project.team },
               { label: "Timeline", value: project.timeline },
               { label: "Tools", value: project.tools.slice(0, 3).join(", ") },
-            ].map((item) => (
-              <div key={item.label}>
+            ].map((item, i) => (
+              <div key={item.label} className={`p-6 min-w-0 overflow-hidden border-border ${
+                i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
+              }`}>
                 <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-1">{item.label}</p>
-                <p className="text-sm text-foreground">{item.value}</p>
+                <p className="text-sm text-foreground break-words">{item.value}</p>
               </div>
             ))}
           </div>
