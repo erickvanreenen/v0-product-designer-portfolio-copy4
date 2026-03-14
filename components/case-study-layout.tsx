@@ -134,6 +134,41 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
           <p className="text-base text-foreground/70 leading-relaxed">{project.finalUI}</p>
         </section>
 
+        {/* Live Preview */}
+        {project.externalLink && (
+          <section className="mb-24">
+            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Live site</h2>
+            <div className="rounded-lg overflow-hidden border border-border">
+              {/* Browser chrome */}
+              <div className="bg-[#f0f0f0] px-4 py-3 flex items-center gap-3">
+                <div className="flex gap-1.5">
+                  <span className="w-3 h-3 rounded-full bg-border" />
+                  <span className="w-3 h-3 rounded-full bg-border" />
+                  <span className="w-3 h-3 rounded-full bg-border" />
+                </div>
+                <div className="flex-1 bg-white rounded px-3 py-1">
+                  <p className="text-xs text-foreground/40 truncate">{project.externalLink}</p>
+                </div>
+                <Link
+                  href={project.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#F0531C] hover:underline shrink-0"
+                >
+                  Open
+                </Link>
+              </div>
+              {/* iframe */}
+              <iframe
+                src={project.externalLink}
+                className="w-full h-[600px] border-0"
+                title={`${project.title} live site`}
+                loading="lazy"
+              />
+            </div>
+          </section>
+        )}
+
         {/* Testing */}
         {project.testing && (
           <section className="mb-24">

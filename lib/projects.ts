@@ -350,6 +350,7 @@ export const projects: Project[] = [
       "Process improvements can dramatically impact output quality and efficiency",
       "Platforms needs flexibility for multi-brand contexts under one roof"
     ],
+    externalLink: "https://www.uni4online.com/",
     images: [
       { src: "/images/uni4-kanban.jpg", caption: "Kanban workflow implementation for design team" },
       { src: "/images/uni4-aggregator.jpg", caption: "Aggregator platform design exploration", wide: true }
