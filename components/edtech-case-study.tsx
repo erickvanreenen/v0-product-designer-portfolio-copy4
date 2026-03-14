@@ -16,7 +16,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
@@ -61,7 +61,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
             <strong>Learning design and interaction design share more than most realise.</strong>
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
-            This project demonstrates how UX methodology — information architecture, user flow, cognitive load reduction — translates directly into effective instructional design. Built in Articulate Rise with a focus on engagement, accessibility, and retention.
+            This project demonstrates how UX methodology (information architecture, user flow, cognitive load reduction) translates directly into effective instructional design. Built in Articulate Rise with a focus on engagement, accessibility, and retention.
           </p>
         </section>
 
@@ -72,7 +72,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            Design and develop an interactive online learning experience that engages learners through structured content, progressive disclosure, and interactive assessments — all fully responsive and accessible.
+            Design and develop an interactive online learning experience that engages learners through structured content, progressive disclosure, and interactive assessments, all fully responsive and accessible.
           </p>
 
           <div className="space-y-6">
@@ -97,7 +97,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
             {[
               { label: "01", title: "Chunked content", desc: "Short, focused sections reduce cognitive load and improve comprehension." },
               { label: "02", title: "Progressive disclosure", desc: "Information revealed in sequence. Learners build on what they know." },
-              { label: "03", title: "Interactive checkpoints", desc: "Assessments embedded throughout — not just at the end." },
+              { label: "03", title: "Interactive checkpoints", desc: "Assessments embedded throughout, not just at the end." },
               { label: "04", title: "Accessible by default", desc: "Designed for all devices and user needs from the start." },
             ].map((item) => (
               <div key={item.label} className="bg-white p-8">
@@ -189,7 +189,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

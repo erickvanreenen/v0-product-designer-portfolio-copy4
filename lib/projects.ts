@@ -102,7 +102,7 @@ export const projects: Project[] = [
     thumbnail: "/images/thumb-ftn.svg",
     outcomes: [
       "Consistent filtering system shipped across all category levels",
-      "Omnichannel collection options introduced — 17 in-store locations + scheduled delivery",
+      "Omnichannel collection options introduced: 17 in-store locations + scheduled delivery",
       "UX advocacy embedded in a previously dev-first product team",
       "Systems thinking applied across Magento 1 → 2 migration constraints"
     ],
@@ -116,10 +116,10 @@ export const projects: Project[] = [
     ],
     research: "Immersed in the existing platform to map UX debt and misaligned historical decisions. Identified filtering inconsistencies across category levels and gaps in delivery and collection options. Mapped omnichannel dependencies across logistics, data availability, and legacy systems.",
     insights: [
-      "Dev-first culture created significant UX debt — patterns changed across category levels",
+      "Dev-first culture created significant UX debt, patterns changed across category levels",
       "Design was constrained by data availability, not user need",
       "Legacy M1 dependencies limited what was buildable on M2",
-      "Systems thinking was non-negotiable — every decision had downstream consequences",
+      "Systems thinking was non-negotiable. Every decision had downstream consequences.",
       "Advocating for UX required translating user needs into business and technical language"
     ],
     iaFlows: "",
@@ -239,7 +239,7 @@ export const projects: Project[] = [
       "Establish a cohesive visual design system",
       "Ensure accessibility across the app"
     ],
-    research: "Conducted user interviews, competitive analysis, and created personas to understand user needs and behaviors. Used findings to inform all design decisions throughout the project.",
+    research: "Conducted user interviews, competitive analysis, and created personas to understand user needs and behaviours. Used findings to inform all design decisions throughout the project.",
     insights: [
       "Users valued simplicity over feature richness",
       "Quick access to core functionality was essential",
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     ],
     iaFlows: "Designed information architecture that prioritized the most common user tasks. Created detailed user flows and journey maps to ensure a smooth experience from first open to regular use.",
     designExploration: "Explored multiple visual directions and interaction patterns. Conducted rapid prototyping and testing cycles to validate concepts before development.",
-    finalUI: "Delivered a clean, modern design system with consistent components, clear typography, and an approachable color palette that reflected the app's friendly personality.",
+    finalUI: "Delivered a clean, modern design system with consistent components, clear typography, and an approachable colour palette that reflected the app's friendly personality.",
     testing: "Iterative usability testing throughout development with both internal and external users. Quick feedback loops allowed for rapid improvements.",
     outcome: "App launched successfully with positive user reception. Achieved 4.5 star rating with users specifically praising the intuitive design and ease of use.",
     learnings: [
@@ -333,7 +333,7 @@ export const projects: Project[] = [
       "Design unified aggregator platform",
       "Create consistent brand experiences"
     ],
-    research: "Analyzed existing workflows, conducted team interviews, and studied competitor education platforms to inform both team process improvements and platform design.",
+    research: "Analysed existing workflows, conducted team interviews, and studied competitor education platforms to inform both team process improvements and platform design.",
     insights: [
       "Designers needed clearer project visibility",
       "Regular check-ins improved team morale",

@@ -17,7 +17,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
@@ -64,7 +64,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/70 leading-relaxed">
-            Design a promoter app that streamlines event documentation — connecting promoters, agents, and artists throughout the advancing stage of event organisation.
+            Design a promoter app that streamlines event documentation, connecting promoters, agents, and artists throughout the advancing stage of event organisation.
           </p>
         </section>
 
@@ -230,7 +230,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

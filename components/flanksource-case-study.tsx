@@ -19,7 +19,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
@@ -71,7 +71,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             <strong>Mission Control was built to close that gap.</strong>
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
-            They had metrics dashboards, log tools, and Git for config — but nothing tying them together. Engineers needed one place to understand the health of their systems and act on it.
+            They had metrics dashboards, log tools, and Git for config, but nothing tying them together. Engineers needed one place to understand the health of their systems and act on it.
           </p>
         </section>
 
@@ -86,9 +86,9 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">What we were up against</h2>
             <div className="space-y-5">
               {[
-                "Engineers needed context, not more data — existing tools created noise without signal.",
+                "Engineers needed context, not more data. Existing tools created noise without signal.",
                 "Key components were siloed across separate views with no single entry point.",
-                "Actionable items were buried inside individual tools — nothing surfaced by default.",
+                "Actionable items were buried inside individual tools. Nothing surfaced by default.",
                 "Unfamiliar terminology required deep domain learning before any design could begin.",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
@@ -109,7 +109,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Dashboard redesign</p>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            Design a single dashboard that surfaces actionable insights and system health — consolidating five major platform components into one scannable view.
+            Design a single dashboard that surfaces actionable insights and system health, consolidating five major platform components into one scannable view.
           </p>
 
           {/* Five components */}
@@ -140,7 +140,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
           <div className="space-y-6">
             {[
               { step: "01", label: "Domain immersion", desc: "Logged into the beta platform. Learned terminology and understood each component function before touching Figma." },
-              { step: "02", label: "Data visualisation exploration", desc: "Explored methods to communicate system health clearly — balancing density with scannability." },
+              { step: "02", label: "Data visualisation exploration", desc: "Explored methods to communicate system health clearly, balancing density with scannability." },
               { step: "03", label: "Ideate and wireframe", desc: "Translated component data into dashboard layouts. Mapped what surfaces by default vs. on demand." },
               { step: "04", label: "Structural design", desc: "Produced final dashboard representations for review with the Flanksource product team." },
             ].map((item) => (
@@ -158,7 +158,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
       </div>
 
       {/* Before / After — full width */}
-      <section className="bg-white border-t border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="flex items-center gap-3 mb-12">
               <LogoMark size={16} opacity={0.25} />
@@ -308,7 +308,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

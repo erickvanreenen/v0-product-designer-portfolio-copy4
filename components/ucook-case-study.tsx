@@ -319,7 +319,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               </div>
               <div className="flex items-start gap-6">
                 <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">04</span>
-                <p className="text-sm text-foreground/65 leading-relaxed">Order changes post-payment introduce refund risk. Reduced orders take 2+ days to reflect — creating billing confusion at the point of highest user trust.</p>
+                <p className="text-sm text-foreground/65 leading-relaxed">Order changes post-payment introduce refund risk. Reduced orders take 2+ days to reflect, creating billing confusion at the point of highest user trust.</p>
               </div>
             </div>
           </div>
@@ -481,7 +481,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           <div className="border-t border-border pt-10 mt-10">
             <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
             <p className="text-sm text-foreground/50 mt-2 max-w-lg">
-              6-month ROI (Aug–Jan). 10% of users who started sign-up completed it — constituting 100% of new clients and R405k in revenue. The old funnel at 3.7% would have captured only 37% of that cohort. The redesign unlocked the remaining 63%.
+              6-month ROI (Aug–Jan). 10% of users who started sign-up completed it, constituting 100% of new clients and R405k in revenue. The old funnel at 3.7% would have captured only 37% of that cohort. The redesign unlocked the remaining 63%.
             </p>
           </div>
 
@@ -515,7 +515,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

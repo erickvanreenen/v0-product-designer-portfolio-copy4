@@ -16,7 +16,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
@@ -61,7 +61,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
             <strong>Inception to launch in thirteen months.</strong>
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
-            As the only designer on the team, I owned every layer of the experience — from initial research and architecture through to final UI and handoff. The challenge: build something intuitive in a competitive market, fast.
+            As the only designer on the team, I owned every layer of the experience: from initial research and architecture through to final UI and handoff. The challenge: build something intuitive in a competitive market, fast.
           </p>
         </section>
 
@@ -73,7 +73,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
             </div>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            Design an intuitive mobile app from zero. Prioritise onboarding clarity, core flow efficiency, and a cohesive visual system — all within a tight cross-functional team of two developers, a PM, and QA.
+            Design an intuitive mobile app from zero. Prioritise onboarding clarity, core flow efficiency, and a cohesive visual system, all within a tight cross-functional team of two developers, a PM, and QA.
           </p>
 
           {/* Goals */}
@@ -94,7 +94,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Research</h2>
             </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            User interviews, competitive analysis, and persona development shaped every design decision. Research ran alongside design — not before it.
+            User interviews, competitive analysis, and persona development shaped every design decision. Research ran alongside design, not before it.
           </p>
 
           {/* Insights */}
@@ -185,7 +185,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

@@ -15,7 +15,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border">
+      <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
@@ -62,7 +62,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
             The Magento 1 to Magento 2 migration started around 2020. Multiple designers passed through. I joined as the lone lead UX/UI designer in September 2024.
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
-            The platform was live. Revenue was flowing. But years of dev-first decisions had accumulated into significant UX debt — and no single designer had stayed long enough to address it systematically.
+            The platform was live. Revenue was flowing. But years of dev-first decisions had accumulated into significant UX debt. No single designer had stayed long enough to address it systematically.
           </p>
         </section>
 
@@ -79,7 +79,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
               {[
                 "Dev-first culture. Low UX maturity across the organisation.",
                 "Significant accumulated UX debt. Inconsistency baked into the platform.",
-                "Design constrained by data availability — not by user need.",
+                "Design constrained by data availability, not by user need.",
                 "Legacy Magento 1 dependencies limit what is buildable on Magento 2.",
                 "Historical decisions frequently misaligned with UX best practice.",
               ].map((item) => (
@@ -92,7 +92,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
           </section>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-4">
-            Systems thinking became non-negotiable. Every design decision had downstream consequences — across tech, logistics, data, and operations.
+            Systems thinking became non-negotiable. Every design decision had downstream consequences: across tech, logistics, data, and operations.
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
             Advocating for good UX here means translating user needs into business outcomes and technical language simultaneously. It is a skill. It has become one of my strongest.
@@ -116,7 +116,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
               "2× Frontend Developers",
               "Product Owner",
               "Project Manager",
-              "UX/UI Designer — me",
+              "UX/UI Designer (me)",
             ].map((member) => (
               <div key={member} className="bg-white p-5 flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-border shrink-0" />
@@ -155,7 +155,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
           <div className="grid md:grid-cols-2 gap-px bg-border mb-10">
             {/* Values */}
             <div className="bg-white p-8">
-              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">01 — Values</p>
+              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">01: Values</p>
               <p className="text-sm font-semibold text-foreground mb-4">Search by what matters to the user.</p>
               <div className="space-y-2">
                 {["Social values", "Environmental values", "Business values", "Ingredient values"].map((v) => (
@@ -168,7 +168,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
             </div>
             {/* Product */}
             <div className="bg-white p-8">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-3">02 — Product</p>
+              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-3">02: Product</p>
               <p className="text-sm font-semibold text-foreground mb-4">Traditional product-led search.</p>
               <p className="text-xs text-foreground/50 leading-relaxed">Search by product type, category, or keyword. Familiar. Fast. Consistent at every level.</p>
             </div>
@@ -196,7 +196,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
           <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-10">In progress</p>
 
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            Faithful to Nature is opening stores at a rapid rate. The platform needed to reflect this — extending beyond its original delivery model into a true omnichannel experience.
+            Faithful to Nature is opening stores at a rapid rate. The platform needed to reflect this, extending beyond its original delivery model into a true omnichannel experience.
           </p>
 
           {/* Existing vs New */}
@@ -209,8 +209,8 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
                   "Economy delivery",
                   "Express delivery (selected areas)",
                   "Pargo collection point",
-                  "FtN warehouse — Johannesburg",
-                  "FtN warehouse — Cape Town",
+                  "FtN warehouse, Johannesburg",
+                  "FtN warehouse, Cape Town",
                 ].map((opt) => (
                   <div key={opt} className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-border mt-[0.35rem] shrink-0" />
@@ -223,8 +223,8 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
               <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-5">New</h3>
               <div className="space-y-3">
                 {[
-                  "In-store collection — 17 locations and growing",
-                  "Scheduled delivery — choose date and timeslot",
+                  "In-store collection: 17 locations and growing",
+                  "Scheduled delivery: choose date and timeslot",
                 ].map((opt) => (
                   <div key={opt} className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.35rem] shrink-0" />
@@ -240,10 +240,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
             <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Design considerations</h2>
             <div className="space-y-5">
               {[
-                "Logistics — what is executable given postcode, zone, and area parameters.",
-                "Data — what is available now vs. what is coming in a staggered rollout.",
-                "Omnichannel — decisions must account for the full ecosystem, not isolated features.",
-                "M1 dependencies — legacy constraints define what is buildable on M2 today.",
+                "Logistics: what is executable given postcode, zone, and area parameters.",
+                "Data: what is available now vs. what is coming in a staggered rollout.",
+                "Omnichannel: decisions must account for the full ecosystem, not isolated features.",
+                "M1 dependencies: legacy constraints define what is buildable on M2 today.",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
@@ -281,7 +281,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

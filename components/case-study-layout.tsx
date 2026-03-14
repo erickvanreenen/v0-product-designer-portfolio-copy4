@@ -164,7 +164,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
       </div>
 
       {/* Navigation */}
-      <div className="border-t border-border">
+      <div>
         <div className="max-w-3xl mx-auto px-6 py-10">
           <div className="flex justify-between">
             {prevProject ? (

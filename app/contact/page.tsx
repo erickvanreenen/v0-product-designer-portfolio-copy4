@@ -35,7 +35,7 @@ export default function ContactPage() {
             <p className="text-xl md:text-2xl font-bold text-[#09332C] leading-snug tracking-tight">
               "The world needs dreamers and the world needs doers. But above all, what the world needs most are dreamers that do."
             </p>
-            <cite className="block text-sm text-foreground/40 mt-4 not-italic">— Sarah Ban Breathnach</cite>
+            <cite className="block text-sm text-foreground/40 mt-4 not-italic">Sarah Ban Breathnach</cite>
           </blockquote>
         </div>
       </section>
