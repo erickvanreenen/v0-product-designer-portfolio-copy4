@@ -64,11 +64,11 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 bg-[#09332C]">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-16">Process</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F7EDDA] tracking-tight mb-16">Process</h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
             {[
               { step: "01", title: "Research", desc: "Dig into users, data, and context." },
               { step: "02", title: "Define", desc: "Turn insights into sharp problems." },
@@ -77,10 +77,10 @@ export default function HomePage() {
               { step: "05", title: "Test", desc: "Validate with real users." },
               { step: "06", title: "Iterate", desc: "Refine through feedback." },
             ].map((step) => (
-              <div key={step.step} className="bg-white p-8">
-                <span className="text-xs text-[#F0531C] font-medium">{step.step}</span>
-                <h3 className="text-lg font-bold text-[#09332C] mt-3">{step.title}</h3>
-                <p className="text-sm text-foreground/50 mt-2">{step.desc}</p>
+              <div key={step.step} className="bg-[#09332C] p-8">
+                <span className="text-xs text-[#FFA74F] font-medium">{step.step}</span>
+                <h3 className="text-lg font-bold text-[#F7EDDA] mt-3">{step.title}</h3>
+                <p className="text-sm text-[#F7EDDA]/50 mt-2">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -88,23 +88,21 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-[#F7EDDA]">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="border-t border-border pt-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
-              Open to opportunities.
-            </h2>
-            <p className="text-foreground/50 mb-8">
-              Let's discuss a project or just say hello.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
-            >
-              Get in touch
-              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </Link>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
+            Open to opportunities.
+          </h2>
+          <p className="text-[#09332C]/50 mb-8">
+            Let's discuss a project or just say hello.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
+          >
+            Get in touch
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+          </Link>
         </div>
       </section>
     </div>

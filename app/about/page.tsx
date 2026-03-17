@@ -54,7 +54,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-white border-b border-border overflow-hidden">
+      <section className="bg-[#F7EDDA] overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
 
           {/* Logo mark + headline */}
@@ -198,7 +198,7 @@ export default function AboutPage() {
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full border border-border text-foreground/60">
+                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7EDDA] text-[#09332C]/65">
                     {tool}
                   </span>
                 ))}
@@ -208,7 +208,7 @@ export default function AboutPage() {
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">AI Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {aiTools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full border border-border text-foreground/60">
+                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7DFBA] text-[#09332C]/65">
                     {tool}
                   </span>
                 ))}
