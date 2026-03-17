@@ -265,49 +265,45 @@ export const projects: Project[] = [
   },
   {
     slug: "edtech-interactive-learning",
-    title: "EdTech Interactive Learning Experience",
-    subtitle: "Designing an intuitive, interactive online learning experience using Articulate Rise",
+    title: "Business Systems Analysis Programme",
+    subtitle: "Visual and infographic design for Masterstart, Stellenbosch Business School",
     tags: ["EdTech", "UX Strategy"],
-    role: "Learning Experience Designer",
-    team: "Solo Project",
+    role: "Visual & Layout Designer",
+    team: "Subject Matter Expert, Learning Designer",
     timeline: "2024",
-    tools: ["Articulate Rise", "Figma", "Miro"],
+    tools: ["Articulate Rise", "Figma", "Adobe Creative Suite"],
     thumbnail: "/images/thumb-edtech.svg",
     outcomes: [
-      "Created engaging interactive learning modules",
-      "Improved learner engagement through multimedia content",
-      "Delivered accessible, responsive learning experience",
-      "Streamlined knowledge retention through interactive assessments"
+      "Infographic assets communicating complex BA concepts clearly",
+      "Course published live on Masterstart, Stellenbosch Business School",
+      "Accessible, responsive layout built in Articulate Rise",
+      "Complex systems thinking made visual and learnable"
     ],
-    summary: "Designed and developed an interactive online learning experience using Articulate Rise, focusing on creating an intuitive, engaging, and accessible educational journey for learners.",
-    context: "This project showcases my EdTech capabilities, demonstrating how UX principles can be applied to educational content design. The goal was to create an interactive learning experience that engages users while effectively communicating complex information.",
+    summary: "Visual and infographic design for a Business Systems Analysis course built in Articulate Rise and published on Masterstart, the online learning platform for Stellenbosch Business School.",
+    context: "This course was built for Masterstart, Stellenbosch Business School's online learning platform. I worked alongside a subject matter expert and a learning designer. My focus was visual and layout design throughout the course.",
     goals: [
-      "Create an engaging and intuitive learning flow",
-      "Apply instructional design principles to content structure",
-      "Ensure accessibility across devices and user needs",
-      "Balance visual engagement with educational effectiveness"
+      "Translate complex BA theory into clear, learnable infographic assets",
+      "Support the learning designer's content structure with strong visual hierarchy",
+      "Maintain visual consistency across all course modules",
+      "Build in Articulate Rise with accessibility and responsiveness in mind"
     ],
-    research: "Applied learning science principles and UX research methodologies to understand how users best absorb and retain information in digital learning environments.",
+    research: "Worked closely with the subject matter expert to understand the conceptual models central to Business Systems Analysis, then identified where visual communication could reduce cognitive load.",
     insights: [
-      "Chunked content improves comprehension and reduces cognitive load",
-      "Interactive elements increase engagement and retention",
-      "Clear navigation and progress indicators reduce learner anxiety",
-      "Multimedia variety caters to different learning styles"
+      "Complex conceptual models need visual simplification, not decoration",
+      "Working alongside subject matter experts requires active listening and iteration",
+      "Layout discipline in Articulate Rise directly affects learner focus",
+      "Infographics that communicate well require constraint, not embellishment"
     ],
-    iaFlows: "Structured the learning experience with clear progression, logical content grouping, and intuitive navigation that guides learners through the material at their own pace.",
-    designExploration: "Explored various content presentation methods and interactive elements to find the optimal balance between engagement and educational effectiveness.",
-    finalUI: "Delivered a polished, responsive learning experience with clean typography, thoughtful use of imagery, and interactive assessments that reinforce key concepts.",
-    testing: "Conducted user testing with sample learners to validate the learning flow, content clarity, and interaction patterns.",
-    outcome: "Successfully created an interactive learning experience that demonstrates the intersection of UX design and educational content development.",
+    iaFlows: "The learning designer led content structure. My role was to support that structure visually, ensuring infographics aligned with the course's progressive logic.",
+    designExploration: "Explored how to represent systems thinking, process flows, and stakeholder mapping as accessible visual assets. Iterated with the SME on accuracy, and with the learning designer on placement and pacing.",
+    finalUI: "Delivered a set of infographic assets and a consistent visual layout, published through Articulate Rise on the Masterstart platform.",
+    outcome: "The course went live on Masterstart. Seeing course content come to life in Articulate Rise, and knowing it was built for Stellenbosch Business School, is work I value.",
     learnings: [
-      "Instructional design and UX design share many common principles",
-      "Interactivity should serve the learning objective, not distract from it",
-      "Accessibility is crucial in educational content"
+      "Designing for learning is designing for comprehension. The bar is higher than most design contexts.",
+      "Collaboration with subject matter experts and learning designers sharpens the brief considerably.",
+      "Articulate Rise rewards visual restraint and clear hierarchy above anything else."
     ],
-    images: [
-      { src: "/images/edtech-structure.jpg", caption: "Learning experience structure and flow" },
-      { src: "/images/edtech-interactions.jpg", caption: "Interactive elements and assessments", wide: true }
-    ],
+    images: [],
     externalLink: "https://rise.articulate.com/share/XCDWEAquTje11b1vjAzKZahmZziR0gaj#/lessons/rMXP5z-dQk-xwn-pu5qgWJAxQpOXijVW"
   },
   {

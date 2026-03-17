@@ -18,6 +18,14 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm text-foreground/50 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
+          >
+            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
+            Back
+          </Link>
+
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
               <span key={tag} className="text-xs text-foreground/40">{tag}</span>
@@ -26,28 +34,39 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
           <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
+          <p className="text-lg text-foreground/55 max-w-xl leading-relaxed mb-8">
             {project.subtitle}
           </p>
 
+          {project.externalLink && (
+            <a
+              href={project.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#09332C] transition-all duration-200 group"
+            >
+              View live
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          )}
+
           {/* Meta grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-14">
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Role</p>
-              <p className="text-sm text-foreground">{project.role}</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Team</p>
-              <p className="text-sm text-foreground">{project.team}</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Timeline</p>
-              <p className="text-sm text-foreground">{project.timeline}</p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">Tools</p>
-              <p className="text-sm text-foreground">{project.tools.join(", ")}</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 mt-14">
+            {[
+              { label: "Role", value: project.role },
+              { label: "Team", value: project.team },
+              { label: "Timeline", value: project.timeline },
+              { label: "Tools", value: project.tools.join(", ") },
+            ].map((item, i) => (
+              <div key={item.label} className={`p-6 min-w-0 overflow-hidden border-border ${
+                i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
+              } ${
+                i === 2 || i === 3 ? "border-t md:border-t-0" : ""
+              }`}>
+                <p className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <p className="text-sm text-foreground break-words">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -56,12 +75,14 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {/* Context */}
         <section className="mb-24">
-          <p className="text-lg text-foreground leading-relaxed mb-6">
-            UX principles applied to educational content.{" "}
-            <strong>Learning design and interaction design share more than most realise.</strong>
+          <p className="text-xl text-foreground font-medium leading-relaxed mb-6">
+            Visual design for a Business Systems Analysis course on Masterstart, Stellenbosch Business School's online platform.
+          </p>
+          <p className="text-base text-foreground/65 leading-relaxed mb-5">
+            I worked alongside a subject matter expert and a learning designer. My role was visual and layout design: generating infographic assets that made complex BA concepts clear and engaging.
           </p>
           <p className="text-base text-foreground/65 leading-relaxed">
-            This project demonstrates how UX methodology (information architecture, user flow, cognitive load reduction) translates directly into effective instructional design. Built in Articulate Rise with a focus on engagement, accessibility, and retention.
+            Seeing course content come to life in Articulate Rise is something I genuinely enjoy. This project sits at the intersection of visual communication, instructional logic, and layout discipline.
           </p>
         </section>
 
@@ -72,7 +93,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
-            Design and develop an interactive online learning experience that engages learners through structured content, progressive disclosure, and interactive assessments, all fully responsive and accessible.
+            Create visual and infographic assets for a Business Systems Analysis course built in Articulate Rise. Work within the learning designer's content structure. Communicate complex conceptual models clearly and accessibly.
           </p>
 
           <div className="space-y-6">
@@ -91,14 +112,14 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <LogoMark size={16} opacity={0.25} />
               <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Approach</h2>
             </div>
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Learning science meets UX</p>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Visual design in service of learning</p>
 
           <div className="grid md:grid-cols-2 gap-px bg-border mb-12">
             {[
-              { label: "01", title: "Chunked content", desc: "Short, focused sections reduce cognitive load and improve comprehension." },
-              { label: "02", title: "Progressive disclosure", desc: "Information revealed in sequence. Learners build on what they know." },
-              { label: "03", title: "Interactive checkpoints", desc: "Assessments embedded throughout, not just at the end." },
-              { label: "04", title: "Accessible by default", desc: "Designed for all devices and user needs from the start." },
+              { label: "01", title: "Infographic-led", desc: "Complex BA models visualised as clear, structured infographics rather than text walls." },
+              { label: "02", title: "Collaborative brief", desc: "Iterated with the SME on accuracy and with the learning designer on placement and pacing." },
+              { label: "03", title: "Articulate Rise native", desc: "Designed within Rise's constraints. Visual restraint and hierarchy over embellishment." },
+              { label: "04", title: "Accessible by default", desc: "Layouts built for all devices and learner needs from the start." },
             ].map((item) => (
               <div key={item.label} className="bg-white p-8">
                 <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-2">{item.label}</p>
