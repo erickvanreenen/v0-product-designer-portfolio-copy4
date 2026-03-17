@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="mt-2 shrink-0">
               <LogoMark size={44} />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F7353] tracking-tight leading-none">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight leading-none">
               Follow the curiosity.
             </h1>
           </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
         {/* Beyond work — with dot motif */}
         <section className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-8">
-            <LogoMark size={16} color="#0F7353" opacity={0.25} />
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
             <h2 className="text-xs text-foreground/50 font-medium uppercase tracking-widest">Beyond work</h2>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -137,8 +137,8 @@ export default function AboutPage() {
         {/* Experience */}
         <section className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
-            <LogoMark size={16} color="#0F7353" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight">Experience</h2>
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Experience</h2>
           </div>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
@@ -161,8 +161,8 @@ export default function AboutPage() {
         {/* Education */}
         <section className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
-            <LogoMark size={16} color="#0F7353" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight">Education</h2>
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Education</h2>
           </div>
           <div className="space-y-8">
             {education.map((edu) => (
@@ -180,15 +180,15 @@ export default function AboutPage() {
         {/* Skills + Tooling */}
         <section className="mb-0 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
-            <LogoMark size={16} color="#0F7353" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight">Skills + Tooling</h2>
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Skills + Tooling</h2>
           </div>
           <div className="space-y-12">
             <div>
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">Skills</h3>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <span key={skill} className="text-sm px-3 py-1.5 rounded-full bg-[#0F7353] text-[#F7EDDA]">
+                  <span key={skill} className="text-sm px-3 py-1.5 rounded-full bg-[#09332C] text-[#F7EDDA]">
                     {skill}
                   </span>
                 ))}
@@ -198,7 +198,7 @@ export default function AboutPage() {
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7EDDA] text-[#0F7353]/65">
+                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7EDDA] text-[#09332C]/65">
                     {tool}
                   </span>
                 ))}
@@ -208,7 +208,7 @@ export default function AboutPage() {
               <h3 className="text-xs text-foreground/50 font-medium uppercase tracking-widest mb-6">AI Tools</h3>
               <div className="flex flex-wrap gap-2">
                 {aiTools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7DFBA] text-[#0F7353]/65">
+                  <span key={tool} className="text-sm px-3 py-1.5 rounded-full bg-[#F7DFBA] text-[#09332C]/65">
                     {tool}
                   </span>
                 ))}
@@ -227,7 +227,7 @@ export default function AboutPage() {
               <LogoMark size={28} color="#F0531C" />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
                 Open to opportunities.
               </h2>
               <p className="text-foreground/50 mb-8 max-w-md">
@@ -235,7 +235,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F7353] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
               >
                 Get in touch
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />

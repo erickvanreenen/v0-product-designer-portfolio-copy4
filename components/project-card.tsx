@@ -14,7 +14,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
       <article className="flex flex-col h-full rounded-2xl overflow-hidden bg-white">
 
         {/* Thumbnail */}
-        <div className="relative bg-[#0F7353] overflow-hidden aspect-[16/10]">
+        <div className="relative bg-[#09332C] overflow-hidden aspect-[16/10]">
           {project.thumbnail ? (
             <Image
               src={project.thumbnail}
@@ -54,7 +54,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
 
           {/* Title + subtitle */}
           <div>
-            <h3 className="text-2xl font-bold text-[#0F7353] group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
+            <h3 className="text-2xl font-bold text-[#09332C] group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
               {project.title}
             </h3>
             <p className="text-sm text-foreground/55 leading-relaxed">
@@ -70,7 +70,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-[#0F7353]/60 bg-[#F7EDDA] rounded-md px-3 h-6 inline-flex items-center whitespace-nowrap"
+                className="text-xs text-[#09332C]/60 bg-[#F7EDDA] rounded-md px-3 h-6 inline-flex items-center whitespace-nowrap"
               >
                 {tag}
               </span>

@@ -74,7 +74,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0F7353] tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
@@ -115,7 +115,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
             <div className="bg-[#f0f0f0] p-8 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-[#0F7353]">~R1.3M</p>
+              <p className="text-4xl md:text-5xl font-bold text-[#09332C]">~R1.3M</p>
               <p className="text-xs text-foreground/55 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
           </div>
@@ -149,7 +149,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">The Problem</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">The Problem</h2>
             </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -162,7 +162,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               </ul>
             </div>
             <div>
-              <h3 className="text-xs text-[#0F7353] font-medium uppercase tracking-widest mb-6">Business pain</h3>
+              <h3 className="text-xs text-[#09332C] font-medium uppercase tracking-widest mb-6">Business pain</h3>
               <ul className="space-y-6">
                 <li className="text-sm text-foreground/70 leading-relaxed">60+ incomplete sign-ups per week.</li>
                 <li className="text-sm text-foreground/70 leading-relaxed">~R1.3M/year revenue leaking through funnel.</li>
@@ -176,7 +176,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Goals</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Goals</h2>
             </div>
           <div className="space-y-6">
             {project.goals.map((goal, i) => (
@@ -209,7 +209,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Research</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Research</h2>
             </div>
           <p className="text-sm text-foreground/40 mb-10">Seven stages. Mixed methods.</p>
 
@@ -229,7 +229,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   {i < arr.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-sm font-bold text-[#0F7353]">{step.title}</h3>
+                  <h3 className="text-sm font-bold text-[#09332C]">{step.title}</h3>
                   <p className="text-sm text-foreground/50 mt-1">{step.desc}</p>
                 </div>
               </div>
@@ -240,7 +240,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         {/* Key insight callout */}
         <section className="mb-24 border-l-2 border-[#F0531C] pl-6">
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">Critical finding</p>
-          <p className="text-base text-[#0F7353] font-bold leading-relaxed">
+          <p className="text-base text-[#09332C] font-bold leading-relaxed">
             All participants expected to pay immediately. Payment was the task completion signal.
           </p>
           <p className="text-sm text-foreground/50 mt-3">
@@ -252,7 +252,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Insights</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Insights</h2>
             </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
@@ -270,7 +270,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             <LogoMark size={16} opacity={0.25} />
             <div>
               <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Option considered</p>
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Pay on Sign Up</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Pay on Sign Up</h2>
             </div>
           </div>
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
@@ -329,7 +329,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Solution</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Solution</h2>
             </div>
 
           <p className="text-base text-foreground/70 leading-relaxed mb-10">
@@ -367,7 +367,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                     ))}
                   </div>
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="text-xs px-3 py-1.5 bg-[#0F7353] text-[#F7EDDA]/70 rounded font-medium">Plans</span>
+                    <span className="text-xs px-3 py-1.5 bg-[#09332C] text-[#F7EDDA]/70 rounded font-medium">Plans</span>
                     <span className="text-foreground/15 text-xs">→</span>
                     <span className="text-xs px-3 py-1.5 border border-[#F0531C]/25 text-[#F0531C] rounded font-medium">Activated</span>
                   </div>
@@ -389,7 +389,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             </div>
             <button
               onClick={() => setShowModal(true)}
-              className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#0F7353] transition-colors duration-200"
+              className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200"
             >
               View wireframes
             </button>
@@ -405,7 +405,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { title: "Progress tracking", desc: "GTM triggers per funnel step." },
               ].map((spec) => (
                 <div key={spec.title} className="bg-white p-6">
-                  <p className="text-sm font-mono font-bold text-[#0F7353]">{spec.title}</p>
+                  <p className="text-sm font-mono font-bold text-[#09332C]">{spec.title}</p>
                   <p className="text-xs text-foreground/40 mt-1">{spec.desc}</p>
                 </div>
               ))}
@@ -417,7 +417,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Results</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Results</h2>
             </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -465,7 +465,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   </div>
                 ))}
               </div>
-              <p className="text-3xl font-bold text-[#0F7353] mt-6">9.3%</p>
+              <p className="text-3xl font-bold text-[#09332C] mt-6">9.3%</p>
             </div>
           </div>
 
@@ -500,7 +500,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Reflection</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
             </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (

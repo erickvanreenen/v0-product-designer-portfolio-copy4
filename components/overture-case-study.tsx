@@ -25,7 +25,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0F7353] tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
@@ -61,7 +61,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Brief</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/70 leading-relaxed">
             Design a promoter app that streamlines event documentation, connecting promoters, agents, and artists throughout the advancing stage of event organisation.
@@ -72,7 +72,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Research</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Research</h2>
             </div>
           <p className="text-base text-foreground/70 leading-relaxed mb-4">
             Benchmarked leading event platforms globally.
@@ -86,7 +86,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Wireframes</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Wireframes</h2>
             </div>
           <a
             href="https://www.figma.com/design/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=204-473&t=u2tQAugiWCBFyvqv-1"
@@ -98,41 +98,41 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
               {/* Three phone screens */}
               <div className="flex items-end justify-center gap-4">
                 {/* Screen 1 */}
-                <div className="w-28 bg-white rounded-xl border border-[#0F7353]/10 p-3 shadow-sm">
-                  <div className="h-1.5 w-10 bg-[#0F7353]/20 rounded mb-3" />
-                  <div className="h-14 bg-[#0F7353]/6 rounded mb-3" />
+                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm">
+                  <div className="h-1.5 w-10 bg-[#09332C]/20 rounded mb-3" />
+                  <div className="h-14 bg-[#09332C]/6 rounded mb-3" />
                   <div className="space-y-1.5">
-                    <div className="h-1.5 bg-[#0F7353]/12 rounded w-full" />
-                    <div className="h-1.5 bg-[#0F7353]/12 rounded w-4/5" />
-                    <div className="h-1.5 bg-[#0F7353]/8 rounded w-3/5" />
+                    <div className="h-1.5 bg-[#09332C]/12 rounded w-full" />
+                    <div className="h-1.5 bg-[#09332C]/12 rounded w-4/5" />
+                    <div className="h-1.5 bg-[#09332C]/8 rounded w-3/5" />
                   </div>
-                  <div className="mt-3 h-7 bg-[#0F7353]/15 rounded" />
+                  <div className="mt-3 h-7 bg-[#09332C]/15 rounded" />
                 </div>
                 {/* Screen 2 — slightly raised */}
-                <div className="w-28 bg-white rounded-xl border border-[#0F7353]/10 p-3 shadow-sm mb-[-10px]">
+                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm mb-[-10px]">
                   <div className="flex items-center gap-1.5 mb-3">
-                    <div className="w-5 h-5 rounded-full bg-[#0F7353]/12" />
+                    <div className="w-5 h-5 rounded-full bg-[#09332C]/12" />
                     <div className="flex-1">
-                      <div className="h-1.5 bg-[#0F7353]/15 rounded mb-1" />
-                      <div className="h-1 bg-[#0F7353]/8 rounded w-2/3" />
+                      <div className="h-1.5 bg-[#09332C]/15 rounded mb-1" />
+                      <div className="h-1 bg-[#09332C]/8 rounded w-2/3" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-7 bg-[#0F7353]/6 rounded" />
-                    <div className="h-7 bg-[#0F7353]/6 rounded" />
-                    <div className="h-7 bg-[#0F7353]/6 rounded" />
+                    <div className="h-7 bg-[#09332C]/6 rounded" />
+                    <div className="h-7 bg-[#09332C]/6 rounded" />
+                    <div className="h-7 bg-[#09332C]/6 rounded" />
                   </div>
                 </div>
                 {/* Screen 3 */}
-                <div className="w-28 bg-white rounded-xl border border-[#0F7353]/10 p-3 shadow-sm">
-                  <div className="h-16 bg-[#0F7353]/6 rounded mb-3 flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full bg-[#0F7353]/15" />
+                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm">
+                  <div className="h-16 bg-[#09332C]/6 rounded mb-3 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-full bg-[#09332C]/15" />
                   </div>
-                  <div className="h-1.5 w-full bg-[#0F7353]/12 rounded mb-1.5" />
-                  <div className="h-1.5 w-2/3 bg-[#0F7353]/8 rounded mb-3" />
+                  <div className="h-1.5 w-full bg-[#09332C]/12 rounded mb-1.5" />
+                  <div className="h-1.5 w-2/3 bg-[#09332C]/8 rounded mb-3" />
                   <div className="grid grid-cols-2 gap-1.5">
                     <div className="h-5 bg-[#F0531C]/20 rounded" />
-                    <div className="h-5 bg-[#0F7353]/8 rounded" />
+                    <div className="h-5 bg-[#09332C]/8 rounded" />
                   </div>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Prototype</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Prototype</h2>
             </div>
           <a
             href="https://www.figma.com/proto/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=324-839&t=hzQyEkisr6EUwGlc-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A6&starting-point-node-id=266%3A670&show-proto-sidebar=1"
@@ -157,7 +157,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
             rel="noopener noreferrer"
             className="block group"
           >
-            <div className="bg-[#0F7353] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#0F7353]/90 transition-colors duration-300">
+            <div className="bg-[#09332C] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#09332C]/90 transition-colors duration-300">
               {/* Phone outline */}
               <div className="w-20 h-36 border-2 border-[#F7EDDA]/15 rounded-2xl mb-8 flex flex-col items-center justify-between py-3 group-hover:border-[#F7EDDA]/30 transition-colors duration-300">
                 <div className="w-5 h-1 bg-[#F7EDDA]/20 rounded-full" />
@@ -180,7 +180,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Team</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Team</h2>
             </div>
           <div className="space-y-4">
             <div>
@@ -205,15 +205,15 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Timeline</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Timeline</h2>
             </div>
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <p className="text-2xl font-bold text-[#0F7353]">2 weeks</p>
+              <p className="text-2xl font-bold text-[#09332C]">2 weeks</p>
               <p className="text-xs text-foreground/40 mt-1">UX</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#0F7353]">2 weeks</p>
+              <p className="text-2xl font-bold text-[#09332C]">2 weeks</p>
               <p className="text-xs text-foreground/40 mt-1">UI</p>
             </div>
           </div>

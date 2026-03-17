@@ -4,17 +4,17 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Palette: Venetian Lace #F7EDDA, Fiery Glow #F0531C, Fence Green #0F7353, Macadamia Beige #F7DFBA, Pumpkin Vapor #FFA74F, Norfolk Green #2E4B3C, White #FFFFFF */
+  /* Palette: Venetian Lace #F7EDDA, Fiery Glow #F0531C, Fence Green #09332C, Macadamia Beige #F7DFBA, Pumpkin Vapor #FFA74F, Norfolk Green #2E4B3C, White #FFFFFF */
   --background: #FCF8F0;
-  --foreground: #0F7353;
+  --foreground: #09332C;
   --card: #FFFFFF;
-  --card-foreground: #0F7353;
+  --card-foreground: #09332C;
   --popover: #FFFFFF;
-  --popover-foreground: #0F7353;
-  --primary: #0F7353;
+  --popover-foreground: #09332C;
+  --primary: #09332C;
   --primary-foreground: #F7EDDA;
   --secondary: #F7DFBA;
-  --secondary-foreground: #0F7353;
+  --secondary-foreground: #09332C;
   --muted: #EDE0C8;
   --muted-foreground: #2E4B3C;
   --accent: #F0531C;
@@ -27,12 +27,12 @@
   --chart-1: #F0531C;
   --chart-2: #2E4B3C;
   --chart-3: #FFA74F;
-  --chart-4: #0F7353;
+  --chart-4: #09332C;
   --chart-5: #F7DFBA;
   --radius: 0.375rem;
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #0F7353;
-  --sidebar-primary: #0F7353;
+  --sidebar-foreground: #09332C;
+  --sidebar-primary: #09332C;
   --sidebar-primary-foreground: #F7EDDA;
   --sidebar-accent: #F0531C;
   --sidebar-accent-foreground: #FFFFFF;
@@ -42,14 +42,14 @@
 
 .dark {
   /* Dark mode using Fence Green as base */
-  --background: #0F7353;
+  --background: #09332C;
   --foreground: #F7EDDA;
   --card: #2E4B3C;
   --card-foreground: #F7EDDA;
   --popover: #2E4B3C;
   --popover-foreground: #F7EDDA;
   --primary: #F7EDDA;
-  --primary-foreground: #0F7353;
+  --primary-foreground: #09332C;
   --secondary: #2E4B3C;
   --secondary-foreground: #F7EDDA;
   --muted: #2E4B3C;
@@ -69,10 +69,10 @@
   --sidebar: #2E4B3C;
   --sidebar-foreground: #F7EDDA;
   --sidebar-primary: #F7EDDA;
-  --sidebar-primary-foreground: #0F7353;
+  --sidebar-primary-foreground: #09332C;
   --sidebar-accent: #F0531C;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #0F7353;
+  --sidebar-border: #09332C;
   --sidebar-ring: #F0531C;
 }
 

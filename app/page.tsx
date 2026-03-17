@@ -14,7 +14,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-32">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0F7353] max-w-2xl tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#09332C] max-w-2xl tracking-tight mb-6">
             Fusing user needs with business outcomes.
           </h1>
           <p className="text-sm text-[#F0531C] font-bold uppercase tracking-widest mb-6">
@@ -33,7 +33,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#0F7353]/15 text-[#0F7353] text-sm font-medium rounded-full hover:bg-[#0F7353]/5 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#09332C]/15 text-[#09332C] text-sm font-medium rounded-full hover:bg-[#09332C]/5 transition-all duration-200"
             >
               Get in touch
             </Link>
@@ -45,7 +45,7 @@ export default function HomePage() {
       <section className="py-24 md:py-32">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-end justify-between mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight">Selected work</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Selected work</h2>
             <Link
               href="/projects"
               className="text-sm text-foreground/40 hover:text-[#F0531C] transition-colors duration-200 flex items-center gap-1.5 group"
@@ -64,7 +64,7 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 md:py-32 bg-[#0F7353]">
+      <section className="py-24 md:py-32 bg-[#09332C]">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F7EDDA] tracking-tight mb-16">Process</h2>
 
@@ -77,7 +77,7 @@ export default function HomePage() {
               { step: "05", title: "Test", desc: "Validate with real users." },
               { step: "06", title: "Iterate", desc: "Refine through feedback." },
             ].map((step) => (
-              <div key={step.step} className="bg-[#0F7353] p-8">
+              <div key={step.step} className="bg-[#09332C] p-8">
                 <span className="text-xs text-[#FFA74F] font-medium">{step.step}</span>
                 <h3 className="text-lg font-bold text-[#F7EDDA] mt-3">{step.title}</h3>
                 <p className="text-sm text-[#F7EDDA]/50 mt-2">{step.desc}</p>
@@ -90,15 +90,15 @@ export default function HomePage() {
       {/* CTA */}
       <section className="py-24 md:py-32 bg-[#F7EDDA]">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F7353] tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
             Open to opportunities.
           </h2>
-          <p className="text-[#0F7353]/50 mb-8">
+          <p className="text-[#09332C]/50 mb-8">
             Let's discuss a project or just say hello.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0F7353] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
           >
             Get in touch
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />

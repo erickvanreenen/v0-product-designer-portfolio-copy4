@@ -23,7 +23,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <span key={tag} className="text-xs text-foreground/40">{tag}</span>
             ))}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0F7353] tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
@@ -69,7 +69,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Brief</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-10">
             Design and develop an interactive online learning experience that engages learners through structured content, progressive disclosure, and interactive assessments, all fully responsive and accessible.
@@ -89,7 +89,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Approach</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Approach</h2>
             </div>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Learning science meets UX</p>
 
@@ -113,7 +113,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Insights</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Insights</h2>
             </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
@@ -130,7 +130,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
           <section className="mb-24">
             <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Live experience</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Live experience</h2>
             </div>
             <a
               href={project.externalLink}
@@ -138,7 +138,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               rel="noopener noreferrer"
               className="block group"
             >
-              <div className="bg-[#0F7353] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#0F7353]/90 transition-colors duration-300">
+              <div className="bg-[#09332C] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#09332C]/90 transition-colors duration-300">
                 {/* Abstract content indicator */}
                 <div className="w-40 h-24 border border-[#F7EDDA]/10 rounded-lg mb-8 flex flex-col justify-between p-4 group-hover:border-[#F7EDDA]/25 transition-colors duration-300">
                   <div className="space-y-1.5">
@@ -174,7 +174,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Reflection</h2>
+              <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
             </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
