@@ -6,6 +6,7 @@ export type ProjectTag =
   | "UX Strategy"
   | "Leadership"
   | "EdTech"
+  | "Content Design"
   | "Data Dev"
   | "Workflow Automation";
 
@@ -355,6 +356,49 @@ export const projects: Project[] = [
       { src: "/images/uni4-kanban.jpg", caption: "Kanban workflow implementation for design team" },
       { src: "/images/uni4-aggregator.jpg", caption: "Aggregator platform design exploration", wide: true }
     ]
+  },
+  {
+    slug: "eduvos-content-writing",
+    title: "Eduvos Digital Design Curriculum",
+    subtitle: "Merging UX and UI into a unified degree programme module",
+    tags: ["EdTech", "Content Design", "Leadership"],
+    role: "Content Writer",
+    team: "Academic Team, Learning Designers",
+    timeline: "May 2024 – Present",
+    tools: ["Figma", "Adobe Creative Suite", "Google Docs"],
+    thumbnail: "/images/thumb-edtech.svg",
+    outcomes: [
+      "Unified UX and UI module delivered",
+      "Formative and summative assessments authored",
+      "Lesson content developed across the degree",
+      "Curriculum aligned to industry practice"
+    ],
+    summary: "Content writing and course creation for Eduvos. Tasked to merge and consolidate the UX and UI modules into the three-year Digital Design degree programme as a unified module.",
+    context: "I started doing content writing and course creation at Eduvos in May 2024. I was tasked to merge and consolidate the UX and UI modules into the three-year Digital Design degree programme as a unified module. It involved evaluating the relevance of existing content, determining what to retain, discard, or introduce.",
+    goals: [
+      "Evaluate relevance of existing UX and UI content",
+      "Determine what to retain, discard, or introduce",
+      "Craft formative and summative assessments",
+      "Develop lesson content through educational writing and design"
+    ],
+    research: "Evaluated the existing UX and UI module content across the three-year Digital Design degree. Assessed relevance, alignment to industry standards, and learning objectives to determine what to retain, discard, or introduce.",
+    insights: [
+      "Existing modules treated UX and UI as separate disciplines",
+      "Students needed a more integrated, real-world approach",
+      "Assessment design requires clarity on learning outcomes first",
+      "Practical exercises improve retention and engagement"
+    ],
+    iaFlows: "Structured the unified module so each exercise builds progressively toward the summative assessment. Clear learning objectives anchored every piece of content.",
+    designExploration: "Explored how to balance theory with practical application across six weeks of formative exercises. Each brief was designed to mirror real industry workflows.",
+    finalUI: "Delivered a cohesive module with integrated assessments, lesson content, and practical briefs aligned to the Digital Design degree programme outcomes.",
+    testing: "",
+    outcome: "The unified UX/UI module was delivered with formative and summative assessments, lesson plans, and practical briefs. I enjoyed this work as it challenged me to really think and assess what the most relevant things are to introduce into the learning path.",
+    learnings: [
+      "Teaching sharpens your own understanding of a discipline",
+      "Curriculum design is a form of UX: clarity and flow matter",
+      "Relevance to industry must drive every content decision"
+    ],
+    images: []
   }
 ];
 
