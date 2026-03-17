@@ -23,7 +23,7 @@ export function Navbar() {
         <Link href="/" className="group flex items-center gap-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/erick-logo.svg" width={20} height={20} alt="" />
-          <span className="text-sm font-bold tracking-tight text-[#09332C] group-hover:text-[#F0531C] transition-colors duration-200">
+          <span className="text-sm font-bold tracking-tight text-[#0F7353] group-hover:text-[#F0531C] transition-colors duration-200">
             Erick van Reenen
           </span>
         </Link>
@@ -38,7 +38,7 @@ export function Navbar() {
                   className={cn(
                     "text-sm px-4 py-2 rounded-full transition-all duration-200",
                     pathname === item.href
-                      ? "bg-[#09332C] text-[#F7EDDA]"
+                      ? "bg-[#0F7353] text-[#F7EDDA]"
                       : "text-foreground/40 hover:text-foreground"
                   )}
                 >
@@ -80,7 +80,7 @@ export function Navbar() {
                   className={cn(
                     "block text-base py-3 px-4 rounded-lg transition-all duration-200",
                     pathname === item.href
-                      ? "bg-[#09332C] text-[#F7EDDA] font-medium"
+                      ? "bg-[#0F7353] text-[#F7EDDA] font-medium"
                       : "text-foreground/40"
                   )}
                 >

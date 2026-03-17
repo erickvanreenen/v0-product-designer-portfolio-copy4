@@ -31,7 +31,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0F7353] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
@@ -91,7 +91,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
 
         {/* Goals */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Goals</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Goals</h2>
           <div className="space-y-6">
             {project.goals.map((goal, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -104,13 +104,13 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
 
         {/* Research */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Research</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Research</h2>
           <p className="text-base text-foreground/70 leading-relaxed">{project.research}</p>
         </section>
 
         {/* Insights */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Insights</h2>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
               <div key={i} className="flex items-start gap-6">
@@ -123,13 +123,13 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
 
         {/* IA & Flows */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Architecture</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Architecture</h2>
           <p className="text-base text-foreground/70 leading-relaxed">{project.iaFlows}</p>
         </section>
 
         {/* Design */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Design</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Design</h2>
           <p className="text-base text-foreground/70 leading-relaxed mb-6">{project.designExploration}</p>
           <p className="text-base text-foreground/70 leading-relaxed">{project.finalUI}</p>
         </section>
@@ -138,7 +138,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
         {/* Testing */}
         {project.testing && (
           <section className="mb-24">
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Testing</h2>
+            <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Testing</h2>
             <p className="text-base text-foreground/70 leading-relaxed">{project.testing}</p>
           </section>
         )}
@@ -151,7 +151,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
 
         {/* Reflection */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight mb-10">Reflection</h2>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
               <div key={i} className="flex items-start gap-6">

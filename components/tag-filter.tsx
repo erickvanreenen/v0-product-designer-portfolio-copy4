@@ -17,7 +17,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
         className={cn(
           "text-sm px-4 py-2 rounded-full border transition-all duration-200",
           activeTag === null
-            ? "bg-[#09332C] text-[#F7EDDA] border-[#09332C]"
+            ? "bg-[#0F7353] text-[#F7EDDA] border-[#0F7353]"
             : "bg-transparent text-foreground/60 border-border"
         )}
       >

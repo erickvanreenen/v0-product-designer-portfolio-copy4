@@ -28,11 +28,11 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F7353] tracking-tight mb-8">
             Contact
           </h1>
           <blockquote className="max-w-2xl">
-            <p className="text-xl md:text-2xl font-bold text-[#09332C] leading-snug tracking-tight">
+            <p className="text-xl md:text-2xl font-bold text-[#0F7353] leading-snug tracking-tight">
               "The world needs dreamers and the world needs doers. But above all, what the world needs most are dreamers that do."
             </p>
             <cite className="block text-sm text-foreground/40 mt-4 not-italic">Sarah Ban Breathnach</cite>
@@ -46,11 +46,11 @@ export default function ContactPage() {
           <div className="mb-16 lg:mb-0">
             {isSubmitted ? (
               <div className="py-16">
-                <h2 className="text-2xl font-bold text-[#09332C] mb-2">Message sent.</h2>
+                <h2 className="text-2xl font-bold text-[#0F7353] mb-2">Message sent.</h2>
                 <p className="text-foreground/50 mb-6">I will respond within 48 hours.</p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="text-sm text-[#F0531C] underline underline-offset-4 hover:text-[#09332C] transition-colors duration-200"
+                  className="text-sm text-[#F0531C] underline underline-offset-4 hover:text-[#0F7353] transition-colors duration-200"
                 >
                   Send another
                 </button>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                   <input
                     type="text" id="name" name="name"
                     value={formState.name} onChange={handleChange} required
-                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#0F7353] transition-colors duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                   <input
                     type="email" id="email" name="email"
                     value={formState.email} onChange={handleChange} required
-                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#0F7353] transition-colors duration-200"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -80,13 +80,13 @@ export default function ContactPage() {
                   <textarea
                     id="message" name="message"
                     value={formState.message} onChange={handleChange} required rows={4}
-                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#09332C] transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-[#0F7353] transition-colors duration-200 resize-none"
                     placeholder="Tell me about your project."
                   />
                 </div>
                 <button
                   type="submit" disabled={isSubmitting}
-                  className="px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-[#0F7353] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Send message"}
                 </button>

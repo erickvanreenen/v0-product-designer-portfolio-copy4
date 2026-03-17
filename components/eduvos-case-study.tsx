@@ -126,7 +126,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0F7353] tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/55 max-w-xl leading-relaxed">
@@ -189,7 +189,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">The challenge</h2>
+            <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">The challenge</h2>
           </div>
           <section className="bg-white rounded-lg p-8 md:p-10 mb-8">
             <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">What needed solving</p>
@@ -213,7 +213,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Approach</h2>
+            <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Approach</h2>
           </div>
           <p className="text-base text-foreground/65 leading-relaxed mb-6">
             Structured the unified module so each exercise builds progressively toward the summative assessment. Clear learning objectives anchored every piece of content.
@@ -227,7 +227,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Formative assessment</h2>
+            <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Formative assessment</h2>
           </div>
 
           <div className="bg-[#f0f0f0] rounded-lg p-8 md:p-10 mb-12">
@@ -254,7 +254,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
                   "Prototype, screen recording, and usability test documentation",
                 ].map((req) => (
                   <div key={req} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#09332C]/20 mt-[0.4rem] shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F7353]/20 mt-[0.4rem] shrink-0" />
                     <p className="text-xs text-foreground/60 leading-relaxed">{req}</p>
                   </div>
                 ))}
@@ -274,7 +274,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
                   <span className="text-foreground/20">/</span>
                   <span className="text-xs text-foreground/40 font-medium uppercase tracking-widest">Exercise {i + 1}</span>
                 </div>
-                <h3 className="text-lg font-bold text-[#09332C] tracking-tight mb-2">{ex.title}</h3>
+                <h3 className="text-lg font-bold text-[#0F7353] tracking-tight mb-2">{ex.title}</h3>
                 <p className="text-sm text-foreground/50 leading-relaxed mb-6">{ex.objective}</p>
                 <div className="space-y-3 mb-8">
                   {ex.instructions.map((ins) => (
@@ -304,7 +304,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Summative assessment — Weeks 7 and 8</p>
           <div className="space-y-4">
             {summativeExercises.map((ex, i) => (
-              <div key={ex.week} className="bg-[#09332C] rounded-lg p-8 md:p-10">
+              <div key={ex.week} className="bg-[#0F7353] rounded-lg p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest">{ex.week}</span>
                   <span className="text-white/20">/</span>
@@ -345,7 +345,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C] tracking-tight">Reflection</h2>
+            <h2 className="text-3xl font-bold text-[#0F7353] tracking-tight">Reflection</h2>
           </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (
