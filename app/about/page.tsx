@@ -54,7 +54,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-[#F7EDDA] overflow-hidden">
+      <section className="bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
 
           {/* Logo mark + headline */}
