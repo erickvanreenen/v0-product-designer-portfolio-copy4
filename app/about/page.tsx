@@ -187,35 +187,47 @@ export default function AboutPage() {
 
             {/* Kerry — UX / collaboration focus */}
             <div className="bg-[#E2F5EF] rounded-lg p-8 md:p-10">
-              <p className="text-base text-foreground/80 leading-relaxed mb-4">
-                "Erick's ability to identify and define complex design problems and find simple solutions makes him a pleasure to work with on UX and UI tasks. The best leaders naturally inspire others. His positive mindset and clear communication motivates his team to work well together. His natural curiosity and proactivity makes him a vital asset for any task."
+              <p className="text-base text-foreground/80 leading-relaxed mb-6">
+                "I have worked alongside Erick as a senior visual and UX designer. Erick's calm nature and amazing ability to easily identify and define complex design problems and find simple, visually appealing solutions, makes him a pleasure to work with on UX and UI tasks. I have had the pleasure of collaborating with him on multiple design projects and he has been integral to the success of every one of them. The best leaders naturally inspire others and Erick's positive mindset and clear communication motivates others in his team to work well and efficiently together. His natural curiosity and proactivity makes him a vital asset for any task. He is always an absolute pleasure to work with."
               </p>
-              <div>
-                <p className="text-sm font-bold text-foreground">Kerry Sillifant</p>
-                <p className="text-xs text-foreground/58 mt-0.5">Senior UX Designer</p>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/kerry-sillifant-62911787/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-bold text-foreground hover:text-[#F0531C] transition-colors duration-200"
+              >
+                Kerry Sillifant
+              </a>
             </div>
 
             {/* Bernadine — strategic / technical */}
             <div className="bg-[#F7EDDA]/60 rounded-lg p-8 md:p-10">
-              <p className="text-base text-foreground/80 leading-relaxed mb-4">
-                "His ability to translate complex concepts into clear, compelling visuals is genuinely remarkable. He possesses exceptional technical skills and ensures every design is both functional and considered."
+              <p className="text-base text-foreground/80 leading-relaxed mb-6">
+                "As a senior visual designer, Erick brings experience and expertise to every project. His ability to translate complex concepts into captivating visuals is genuinely remarkable. He not only possesses exceptional technical skills but also has a keen eye for aesthetics, ensuring that every design he produces is not only functional but also aesthetically pleasing."
               </p>
-              <div>
-                <p className="text-sm font-bold text-foreground">Bernadine Mons</p>
-                <p className="text-xs text-foreground/58 mt-0.5">Senior Visual Designer</p>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/bernadinemons/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-bold text-foreground hover:text-[#F0531C] transition-colors duration-200"
+              >
+                Bernadine Mons
+              </a>
             </div>
 
             {/* Jabulani — delivery / quality */}
             <div className="bg-[#F7EDDA]/60 rounded-lg p-8 md:p-10">
-              <p className="text-base text-foreground/80 leading-relaxed mb-4">
-                "Erick consistently delivers work that meets and often exceeds client expectations. His attention to detail is unmatched, and his ability to transform ideas into engaging, functional designs sets him apart."
+              <p className="text-base text-foreground/80 leading-relaxed mb-6">
+                "Erick's creative prowess and dedication to design are truly remarkable. Throughout our time working together, I've witnessed Erick consistently deliver top-notch designs that not only meet but often exceed our clients' expectations. His attention to detail is unmatched, and he has an exceptional ability to transform ideas into visually captivating and engaging designs."
               </p>
-              <div>
-                <p className="text-sm font-bold text-foreground">Jabulani Magidivana</p>
-                <p className="text-xs text-foreground/58 mt-0.5">Colleague</p>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/jabulani-magidivana-39381b139/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-bold text-foreground hover:text-[#F0531C] transition-colors duration-200"
+              >
+                Jabulani Magidivana
+              </a>
             </div>
 
           </div>
