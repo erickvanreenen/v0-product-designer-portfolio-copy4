@@ -136,12 +136,9 @@ export default function AboutPage() {
 
         {/* Experience */}
         <section className="mb-24 pb-24 border-b border-border">
-          <div className="flex items-end justify-between gap-3 mb-12">
-            <div className="flex items-center gap-3">
-              <LogoMark size={16} color="#09332C" opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Experience</h2>
-            </div>
-            <span className="text-[80px] md:text-[112px] font-bold text-foreground/[0.06] leading-none tabular-nums select-none">7</span>
+          <div className="flex items-center gap-3 mb-12">
+            <LogoMark size={16} color="#09332C" opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Experience</h2>
           </div>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
