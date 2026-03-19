@@ -25,7 +25,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
@@ -60,7 +60,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Brief</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/85 leading-relaxed">
             Design a promoter app that streamlines event documentation, connecting promoters, agents, and artists throughout the advancing stage of event organisation.
@@ -71,7 +71,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Research</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Research</h2>
             </div>
           <p className="text-base text-foreground/85 leading-relaxed mb-4">
             Benchmarked leading event platforms globally.
@@ -85,117 +85,87 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Wireframes</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Wireframes</h2>
             </div>
-          <a
-            href="https://www.figma.com/design/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=204-473&t=u2tQAugiWCBFyvqv-1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <div className="bg-[#F7EDDA]/50 rounded-lg p-8 group-hover:bg-[#F7EDDA]/80 transition-colors duration-300">
-              {/* Three phone screens */}
-              <div className="flex items-end justify-center gap-4">
-                {/* Screen 1 */}
-                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm">
-                  <div className="h-1.5 w-10 bg-[#09332C]/20 rounded mb-3" />
-                  <div className="h-14 bg-[#09332C]/6 rounded mb-3" />
-                  <div className="space-y-1.5">
-                    <div className="h-1.5 bg-[#09332C]/12 rounded w-full" />
-                    <div className="h-1.5 bg-[#09332C]/12 rounded w-4/5" />
-                    <div className="h-1.5 bg-[#09332C]/8 rounded w-3/5" />
-                  </div>
-                  <div className="mt-3 h-7 bg-[#09332C]/15 rounded" />
+          <div className="bg-[#F7EDDA]/50 rounded-lg p-8 md:p-10">
+            <p className="text-xs text-foreground/58 font-medium uppercase tracking-widest mb-6">Screens covered</p>
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              {[
+                { label: "Event dashboard", desc: "Overview of all active events and outstanding document requests." },
+                { label: "Artist profile", desc: "Artist details, tech rider, and document submission status in one view." },
+                { label: "Document upload", desc: "Step-by-step upload flow with clear status feedback for all parties." },
+              ].map((item) => (
+                <div key={item.label} className="bg-white rounded-lg p-5">
+                  <p className="text-xs font-semibold text-foreground mb-2">{item.label}</p>
+                  <p className="text-xs text-foreground/65 leading-relaxed">{item.desc}</p>
                 </div>
-                {/* Screen 2 — slightly raised */}
-                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm mb-[-10px]">
-                  <div className="flex items-center gap-1.5 mb-3">
-                    <div className="w-5 h-5 rounded-full bg-[#09332C]/12" />
-                    <div className="flex-1">
-                      <div className="h-1.5 bg-[#09332C]/15 rounded mb-1" />
-                      <div className="h-1 bg-[#09332C]/8 rounded w-2/3" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-7 bg-[#09332C]/6 rounded" />
-                    <div className="h-7 bg-[#09332C]/6 rounded" />
-                    <div className="h-7 bg-[#09332C]/6 rounded" />
-                  </div>
-                </div>
-                {/* Screen 3 */}
-                <div className="w-28 bg-white rounded-xl border border-[#09332C]/10 p-3 shadow-sm">
-                  <div className="h-16 bg-[#09332C]/6 rounded mb-3 flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full bg-[#09332C]/15" />
-                  </div>
-                  <div className="h-1.5 w-full bg-[#09332C]/12 rounded mb-1.5" />
-                  <div className="h-1.5 w-2/3 bg-[#09332C]/8 rounded mb-3" />
-                  <div className="grid grid-cols-2 gap-1.5">
-                    <div className="h-5 bg-[#F0531C]/20 rounded" />
-                    <div className="h-5 bg-[#09332C]/8 rounded" />
-                  </div>
-                </div>
-              </div>
-              {/* Label */}
-              <div className="flex items-center justify-center gap-2 mt-8">
-                <p className="text-xs text-foreground/65 uppercase tracking-widest group-hover:text-foreground/65 transition-colors duration-200">Open in Figma</p>
-                <ArrowUpRight size={12} className="text-foreground/65 group-hover:text-[#F0531C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-              </div>
+              ))}
             </div>
-          </a>
+            <a
+              href="https://www.figma.com/design/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=204-473&t=u2tQAugiWCBFyvqv-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200 group"
+            >
+              Open in Figma
+              <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          </div>
         </section>
 
         {/* Prototype */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Prototype</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Prototype</h2>
             </div>
-          <a
-            href="https://www.figma.com/proto/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=324-839&t=hzQyEkisr6EUwGlc-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A6&starting-point-node-id=266%3A670&show-proto-sidebar=1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <div className="bg-[#E2F5EF] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#E2F5EF]/70 transition-colors duration-300">
-              {/* Phone outline */}
-              <div className="w-20 h-36 border-2 border-[#09332C]/15 rounded-2xl mb-8 flex flex-col items-center justify-between py-3 group-hover:border-[#09332C]/25 transition-colors duration-300">
-                <div className="w-5 h-1 bg-[#09332C]/20 rounded-full" />
-                <div className="space-y-1.5 w-full px-2">
-                  <div className="h-1 bg-[#09332C]/10 rounded w-full" />
-                  <div className="h-1 bg-[#09332C]/10 rounded w-3/4" />
-                  <div className="h-4 bg-[#F0531C]/25 rounded mt-2" />
+          <div className="bg-[#E2F5EF] rounded-lg p-8 md:p-10">
+            <p className="text-xs text-foreground/58 font-medium uppercase tracking-widest mb-6">What's in the prototype</p>
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              {[
+                { label: "Event creation", desc: "Promoter creates event with key details and document requirements." },
+                { label: "Document requests", desc: "Requests sent to agents and artists with deadlines and status tracking." },
+                { label: "Advancing flow", desc: "All parties complete document submission in a single coordinated workflow." },
+              ].map((item) => (
+                <div key={item.label} className="bg-white/70 rounded-lg p-5">
+                  <p className="text-xs font-semibold text-foreground mb-2">{item.label}</p>
+                  <p className="text-xs text-foreground/65 leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="w-4 h-4 rounded-full border border-[#09332C]/15" />
-              </div>
-              <div className="flex items-center gap-2">
-                <p className="text-xs text-[#09332C]/58 uppercase tracking-widest group-hover:text-[#09332C]/85 transition-colors duration-200">Open prototype</p>
-                <ArrowUpRight size={12} className="text-[#09332C]/30 group-hover:text-[#F0531C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-              </div>
+              ))}
             </div>
-          </a>
+            <a
+              href="https://www.figma.com/proto/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=324-839&t=hzQyEkisr6EUwGlc-1&scaling=scale-down-width&content-scaling=fixed&page-id=1%3A6&starting-point-node-id=266%3A670&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200 group"
+            >
+              Open prototype
+              <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          </div>
         </section>
 
         {/* Team */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Team</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Team</h2>
             </div>
-          <div className="space-y-4">
+          <div className="flex gap-16">
             <div>
-              <p className="text-sm text-foreground">Erick van Reenen</p>
-              <p className="text-xs text-foreground/58">UX Designer</p>
+              <p className="text-sm text-foreground font-medium">Erick van Reenen</p>
+              <p className="text-xs text-foreground/58 mt-1">UX Designer</p>
             </div>
             <div>
               <Link
                 href="https://nygaard.design/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200"
+                className="text-sm text-foreground font-medium hover:text-[#F0531C] transition-colors duration-200"
               >
                 Brent Nygaard
               </Link>
-              <p className="text-xs text-foreground/58">UI Designer</p>
+              <p className="text-xs text-foreground/58 mt-1">UI Designer</p>
             </div>
           </div>
         </section>
@@ -204,15 +174,15 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Timeline</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Timeline</h2>
             </div>
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-2xl font-bold text-[#09332C]/60">2 weeks</p>
+              <p className="text-2xl font-bold text-foreground">2 weeks</p>
               <p className="text-xs text-foreground/58 mt-1">UX</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-[#09332C]/60">2 weeks</p>
+              <p className="text-2xl font-bold text-foreground">2 weeks</p>
               <p className="text-xs text-foreground/58 mt-1">UI</p>
             </div>
           </div>

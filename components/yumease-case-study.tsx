@@ -23,7 +23,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
               <span key={tag} className="text-xs text-foreground/58">{tag}</span>
             ))}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
@@ -68,7 +68,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Brief</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Brief</h2>
             </div>
 
           <p className="text-base text-foreground/80 leading-relaxed mb-10">
@@ -90,7 +90,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Research</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Research</h2>
             </div>
           <p className="text-base text-foreground/80 leading-relaxed mb-10">
             User interviews, competitive analysis, and persona development shaped every design decision. Research ran alongside design, not before it.
@@ -112,7 +112,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Process</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Process</h2>
             </div>
           <div className="space-y-6">
             {[
@@ -136,7 +136,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Screens</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Screens</h2>
             </div>
           <div className="space-y-4">
             <div className="border border-border overflow-hidden">
@@ -169,7 +169,7 @@ export function YumeaseCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Reflection</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Reflection</h2>
             </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (

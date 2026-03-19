@@ -31,7 +31,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <span key={tag} className="text-xs text-foreground/58">{tag}</span>
             ))}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed mb-8">
@@ -90,7 +90,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Brief</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Brief</h2>
             </div>
           <p className="text-base text-foreground/80 leading-relaxed mb-10">
             Create visual and infographic assets for a Business Systems Analysis course built in Articulate Rise. Work within the learning designer's content structure. Communicate complex conceptual models clearly and accessibly.
@@ -110,7 +110,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Approach</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Approach</h2>
             </div>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Visual design in service of learning</p>
 
@@ -134,7 +134,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Insights</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Insights</h2>
             </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
@@ -151,30 +151,33 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
           <section className="mb-24">
             <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Live experience</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Live experience</h2>
             </div>
-            <a
-              href={project.externalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group"
-            >
-              <div className="bg-[#E2F5EF] rounded-lg px-8 py-14 flex flex-col items-center justify-center text-center group-hover:bg-[#E2F5EF]/70 transition-colors duration-300">
-                {/* Abstract content indicator */}
-                <div className="w-40 h-24 border border-[#09332C]/10 rounded-lg mb-8 flex flex-col justify-between p-4 group-hover:border-[#09332C]/20 transition-colors duration-300">
-                  <div className="space-y-1.5">
-                    <div className="h-1 bg-[#09332C]/10 rounded w-full" />
-                    <div className="h-1 bg-[#09332C]/10 rounded w-4/5" />
-                    <div className="h-1 bg-[#09332C]/10 rounded w-3/5" />
+            <div className="bg-[#E2F5EF] rounded-lg p-8 md:p-10">
+              <p className="text-xs text-foreground/58 font-medium uppercase tracking-widest mb-6">What the course covers</p>
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                {[
+                  { label: "Systems thinking", desc: "Conceptual models and stakeholder mapping made visual through infographic design." },
+                  { label: "Process flows", desc: "Business process analysis represented as accessible, structured visual assets." },
+                  { label: "Requirements mapping", desc: "Functional and non-functional requirements communicated through clear layout hierarchy." },
+                  { label: "Responsive layout", desc: "All content built in Articulate Rise for consistent delivery across devices." },
+                ].map((item) => (
+                  <div key={item.label} className="bg-white/70 rounded-lg p-5">
+                    <p className="text-xs font-semibold text-foreground mb-2">{item.label}</p>
+                    <p className="text-xs text-foreground/65 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="h-5 bg-[#F0531C]/25 rounded" />
-                </div>
-                <div className="flex items-center gap-2">
-                  <p className="text-xs text-[#09332C]/58 uppercase tracking-widest group-hover:text-[#09332C]/85 transition-colors duration-200">Open in Articulate Rise</p>
-                  <ArrowUpRight size={12} className="text-[#09332C]/30 group-hover:text-[#F0531C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-                </div>
+                ))}
               </div>
-            </a>
+              <a
+                href={project.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200 group"
+              >
+                Open in Articulate Rise
+                <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+              </a>
+            </div>
           </section>
         )}
 
@@ -195,7 +198,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Reflection</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Reflection</h2>
             </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (

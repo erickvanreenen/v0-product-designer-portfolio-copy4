@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="mt-2 shrink-0">
               <LogoMark size={44} />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C]/60 tracking-tight leading-none">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-none">
               Follow the curiosity.
             </h1>
           </div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
         <section className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
             <LogoMark size={16} color="#09332C" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C]/60 tracking-tight">Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Experience</h2>
           </div>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
@@ -162,7 +162,7 @@ export default function AboutPage() {
         <section className="mb-24 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
             <LogoMark size={16} color="#09332C" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C]/60 tracking-tight">Education</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Education</h2>
           </div>
           <div className="space-y-8">
             {education.map((edu) => (
@@ -181,7 +181,7 @@ export default function AboutPage() {
         <section className="mb-0 pb-24 border-b border-border">
           <div className="flex items-center gap-3 mb-12">
             <LogoMark size={16} color="#09332C" opacity={0.25} />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C]/60 tracking-tight">Skills + Tooling</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Skills + Tooling</h2>
           </div>
           <div className="space-y-12">
             <div>
@@ -227,7 +227,7 @@ export default function AboutPage() {
               <LogoMark size={28} color="#F0531C" />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#09332C]/60 tracking-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">
                 Open to opportunities.
               </h2>
               <p className="text-foreground/65 mb-8 max-w-md">

@@ -404,7 +404,7 @@ export const projects: Project[] = [
     role: "Content Writer",
     team: "Academic Team, Learning Designers",
     timeline: "May 2024 – Present",
-    tools: ["Figma", "Adobe Creative Suite", "Google Docs"],
+    tools: ["Figma", "Adobe Creative Suite", "Google Docs", "Moodle"],
     thumbnail: "/images/thumb-edtech.svg",
     outcomes: [
       "Unified UX and UI module delivered",

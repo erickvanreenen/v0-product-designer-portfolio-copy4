@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     <div>
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C]/60 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-4">
             Projects
           </h1>
           <p className="text-[#F0531C] max-w-lg">
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
               <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">
                 Discipline
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#09332C]/60 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
                 EdTech
               </h2>
             </div>

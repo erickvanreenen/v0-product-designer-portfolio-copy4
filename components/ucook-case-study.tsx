@@ -74,7 +74,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
@@ -103,18 +103,18 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       </section>
 
       {/* Key metrics */}
-      <section className="bg-[#f0f0f0]">
+      <section className="bg-[#E2F5EF]">
         <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-          <div className="grid md:grid-cols-3 gap-px bg-[#dcdcdc]">
-            <div className="bg-[#f0f0f0] p-8 text-center">
+          <div className="grid md:grid-cols-3 gap-px bg-[#09332C]/10">
+            <div className="bg-[#E2F5EF] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-foreground/35">3.7%</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">old completion rate</p>
             </div>
-            <div className="bg-[#f0f0f0] p-8 text-center">
+            <div className="bg-[#E2F5EF] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
-            <div className="bg-[#f0f0f0] p-8 text-center">
+            <div className="bg-[#E2F5EF] p-8 text-center">
               <p className="text-4xl md:text-5xl font-bold text-[#09332C]/60">~R1.3M</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
@@ -149,7 +149,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">The Problem</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">The Problem</h2>
             </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -176,7 +176,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Goals</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Goals</h2>
             </div>
           <div className="space-y-6">
             {project.goals.map((goal, i) => (
@@ -209,7 +209,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Research</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Research</h2>
             </div>
           <p className="text-sm text-foreground/58 mb-10">Seven stages. Mixed methods.</p>
 
@@ -229,7 +229,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   {i < arr.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-sm font-bold text-[#09332C]/60">{step.title}</h3>
+                  <h3 className="text-sm font-bold text-foreground">{step.title}</h3>
                   <p className="text-sm text-foreground/65 mt-1">{step.desc}</p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Insights</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Insights</h2>
             </div>
           <div className="space-y-6">
             {project.insights.map((insight, i) => (
@@ -270,7 +270,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             <LogoMark size={16} opacity={0.25} />
             <div>
               <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Option considered</p>
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Pay on Sign Up</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Pay on Sign Up</h2>
             </div>
           </div>
           <p className="text-base text-foreground/85 leading-relaxed mb-10">
@@ -293,9 +293,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { label: "Pay", step: 5, accent: true },
                 { label: "Auto-profile", step: 6 },
               ].map(({ label, step, accent }) => (
-                <div key={label} className={`p-5 ${accent ? "bg-[#F0531C]/5" : "bg-background"}`}>
-                  <p className={`text-xs font-bold mb-2 ${accent ? "text-[#F0531C]/30" : "text-foreground/35"}`}>{String(step).padStart(2, "0")}</p>
-                  <p className={`text-sm ${accent ? "text-[#F0531C]/60" : "text-foreground/75"}`}>{label}</p>
+                <div key={label} className={`p-5 ${accent ? "bg-[#E2F5EF]" : "bg-white"}`}>
+                  <p className={`text-xs font-bold mb-2 ${accent ? "text-[#F0531C]" : "text-foreground/35"}`}>{String(step).padStart(2, "0")}</p>
+                  <p className={`text-sm ${accent ? "text-foreground font-semibold" : "text-foreground/75"}`}>{label}</p>
                 </div>
               ))}
             </div>
@@ -329,7 +329,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Solution</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Solution</h2>
             </div>
 
           <p className="text-base text-foreground/85 leading-relaxed mb-10">
@@ -361,20 +361,20 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   <div className="flex items-center gap-1.5 flex-wrap">
                     {steps.map((step, j) => (
                       <React.Fragment key={j}>
-                        <span className="text-xs text-foreground/58">{step}</span>
-                        <span className="text-foreground/15 text-xs">→</span>
+                        <span className="text-xs text-foreground/80">{step}</span>
+                        <span className="text-foreground/40 text-xs">→</span>
                       </React.Fragment>
                     ))}
                   </div>
                   <div className="flex items-center gap-1.5 shrink-0">
                     <span className="text-xs px-3 py-1.5 bg-[#E2F5EF] text-[#09332C]/85 rounded font-medium">Plans</span>
-                    <span className="text-foreground/15 text-xs">→</span>
-                    <span className="text-xs px-3 py-1.5 border border-[#F0531C]/25 text-[#F0531C] rounded font-medium">Activated</span>
+                    <span className="text-foreground/40 text-xs">→</span>
+                    <span className="text-xs px-3 py-1.5 border border-[#F0531C]/60 text-[#F0531C] rounded font-medium">Activated</span>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-foreground/25 mt-4">Four paths. One outcome. No dead ends.</p>
+            <p className="text-xs text-foreground/55 mt-4">Four paths. One outcome. No dead ends.</p>
           </div>
 
           {/* Wireframes */}
@@ -405,7 +405,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { title: "Progress tracking", desc: "GTM triggers per funnel step." },
               ].map((spec) => (
                 <div key={spec.title} className="bg-white p-6">
-                  <p className="text-sm font-mono font-bold text-[#09332C]/60">{spec.title}</p>
+                  <p className="text-sm font-bold text-foreground">{spec.title}</p>
                   <p className="text-xs text-foreground/58 mt-1">{spec.desc}</p>
                 </div>
               ))}
@@ -417,7 +417,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Results</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Results</h2>
             </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -500,7 +500,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
               <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Reflection</h2>
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">Reflection</h2>
             </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (

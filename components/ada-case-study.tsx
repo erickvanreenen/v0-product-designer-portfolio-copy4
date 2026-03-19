@@ -116,7 +116,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
@@ -145,7 +145,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
       </section>
 
       {/* Outcomes */}
-      <section className="bg-[#f0f0f0]">
+      <section className="bg-[#E2F5EF]">
         <div className="max-w-5xl mx-auto px-6 py-10">
           <p className="text-xs text-foreground/58 font-medium uppercase tracking-widest mb-6">Outcomes</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -172,11 +172,95 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
           </p>
         </section>
 
+        {/* Slides */}
+        <section className="mb-24">
+          <div className="flex items-center gap-3 mb-4">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">From the slides</h2>
+          </div>
+          <p className="text-sm text-foreground/58 mb-10">
+            A snapshot of slide content from the module. This is pre-AI-takeover material — foundational theory built from scratch and delivered in person.
+          </p>
+
+          {/* Slide deck 01 */}
+          <div className="bg-[#09332C] rounded-lg p-8 md:p-10 mb-4">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs text-[#F0531C] font-medium uppercase tracking-widest">Slide deck 01</span>
+            </div>
+            <h3 className="text-xl font-bold text-[#F7EDDA] tracking-tight mb-2">Introduction to UX Design</h3>
+            <p className="text-sm text-[#F7EDDA]/65 leading-relaxed mb-8">Roles in the web industry and where UX sits within it.</p>
+
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                { role: "UX Designer", note: "Researches user needs. Designs solutions to real problems." },
+                { role: "UI Designer", note: "Colour, typography, layout, and component systems." },
+                { role: "Front-End Developer", note: "Builds interfaces with HTML, CSS, and JavaScript." },
+                { role: "Back-End Developer", note: "Servers, databases, and product logic." },
+                { role: "Full Stack Developer", note: "Covers both front-end and back-end." },
+                { role: "Product Manager", note: "Owns the product vision. Aligns team delivery." },
+                { role: "Content Designer", note: "Words, structure, and tone in the product." },
+                { role: "Copywriter", note: "Marketing and interface copy." },
+                { role: "SEO Specialist", note: "Optimises content for search visibility." },
+                { role: "DTP Specialist", note: "Layout and print-ready document production." },
+              ].map((item) => (
+                <div key={item.role} className="bg-white/8 rounded p-4 flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.35rem] shrink-0" />
+                  <div>
+                    <p className="text-xs font-semibold text-[#F7EDDA] mb-0.5">{item.role}</p>
+                    <p className="text-xs text-[#F7EDDA]/55 leading-relaxed">{item.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Slide deck 02 */}
+          <div className="bg-[#09332C] rounded-lg p-8 md:p-10 mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs text-[#F0531C] font-medium uppercase tracking-widest">Slide deck 02</span>
+            </div>
+            <h3 className="text-xl font-bold text-[#F7EDDA] tracking-tight mb-2">Overview — Birth of UX</h3>
+            <p className="text-sm text-[#F7EDDA]/65 leading-relaxed mb-8">How design shifted from engineering-led to human-centred.</p>
+
+            <div className="space-y-3 mb-8">
+              {[
+                { year: "1975", title: "Altair 8800", note: "Early personal computers were built for engineers. The user was not a consideration." },
+                { year: "1984", title: "Apple Macintosh", note: "The GUI made computing accessible. Usability entered product thinking for the first time." },
+                { year: "1988", title: "Don Norman at Apple", note: "Norman coined 'user experience' to describe the full interaction a person has with a product." },
+                { year: "1990s", title: "UX as a discipline", note: "The term entered industry vocabulary. Human-centred design became a formal practice." },
+              ].map((item) => (
+                <div key={item.year} className="bg-white/8 rounded p-4 flex gap-5">
+                  <p className="text-xs font-bold text-[#F0531C] w-10 shrink-0 pt-0.5">{item.year}</p>
+                  <div>
+                    <p className="text-xs font-semibold text-[#F7EDDA] mb-0.5">{item.title}</p>
+                    <p className="text-xs text-[#F7EDDA]/55 leading-relaxed">{item.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-white/8 rounded p-5">
+              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">Paradigm shift</p>
+              <div className="flex items-center gap-4">
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-[#F7EDDA]/50 line-through">Engineer / Machine</p>
+                  <p className="text-xs text-[#F7EDDA]/35 mt-1">Technology first</p>
+                </div>
+                <div className="text-[#F0531C] text-lg font-bold">→</div>
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-[#F7EDDA]">Human / Experience</p>
+                  <p className="text-xs text-[#F7EDDA]/55 mt-1">People first</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What I taught */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">What I taught</h2>
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">What I taught</h2>
           </div>
 
           <div className="space-y-4">
@@ -185,7 +269,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-xs text-[#F0531C] font-medium uppercase tracking-widest">{lesson.module}</span>
                 </div>
-                <h3 className="text-lg font-bold text-[#09332C]/60 tracking-tight mb-2">{lesson.title}</h3>
+                <h3 className="text-lg font-bold text-foreground tracking-tight mb-2">{lesson.title}</h3>
                 <p className="text-sm text-foreground/65 leading-relaxed mb-8">{lesson.description}</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {lesson.topics.map((topic) => (
@@ -207,7 +291,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Assessments</h2>
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">Assessments</h2>
           </div>
           <p className="text-base text-foreground/80 leading-relaxed mb-12">
             Both summative assessments were designed to mirror real industry workflows. Students were not given hypothetical scenarios -- they worked with real apps, real competitors, and real users.
@@ -225,7 +309,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
               <span className="text-foreground/35">/</span>
               <span className="text-xs text-foreground/58 font-medium uppercase tracking-widest">{module1Assessment.weighting}</span>
             </div>
-            <h3 className="text-lg font-bold text-[#09332C]/60 tracking-tight mb-3">{module1Assessment.title}</h3>
+            <h3 className="text-lg font-bold text-foreground tracking-tight mb-3">{module1Assessment.title}</h3>
             <p className="text-sm text-foreground/70 leading-relaxed mb-8">{module1Assessment.description}</p>
 
             {/* Persona */}
@@ -287,7 +371,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
               <span className="text-[#09332C]/35">/</span>
               <span className="text-xs text-[#09332C]/58 font-medium uppercase tracking-widest">{module3Assessment.weighting}</span>
             </div>
-            <h3 className="text-lg font-bold text-[#09332C]/60 tracking-tight mb-3">{module3Assessment.title}</h3>
+            <h3 className="text-lg font-bold text-foreground tracking-tight mb-3">{module3Assessment.title}</h3>
             <p className="text-sm text-[#09332C]/70 leading-relaxed mb-8">{module3Assessment.description}</p>
 
             {/* Apps benchmarked */}
@@ -336,7 +420,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
-            <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight">Reflection</h2>
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">Reflection</h2>
           </div>
           <div className="space-y-6">
             {project.learnings.map((learning, i) => (

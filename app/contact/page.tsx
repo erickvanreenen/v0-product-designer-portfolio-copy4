@@ -28,11 +28,11 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C]/60 tracking-tight mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-8">
             Contact
           </h1>
           <blockquote className="max-w-2xl">
-            <p className="text-xl md:text-2xl font-bold text-[#09332C]/60 leading-snug tracking-tight">
+            <p className="text-xl md:text-2xl font-bold text-foreground leading-snug tracking-tight">
               "The world needs dreamers and the world needs doers. But above all, what the world needs most are dreamers that do."
             </p>
             <cite className="block text-sm text-foreground/58 mt-4 not-italic">Sarah Ban Breathnach</cite>
@@ -46,7 +46,7 @@ export default function ContactPage() {
           <div className="mb-16 lg:mb-0">
             {isSubmitted ? (
               <div className="py-16">
-                <h2 className="text-2xl font-bold text-[#09332C]/60 mb-2">Message sent.</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Message sent.</h2>
                 <p className="text-foreground/65 mb-6">I will respond within 48 hours.</p>
                 <button
                   onClick={() => setIsSubmitted(false)}

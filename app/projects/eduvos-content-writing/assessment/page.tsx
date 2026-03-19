@@ -124,7 +124,7 @@ export default function AssessmentPage() {
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C]/60 tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             Formative Assessment Brief
           </h1>
           <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
@@ -152,7 +152,7 @@ export default function AssessmentPage() {
       </section>
 
       {/* Learning Objective */}
-      <section className="bg-[#f0f0f0]">
+      <section className="bg-[#E2F5EF]">
         <div className="max-w-3xl mx-auto px-6 py-10">
           <p className="text-xs text-foreground/58 font-medium uppercase tracking-widest mb-4">Learning Objective</p>
           <p className="text-base text-foreground/85 leading-relaxed">
@@ -165,7 +165,7 @@ export default function AssessmentPage() {
 
         {/* Brief Topic */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-6">Brief topic</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-6">Brief topic</h2>
           <p className="text-base text-foreground/85 leading-relaxed">
             You are tasked with identifying an existing non-profit organisation that has a poorly designed website. Your goal is to revamp the website, aligning it with modern UI and UX principles to improve user interaction and overall experience. The project includes developing user personas, creating a mid-fidelity prototype, and performing usability testing to validate your design. Finally, you will present your findings and design updates in a live presentation.
           </p>
@@ -173,7 +173,7 @@ export default function AssessmentPage() {
 
         {/* Scope */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-6">Scope</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-6">Scope</h2>
           <p className="text-base text-foreground/85 leading-relaxed">
             This brief will consist of six exercises spanning six weeks, focusing on each step in the UI/UX design process. Each exercise will build on the skills and knowledge covered in class, helping you progress toward the final website revamp and usability testing. Completion of these exercises is essential to prepare for the final summative assessment in weeks 7 and 8.
           </p>
@@ -181,7 +181,7 @@ export default function AssessmentPage() {
 
         {/* Delivery Requirements */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-10">Delivery requirements</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-10">Delivery requirements</h2>
           <div className="space-y-6">
             {[
               "A digital portfolio containing all required deliverables for the brief.",
@@ -198,7 +198,7 @@ export default function AssessmentPage() {
 
         {/* Formative Exercises */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-2">Exercises and deliverables</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-2">Exercises and deliverables</h2>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-12">Formative — Weeks 1 to 6</p>
           <div className="space-y-12">
             {exercises.map((ex) => (
@@ -208,7 +208,7 @@ export default function AssessmentPage() {
                   <span className="text-foreground/35">/</span>
                   <span className="text-xs text-foreground/58 font-medium uppercase tracking-widest">{ex.label}</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#09332C]/60 tracking-tight mb-3">{ex.title}</h3>
+                <h3 className="text-xl font-bold text-foreground tracking-tight mb-3">{ex.title}</h3>
                 <p className="text-sm text-[#F0531C] font-medium mb-6">{ex.objective}</p>
                 <div className="space-y-3 mb-8">
                   {ex.instructions.map((ins, i) => (
@@ -235,7 +235,7 @@ export default function AssessmentPage() {
 
         {/* Summative */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-2">Summative assessment</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-2">Summative assessment</h2>
           <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-12">Weeks 7 and 8</p>
           <div className="space-y-12">
             {summative.map((ex) => (
@@ -245,7 +245,7 @@ export default function AssessmentPage() {
                   <span className="text-foreground/35">/</span>
                   <span className="text-xs text-foreground/58 font-medium uppercase tracking-widest">{ex.label}</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#09332C]/60 tracking-tight mb-3">{ex.title}</h3>
+                <h3 className="text-xl font-bold text-foreground tracking-tight mb-3">{ex.title}</h3>
                 <p className="text-sm text-[#F0531C] font-medium mb-6">{ex.objective}</p>
                 <div className="space-y-3 mb-8">
                   {ex.instructions.map((ins, i) => (
@@ -272,7 +272,7 @@ export default function AssessmentPage() {
 
         {/* Minimum Requirements */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-[#09332C]/60 tracking-tight mb-10">Minimum research requirements</h2>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-10">Minimum research requirements</h2>
           <div className="space-y-6">
             {[
               "User personas should be detailed and visually engaging.",

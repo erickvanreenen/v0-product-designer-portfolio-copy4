@@ -54,7 +54,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
 
           {/* Title + subtitle */}
           <div>
-            <h3 className="text-2xl font-bold text-[#09332C]/60 group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
+            <h3 className="text-2xl font-bold text-foreground group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
               {project.title}
             </h3>
             <p className="text-sm text-foreground/70 leading-relaxed">
