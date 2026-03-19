@@ -1,10 +1,10 @@
 "use client";
 import { LogoMark } from "@/components/logo-mark";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, X, ZoomIn } from "lucide-react";
 // ArrowLeft retained for navigation section
 
 interface OvertureCaseStudyProps {
@@ -14,6 +14,24 @@ interface OvertureCaseStudyProps {
 }
 
 export function OvertureCaseStudy({ project, nextProject, prevProject }: OvertureCaseStudyProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+    };
+    if (lightboxOpen) {
+      document.addEventListener("keydown", handleKey);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxOpen]);
+
   return (
     <div>
       {/* Hero */}
@@ -84,31 +102,49 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         {/* Wireframes */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl font-bold text-foreground tracking-tight">Wireframes</h2>
-            </div>
-          <div className="bg-[#F7EDDA]/50 rounded-lg overflow-hidden">
-            <div className="overflow-x-auto">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">Wireframes</h2>
+          </div>
+          <div
+            className="bg-[#F7EDDA]/50 rounded-lg overflow-hidden cursor-zoom-in relative group"
+            onClick={() => setLightboxOpen(true)}
+          >
+            <div className="overflow-hidden">
               <img
                 src="/images/overture-wireframes.svg"
                 alt="Overture wireframe screens"
-                className="w-full max-w-none"
-                style={{ minWidth: "800px" }}
+                className="w-full transition-transform duration-300 group-hover:scale-[1.01]"
               />
             </div>
-            <div className="px-8 pb-8 pt-6">
-              <a
-                href="https://www.figma.com/design/QdoSI1orZciqLgNdeuwweb/Overture---Promoter-App?node-id=204-473&t=u2tQAugiWCBFyvqv-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200 group"
-              >
-                Open in Figma
-                <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-              </a>
+            <div className="absolute bottom-4 right-4 bg-white/90 rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+              <ZoomIn size={12} />
+              Expand
             </div>
           </div>
         </section>
+
+        {/* Wireframes lightbox */}
+        {lightboxOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 flex items-start justify-center overflow-auto p-4 md:p-8"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <div className="relative w-full max-w-7xl" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={() => setLightboxOpen(false)}
+                className="sticky top-0 left-full mb-4 flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-full px-4 py-2 text-xs font-medium transition-colors duration-200 ml-auto"
+              >
+                <X size={14} />
+                Close
+              </button>
+              <img
+                src="/images/overture-wireframes.svg"
+                alt="Overture wireframe screens"
+                className="w-full rounded-lg"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Prototype */}
         <section className="mb-24">
