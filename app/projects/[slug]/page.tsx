@@ -5,7 +5,6 @@ import { UCookCaseStudy } from "@/components/ucook-case-study";
 import { FlanksourceCaseStudy } from "@/components/flanksource-case-study";
 import { OvertureCaseStudy } from "@/components/overture-case-study";
 import { FtnCaseStudy } from "@/components/ftn-case-study";
-import { YumeaseCaseStudy } from "@/components/yumease-case-study";
 import { EdtechCaseStudy } from "@/components/edtech-case-study";
 import { EduvosCaseStudy } from "@/components/eduvos-case-study";
 import { AdaCaseStudy } from "@/components/ada-case-study";
@@ -90,16 +89,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (slug === "faithful-to-nature") {
     return (
       <FtnCaseStudy
-        project={project}
-        nextProject={nextProject}
-        prevProject={prevProject}
-      />
-    );
-  }
-
-  if (slug === "yumease") {
-    return (
-      <YumeaseCaseStudy
         project={project}
         nextProject={nextProject}
         prevProject={prevProject}

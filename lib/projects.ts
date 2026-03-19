@@ -217,53 +217,6 @@ export const projects: Project[] = [
     images: []
   },
   {
-    slug: "yumease",
-    title: "YumEase",
-    subtitle: "Mobile app design from inception to launch",
-    tags: ["App", "UX Strategy"],
-    role: "Sole UX Designer",
-    team: "2 Developers, Product Manager, QA Tester",
-    timeline: "July 2023 - August 2024",
-    tools: ["Figma", "Miro", "Jira"],
-    thumbnail: "/images/thumb-yumease.svg",
-    outcomes: [
-      "Successfully launched app",
-      "4.5 star average rating",
-      "Reduced onboarding drop-off by 40%",
-      "Positive user feedback on ease of use"
-    ],
-    summary: "As the sole UX Designer, I shaped the entire user experience of YumEase from concept to launch, working within a cross-functional team to deliver an intuitive and delightful mobile app.",
-    context: "YumEase needed a user-centered approach to design a new mobile app in a competitive market. As the only designer on the team, I was responsible for all aspects of the user experience.",
-    goals: [
-      "Create an intuitive onboarding experience",
-      "Design a simple and efficient core user flow",
-      "Establish a cohesive visual design system",
-      "Ensure accessibility across the app"
-    ],
-    research: "Conducted user interviews, competitive analysis, and created personas to understand user needs and behaviours. Used findings to inform all design decisions throughout the project.",
-    insights: [
-      "Users valued simplicity over feature richness",
-      "Quick access to core functionality was essential",
-      "Social proof significantly influenced user trust",
-      "Clear progress indicators reduced anxiety"
-    ],
-    iaFlows: "Designed information architecture that prioritized the most common user tasks. Created detailed user flows and journey maps to ensure a smooth experience from first open to regular use.",
-    designExploration: "Explored multiple visual directions and interaction patterns. Conducted rapid prototyping and testing cycles to validate concepts before development.",
-    finalUI: "Delivered a clean, modern design system with consistent components, clear typography, and an approachable colour palette that reflected the app's friendly personality.",
-    testing: "Iterative usability testing throughout development with both internal and external users. Quick feedback loops allowed for rapid improvements.",
-    outcome: "App launched successfully with positive user reception. Achieved 4.5 star rating with users specifically praising the intuitive design and ease of use.",
-    learnings: [
-      "Importance of close collaboration with developers",
-      "Value of early and frequent user testing",
-      "Benefits of design system documentation"
-    ],
-    images: [
-      { src: "/images/yumease-personas.jpg", caption: "User personas developed from research" },
-      { src: "/images/yumease-flows.jpg", caption: "User flow mapping for core functionality", wide: true },
-      { src: "/images/yumease-screens.jpg", caption: "Final app screens showing key features", wide: true }
-    ]
-  },
-  {
     slug: "edtech-interactive-learning",
     title: "Business Systems Analysis Programme",
     subtitle: "Visual and infographic design for Masterstart, Stellenbosch Business School",
