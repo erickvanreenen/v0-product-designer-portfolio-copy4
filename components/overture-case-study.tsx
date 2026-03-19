@@ -116,7 +116,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
                 className="w-full transition-transform duration-300 group-hover:scale-[1.01]"
               />
             </div>
-            <div className="absolute bottom-4 right-4 bg-white/90 rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+            <div className="absolute bottom-4 right-4 bg-[#09332C] rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-white pointer-events-none">
               <ZoomIn size={12} />
               Expand
             </div>
