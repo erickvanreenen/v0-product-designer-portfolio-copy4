@@ -229,14 +229,14 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
               <LogoMark size={16} opacity={0.25} />
               <h2 className="text-3xl font-bold text-foreground tracking-tight">Timeline</h2>
             </div>
-          <div className="grid grid-cols-2 gap-8 items-center">
-            <div>
+          <div className="flex gap-16">
+            <div className="flex items-baseline gap-3">
               <p className="text-2xl font-bold text-foreground">2 weeks</p>
-              <p className="text-xs text-foreground/58 mt-1">UX</p>
+              <p className="text-xs text-foreground/58 uppercase tracking-widest font-medium">UX</p>
             </div>
-            <div>
+            <div className="flex items-baseline gap-3">
               <p className="text-2xl font-bold text-foreground">2 weeks</p>
-              <p className="text-xs text-foreground/58 mt-1">UI</p>
+              <p className="text-xs text-foreground/58 uppercase tracking-widest font-medium">UI</p>
             </div>
           </div>
         </section>
