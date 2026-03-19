@@ -106,17 +106,17 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
             <h2 className="text-3xl font-bold text-foreground tracking-tight">Wireframes</h2>
           </div>
           <div
-            className="bg-[#F7EDDA]/50 rounded-lg overflow-hidden cursor-zoom-in relative group"
+            className="bg-[#F7EDDA]/50 rounded-lg cursor-zoom-in relative group p-6 md:p-10"
             onClick={() => setLightboxOpen(true)}
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden rounded-md">
               <img
                 src="/images/overture-wireframes.svg"
                 alt="Overture wireframe screens"
                 className="w-full transition-transform duration-300 group-hover:scale-[1.01]"
               />
             </div>
-            <div className="absolute bottom-4 right-4 bg-[#09332C] rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-white pointer-events-none">
+            <div className="absolute bottom-8 right-8 bg-[#09332C] rounded-full px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-white pointer-events-none">
               <ZoomIn size={12} />
               Expand
             </div>
@@ -126,13 +126,13 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
         {/* Wireframes lightbox */}
         {lightboxOpen && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-start justify-center overflow-auto p-4 md:p-8"
+            className="fixed inset-0 z-50 bg-[#F7EDDA]/95 flex items-start justify-center overflow-auto p-6 md:p-12"
             onClick={() => setLightboxOpen(false)}
           >
             <div className="relative w-full max-w-7xl" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setLightboxOpen(false)}
-                className="sticky top-0 left-full mb-4 flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-full px-4 py-2 text-xs font-medium transition-colors duration-200 ml-auto"
+                className="sticky top-0 left-full mb-4 flex items-center gap-2 bg-[#09332C] hover:bg-[#09332C]/80 text-white rounded-full px-4 py-2 text-xs font-medium transition-colors duration-200 ml-auto"
               >
                 <X size={14} />
                 Close
