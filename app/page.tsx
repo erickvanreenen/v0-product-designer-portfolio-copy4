@@ -38,6 +38,20 @@ export default function HomePage() {
               Get in touch
             </Link>
           </div>
+
+          {/* Stats */}
+          <div className="mt-16 pt-12 border-t border-[#09332C]/10 grid grid-cols-3 gap-8">
+            {[
+              { num: "15", label: "Years across design and business" },
+              { num: "3", label: "Core domains: e-commerce, omnichannel, EdTech" },
+              { num: "8+", label: "Projects in portfolio" },
+            ].map((stat) => (
+              <div key={stat.num}>
+                <p className="text-3xl md:text-4xl font-bold text-foreground tabular-nums">{stat.num}</p>
+                <p className="text-xs text-foreground/55 mt-1.5 leading-relaxed">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -50,23 +50,10 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 px-6 pt-5 pb-6 gap-4">
+        <div className="flex flex-col flex-1 px-6 pt-5 pb-6">
 
-          {/* Title + subtitle */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
-              {project.title}
-            </h3>
-            <p className="text-sm text-foreground/70 leading-relaxed">
-              {project.subtitle}
-            </p>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-border" />
-
-          {/* Tags — Venetian Lace fill */}
-          <div className="flex flex-wrap gap-2 flex-1">
+          {/* Tags — top */}
+          <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
@@ -77,11 +64,22 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             ))}
           </div>
 
-          {/* Key outcome */}
+          {/* Title + subtitle */}
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold text-foreground group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
+              {project.title}
+            </h3>
+            <p className="text-sm text-foreground/70 leading-relaxed">
+              {project.subtitle}
+            </p>
+          </div>
+
+          {/* Key outcome — prominent */}
           {project.outcomes[0] && (
-            <div className="pt-4 border-t border-border">
-              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1.5">Key outcome</p>
-              <p className="text-sm text-foreground/80 leading-relaxed">{project.outcomes[0]}</p>
+            <div className="mt-6 pt-5 border-t border-border">
+              <div className="border-l-2 border-[#F0531C] pl-4">
+                <p className="text-sm text-foreground/80 leading-relaxed">{project.outcomes[0]}</p>
+              </div>
             </div>
           )}
 
