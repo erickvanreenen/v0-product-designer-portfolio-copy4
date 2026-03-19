@@ -100,7 +100,6 @@ export default function AboutPage() {
         {/* Bio */}
         <section className="mb-24">
           <div className="max-w-2xl">
-            <p className="text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-none mb-8 tabular-nums">15<span className="text-[#F0531C]">.</span></p>
             <p className="text-xl text-foreground font-medium leading-relaxed mb-6">
               I came to UX through a longer route than most.
             </p>
