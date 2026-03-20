@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Icon } from "@/components/material-icon";
+import { PrintsCarousel } from "@/components/prints-carousel";
 
 export const metadata: Metadata = {
   title: "About | Erick van Reenen",
@@ -128,14 +129,22 @@ export default function AboutPage() {
         </section>
 
         {/* Beyond work */}
-        <section className="mb-24 pb-24 border-b border-border">
+        <section className="mb-24 pb-16 border-b border-border">
           <div className="flex items-center gap-3 mb-6">
             <LogoMark size={16} color="#09332C" opacity={0.25} />
             <h2 className="text-xs text-foreground/65 font-medium uppercase tracking-widest">Beyond work</h2>
           </div>
-          <p className="text-base text-foreground/80 leading-relaxed max-w-2xl">
+          <p className="text-base text-foreground/80 leading-relaxed max-w-2xl mb-16">
             Beyond design, I'm a proud father who draws inspiration and solace from nature, Tai Chi, meditation, breathwork, trail running, and early morning swims in the Atlantic Ocean, infusing my work with a sense of calm and reflection.
           </p>
+
+          {/* Prints */}
+          <div>
+            <p className="text-base text-foreground/80 leading-relaxed mb-8">
+              I enjoy making prints for free play as a creative outlet.
+            </p>
+            <PrintsCarousel />
+          </div>
         </section>
 
         {/* Experience */}
