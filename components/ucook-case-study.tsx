@@ -115,7 +115,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
             <div className="bg-[#E2F5EF] p-8 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-[#09332C]/60">~R1.3M</p>
+              <p className="text-4xl md:text-5xl font-bold text-foreground/35">~R1.3M</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
           </div>
@@ -350,7 +350,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           {/* Journey map */}
           <div className="mt-16 mb-16">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Revised user journeys</h3>
-            <div className="border border-border rounded-lg overflow-hidden">
+            <div className="border border-border rounded-lg overflow-hidden bg-[#E2F5EF]">
               {[
                 ["Homepage", "Sign Up"],
                 ["Homepage", "Sign Up", "Get Started"],
