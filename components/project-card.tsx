@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Project } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
 import { CardVisual } from "@/components/card-visual";
+import { Icon } from "@/components/material-icon";
 
 interface ProjectCardProps {
   project: Project;
@@ -51,6 +52,10 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           {/* Key outcome — prominent */}
           {project.outcomes[0] && (
             <div className="mt-6 pt-5 border-t border-border">
+              <p className="flex items-center gap-1 text-xs text-foreground/35 font-medium uppercase tracking-widest mb-2">
+                <Icon name="trending_up" size={12} />
+                Key outcome
+              </p>
               <div className="border-l-2 border-[#F0531C] pl-4">
                 <p className="text-sm text-foreground/80 leading-relaxed">{project.outcomes[0]}</p>
               </div>

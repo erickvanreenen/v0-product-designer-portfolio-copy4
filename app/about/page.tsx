@@ -75,10 +75,10 @@ export default function AboutPage() {
           {/* Contact details — meta tile style */}
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
-              { label: "Location", value: "Cape Town, South Africa", icon: "location_on" },
-              { label: "Email", value: "erickvanreenen@gmail.com", icon: "mail" },
-              { label: "Phone", value: "+27 620 969 497", icon: "phone" },
-              { label: "Status", value: "Full Time, Contract, Freelance", icon: "work" },
+              { label: "Location", value: "Cape Town, South Africa", icon: "location_on", href: "https://maps.google.com/?q=Cape+Town,+South+Africa" },
+              { label: "Email", value: "erickvanreenen@gmail.com", icon: "mail", href: "mailto:erickvanreenen@gmail.com" },
+              { label: "Phone", value: "+27 620 969 497", icon: "phone", href: "tel:+27620969497" },
+              { label: "Status", value: "Full Time, Contract, Freelance", icon: "work", href: undefined },
             ].map((item, i) => (
               <div
                 key={item.label}
@@ -92,7 +92,18 @@ export default function AboutPage() {
                   <Icon name={item.icon} size={14} />
                   <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
                 </div>
-                <p className="text-sm text-foreground break-all">{item.value}</p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200 break-all"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-sm text-foreground break-all">{item.value}</p>
+                )}
               </div>
             ))}
           </div>

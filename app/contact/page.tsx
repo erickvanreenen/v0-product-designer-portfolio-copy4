@@ -2,8 +2,9 @@
 
 import React from "react";
 import { useState } from "react";
-import { Mail, Linkedin, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Linkedin, Phone, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { Icon } from "@/components/material-icon";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -97,7 +98,9 @@ export default function ContactPage() {
           {/* Sidebar */}
           <aside className="space-y-10">
             <div>
-              <h2 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">Direct</h2>
+              <h2 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">
+                <Icon name="send" size={13} />Direct
+              </h2>
               <div className="space-y-4">
                 <Link href="mailto:erickvanreenen@gmail.com" className="flex items-center gap-3 text-foreground hover:text-[#F0531C] transition-colors duration-200 group min-w-0">
                   <Mail size={16} className="text-foreground/65 shrink-0" />
@@ -112,15 +115,25 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <h2 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">Location</h2>
-              <div className="flex items-center gap-3 text-foreground">
-                <MapPin size={16} className="text-foreground/65" />
+              <h2 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">
+                <Icon name="location_on" size={13} />Location
+              </h2>
+              <a
+                href="https://maps.google.com/?q=Cape+Town,+South+Africa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-foreground hover:text-[#F0531C] transition-colors duration-200 group"
+              >
+                <Icon name="map" size={16} className="text-foreground/65 shrink-0" />
                 <span className="text-sm">Cape Town, South Africa</span>
-              </div>
+                <ArrowUpRight size={12} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </a>
             </div>
 
             <div>
-              <h2 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">Social</h2>
+              <h2 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">
+                <Icon name="public" size={13} />Social
+              </h2>
               <Link
                 href="https://www.linkedin.com/in/erick-van-reenen-b549061a6/"
                 target="_blank" rel="noopener noreferrer"
@@ -133,7 +146,9 @@ export default function ContactPage() {
             </div>
 
             <div className="pt-8 border-t border-border">
-              <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">Availability</p>
+              <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">
+                <Icon name="event_available" size={13} />Availability
+              </p>
               <p className="text-sm text-foreground/65">
                 Open to contract and full-time roles.
               </p>
