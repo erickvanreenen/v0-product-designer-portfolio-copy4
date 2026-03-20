@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Project } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
+import { CardVisual } from "@/components/card-visual";
 
 interface ProjectCardProps {
   project: Project;
@@ -14,37 +14,11 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
       <article className="flex flex-col h-full rounded-2xl overflow-hidden bg-white">
 
         {/* Thumbnail */}
-        <div className="relative bg-[#E2F5EF] overflow-hidden aspect-[16/10]">
-          {project.thumbnail ? (
-            <Image
-              src={project.thumbnail}
-              alt={project.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-3xl md:text-4xl font-bold text-[#F7EDDA]/10 select-none">{project.title}</span>
-            </div>
-          )}
-
-          {project.thumbnailLogo && (
-            <div className="absolute bottom-4 left-4">
-              <div className="h-8 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded px-2 py-1">
-                <Image
-                  src={project.thumbnailLogo}
-                  alt={`${project.title} logo`}
-                  width={80}
-                  height={24}
-                  className="object-contain max-h-5"
-                />
-              </div>
-            </div>
-          )}
-
+        <div className="relative overflow-hidden aspect-[16/10] group-hover:opacity-90 transition-opacity duration-300">
+          <CardVisual slug={project.slug} />
           <div className="absolute top-4 right-4">
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ArrowUpRight size={14} className="text-[#F7EDDA]" />
+            <div className="w-8 h-8 rounded-full bg-[#09332C]/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ArrowUpRight size={14} className="text-[#09332C]" />
             </div>
           </div>
         </div>
