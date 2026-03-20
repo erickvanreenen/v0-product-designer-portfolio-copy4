@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ProjectTag } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
@@ -10,33 +11,38 @@ interface TagFilterProps {
 }
 
 export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
+  const [paused, setPaused] = useState(false);
+  const allItems: (ProjectTag | null)[] = [null, ...tags];
+
   return (
-    <div className="flex flex-wrap gap-2">
-      <button
-        onClick={() => onTagChange(null)}
-        className={cn(
-          "text-sm px-4 py-2 rounded-full border transition-all duration-200",
-          activeTag === null
-            ? "bg-[#F0531C] text-white border-[#F0531C]"
-            : "bg-transparent text-foreground/80 border-border"
-        )}
+    <div
+      className="overflow-hidden relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div
+        className="flex gap-2"
+        style={{
+          width: "max-content",
+          animation: "tag-ticker 28s linear infinite",
+          animationPlayState: paused ? "paused" : "running",
+        }}
       >
-        All
-      </button>
-      {tags.map((tag) => (
-        <button
-          key={tag}
-          onClick={() => onTagChange(tag)}
-          className={cn(
-            "text-sm px-4 py-2 rounded-full border transition-all duration-200",
-            activeTag === tag
-              ? "bg-[#F0531C] text-white border-[#F0531C]"
-              : "bg-transparent text-foreground/80 border-border"
-          )}
-        >
-          {tag}
-        </button>
-      ))}
+        {[...allItems, ...allItems].map((tag, i) => (
+          <button
+            key={i}
+            onClick={() => onTagChange(tag)}
+            className={cn(
+              "text-sm px-4 py-2 rounded-full border transition-all duration-200 shrink-0 cursor-pointer",
+              (tag === null ? activeTag === null : activeTag === tag)
+                ? "bg-[#F0531C] text-white border-[#F0531C]"
+                : "bg-transparent text-foreground/80 border-border hover:border-foreground/40"
+            )}
+          >
+            {tag ?? "All"}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
