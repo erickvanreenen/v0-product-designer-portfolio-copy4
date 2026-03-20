@@ -2,7 +2,7 @@
 import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Icon, metaIcon } from "@/components/material-icon";
 import { Project } from "@/lib/projects";
 
@@ -26,9 +26,21 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
           <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
+          <p className="text-lg text-foreground/70 max-w-xl leading-relaxed mb-8">
             {project.subtitle}
           </p>
+
+          {project.externalLink && (
+            <a
+              href={project.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#09332C] transition-all duration-200 group"
+            >
+              View live
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          )}
 
           {/* Meta grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 mt-14">
