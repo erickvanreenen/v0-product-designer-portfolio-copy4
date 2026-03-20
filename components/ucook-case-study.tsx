@@ -479,26 +479,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* ROI context */}
           <div className="border-t border-border pt-10 mt-10">
-            <p className="text-xs text-foreground/45 font-medium uppercase tracking-widest mb-6">Aug 2025 – Jan 2026</p>
-            <div className="font-mono space-y-2 mb-6">
-              <div className="flex items-baseline gap-6">
-                <span className="text-xs text-foreground/35 w-4"> </span>
-                <span className="text-3xl md:text-4xl font-bold text-foreground/70 tabular-nums">R405k</span>
-                <span className="text-xs text-foreground/45 leading-snug">Total revenue (100%) from new funnel cohort</span>
-              </div>
-              <div className="flex items-baseline gap-6">
-                <span className="text-xs text-foreground/35 w-4">×</span>
-                <span className="text-3xl md:text-4xl font-bold text-foreground/70 tabular-nums">63%</span>
-                <span className="text-xs text-foreground/45 leading-snug">Share unlocked vs old funnel (3.7% → 9.3%)</span>
-              </div>
-              <div className="border-t border-[#09332C]/15 pt-3 flex items-baseline gap-6">
-                <span className="text-xs text-foreground/35 w-4">=</span>
-                <span className="text-4xl md:text-5xl font-bold text-[#F0531C] tabular-nums">R255k</span>
-                <span className="text-xs text-foreground/45 leading-snug">6-month redesign impact ROI</span>
-              </div>
-            </div>
-            <p className="text-sm text-foreground/55 max-w-lg">
-              The old funnel would have converted 37% of the same cohort. The redesign unlocked the remaining 63%.
+            <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
+            <p className="text-sm text-foreground/65 mt-4 max-w-lg leading-relaxed">
+              Aug 2025 – Jan 2026. R405k total revenue (100%) from the new funnel cohort × 63% share unlocked vs the old funnel (3.7% → 9.3%) = ~R255k 6-month redesign impact ROI.
             </p>
           </div>
 
