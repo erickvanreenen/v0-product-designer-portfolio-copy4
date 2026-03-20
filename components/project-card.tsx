@@ -44,7 +44,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             <h3 className="text-2xl font-bold text-foreground group-hover:text-[#F0531C] transition-colors duration-200 leading-snug mb-2">
               {project.title}
             </h3>
-            <p className="text-sm font-semibold text-[#F0531C] leading-relaxed">
+            <p className="text-sm text-foreground/70 leading-relaxed">
               {project.subtitle}
             </p>
           </div>
@@ -52,7 +52,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           {/* Key outcome — prominent */}
           {project.outcomes[0] && (
             <div className="mt-6 pt-5 border-t border-border">
-              <p className="flex items-center gap-1 text-xs text-foreground/35 font-medium uppercase tracking-widest mb-2">
+              <p className="flex items-center gap-1 text-xs text-[#F0531C] font-semibold uppercase tracking-widest mb-2">
                 <Icon name="trending_up" size={12} />
                 Key outcome
               </p>
