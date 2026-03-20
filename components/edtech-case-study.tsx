@@ -40,18 +40,18 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
           </p>
 
           {project.externalLink && (
-            <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-5">
               <a
                 href={project.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#09332C] transition-all duration-200 group w-fit"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#09332C] transition-all duration-200 group shrink-0"
               >
                 View live
                 <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/articulate-logo.svg" alt="Articulate Rise" height={14} style={{ height: 14, width: "auto", opacity: 0.35 }} />
+              <img src="/articulate-logo.svg" alt="Articulate Rise" style={{ height: 13, width: "auto", opacity: 0.3 }} />
             </div>
           )}
 
