@@ -80,7 +80,7 @@ export default function HomePage() {
               { step: "06", title: "Iterate", desc: "Refine through feedback.", icon: "published_with_changes" },
             ].map((step) => (
               <div key={step.step} className="bg-[#E2F5EF] p-8 relative overflow-hidden">
-                <span className="absolute bottom-3 right-5 text-[88px] font-bold text-[#F0531C]/[0.07] leading-none tabular-nums select-none pointer-events-none">{step.step}</span>
+                <span className="absolute bottom-3 right-5 text-[88px] font-bold text-[#F0531C]/[0.13] leading-none tabular-nums select-none pointer-events-none">{step.step}</span>
                 <Icon name={step.icon} size={20} className="text-[#09332C]/40 mb-4" />
                 <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
                 <p className="text-sm text-foreground/65 mt-2">{step.desc}</p>
