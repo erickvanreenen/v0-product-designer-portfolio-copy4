@@ -358,18 +358,18 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 ["Homepage", "Let's Get Started"],
               ].map((steps, i, arr) => (
                 <div key={i} className={`flex items-center justify-between gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
-                  <div className="flex items-center gap-1.5 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap">
                     {steps.map((step, j) => (
                       <React.Fragment key={j}>
-                        <span className="text-xs text-foreground/80">{step}</span>
-                        <span className="text-foreground/40 text-xs">→</span>
+                        <span className="text-sm text-foreground/90 font-medium">{step}</span>
+                        <span className="text-foreground/30 text-xs">→</span>
                       </React.Fragment>
                     ))}
                   </div>
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="text-xs px-3 py-1.5 bg-[#E2F5EF] text-[#09332C]/85 rounded font-medium">Plans</span>
-                    <span className="text-foreground/40 text-xs">→</span>
-                    <span className="text-xs px-3 py-1.5 border border-[#F0531C]/60 text-[#F0531C] rounded font-medium">Activated</span>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="text-xs px-3 py-1.5 bg-[#09332C] text-white rounded font-medium">Plans</span>
+                    <span className="text-foreground/30 text-xs">→</span>
+                    <span className="text-xs px-3 py-1.5 bg-[#F0531C] text-white rounded font-medium">Activated</span>
                   </div>
                 </div>
               ))}
