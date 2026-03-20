@@ -109,26 +109,18 @@ export default function AboutPage() {
             <p className="text-base text-foreground/80 leading-relaxed mb-5">
               I embrace research as an essential tool for uncovering user needs, shaping experiences that resonate with their motivations and aspirations. I'm a dedicated problem-solver and advocate for quality design, balancing innovation with practical solutions.
             </p>
-            <p className="text-base text-foreground/80 leading-relaxed">
-              Beyond design, I'm a proud father who draws inspiration and solace from nature, Tai Chi, meditation, breathwork, trail running, and early morning swims in the Atlantic Ocean, infusing my work with a sense of calm and reflection.
-            </p>
           </div>
         </section>
 
-        {/* Beyond work — with dot motif */}
+        {/* Beyond work */}
         <section className="mb-24 pb-24 border-b border-border">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6">
             <LogoMark size={16} color="#09332C" opacity={0.25} />
             <h2 className="text-xs text-foreground/65 font-medium uppercase tracking-widest">Beyond work</h2>
           </div>
-          <div className="flex flex-wrap gap-3">
-            {["Father", "Nature", "Tai Chi", "Meditation", "Breathwork", "Trail runner", "Ocean swimmer"].map((item) => (
-              <span key={item} className="inline-flex items-center gap-2 text-sm text-foreground/85 border border-border rounded-full px-4 py-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] shrink-0" />
-                {item}
-              </span>
-            ))}
-          </div>
+          <p className="text-base text-foreground/80 leading-relaxed max-w-2xl">
+            Beyond design, I'm a proud father who draws inspiration and solace from nature, Tai Chi, meditation, breathwork, trail running, and early morning swims in the Atlantic Ocean, infusing my work with a sense of calm and reflection.
+          </p>
         </section>
 
         {/* Experience */}
