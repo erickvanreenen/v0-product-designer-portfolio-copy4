@@ -70,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           <p className="text-lg text-foreground/80 max-w-xl leading-relaxed mb-14">
-            UX-first. Strategic thinking. Fifteen years building things people actually use.
+            Systems thinking. Fifteen years making and building things people use and love.
           </p>
 
           {/* Contact details — meta tile style */}
