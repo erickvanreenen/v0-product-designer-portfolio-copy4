@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 import { Project } from "@/lib/projects";
 import { LogoMark } from "@/components/logo-mark";
 
@@ -146,7 +147,10 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className="text-sm text-foreground break-words">{item.value}</p>
               </div>
             ))}
@@ -157,7 +161,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
       {/* Outcomes */}
       <section className="bg-[#E2F5EF]">
         <div className="max-w-5xl mx-auto px-6 py-10">
-          <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Outcomes</p>
+          <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6"><Icon name="check_circle" size={13} />Outcomes</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.outcomes.map((outcome, i) => (
               <p key={i} className="text-sm text-foreground/85 leading-relaxed">{outcome}</p>
@@ -337,7 +341,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
 
         {/* Outcome */}
         <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">Outcome</p>
+          <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6"><Icon name="check_circle" size={13} />Outcome</p>
           <p className="text-base text-foreground/80 leading-relaxed">{project.outcome}</p>
         </section>
 

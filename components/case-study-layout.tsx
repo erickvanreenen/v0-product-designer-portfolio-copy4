@@ -4,6 +4,7 @@ import React from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -61,7 +62,10 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
               <div key={item.label} className={`p-6 min-w-0 overflow-hidden border-border ${
                 i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-1">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-1">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className="text-sm text-foreground break-words">{item.value}</p>
               </div>
             ))}
@@ -72,7 +76,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudy
       {/* Outcomes */}
       <section className="bg-[#E2F5EF]">
         <div className="max-w-5xl mx-auto px-6 py-10">
-          <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Outcomes</p>
+          <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6"><Icon name="check_circle" size={13} />Outcomes</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.outcomes.map((outcome, i) => (
               <p key={i} className="text-sm text-foreground/85 leading-relaxed">{outcome}</p>

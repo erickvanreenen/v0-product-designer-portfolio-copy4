@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Icon } from "@/components/material-icon";
 
 export const metadata: Metadata = {
   title: "About | Erick van Reenen",
@@ -74,10 +75,10 @@ export default function AboutPage() {
           {/* Contact details — meta tile style */}
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
-              { label: "Location", value: "Cape Town, South Africa" },
-              { label: "Email", value: "erickvanreenen@gmail.com" },
-              { label: "Phone", value: "+27 620 969 497" },
-              { label: "Status", value: "Full Time, Contract, Freelance" },
+              { label: "Location", value: "Cape Town, South Africa", icon: "location_on" },
+              { label: "Email", value: "erickvanreenen@gmail.com", icon: "mail" },
+              { label: "Phone", value: "+27 620 969 497", icon: "phone" },
+              { label: "Status", value: "Full Time, Contract, Freelance", icon: "work" },
             ].map((item, i) => (
               <div
                 key={item.label}
@@ -87,7 +88,10 @@ export default function AboutPage() {
                   i === 2 || i === 3 ? "border-t md:border-t-0" : ""
                 }`}
               >
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={item.icon} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className="text-sm text-foreground break-all">{item.value}</p>
               </div>
             ))}

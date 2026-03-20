@@ -3,6 +3,7 @@ import { LogoMark } from "@/components/logo-mark";
 
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 import { Project } from "@/lib/projects";
 
 interface FtnCaseStudyProps {
@@ -42,7 +43,10 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudy
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className={`text-sm break-words ${item.accent ? "text-[#F0531C]" : "text-foreground"}`}>{item.value}</p>
               </div>
             ))}

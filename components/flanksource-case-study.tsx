@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 import type { Project } from "@/lib/projects";
 
 interface Props {
@@ -50,7 +51,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 {item.content}
               </div>
             ))}
@@ -278,7 +282,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Outcomes */}
         <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
-          <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Outcomes</h2>
+          <h2 className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8"><Icon name="check_circle" size={13} />Outcomes</h2>
           <div className="space-y-5">
             {project.outcomes.map((outcome, i) => (
               <div key={i} className="flex items-start gap-3">

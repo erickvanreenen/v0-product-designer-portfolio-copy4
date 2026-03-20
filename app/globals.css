@@ -76,6 +76,21 @@
   --sidebar-ring: #F0531C;
 }
 
+/* Material Symbols Outlined */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  user-select: none;
+}
+
 @theme inline {
   --font-sans: 'Helvetica Neue', 'Helvetica', 'Arial', system-ui, sans-serif;
   --font-serif: 'Helvetica Neue', 'Helvetica', 'Arial', system-ui, sans-serif;

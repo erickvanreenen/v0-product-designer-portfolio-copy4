@@ -2,6 +2,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { ArrowRight } from "lucide-react";
+import { Icon } from "@/components/material-icon";
 
 export default function HomePage() {
   const featuredSlugs = ["ucook", "faithful-to-nature", "flanksource", "edtech-interactive-learning"];
@@ -71,15 +72,16 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#09332C]/10">
             {[
-              { step: "01", title: "Research", desc: "Dig into users, data, and context." },
-              { step: "02", title: "Define", desc: "Turn insights into sharp problems." },
-              { step: "03", title: "Ideate", desc: "Explore multiple directions." },
-              { step: "04", title: "Prototype", desc: "Build tangible, testable concepts." },
-              { step: "05", title: "Test", desc: "Validate with real users." },
-              { step: "06", title: "Iterate", desc: "Refine through feedback." },
+              { step: "01", title: "Research", desc: "Dig into users, data, and context.", icon: "manage_search" },
+              { step: "02", title: "Define", desc: "Turn insights into sharp problems.", icon: "adjust" },
+              { step: "03", title: "Ideate", desc: "Explore multiple directions.", icon: "lightbulb" },
+              { step: "04", title: "Prototype", desc: "Build tangible, testable concepts.", icon: "build" },
+              { step: "05", title: "Test", desc: "Validate with real users.", icon: "biotech" },
+              { step: "06", title: "Iterate", desc: "Refine through feedback.", icon: "published_with_changes" },
             ].map((step) => (
               <div key={step.step} className="bg-[#E2F5EF] p-8 relative overflow-hidden">
                 <span className="absolute bottom-3 right-5 text-[88px] font-bold text-[#09332C]/[0.07] leading-none tabular-nums select-none pointer-events-none">{step.step}</span>
+                <Icon name={step.icon} size={20} className="text-[#09332C]/40 mb-4" />
                 <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
                 <p className="text-sm text-foreground/65 mt-2">{step.desc}</p>
               </div>

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, X, ZoomIn } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 // ArrowLeft retained for navigation section
 
 interface OvertureCaseStudyProps {
@@ -68,7 +69,10 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Overtur
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className="text-sm text-foreground break-words">{item.value}</p>
               </div>
             ))}

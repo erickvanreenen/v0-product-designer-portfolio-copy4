@@ -6,6 +6,7 @@ import { Project } from "@/lib/projects";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
+import { Icon, metaIcon } from "@/components/material-icon";
 
 interface UCookCaseStudyProps {
   project: Project;
@@ -94,7 +95,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
+                  <Icon name={metaIcon(item.label)} size={14} />
+                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
+                </div>
                 <p className="text-sm text-foreground break-words">{item.value}</p>
               </div>
             ))}
@@ -190,7 +194,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Constraints */}
         <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
-          <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Constraints</h2>
+          <h2 className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
+            <Icon name="warning_amber" size={13} />
+            Constraints
+          </h2>
           <div className="space-y-5">
             {[
               "No baseline funnel existed for testing.",
@@ -239,7 +246,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
         {/* Key insight callout */}
         <section className="mb-24 border-l-2 border-[#F0531C] pl-6">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">Critical finding</p>
+          <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">
+            <Icon name="priority_high" size={13} />
+            Critical finding
+          </p>
           <p className="text-xl text-[#09332C] font-bold leading-relaxed">
             All participants expected to pay immediately. Payment was the task completion signal.
           </p>
@@ -303,7 +313,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* Risks */}
           <div className="bg-white rounded-lg p-8 md:p-10">
-            <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Risks identified</p>
+            <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8"><Icon name="warning_amber" size={13} />Risks identified</p>
             <div className="space-y-6">
               <div className="flex items-start gap-6">
                 <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">01</span>
@@ -480,7 +490,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           {/* ROI context */}
           <div className="border-t border-border pt-10 mt-10">
             <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
-            <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mt-2 mb-6">6-month redesign impact ROI · Aug 2025 – Jan 2026</p>
+            <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mt-2 mb-6"><Icon name="trending_up" size={13} />6-month redesign impact ROI · Aug 2025 – Jan 2026</p>
             <p className="text-sm text-foreground/50 leading-relaxed whitespace-nowrap overflow-x-auto">
               R405k × 63% (3.7% → 9.3%) = ~R255k
             </p>
@@ -488,7 +498,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* Pending */}
           <div className="mt-12 pt-8 border-t border-border">
-            <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">Pending</h3>
+            <h3 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4"><Icon name="pending" size={13} />Pending</h3>
             <ul className="space-y-2">
               <li className="text-sm text-foreground/65">Payment timing decision outcomes.</li>
               <li className="text-sm text-foreground/65">A/B testing results.</li>
