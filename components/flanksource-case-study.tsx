@@ -118,7 +118,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             {[
               { label: "01", title: "Topology", desc: "System relationships and infrastructure map." },
               { label: "02", title: "Playbooks", desc: "Runbooks for responding to incidents and alerts." },
-              { label: "03", title: "Catalog", desc: "Service catalogue with metadata and ownership." },
+              { label: "03", title: "Catalogue", desc: "Service catalogue with metadata and ownership." },
               { label: "04", title: "Health Checks", desc: "Real-time pass/fail state of services." },
             ].map((item) => (
               <div key={item.label} className="bg-white p-8">

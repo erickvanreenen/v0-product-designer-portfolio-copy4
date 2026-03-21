@@ -199,7 +199,7 @@ export default function AssessmentPage() {
         {/* Formative Exercises */}
         <section className="mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-2">Exercises and deliverables</h2>
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-12">Formative — Weeks 1 to 6</p>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-12">Formative: Weeks 1 to 6</p>
           <div className="space-y-12">
             {exercises.map((ex) => (
               <div key={ex.label} className="bg-white rounded-lg p-8 md:p-10">

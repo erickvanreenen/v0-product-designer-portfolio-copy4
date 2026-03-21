@@ -269,7 +269,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
 
         {/* Formative Exercises */}
         <section className="mb-16">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Exercises — Weeks 1 to 6</p>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Exercises: Weeks 1 to 6</p>
           <div className="space-y-4">
             {formativeExercises.map((ex, i) => (
               <div key={ex.week} className="bg-white rounded-lg p-8 md:p-10">
@@ -305,7 +305,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
 
         {/* Summative */}
         <section className="mb-24">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Summative assessment — Weeks 7 and 8</p>
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Summative assessment: Weeks 7 and 8</p>
           <div className="space-y-4">
             {summativeExercises.map((ex, i) => (
               <div key={ex.week} className="bg-[#E2F5EF] rounded-lg p-8 md:p-10">

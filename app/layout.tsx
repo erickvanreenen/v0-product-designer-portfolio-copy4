@@ -8,12 +8,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Erick van Reenen | UX/UI Designer",
   description:
-    "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centered design. Based in Cape Town, South Africa.",
+    "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centred design. Based in Cape Town, South Africa.",
   generator: "v0.app",
   openGraph: {
     title: "Erick van Reenen | UX/UI Designer",
     description:
-      "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centered design.",
+      "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centred design.",
     type: "website",
     locale: "en_ZA",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Erick van Reenen | UX/UI Designer",
     description:
-      "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centered design.",
+      "UX/UI Designer crafting e-commerce, omnichannel experiences, and user-centred design.",
   },
   icons: {
     icon: [

@@ -32,13 +32,13 @@ const lessonContent = [
   },
   {
     module: "Lesson 02",
-    title: "Overview — Birth of UX",
+    title: "Overview: Birth of UX",
     description: "How the field shifted from engineering-led to human-centred design.",
     topics: [
-      { label: "1975 — Altair 8800", desc: "Early personal computers were built for engineers. The user was not considered." },
-      { label: "1984 — Apple Macintosh", desc: "The GUI made computing accessible. Usability entered product thinking." },
-      { label: "1988 — Don Norman at Apple", desc: "Norman coined the term 'user experience' to describe the full interaction a person has with a product." },
-      { label: "1990s — UX as a discipline", desc: "The term entered industry vocabulary. Human-centred design became a formal practice." },
+      { label: "1975: Altair 8800", desc: "Early personal computers were built for engineers. The user was not considered." },
+      { label: "1984: Apple Macintosh", desc: "The GUI made computing accessible. Usability entered product thinking." },
+      { label: "1988: Don Norman at Apple", desc: "Norman coined the term 'user experience' to describe the full interaction a person has with a product." },
+      { label: "1990s: UX as a discipline", desc: "The term entered industry vocabulary. Human-centred design became a formal practice." },
       { label: "Paradigm shift", desc: "Design moved from Engineer/Machine-first to Human/Experience-first. Products began to serve people rather than systems." },
     ],
   },
@@ -46,7 +46,7 @@ const lessonContent = [
 
 const module1Assessment = {
   code: "IUD-03",
-  title: "App Redesign — lekkeslaap",
+  title: "App Redesign: lekkeslaap",
   level: "NQF Level 5",
   weighting: "60% of module mark",
   description:
@@ -73,7 +73,7 @@ const module1Assessment = {
 
 const module3Assessment = {
   code: "Module 3",
-  title: "Affinity Diagram — Food Delivery App",
+  title: "Affinity Diagram: Food Delivery App",
   level: "NQF Level 5",
   weighting: "60% of module mark",
   description:
@@ -183,7 +183,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">From the slides</h2>
           </div>
           <p className="text-sm text-foreground/65 mb-10">
-            A snapshot of slide content from the module. <strong>This is pre-AI-takeover material</strong> — foundational theory built from scratch and delivered in person.
+            A snapshot of slide content from the module. <strong>This is pre-AI-takeover material</strong>: foundational theory built from scratch and delivered in person.
           </p>
 
           {/* Slide deck 01 */}
@@ -223,7 +223,7 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: AdaCaseStudy
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs text-[#F0531C] font-medium uppercase tracking-widest">Slide deck 02</span>
             </div>
-            <h3 className="text-xl font-bold text-[#F7EDDA] tracking-tight mb-2">Overview — Birth of UX</h3>
+            <h3 className="text-xl font-bold text-[#F7EDDA] tracking-tight mb-2">Overview: Birth of UX</h3>
             <p className="text-sm text-[#F7EDDA]/65 leading-relaxed mb-8">How design shifted from engineering-led to human-centred.</p>
 
             <div className="space-y-3 mb-8">

@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Dark section — what I actually do */}
+      {/* Dark section: what I actually do */}
       <section className="bg-[#09332C]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <div className="grid md:grid-cols-3 gap-10 md:gap-16">

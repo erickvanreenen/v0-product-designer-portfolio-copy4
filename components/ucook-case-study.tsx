@@ -162,7 +162,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             {[
               "The flow felt long and unclear",
               "Users lacked confidence in what happens next",
-              "Key decisions — plan, meals, delivery — were introduced too early and without context",
+              "Key decisions (plan, meals, delivery) were introduced too early and without context",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.45rem] shrink-0" />
@@ -320,7 +320,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           <div className="mb-10 border-l-2 border-[#09332C]/20 pl-6">
             <p className="text-xs text-foreground/45 font-medium uppercase tracking-widest mb-2">Guiding principle</p>
             <p className="text-lg md:text-xl font-bold text-[#09332C] leading-snug">
-              Commitment should follow clarity — not precede it
+              Commitment should follow clarity, not precede it
             </p>
           </div>
 
@@ -342,7 +342,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               },
               {
                 title: "Improved trust and transparency",
-                points: ["Clear pricing breakdown", "Reinforced flexibility — skip, cancel anytime", "Reduced anxiety at checkout"],
+                points: ["Clear pricing breakdown", "Reinforced flexibility: skip or cancel anytime", "Reduced anxiety at checkout"],
               },
               {
                 title: "Defined scroll & interaction behaviour",
@@ -632,7 +632,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
           <div className="space-y-6">
             {[
-              "Users don't drop off because of one problem — it's cumulative friction",
+              "Users don't drop off because of one problem. It's cumulative friction.",
               "Clarity early in a journey is more valuable than persuasion",
               "Small interaction decisions (like scroll behaviour) have outsized impact",
             ].map((learning, i) => (
