@@ -21,7 +21,7 @@ export function HeroHeadline() {
               display: "block",
               transform: visible ? "translateY(0)" : "translateY(105%)",
               opacity: visible ? 1 : 0,
-              transition: `transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) ${i * 480}ms, opacity 0.55s ease ${i * 480}ms`,
+              transition: `transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) ${i * 800}ms, opacity 0.55s ease ${i * 800}ms`,
             }}
           >
             {line}
