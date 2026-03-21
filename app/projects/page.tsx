@@ -3,6 +3,7 @@ import { useState } from "react";
 import { projects, getAllTags, ProjectTag } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { TagFilter } from "@/components/tag-filter";
+import { FadeIn } from "@/components/fade-in";
 
 const EDTECH_SLUGS = ["edtech-interactive-learning", "uni4-online", "ada-ux-design", "eduvos-content-writing"];
 
@@ -22,7 +23,7 @@ export default function ProjectsPage() {
   );
 
   return (
-    <div>
+    <div className="page-entry">
       <section className="bg-[#FDFAF5]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-6">Work</p>
@@ -45,8 +46,10 @@ export default function ProjectsPage() {
         {/* Main projects */}
         {mainProjects.length > 0 && (
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
-            {mainProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+            {mainProjects.map((project, i) => (
+              <FadeIn key={project.slug} delay={i * 60}>
+                <ProjectCard project={project} />
+              </FadeIn>
             ))}
           </div>
         )}
@@ -54,13 +57,17 @@ export default function ProjectsPage() {
         {/* EdTech */}
         {edtechProjects.length > 0 && (
           <div className="mt-24 md:mt-32">
-            <div className="border-t border-border/60 pt-14 mb-14">
-              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-2">Discipline</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">EdTech</h2>
-            </div>
+            <FadeIn>
+              <div className="border-t border-border/60 pt-14 mb-14">
+                <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-2">Discipline</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">EdTech</h2>
+              </div>
+            </FadeIn>
             <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
-              {edtechProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+              {edtechProjects.map((project, i) => (
+                <FadeIn key={project.slug} delay={i * 60}>
+                  <ProjectCard project={project} />
+                </FadeIn>
               ))}
             </div>
           </div>

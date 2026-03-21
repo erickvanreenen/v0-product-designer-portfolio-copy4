@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Icon } from "@/components/material-icon";
 import { PrintsCarousel } from "@/components/prints-carousel";
+import { FadeIn } from "@/components/fade-in";
 
 export const metadata: Metadata = {
   title: "About | Erick van Reenen",
@@ -54,7 +55,7 @@ function LogoMark({ size = 28, opacity = 1 }: { size?: number; color?: string; o
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="page-entry">
       {/* Hero */}
       <section className="bg-[#FDFAF5]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-28">
@@ -114,6 +115,7 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
 
         {/* Bio */}
+        <FadeIn>
         <section className="mb-20 md:mb-24 max-w-2xl">
           <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed mb-6">
             I am an experienced designer with a diverse background in entrepreneurship, business development, branding, product design, visual and online education design, and UX/UI.
@@ -125,6 +127,7 @@ export default function AboutPage() {
             I embrace research as an essential tool for uncovering user needs, shaping experiences that resonate with their motivations and aspirations. I'm a dedicated problem-solver and advocate for quality design, balancing innovation with practical solutions.
           </p>
         </section>
+        </FadeIn>
 
         {/* Beyond work */}
         <section className="mb-20 md:mb-24 pb-16 md:pb-20 border-b border-border/60">
@@ -144,6 +147,7 @@ export default function AboutPage() {
         </section>
 
         {/* Experience */}
+        <FadeIn>
         <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
           <div className="flex items-center gap-3 mb-12 md:mb-14">
             <LogoMark size={14} opacity={0.2} />
@@ -166,8 +170,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
 
         {/* Education */}
+        <FadeIn>
         <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
           <div className="flex items-center gap-3 mb-12 md:mb-14">
             <LogoMark size={14} opacity={0.2} />
@@ -185,8 +191,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
 
         {/* Skills */}
+        <FadeIn>
         <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
           <div className="flex items-center gap-3 mb-12 md:mb-14">
             <LogoMark size={14} opacity={0.2} />
@@ -200,8 +208,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
 
         {/* Tooling */}
+        <FadeIn>
         <section className="mb-0 pb-0">
           <div className="flex items-center gap-3 mb-12 md:mb-14">
             <LogoMark size={14} opacity={0.2} />
@@ -230,6 +240,7 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </FadeIn>
 
       </div>
 

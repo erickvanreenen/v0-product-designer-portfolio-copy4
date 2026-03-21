@@ -37,7 +37,7 @@ export function Navbar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "text-sm transition-colors duration-200 relative",
+                    "text-sm transition-colors duration-200 relative pb-px",
                     pathname === item.href
                       ? "text-foreground font-semibold"
                       : "text-foreground/50 hover:text-foreground"
@@ -46,6 +46,10 @@ export function Navbar() {
                   {item.label}
                   {pathname === item.href && (
                     <span className="absolute -bottom-[18px] left-0 right-0 h-px bg-[#F0531C]" />
+                  )}
+                  {/* Hover underline for non-active */}
+                  {pathname !== item.href && (
+                    <span className="absolute -bottom-[18px] left-0 right-0 h-px bg-foreground/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-200" />
                   )}
                 </Link>
               </li>
@@ -70,13 +74,15 @@ export function Navbar() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          <span className={cn("block transition-all duration-200", mobileMenuOpen ? "rotate-90" : "rotate-0")}>
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </span>
         </button>
       </nav>
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FDFAF5] border-b border-[#D4C9B0]/60">
+        <div className="mobile-menu-open md:hidden bg-[#FDFAF5] border-b border-[#D4C9B0]/60">
           <ul className="px-6 py-5 space-y-1">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -84,13 +90,16 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "block text-base py-2.5 transition-colors duration-200",
+                    "flex items-center justify-between text-base py-2.5 transition-colors duration-200 group",
                     pathname === item.href
                       ? "text-foreground font-semibold"
-                      : "text-foreground/55"
+                      : "text-foreground/55 hover:text-foreground"
                   )}
                 >
                   {item.label}
+                  {pathname === item.href && (
+                    <span className="w-1 h-1 rounded-full bg-[#F0531C]" />
+                  )}
                 </Link>
               </li>
             ))}
