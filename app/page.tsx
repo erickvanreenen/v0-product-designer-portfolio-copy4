@@ -2,6 +2,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { FadeIn } from "@/components/fade-in";
+import { HeroHeadline } from "@/components/hero-headline";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
@@ -17,9 +18,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-foreground tracking-tight leading-[1.04] max-w-3xl mb-8 md:mb-10">
-            Fusing user needs with business outcomes.
-          </h1>
+          <HeroHeadline />
 
           {/* Context strip */}
           <p className="text-sm text-foreground/45 font-medium mb-10 md:mb-14 tracking-wide">

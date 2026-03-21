@@ -1,0 +1,33 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+const lines = ["Fusing user needs", "with business outcomes."];
+
+export function HeroHeadline() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-foreground tracking-tight leading-[1.08] max-w-3xl mb-8 md:mb-10">
+      {lines.map((line, i) => (
+        <span key={i} className="block overflow-hidden pb-1">
+          <span
+            style={{
+              display: "block",
+              transform: visible ? "translateY(0)" : "translateY(105%)",
+              opacity: visible ? 1 : 0,
+              transition: `transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) ${i * 130}ms, opacity 0.5s ease ${i * 130}ms`,
+            }}
+          >
+            {line}
+          </span>
+        </span>
+      ))}
+    </h1>
+  );
+}
