@@ -63,21 +63,21 @@ export default function HomePage() {
       <section className="bg-[#09332C]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <div className="grid md:grid-cols-3 gap-10 md:gap-16">
-            {[
+            [
               {
                 n: "01",
-                title: "I initiate work that isn't on the roadmap.",
-                body: "The UCOOK sign-up investigation started because I noticed something in the data. No one asked for it. I scoped it, researched it, and delivered a redesign that moved completion from 3.7% to 9.3%.",
+                title: "I notice things and follow through on them.",
+                body: "The UCOOK sign-up investigation started because I spotted something in the data that hadn't been flagged. I scoped it, researched it, and delivered a redesign that moved completion from 3.7% to 9.3%.",
               },
               {
                 n: "02",
-                title: "Research before wireframes. Always.",
-                body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. I don't design from assumptions when data is available and accessible.",
+                title: "Research shapes the work.",
+                body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. Understanding people before designing for them makes everything more considered.",
               },
               {
                 n: "03",
-                title: "Handoffs that actually ship.",
-                body: "Annotated prototypes with scrollIntoView() specs, validation rules, and GTM triggers. Developers get exactly what to build. No back-and-forth guessing.",
+                title: "Specs developers can work from.",
+                body: "Annotated prototypes with scrollIntoView() behaviour, validation rules, and GTM triggers. The kind of handoff that reduces guesswork on both sides.",
               },
             ].map((item) => (
               <div key={item.n}>
@@ -118,7 +118,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-8">Open to work</p>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.04] mb-8 max-w-2xl">
-            Let's build something worth using.
+            Let's build something people love using.
           </h2>
           <p className="text-foreground/50 mb-10 max-w-sm">
             Full-time, contract, or something interesting. Cape Town and remote.
