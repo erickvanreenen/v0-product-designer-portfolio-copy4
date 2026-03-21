@@ -104,9 +104,8 @@ export default function HomePage() {
       <FadeIn>
         <section className="py-20 md:py-32 border-t border-border/50">
           <div className="max-w-5xl mx-auto px-6">
-            <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-8">Open to work</p>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.04] mb-8 max-w-2xl">
-              Let&apos;s build something to delight.
+              Let&apos;s build delightful experiences together.
             </h2>
             <p className="text-foreground/50 mb-10 max-w-sm">
               Full-time, contract, or something interesting. Cape Town and remote.
