@@ -217,27 +217,12 @@ export default function AboutPage() {
             <LogoMark size={14} opacity={0.2} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Tooling</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <div>
-              <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-5">Design + delivery</p>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 bg-[#F7EDDA] text-foreground/70 font-medium">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-5">AI tools</p>
-              <div className="flex flex-wrap gap-2">
-                {aiTools.map((tool) => (
-                  <span key={tool} className="text-sm px-3 py-1.5 bg-[#F7EDDA] text-foreground/70 font-medium">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {[...tools, ...aiTools].map((tool) => (
+              <span key={tool} className="text-sm px-3 py-1.5 bg-[#F7EDDA] text-foreground/70 font-medium">
+                {tool}
+              </span>
+            ))}
           </div>
         </section>
         </FadeIn>
