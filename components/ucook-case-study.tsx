@@ -68,29 +68,29 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
     <div>
       {/* Hero */}
       <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-28">
           <div className="flex flex-wrap gap-1.5 mb-6">
             {project.tags.map((tag) => (
               <span key={tag} className="text-xs text-foreground/65">{tag}</span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-3 max-w-2xl">
             {project.title}
           </h1>
-          <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
-            Sign-up funnel redesign.
+          <p className="text-base md:text-lg text-foreground/50 max-w-xl leading-relaxed mb-2">
+            Improving conversion by removing friction in the first user journey
           </p>
 
           {/* Meta grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 mt-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 mt-12">
             {[
               { label: "Role", value: project.role },
               { label: "Company", value: "Silvertree (UCOOK)" },
               { label: "Year", value: project.timeline },
               { label: "Methods", value: "Mixed methods" },
             ].map((item, i) => (
-              <div key={item.label} className={`p-6 min-w-0 overflow-hidden border-border ${
+              <div key={item.label} className={`p-5 md:p-6 min-w-0 overflow-hidden border-border ${
                 i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
               } ${
                 i === 2 || i === 3 ? "border-t md:border-t-0" : ""
@@ -109,17 +109,17 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       {/* Key metrics */}
       <section className="bg-[#E2F5EF]">
         <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-          <div className="grid md:grid-cols-3 gap-px bg-[#09332C]/10">
-            <div className="bg-[#E2F5EF] p-8 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-foreground/35">3.7%</p>
+          <div className="grid grid-cols-3 gap-px bg-[#09332C]/10">
+            <div className="bg-[#E2F5EF] p-5 md:p-8 text-center">
+              <p className="text-3xl md:text-5xl font-bold text-foreground/35">3.7%</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">old completion rate</p>
             </div>
-            <div className="bg-[#E2F5EF] p-8 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
+            <div className="bg-[#E2F5EF] p-5 md:p-8 text-center">
+              <p className="text-3xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">new completion rate</p>
             </div>
-            <div className="bg-[#E2F5EF] p-8 text-center">
-              <p className="text-4xl md:text-5xl font-bold text-foreground/35">~R1.3M</p>
+            <div className="bg-[#E2F5EF] p-5 md:p-8 text-center">
+              <p className="text-3xl md:text-5xl font-bold text-foreground/35">~R1.3M</p>
               <p className="text-xs text-foreground/70 font-medium uppercase tracking-widest mt-2">annual revenue at risk</p>
             </div>
           </div>
@@ -127,20 +127,20 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
       </section>
 
       {/* Content */}
-      <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+      <div className="max-w-3xl mx-auto px-6 py-16 md:py-28">
 
-        {/* Opening */}
-        <section className="mb-24">
-          <p className="text-xl md:text-2xl text-foreground font-medium leading-snug mb-10">
-            Customer service data showed users completing what they believed was sign-up, then contacting support expecting deliveries.
+        {/* Overview */}
+        <section className="mb-20 md:mb-24">
+          <p className="text-lg md:text-xl text-foreground font-medium leading-snug mb-8">
+            UCOOK's sign-up flow was identified as a key drop-off point in the customer journey, directly impacting conversion and revenue. The goal was to reduce friction, improve clarity, and increase successful account creation on desktop.
           </p>
           <div className="grid grid-cols-2 gap-px bg-[#09332C]/10 mb-8">
-            <div className="bg-[#FDFAF5] p-8">
-              <p className="text-5xl md:text-6xl font-bold text-foreground/30 leading-none tabular-nums">60+</p>
+            <div className="bg-[#FDFAF5] p-6 md:p-8">
+              <p className="text-4xl md:text-6xl font-bold text-foreground/30 leading-none tabular-nums">60+</p>
               <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mt-4">Incomplete sign-ups per week</p>
             </div>
-            <div className="bg-[#FDFAF5] p-8">
-              <p className="text-5xl md:text-6xl font-bold text-foreground/30 leading-none tabular-nums">1.43%</p>
+            <div className="bg-[#FDFAF5] p-6 md:p-8">
+              <p className="text-4xl md:text-6xl font-bold text-foreground/30 leading-none tabular-nums">1.43%</p>
               <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mt-4">Retention through the sign-up path</p>
             </div>
           </div>
@@ -149,43 +149,84 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </p>
         </section>
 
-        {/* Problem */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">The Problem</h2>
-            </div>
+        {/* The Problem */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">The Problem</h2>
+          </div>
+          <p className="text-base text-foreground/75 leading-relaxed mb-8">
+            Users were abandoning the sign-up process before completing account creation. Through initial data and internal feedback, we identified that:
+          </p>
+          <div className="space-y-5">
+            {[
+              "The flow felt long and unclear",
+              "Users lacked confidence in what happens next",
+              "Key decisions — plan, meals, delivery — were introduced too early and without context",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.45rem] shrink-0" />
+                <p className="text-base text-foreground/85 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-foreground/55 mt-6 leading-relaxed">
+            This created hesitation at the exact moment we needed commitment.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* Supporting data */}
+          <div className="grid md:grid-cols-2 gap-10 mt-10">
             <div>
-              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">User pain</h3>
-              <ul className="space-y-6">
-                <li className="text-base text-foreground/85 leading-relaxed">Users confused sign-up with account creation.</li>
-                <li className="text-base text-foreground/85 leading-relaxed">Could not find meals or navigate back.</li>
-                <li className="text-base text-foreground/85 leading-relaxed">Subscription vs on-demand was unclear.</li>
+              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-5">User pain</h3>
+              <ul className="space-y-4">
+                <li className="text-sm text-foreground/85 leading-relaxed">Users confused sign-up with account creation.</li>
+                <li className="text-sm text-foreground/85 leading-relaxed">Could not find meals or navigate back.</li>
+                <li className="text-sm text-foreground/85 leading-relaxed">Subscription vs on-demand was unclear.</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xs text-[#09332C]/60 font-medium uppercase tracking-widest mb-6">Business pain</h3>
-              <ul className="space-y-6">
-                <li className="text-base text-foreground/85 leading-relaxed">60+ incomplete sign-ups per week.</li>
-                <li className="text-base text-foreground/85 leading-relaxed">~R1.3M/year revenue leaking through funnel.</li>
-                <li className="text-base text-foreground/85 leading-relaxed">56% of first billings 1–5 days post sign-up.</li>
+              <h3 className="text-xs text-[#09332C]/60 font-medium uppercase tracking-widest mb-5">Business pain</h3>
+              <ul className="space-y-4">
+                <li className="text-sm text-foreground/85 leading-relaxed">60+ incomplete sign-ups per week.</li>
+                <li className="text-sm text-foreground/85 leading-relaxed">~R1.3M/year revenue leaking through funnel.</li>
+                <li className="text-sm text-foreground/85 leading-relaxed">56% of first billings 1–5 days post sign-up.</li>
               </ul>
             </div>
           </div>
         </section>
 
+        {/* My Role */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">My Role</h2>
+          </div>
+          <p className="text-base font-semibold text-foreground mb-6">Product Designer</p>
+          <div className="space-y-4">
+            {[
+              "Led UX research and synthesis",
+              "Conducted usability testing (moderated & unmoderated)",
+              "Delivered interaction and UI redesign",
+              "Defined scroll and interaction behaviour for dev handoff",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground/25 mt-[0.45rem] shrink-0" />
+                <p className="text-base text-foreground/85 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Goals */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Goals</h2>
-            </div>
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Goals</h2>
+          </div>
           <div className="space-y-6">
             {project.goals.map((goal, i) => (
-              <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+              <div key={i} className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-foreground/35 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-base text-foreground/85 leading-relaxed">{goal}</p>
               </div>
             ))}
@@ -193,7 +234,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </section>
 
         {/* Constraints */}
-        <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
+        <section className="mb-20 md:mb-24 bg-white rounded-lg p-6 md:p-10">
           <h2 className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
             <Icon name="warning_amber" size={13} />
             Constraints
@@ -212,13 +253,13 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
-        {/* Research */}
-        <section className="mb-24">
+        {/* Research & Insights */}
+        <section className="mb-20 md:mb-24">
           <div className="flex items-center gap-3 mb-4">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Research</h2>
-            </div>
-          <p className="text-sm text-foreground/65 mb-10">Seven stages. Mixed methods.</p>
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Research & Insights</h2>
+          </div>
+          <p className="text-sm text-foreground/65 mb-8">We used a combination of:</p>
 
           <div className="space-y-0">
             {[
@@ -228,14 +269,14 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               { step: "04", title: "Heuristic evaluation", desc: "Nielsen's 10. Three theme clusters identified." },
               { step: "05", title: "Unmoderated testing (Maze)", desc: "Blocked. No defined happy path to test against." },
               { step: "06", title: "Moderated usability testing", desc: "Three sessions. Navigation and pricing clarity issues surfaced." },
-              { step: "07", title: "Measurement planning", desc: "Set up GTM triggers per funnel step. GA, PostHog, heatmaps." },
+              { step: "07", title: "Heatmaps & session recordings", desc: "Validated drop-off points and interaction patterns." },
             ].map((step, i, arr) => (
-              <div key={step.step} className="flex gap-6">
+              <div key={step.step} className="flex gap-5 md:gap-6">
                 <div className="flex flex-col items-center">
                   <span className="text-xs text-foreground/35 font-bold flex-shrink-0 w-6 text-center pt-0.5">{step.step}</span>
                   {i < arr.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
                 </div>
-                <div className="pb-8">
+                <div className="pb-7 md:pb-8">
                   <h3 className="text-base font-bold text-foreground">{step.title}</h3>
                   <p className="text-sm text-foreground/65 mt-1.5">{step.desc}</p>
                 </div>
@@ -245,12 +286,12 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </section>
 
         {/* Key insight callout */}
-        <section className="mb-24 border-l-2 border-[#F0531C] pl-6">
+        <section className="mb-20 md:mb-24 border-l-2 border-[#F0531C] pl-6">
           <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">
             <Icon name="priority_high" size={13} />
             Critical finding
           </p>
-          <p className="text-xl text-[#09332C] font-bold leading-relaxed">
+          <p className="text-lg md:text-xl text-[#09332C] font-bold leading-relaxed">
             All participants expected to pay immediately. Payment was the task completion signal.
           </p>
           <p className="text-sm text-foreground/65 mt-3">
@@ -258,42 +299,108 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </p>
         </section>
 
-        {/* Insights */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Insights</h2>
-            </div>
+        {/* Key Insights */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Key Insights</h2>
+          </div>
           <div className="space-y-6">
-            {project.insights.map((insight, i) => (
-              <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-base text-foreground/85 leading-relaxed">{insight}</p>
+            {[
+              { headline: "Users didn't understand the journey upfront", detail: "\"What am I signing up for?\" was unclear early on" },
+              { headline: "Too many decisions too soon", detail: "Cognitive overload before users felt invested" },
+              { headline: "Weak sense of progress", detail: "Users couldn't tell how far they were or what remained" },
+              { headline: "Trust gaps at critical moments", detail: "Pricing, commitment, and flexibility weren't communicated clearly" },
+            ].map((insight, i) => (
+              <div key={i} className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-foreground/35 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <p className="text-base font-semibold text-foreground leading-snug">{insight.headline}</p>
+                  <p className="text-sm text-foreground/65 mt-1">{insight.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Design Approach */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Design Approach</h2>
+          </div>
+
+          {/* Principle */}
+          <div className="mb-10 border-l-2 border-[#09332C]/20 pl-6">
+            <p className="text-xs text-foreground/45 font-medium uppercase tracking-widest mb-2">Guiding principle</p>
+            <p className="text-lg md:text-xl font-bold text-[#09332C] leading-snug">
+              Commitment should follow clarity — not precede it
+            </p>
+          </div>
+
+          {/* Key Changes */}
+          <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Key changes</h3>
+          <div className="space-y-8">
+            {[
+              {
+                title: "Restructured the flow",
+                points: ["Moved low-friction steps first (email, basics)", "Delayed complex decisions until users were more invested"],
+              },
+              {
+                title: "Introduced clear progression",
+                points: ["Step-based flow with visible progress", "Reduced perceived effort"],
+              },
+              {
+                title: "Simplified decision points",
+                points: ["Chunked choices into smaller, manageable steps", "Added contextual guidance"],
+              },
+              {
+                title: "Improved trust and transparency",
+                points: ["Clear pricing breakdown", "Reinforced flexibility — skip, cancel anytime", "Reduced anxiety at checkout"],
+              },
+              {
+                title: "Defined scroll & interaction behaviour",
+                points: ["Eliminated hidden content", "Ensured key actions were always visible", "Reduced missed CTAs"],
+              },
+            ].map((change, i) => (
+              <div key={i} className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-foreground/35 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <p className="text-base font-semibold text-foreground mb-3">{change.title}</p>
+                  <div className="space-y-2">
+                    {change.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-foreground/25 mt-[0.5rem] shrink-0" />
+                        <p className="text-sm text-foreground/70 leading-relaxed">{point}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
         {/* Strategic option explored */}
-        <section className="mb-24">
+        <section className="mb-20 md:mb-24">
           <div className="flex items-center gap-3 mb-4">
             <LogoMark size={16} opacity={0.25} />
             <div>
               <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Option considered</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Pay on Sign Up</h2>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground tracking-tight">Pay on Sign Up</h2>
             </div>
           </div>
-          <p className="text-base text-foreground/85 leading-relaxed mb-10">
+          <p className="text-base text-foreground/85 leading-relaxed mb-8 md:mb-10">
             <strong>Move payment to the start.</strong> Use the cart as the entry point. Auto-deduce customer profile from order.
           </p>
 
           {/* Flow */}
-          <div className="mb-10">
+          <div className="mb-8 md:mb-10">
             <div className="grid grid-cols-3 gap-px bg-border rounded-lg overflow-hidden mb-px">
               {["Meal Kit Page", "Add to Cart", "Checkout"].map((step, i) => (
-                <div key={step} className="bg-white p-5">
+                <div key={step} className="bg-white p-4 md:p-5">
                   <p className="text-xs text-foreground/35 font-bold mb-2">{String(i + 1).padStart(2, "0")}</p>
-                  <p className="text-sm text-foreground/80">{step}</p>
+                  <p className="text-xs md:text-sm text-foreground/80">{step}</p>
                 </div>
               ))}
             </div>
@@ -303,32 +410,34 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { label: "Pay", step: 5, accent: true },
                 { label: "Auto-profile", step: 6 },
               ].map(({ label, step, accent }) => (
-                <div key={label} className={`p-5 ${accent ? "bg-[#E2F5EF]" : "bg-white"}`}>
+                <div key={label} className={`p-4 md:p-5 ${accent ? "bg-[#E2F5EF]" : "bg-white"}`}>
                   <p className={`text-xs font-bold mb-2 ${accent ? "text-[#F0531C]" : "text-foreground/35"}`}>{String(step).padStart(2, "0")}</p>
-                  <p className={`text-sm ${accent ? "text-foreground font-semibold" : "text-foreground/80"}`}>{label}</p>
+                  <p className={`text-xs md:text-sm ${accent ? "text-foreground font-semibold" : "text-foreground/80"}`}>{label}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Risks */}
-          <div className="bg-white rounded-lg p-8 md:p-10">
-            <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8"><Icon name="warning_amber" size={13} />Risks identified</p>
+          <div className="bg-white rounded-lg p-6 md:p-10">
+            <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
+              <Icon name="warning_amber" size={13} />Risks identified
+            </p>
             <div className="space-y-6">
-              <div className="flex items-start gap-6">
-                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">01</span>
+              <div className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5 shrink-0">01</span>
                 <p className="text-sm text-foreground/80 leading-relaxed">Subscription model not communicated before payment. Users commit without understanding recurring billing.</p>
               </div>
-              <div className="flex items-start gap-6">
-                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">02</span>
+              <div className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5 shrink-0">02</span>
                 <p className="text-sm text-foreground/80 leading-relaxed">Pause and cancel functionality unclear at point of commitment.</p>
               </div>
-              <div className="flex items-start gap-6">
-                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">03</span>
+              <div className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5 shrink-0">03</span>
                 <p className="text-sm text-foreground/80 leading-relaxed">Solves acquisition only. The retention problem remains unresolved.</p>
               </div>
-              <div className="flex items-start gap-6">
-                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5">04</span>
+              <div className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-[#F0531C]/30 font-bold mt-0.5 shrink-0">04</span>
                 <p className="text-sm text-foreground/80 leading-relaxed">Order changes post-payment introduce refund risk. Reduced orders take 2+ days to reflect, creating billing confusion at the point of highest user trust.</p>
               </div>
             </div>
@@ -336,29 +445,29 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </section>
 
         {/* Solution */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Solution</h2>
-            </div>
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Solution</h2>
+          </div>
 
-          <p className="text-base text-foreground/85 leading-relaxed mb-10">
+          <p className="text-base text-foreground/85 leading-relaxed mb-8 md:mb-10">
             <strong>Two workstreams.</strong> Quick wins shipped independently. <strong>The structural redesign tackled the funnel itself.</strong>
           </p>
 
           <div className="grid md:grid-cols-2 gap-px bg-border">
-            <div className="bg-white p-8">
+            <div className="bg-white p-6 md:p-8">
               <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">Quick wins</h3>
               <p className="text-sm text-foreground/65">Communication, navigation, UI clarity.</p>
             </div>
-            <div className="bg-white p-8">
+            <div className="bg-white p-6 md:p-8">
               <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Structural redesign</h3>
               <p className="text-sm text-foreground/65">Measurable funnel with payment decision.</p>
             </div>
           </div>
 
           {/* Journey map */}
-          <div className="mt-16 mb-16">
+          <div className="mt-12 md:mt-16 mb-12 md:mb-16">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Revised user journeys</h3>
             <div className="border border-border rounded-lg overflow-hidden bg-[#E2F5EF]">
               {[
@@ -367,8 +476,8 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 ["Homepage", "Sign Up", "Meal Kits", "Get Started"],
                 ["Homepage", "Let's Get Started"],
               ].map((steps, i, arr) => (
-                <div key={i} className={`flex items-center justify-between gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
-                  <div className="flex items-center gap-2 flex-wrap">
+                <div key={i} className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 md:px-5 py-4 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
+                  <div className="flex items-center gap-2 flex-wrap min-w-0">
                     {steps.map((step, j) => (
                       <React.Fragment key={j}>
                         <span className="text-sm text-foreground/90 font-medium">{step}</span>
@@ -388,9 +497,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
 
           {/* Wireframes */}
-          <div className="mt-16">
+          <div className="mt-12 md:mt-16">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Wireframes</h3>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {wireframes.map((wf, i) => (
                 <div key={i} className="border border-border overflow-hidden bg-white aspect-[3/4]">
                   <Image src={wf.src} alt={wf.alt} width={wf.w} height={wf.h} className="w-full h-full object-cover object-top" />
@@ -405,7 +514,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             </button>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8 md:mt-10">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Handoff specifications</h3>
             <div className="grid sm:grid-cols-2 gap-px bg-border">
               {[
@@ -414,7 +523,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { title: "Form validation", desc: "Inline errors. Prevent incomplete submits." },
                 { title: "Progress tracking", desc: "GTM triggers per funnel step." },
               ].map((spec) => (
-                <div key={spec.title} className="bg-white p-6">
+                <div key={spec.title} className="bg-white p-5 md:p-6">
                   <p className="text-sm font-bold text-foreground">{spec.title}</p>
                   <p className="text-xs text-foreground/65 mt-1">{spec.desc}</p>
                 </div>
@@ -423,17 +532,35 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
-        {/* Results */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Results</h2>
-            </div>
+        {/* Outcome */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Outcome</h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
+          <p className="text-base text-foreground/75 leading-relaxed mb-8">
+            While final metrics are still being validated, early indicators showed:
+          </p>
+
+          <div className="space-y-4 mb-12">
+            {[
+              "Improved task completion in usability testing",
+              "Reduced hesitation at key decision points",
+              "Increased user confidence and clarity",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.45rem] shrink-0" />
+                <p className="text-base text-foreground/85 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Funnel comparison */}
+          <div className="grid md:grid-cols-2 gap-10 md:gap-12 mb-12">
             {/* Old */}
             <div>
-              <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Old funnel</h3>
+              <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-5 md:mb-6">Old funnel</h3>
               <div className="space-y-4">
                 {[
                   { label: "Entered", users: 405, pct: 100 },
@@ -451,12 +578,12 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   </div>
                 ))}
               </div>
-              <p className="text-3xl font-bold text-foreground/35 mt-6">3.7%</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground/35 mt-6">3.7%</p>
             </div>
 
             {/* New */}
             <div>
-              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">New funnel</h3>
+              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-5 md:mb-6">New funnel</h3>
               <div className="space-y-4">
                 {[
                   { label: "Entered", users: 1994, pct: 100 },
@@ -475,7 +602,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   </div>
                 ))}
               </div>
-              <p className="text-3xl font-bold text-[#09332C]/60 mt-6">9.3%</p>
+              <p className="text-2xl md:text-3xl font-bold text-[#09332C]/60 mt-6">9.3%</p>
             </div>
           </div>
 
@@ -490,15 +617,19 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           {/* ROI context */}
           <div className="border-t border-border pt-10 mt-10">
             <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
-            <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mt-2 mb-6"><Icon name="trending_up" size={13} />6-month redesign impact ROI · Aug 2025 – Jan 2026</p>
-            <p className="text-sm text-foreground/50 leading-relaxed whitespace-nowrap overflow-x-auto">
+            <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mt-2 mb-6">
+              <Icon name="trending_up" size={13} />6-month redesign impact ROI · Aug 2025 – Jan 2026
+            </p>
+            <p className="text-sm text-foreground/50 leading-relaxed break-words">
               R405k × 63% (3.7% → 9.3%) = ~R255k
             </p>
           </div>
 
           {/* Pending */}
           <div className="mt-12 pt-8 border-t border-border">
-            <h3 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4"><Icon name="pending" size={13} />Pending</h3>
+            <h3 className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">
+              <Icon name="pending" size={13} />Pending
+            </h3>
             <ul className="space-y-2">
               <li className="text-sm text-foreground/65">Payment timing decision outcomes.</li>
               <li className="text-sm text-foreground/65">A/B testing results.</li>
@@ -507,16 +638,20 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
-        {/* Reflection */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-4xl font-bold text-foreground tracking-tight">Reflection</h2>
-            </div>
+        {/* What I Learned */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-8 md:mb-10">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">What I Learned</h2>
+          </div>
           <div className="space-y-6">
-            {project.learnings.map((learning, i) => (
-              <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+            {[
+              "Users don't drop off because of one problem — it's cumulative friction",
+              "Clarity early in a journey is more valuable than persuasion",
+              "Small interaction decisions (like scroll behaviour) have outsized impact",
+            ].map((learning, i) => (
+              <div key={i} className="flex items-start gap-5 md:gap-6">
+                <span className="text-xs text-foreground/35 font-bold mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-base text-foreground/85 leading-relaxed">{learning}</p>
               </div>
             ))}
