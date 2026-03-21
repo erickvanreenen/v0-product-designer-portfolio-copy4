@@ -285,20 +285,6 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
-        {/* Key insight callout */}
-        <section className="mb-20 md:mb-24 border-l-2 border-[#F0531C] pl-6">
-          <p className="flex items-center gap-1.5 text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">
-            <Icon name="priority_high" size={13} />
-            Critical finding
-          </p>
-          <p className="text-lg md:text-xl text-[#09332C] font-bold leading-relaxed">
-            All participants expected to pay immediately. Payment was the task completion signal.
-          </p>
-          <p className="text-sm text-foreground/65 mt-3">
-            This single insight reshaped the solution.
-          </p>
-        </section>
-
         {/* Key Insights */}
         <section className="mb-20 md:mb-24">
           <div className="flex items-center gap-3 mb-8 md:mb-10">
