@@ -239,7 +239,7 @@ export default function AboutPage() {
                 Available for opportunities.
               </h2>
               <p className="text-[#F7EDDA]/55 max-w-sm text-sm">
-                Full-time roles, contract work, and interesting problems. Let's talk.
+                Full-time roles, contract work, and interesting challenges. Let's talk.
               </p>
             </div>
             <Link

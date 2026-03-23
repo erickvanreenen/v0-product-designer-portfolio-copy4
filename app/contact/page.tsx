@@ -158,7 +158,7 @@ export default function ContactPage() {
               <div className="pt-8 border-t border-border/60">
                 <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-2">Availability</p>
                 <p className="text-sm text-foreground/55 leading-relaxed">
-                  Open to full-time roles, contract work, and interesting problems.
+                  Open to full-time roles, contract work, and interesting challenges.
                 </p>
               </div>
             </aside>
