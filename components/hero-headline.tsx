@@ -35,10 +35,10 @@ export function HeroHeadline() {
           className="text-sm text-foreground/55 font-medium tracking-wide"
           style={style(2)}
         >
-          UX Designer 75%&nbsp;/&nbsp;UI 25%
-          <span className="mx-3 text-[#F0531C] font-bold">·</span>
+          UX/UI Designer
+          <br/>
           E-commerce, Omnichannel, EdTech
-          <span className="mx-3 text-[#F0531C] font-bold">·</span>
+          <br/>
           Cape Town
         </p>
       </div>
