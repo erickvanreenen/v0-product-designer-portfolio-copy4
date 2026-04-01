@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Icon, metaIcon } from "@/components/material-icon";
+import { ImageLightbox } from "@/components/image-lightbox";
 
 interface UCookCaseStudyProps {
   project: Project;
@@ -285,6 +286,21 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
+        {/* Heuristic Evaluation — Screenshots */}
+        <section className="mb-20 md:mb-24">
+          <div className="flex items-center gap-3 mb-2">
+            <LogoMark size={16} opacity={0.25} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Heuristic Evaluation</h2>
+          </div>
+          <p className="text-sm text-foreground/65 mb-6">Nielsen&apos;s 10 heuristics — three theme clusters identified across the sign-up and reactivation flows.</p>
+          <ImageLightbox
+            images={[
+              { src: "/ucook/heuristic-eval-1.png", alt: "Activate Now pop-up with no address associated error", caption: "When users clicked on \"Activate Now\" a pop-up appeared saying there is no address associated with this account and nothing happens beyond this — there’s no efficiency of use." },
+              { src: "/ucook/heuristic-eval-2.png", alt: "Inconsistent global navigation during sign-up", caption: "Inconsistent navigation — global nav changes at least three times during the sign-up process, as well as inaccurate information, although this was flagged and fixed as a quick win." },
+              { src: "/ucook/heuristic-eval-3.png", alt: "Order summary showing wrong configuration after phone verification", caption: "The system is broken and inaccurate — after phone number verification the order summary showed the wrong configuration." },
+            ]}
+          />
+        </section>
         {/* Key Insights */}
         <section className="mb-20 md:mb-24">
           <div className="flex items-center gap-3 mb-8 md:mb-10">
