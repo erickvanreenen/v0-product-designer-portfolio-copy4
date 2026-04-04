@@ -21,25 +21,25 @@ export function HeroHeadline() {
 
   return (
     <>
-      <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-foreground tracking-tight leading-[1.08] max-w-3xl mb-8 md:mb-10">
-        {headlineLines.map((line, i) => (
-          <span key={i} className="block overflow-hidden pb-1">
-            <span style={style(i)}>{line}</span>
-          </span>
-        ))}
-      </h1>
-
-      {/* Context strip — 3rd beat */}
-      <div className="overflow-hidden mb-10 md:mb-14">
+      {/* Context strip — 1st beat */}
+      <div className="overflow-hidden mb-6">
         <p
           className="text-sm tracking-wide"
-          style={style(2)}
+          style={style(0)}
         >
           <span className="font-bold" style={{ color: "#006A4E" }}>UX/UI Designer</span>
           <br/>
           <span className="font-normal" style={{ color: "#006A4E" }}>E-commerce, Omnichannel, EdTech</span>
         </p>
       </div>
+
+      <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-foreground tracking-tight leading-[1.08] max-w-3xl mb-8 md:mb-10">
+        {headlineLines.map((line, i) => (
+          <span key={i} className="block overflow-hidden pb-1">
+            <span style={style(i + 1)}>{line}</span>
+          </span>
+        ))}
+      </h1>
     </>
   );
 }
