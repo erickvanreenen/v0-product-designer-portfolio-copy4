@@ -32,14 +32,12 @@ export function HeroHeadline() {
       {/* Context strip — 3rd beat */}
       <div className="overflow-hidden mb-10 md:mb-14">
         <p
-          className="text-sm text-foreground/55 font-medium tracking-wide"
+          className="text-sm tracking-wide"
           style={style(2)}
         >
-          UX/UI Designer
+          <span className="font-bold" style={{ color: "#006A4E" }}>UX/UI Designer</span>
           <br/>
-          E-commerce, Omnichannel, EdTech
-          <br/>
-          Cape Town
+          <span className="font-normal" style={{ color: "#E8671A" }}>E-commerce, Omnichannel, EdTech</span>
         </p>
       </div>
     </>
