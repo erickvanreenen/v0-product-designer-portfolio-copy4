@@ -37,7 +37,7 @@ export function HeroHeadline() {
         >
           <span className="font-bold" style={{ color: "#006A4E" }}>UX/UI Designer</span>
           <br/>
-          <span className="font-normal" style={{ color: "#E8671A" }}>E-commerce, Omnichannel, EdTech</span>
+          <span className="font-normal" style={{ color: "#006A4E" }}>E-commerce, Omnichannel, EdTech</span>
         </p>
       </div>
     </>
