@@ -516,6 +516,40 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             </button>
           </div>
 
+          {/* Live app screens */}
+          <div className="mt-12 md:mt-16">
+            <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">Live app screens</h3>
+            <p className="text-xs text-foreground/45 mb-6">The redesigned funnel in production — 5 steps, single flow.</p>
+            <div className="flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory">
+              {[
+                { src: "/ucook/app-screen-01.jpg", step: "1/5", label: "Entry" },
+                { src: "/ucook/app-screen-02.jpg", step: "1/5", label: "Servings" },
+                { src: "/ucook/app-screen-03.jpg", step: "2/5", label: "Pick a plan" },
+                { src: "/ucook/app-screen-04.jpg", step: "3/5", label: "Delivery address" },
+                { src: "/ucook/app-screen-05.jpg", step: "4/5", label: "Payment" },
+                { src: "/ucook/app-screen-06.jpg", step: "5/5", label: "Confirm" },
+                { src: "/ucook/app-screen-07.jpg", step: "✓", label: "Welcome" },
+                { src: "/ucook/app-screen-08.jpg", step: "→", label: "Meal kit menu" },
+              ].map((screen, i) => (
+                <div key={i} className="flex-none w-[160px] md:w-[180px] snap-start">
+                  <div className="rounded-xl overflow-hidden border border-border bg-white aspect-[9/19]">
+                    <Image
+                      src={screen.src}
+                      alt={`${screen.label} — step ${screen.step}`}
+                      width={540}
+                      height={1140}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="mt-2 flex items-center gap-1.5">
+                    <span className="text-[10px] font-bold text-foreground/30">{screen.step}</span>
+                    <span className="text-[10px] text-foreground/55">{screen.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-8 md:mt-10">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Handoff specifications</h3>
             <div className="grid sm:grid-cols-2 gap-px bg-border">
