@@ -107,9 +107,22 @@ const annotations = [
 export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseStudyProps) {
   const [showModal, setShowModal] = useState(false);
   const [showAnnotations, setShowAnnotations] = useState(false);
+  const [screenIndex, setScreenIndex] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setShowModal(false), []);
   const closeAnnotations = useCallback(() => setShowAnnotations(false), []);
+  const closeScreens = useCallback(() => setScreenIndex(null), []);
+
+  const appScreens = [
+    { src: "/ucook/app-screen-01.jpg", step: "1/5", label: "Entry" },
+    { src: "/ucook/app-screen-02.jpg", step: "1/5", label: "Servings" },
+    { src: "/ucook/app-screen-03.jpg", step: "2/5", label: "Pick a plan" },
+    { src: "/ucook/app-screen-04.jpg", step: "3/5", label: "Delivery address" },
+    { src: "/ucook/app-screen-05.jpg", step: "4/5", label: "Payment" },
+    { src: "/ucook/app-screen-06.jpg", step: "5/5", label: "Confirm" },
+    { src: "/ucook/app-screen-07.jpg", step: "✓", label: "Welcome" },
+    { src: "/ucook/app-screen-08.jpg", step: "→", label: "Meal kit menu" },
+  ];
 
   useEffect(() => {
     if (!showModal) return;
@@ -127,8 +140,74 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
   }, [showAnnotations, closeAnnotations]);
 
+  useEffect(() => {
+    if (screenIndex === null) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeScreens();
+      if (e.key === "ArrowRight") setScreenIndex((i) => i !== null ? Math.min(i + 1, appScreens.length - 1) : null);
+      if (e.key === "ArrowLeft") setScreenIndex((i) => i !== null ? Math.max(i - 1, 0) : null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
+  }, [screenIndex, closeScreens, appScreens.length]);
+
   return (
     <div>
+    {/* Screen lightbox */}
+    {screenIndex !== null && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm" onClick={closeScreens}>
+        <div className="relative flex items-center justify-center w-full h-full px-14" onClick={(e) => e.stopPropagation()}>
+
+          {/* Prev */}
+          <button
+            onClick={() => setScreenIndex((i) => i !== null ? Math.max(i - 1, 0) : null)}
+            disabled={screenIndex === 0}
+            className="absolute left-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+            aria-label="Previous screen"
+          >
+            <ArrowLeft size={20} />
+          </button>
+
+          {/* Image */}
+          <div className="flex flex-col items-center gap-4 max-h-[90vh]">
+            <div className="relative h-[72vh] aspect-[9/19] rounded-2xl overflow-hidden border border-white/10">
+              <Image
+                src={appScreens[screenIndex].src}
+                alt={appScreens[screenIndex].label}
+                fill
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-white/35">{appScreens[screenIndex].step}</span>
+              <span className="text-xs text-white/60">{appScreens[screenIndex].label}</span>
+              <span className="text-xs text-white/25 ml-2">{screenIndex + 1} / {appScreens.length}</span>
+            </div>
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={() => setScreenIndex((i) => i !== null ? Math.min(i + 1, appScreens.length - 1) : null)}
+            disabled={screenIndex === appScreens.length - 1}
+            className="absolute right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+            aria-label="Next screen"
+          >
+            <ArrowRight size={20} />
+          </button>
+
+          {/* Close */}
+          <button
+            onClick={closeScreens}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
+        </div>
+      </div>
+    )}
+
     {/* Annotations overlay */}
     {showAnnotations && (
       <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeAnnotations}>
@@ -653,31 +732,28 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-1">Live app screens</h3>
             <p className="text-xs text-foreground/40 mb-5">The redesigned funnel in production — 5 steps, single flow.</p>
             <div className="flex gap-2.5 overflow-x-auto pb-3 snap-x snap-mandatory">
-              {[
-                { src: "/ucook/app-screen-01.jpg", step: "1/5", label: "Entry" },
-                { src: "/ucook/app-screen-02.jpg", step: "1/5", label: "Servings" },
-                { src: "/ucook/app-screen-03.jpg", step: "2/5", label: "Pick a plan" },
-                { src: "/ucook/app-screen-04.jpg", step: "3/5", label: "Delivery address" },
-                { src: "/ucook/app-screen-05.jpg", step: "4/5", label: "Payment" },
-                { src: "/ucook/app-screen-06.jpg", step: "5/5", label: "Confirm" },
-                { src: "/ucook/app-screen-07.jpg", step: "✓", label: "Welcome" },
-                { src: "/ucook/app-screen-08.jpg", step: "→", label: "Meal kit menu" },
-              ].map((screen, i) => (
-                <div key={i} className="flex-none w-[120px] snap-start">
-                  <div className="rounded-lg overflow-hidden border border-border bg-white aspect-[9/19]">
+              {appScreens.map((screen, i) => (
+                <button
+                  key={i}
+                  onClick={() => setScreenIndex(i)}
+                  className="flex-none w-[120px] snap-start text-left group focus:outline-none"
+                  aria-label={`View ${screen.label}`}
+                >
+                  <div className="rounded-lg overflow-hidden border border-border bg-white aspect-[9/19] relative">
                     <Image
                       src={screen.src}
                       alt={`${screen.label} — step ${screen.step}`}
                       width={540}
                       height={1140}
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 rounded-lg" />
                   </div>
                   <div className="mt-1.5 flex items-center gap-1">
                     <span className="text-[9px] font-bold text-foreground/30 shrink-0">{screen.step}</span>
                     <span className="text-[9px] text-foreground/50 truncate">{screen.label}</span>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
             <button
