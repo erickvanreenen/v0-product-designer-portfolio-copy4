@@ -22,10 +22,94 @@ const wireframes = [
   { src: "/images/ucook-wf-confirmation.png", alt: "Confirmation page showing payment, address, and delivery review", caption: "Confirmation. Review before activating subscription.", w: 1000, h: 1160 },
 ];
 
+const annotations = [
+  {
+    title: "Visual design",
+    items: [
+      "Circular progress indicator",
+      "Colour scheme matching mobile app design system",
+    ],
+  },
+  {
+    title: "Initial state",
+    items: [
+      "Hidden by default",
+      "Triggered after first user interaction in sign-up flow",
+      "Appears with soft fade-in animation",
+    ],
+  },
+  {
+    title: "Persistent behaviour",
+    items: [
+      "Sticky positioning at top of mobile viewport",
+      "Remains visible throughout entire sign-up process",
+      "Lightweight, non-intrusive design",
+    ],
+  },
+  {
+    title: "Progress tracking",
+    items: [
+      "Circular segments representing 5 sign-up steps",
+      "Current step highlighted with primary colour",
+      "Completed steps filled/coloured; upcoming steps outlined/muted",
+      "Independent step completion tracking",
+      "Non-sequential step completion allowed (accounts for partial and abandoned sign-ups — see user journeys)",
+      "Real-time visual updates",
+    ],
+  },
+  {
+    title: "Step 1 · People & dishes",
+    items: [
+      "Large tap targets for number selection",
+      "Clear visual feedback on selection",
+      "Step completes when both people count and dish frequency are selected",
+    ],
+  },
+  {
+    title: "Step 2 · Plan selection",
+    items: [
+      "Card-based plan options, full-width",
+      "Clear visual hierarchy, tap-to-select",
+      "Step completes on plan category selection",
+      "Enables 'Next' CTA on completion",
+      "Subscription selected by default — not part of progress bar. 1-week try-out offered as a selectable option.",
+    ],
+  },
+  {
+    title: "Step 3 · Delivery address",
+    items: [
+      "Mobile-optimised form layout with large, tappable input fields",
+      "Clear mandatory field indicators",
+      "Address validation with mobile-friendly error handling",
+      "Delivery day selection via radio buttons — only available after all required fields are completed and validated",
+      "Monday selected by default",
+    ],
+  },
+  {
+    title: "Step 4 · Payment details",
+    items: [
+      "Mobile-optimised payment input",
+      "Touch-friendly credit card entry",
+      "Real-time validation feedback",
+      "Keyboard optimisations per input type",
+    ],
+  },
+  {
+    title: "Step 5 · Confirmation",
+    items: [
+      "Compact summary of all selections",
+      "Any field can be edited from this step",
+      "Confirmation requires reviewing all previous steps",
+    ],
+  },
+];
+
 export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseStudyProps) {
   const [showModal, setShowModal] = useState(false);
+  const [showAnnotations, setShowAnnotations] = useState(false);
 
   const closeModal = useCallback(() => setShowModal(false), []);
+  const closeAnnotations = useCallback(() => setShowAnnotations(false), []);
 
   useEffect(() => {
     if (!showModal) return;
@@ -35,8 +119,56 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
   }, [showModal, closeModal]);
 
+  useEffect(() => {
+    if (!showAnnotations) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeAnnotations(); };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
+  }, [showAnnotations, closeAnnotations]);
+
   return (
     <div>
+    {/* Annotations overlay */}
+    {showAnnotations && (
+      <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeAnnotations}>
+        <div className="absolute top-4 right-4 z-10">
+          <button
+            onClick={closeAnnotations}
+            className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            aria-label="Close annotations"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        <div
+          className="h-full overflow-y-auto py-12 px-4 md:px-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="max-w-2xl mx-auto space-y-10">
+            <div>
+              <p className="text-xs text-white/40 font-medium uppercase tracking-widest mb-1">Developer annotations</p>
+              <h2 className="text-xl font-bold text-white">Mobile Progress Bar Component</h2>
+              <p className="text-sm text-white/50 mt-1">Visual design specifications</p>
+            </div>
+            {annotations.map((section, i) => (
+              <div key={i}>
+                <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">{section.title}</h3>
+                <div className="space-y-3">
+                  {section.items.map((item, j) => (
+                    <div key={j} className="flex items-start gap-3">
+                      <span className="w-1 h-1 rounded-full bg-white/30 mt-[0.45rem] shrink-0" />
+                      <p className="text-sm text-white/75 leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
     {/* Modal */}
     {showModal && (
       <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeModal}>
@@ -548,6 +680,12 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 </div>
               ))}
             </div>
+            <button
+              onClick={() => setShowAnnotations(true)}
+              className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C]/60 transition-colors duration-200"
+            >
+              View progress bar annotations
+            </button>
           </div>
 
           <div className="mt-8 md:mt-10">
