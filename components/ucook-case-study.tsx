@@ -650,9 +650,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* Live app screens */}
           <div className="mt-12 md:mt-16">
-            <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-2">Live app screens</h3>
-            <p className="text-xs text-foreground/45 mb-6">The redesigned funnel in production — 5 steps, single flow.</p>
-            <div className="flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory">
+            <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-1">Live app screens</h3>
+            <p className="text-xs text-foreground/40 mb-5">The redesigned funnel in production — 5 steps, single flow.</p>
+            <div className="flex gap-2.5 overflow-x-auto pb-3 snap-x snap-mandatory">
               {[
                 { src: "/ucook/app-screen-01.jpg", step: "1/5", label: "Entry" },
                 { src: "/ucook/app-screen-02.jpg", step: "1/5", label: "Servings" },
@@ -663,8 +663,8 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                 { src: "/ucook/app-screen-07.jpg", step: "✓", label: "Welcome" },
                 { src: "/ucook/app-screen-08.jpg", step: "→", label: "Meal kit menu" },
               ].map((screen, i) => (
-                <div key={i} className="flex-none w-[160px] md:w-[180px] snap-start">
-                  <div className="rounded-xl overflow-hidden border border-border bg-white aspect-[9/19]">
+                <div key={i} className="flex-none w-[120px] snap-start">
+                  <div className="rounded-lg overflow-hidden border border-border bg-white aspect-[9/19]">
                     <Image
                       src={screen.src}
                       alt={`${screen.label} — step ${screen.step}`}
@@ -673,16 +673,16 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <span className="text-[10px] font-bold text-foreground/30">{screen.step}</span>
-                    <span className="text-[10px] text-foreground/55">{screen.label}</span>
+                  <div className="mt-1.5 flex items-center gap-1">
+                    <span className="text-[9px] font-bold text-foreground/30 shrink-0">{screen.step}</span>
+                    <span className="text-[9px] text-foreground/50 truncate">{screen.label}</span>
                   </div>
                 </div>
               ))}
             </div>
             <button
               onClick={() => setShowAnnotations(true)}
-              className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C]/60 transition-colors duration-200"
+              className="mt-3 text-xs font-medium text-[#F0531C] hover:text-[#09332C]/60 transition-colors duration-200"
             >
               View progress bar annotations
             </button>
