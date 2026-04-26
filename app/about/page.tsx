@@ -11,23 +11,27 @@ export const metadata: Metadata = {
 };
 
 const experience = [
-  { title: "UX/UI Designer", company: "Silvertree Brands", period: "Sep 2024 - Present", desc: "Designing across UCOOK, Faithful to Nature, and Pet Heaven." },
-  { title: "UX Designer", company: "YumEase", period: "Jul 2023 - Aug 2024", desc: "Sole designer. Took the product from inception to launch." },
-  { title: "Visual Team Lead", company: "UNi4 Online", period: "May 2021 - Aug 2024", desc: "Led the design team. Built the aggregator UX." },
-  { title: "Design Director", company: "Poly Nation", period: "Jun 2018 - Apr 2020", desc: "Owned full production. Drove a 40% increase in turnover." },
-  { title: "Visual Designer", company: "Stories & Science", period: "Feb 2018 - Feb 2019", desc: "Delivered visual design across brand and digital." },
-  { title: "Clothing Designer & Production Lead", company: "Lucky Friday", period: "Apr 2010 - Oct 2017", desc: "Managed end-to-end design and production." },
-  { title: "Retail Owner", company: "Lucky Friday", period: "Feb 2001 - Apr 2012", desc: "Founded and operated the retail business." },
+  { title: "UX/UI Designer", company: "Silvertree Brands", period: "Sep 2024 – Present", desc: "Designing across UCOOK, Faithful to Nature, and Pet Heaven. Omnichannel e-commerce, desktop and mobile." },
+  { title: "Moderator, Content Design", company: "UX Design Institute", period: "Aug 2024 – Present", desc: "Reviewing student projects against the six Content Design principles." },
+  { title: "Content Writer, Digital & Web Design", company: "Eduvos", period: "Apr 2024 – Present", desc: "Consolidating UX/UI modules into a unified strand within the three-year Digital Design degree." },
+  { title: "Lecturer, UX Design", company: "Academy of Digital Arts", period: "Feb 2024 – Present", desc: "Delivering the UX Design module: instruction, workshops, and assessment." },
+  { title: "UX Designer", company: "YumEase", period: "Jul 2023 – Aug 2024", desc: "Sole designer. Took the product from inception to launch." },
+  { title: "Visual Team Lead", company: "UNi4 Online", period: "May 2021 – Aug 2024", desc: "Led the design team. Built the aggregator UX." },
+  { title: "Design Director", company: "Poly Nation", period: "Jun 2018 – Apr 2020", desc: "Owned full production. Drove a 40% increase in turnover." },
+  { title: "Visual Designer", company: "Stories & Science", period: "Feb 2018 – Feb 2019", desc: "Delivered visual design across brand and digital." },
+  { title: "Clothing Designer & Production Lead", company: "Lucky Friday", period: "Apr 2010 – Oct 2017", desc: "Managed end-to-end design and production." },
+  { title: "Retail Owner", company: "Lucky Friday", period: "Feb 2001 – Apr 2012", desc: "Founded and operated the retail business." },
 ];
 
 const education = [
-  { title: "AI Fundamentals for UX Design", institution: "UX Design Institute / GCU", year: "2025" },
-  { title: "Professional Diploma in UX Design", institution: "UX Design Institute / GCU", year: "2022" },
-  { title: "The Creative's Workshop", institution: "Akimbo, Seth Godin", year: "2021" },
-  { title: "UX Design Fundamentals", institution: "CalArts", year: "2020" },
-  { title: "Visual Elements of UI Design", institution: "CalArts", year: "2020" },
+  { title: "AI Fundamentals for UX", institution: "UX Design Institute", year: "2025" },
+  { title: "Developing a Systems Mindset", institution: "University of Colorado Boulder", year: "2025" },
+  { title: "Professional Diploma in UX Design", institution: "UX Design Institute / Glasgow Caledonian University", year: "2022" },
+  { title: "Akimbo: The Creative's Workshop", institution: "Seth Godin", year: "2021" },
+  { title: "UX Design Fundamentals", institution: "California Institute of the Arts", year: "2020" },
+  { title: "Visual Elements of UI Design", institution: "California Institute of the Arts", year: "2020" },
   { title: "Introduction to Data Science", institution: "IBM", year: "2019" },
-  { title: "Cost & Management Accounting + Financial Accounting", institution: "Institute of Administration and Commerce", year: "1997 - 2000" },
+  { title: "Cost & Management Accounting + Financial Accounting", institution: "Institute of Administration and Commerce", year: "1997 – 2000" },
 ];
 
 const skills = [
