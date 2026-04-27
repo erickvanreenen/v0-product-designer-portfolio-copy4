@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 const experience = [
   { title: "UX/UI Designer", company: "Silvertree Brands", period: "Sep 2024 – Present", desc: "Designing across UCOOK, Faithful to Nature, and Pet Heaven. Omnichannel e-commerce, desktop and mobile." },
-  { title: "Moderator, Content Design", company: "UX Design Institute", period: "Aug 2024 – Present", desc: "Reviewing student projects against the six Content Design principles." },
-  { title: "Content Writer, Digital & Web Design", company: "Eduvos", period: "Apr 2024 – Present", desc: "Consolidating UX/UI modules into a unified strand within the three-year Digital Design degree." },
-  { title: "Lecturer, UX Design", company: "Academy of Digital Arts", period: "Feb 2024 – Present", desc: "Delivering the UX Design module: instruction, workshops, and assessment." },
+  { title: "Moderator, Content Design", company: "UX Design Institute", period: "Aug 2024 – Mar 2026", desc: "Reviewing student projects against the six Content Design principles." },
+  { title: "Content Writer, Digital & Web Design", company: "Eduvos", period: "Apr 2024 – Sep 2025", desc: "Consolidating UX/UI modules into a unified strand within the three-year Digital Design degree." },
+  { title: "Lecturer, UX Design", company: "Academy of Digital Arts", period: "Feb 2024 – Mar 2025", desc: "Delivering the UX Design module: instruction, workshops, and assessment." },
   { title: "UX Designer", company: "YumEase", period: "Jul 2023 – Aug 2024", desc: "Sole designer. Took the product from inception to launch." },
   { title: "Visual Team Lead", company: "UNi4 Online", period: "May 2021 – Aug 2024", desc: "Led the design team. Built the aggregator UX." },
   { title: "Design Director", company: "Poly Nation", period: "Jun 2018 – Apr 2020", desc: "Owned full production. Drove a 40% increase in turnover." },
