@@ -59,7 +59,7 @@ export function Navbar() {
             href="https://www.linkedin.com/in/erick-van-reenen-b549061a6/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/40 hover:text-[#F0531C] transition-colors duration-200"
+            className="text-[#F0531C] hover:text-[#F0531C]/70 transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -73,7 +73,7 @@ export function Navbar() {
             aria-label="Behance"
             aria-hidden={pathname !== "/about"}
             tabIndex={pathname !== "/about" ? -1 : undefined}
-            className={`transition-opacity duration-200 ${pathname === "/about" ? "opacity-40 hover:opacity-100 hover:text-[#F0531C] pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+            className={`transition-colors duration-200 ${pathname === "/about" ? "text-[#F0531C] hover:text-[#F0531C]/70 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.202.836 1.87 2.177 1.87.64 0 1.245-.303 1.487-.99h3.092zm-7.268-4h4.418c-.155-1.377-.879-1.95-2.164-1.95-1.286 0-2.075.573-2.254 1.95zM7.44 12c1.507 0 2.436-.802 2.436-2.044C9.876 8.757 9 8 7.467 8H4.5v4H7.44zm.558 3.925c0-1.368-.926-2.245-2.674-2.245H4.5v4.32h.957c1.904 0 2.541-.986 2.541-2.075zM0 5h8.207c2.781 0 4.504 1.537 4.504 3.802 0 1.493-.732 2.56-1.901 3.17 1.54.544 2.468 1.807 2.468 3.564C13.278 18.48 11.354 20 8.5 20H0V5z"/>
