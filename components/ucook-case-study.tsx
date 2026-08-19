@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Icon, metaIcon } from "@/components/material-icon";
 import { ImageLightbox } from "@/components/image-lightbox";
+import { ModelComplexity } from "@/components/ucook-model-complexity";
 
 interface UCookCaseStudyProps {
   project: Project;
@@ -463,6 +464,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               </div>
             ))}
           </div>
+          <ModelComplexity />
         </section>
 
         {/* Research & Insights */}
