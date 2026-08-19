@@ -8,7 +8,9 @@ export type ProjectTag =
   | "EdTech"
   | "Content Design"
   | "Data Dev"
-  | "Workflow Automation";
+  | "Workflow Automation"
+  | "GEO"
+  | "Information Architecture";
 
 export interface Project {
   slug: string;
@@ -42,6 +44,52 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "rhino-africa-geo",
+    title: "Rhino Africa",
+    subtitle: "Architecting content authority for AI-generated search",
+    tags: ["GEO", "Information Architecture", "UX Strategy", "Content Design"],
+    role: "UX Architect",
+    team: "Self-initiated research",
+    timeline: "June 2026",
+    tools: ["Figma", "Claude", "Perplexity", "Schema.org", "Miro"],
+    thumbnail: "/images/thumb-rhino.svg",
+    outcomes: [
+      "Seven-layer GEO content architecture defined for high-value destination pages",
+      "Six competitors benchmarked across five UX dimensions",
+      "Multilingual conversion break identified between blog and enquiry flow",
+      "Five persona buckets mapped from conversation mining across six platforms"
+    ],
+    summary: "A structural analysis of how a luxury safari platform earns citation in AI-generated search. Generative Engine Optimisation is not a content problem — it is an information architecture problem. This project defines the hierarchy that lets a machine find, extract, and attribute expertise.",
+    context: "Rhino Africa is Africa's most awarded safari company, with 5,300+ Trustpilot reviews at a 5.0 rating. The platform is a content-to-conversion machine: six pillars funnelling toward a single outcome, the human Travel Expert relationship. But search is changing. Users increasingly ask Perplexity, ChatGPT Search, and Google AI Overviews rather than scanning ten blue links. In that world, ranking is not the goal. Being cited is.",
+    goals: [
+      "Understand the platform as a system before designing anything within it",
+      "Establish how an AI agent reads, extracts, and attributes authority on a web page",
+      "Architect the information hierarchy of a high-value destination page for machine extraction",
+      "Identify where the existing platform breaks the chain between discovery and conversion"
+    ],
+    research: "Four parallel investigations: platform information architecture mapping across six pillars and the blog subdomain; GEO performance analysis covering taxonomy depth, locale declarations, and multilingual continuity; persona research through conversation mining across Trustpilot, Travelstride, TripAdvisor, SafariBookings, Fodor's forums, and the client feedback page; and high-net-worth consumer behaviour drawn from luxury-segment conversion patterns rather than reviews.",
+    insights: [
+      "The consultant is the product — across all five persona buckets, the named human relationship drives trust, conversion, and review",
+      "Authority was never declared machine-readably: no entity block, no named byline, no schema tying expertise to a person",
+      "FAQ answers existed but opened with preamble — an AI agent cannot extract a clean, citable response from prose",
+      "The multilingual effort stops at the content layer: five languages in the blog, two locale alternates on the main site, an English-only enquiry form",
+      "Destination filtering is filter-driven, not map-driven — for a platform that sells geography as the product, the spatial entry point is missing",
+      "Three of six competitors run WordPress; none offers itinerary visualisation or aspiration-led discovery"
+    ],
+    iaFlows: "Mapped the platform as six primary pillars — Destinations, Experiences, Tours & Safaris, About Us, Blog, Start Planning — with the blog operating on a separate WordPress subdomain that mirrors the main taxonomy. Tours and Destinations are tightly interdependent: tours are multi-destination packages, destination pages surface relevant tours. Trust content sits close to the booking funnel by design, functioning as a conversion enabler rather than reference material.",
+    designExploration: "Architected a seven-layer content hierarchy for a high-value destination page, ordered by the sequence a crawler reads: page identity, authority block, structured FAQ, expert tips module, repeating lodge entity blocks, conversion anchor, and a machine layer of schema markup invisible to the user. Each layer was tested against the question: can an AI agent extract Rhino Africa's authority from this, unambiguously, without human interpretation?",
+    finalUI: "Delivered a current-versus-recommended comparison for the Kruger National Park destination page. Every recommendation is structural rather than cosmetic: entity and authority claim in the H1, a named consultant byline above the fold, FAQ answers that lead with the entity and carry no preamble, and four schema types wrapping the whole — FAQPage, Article, TravelAgency, and BreadcrumbList.",
+    testing: "Benchmarked six competitors across IA & navigation, enquiry & conversion, content strategy, visual design, and mobile experience. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average. The scoring surfaced four strategic opportunities unoccupied across the entire competitive set.",
+    outcome: "The deliverable is the architecture itself. A seven-layer content hierarchy that makes expertise machine-extractable, a nine-signal GEO framework, and six design implications ordered by leverage — surfacing the consultant early, distributing trust signals to every decision point, removing friction from the enquiry flow, extending multilingual continuity through to conversion, adding a spatial orientation layer, and building personalisation cues that signal the user is known.",
+    learnings: [
+      "GEO is an information architecture discipline wearing a content marketing costume — the structure is the optimisation",
+      "Machines cannot infer authority. If expertise is not declared explicitly and consistently, it does not exist to a crawler",
+      "Understanding the ecosystem before designing a single page is not overhead. It is what makes the page decision defensible",
+      "The first hundred words carry the most weight — leading with the answer rather than the preamble is both better UX and better machine legibility"
+    ],
+    images: []
+  },
   {
     slug: "ucook",
     title: "UCOOK",

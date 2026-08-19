@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/lib/projects";
 import { CaseStudyLayout } from "@/components/case-study-layout";
 import { UCookCaseStudy } from "@/components/ucook-case-study";
+import { RhinoAfricaCaseStudy } from "@/components/rhino-africa-case-study";
 import { FlanksourceCaseStudy } from "@/components/flanksource-case-study";
 import { OvertureCaseStudy } from "@/components/overture-case-study";
 import { FtnCaseStudy } from "@/components/ftn-case-study";
@@ -55,6 +56,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const projectIndex = projects.findIndex((p) => p.slug === slug);
   const nextProject = projects[projectIndex + 1];
   const prevProject = projects[projectIndex - 1];
+
+  if (slug === "rhino-africa-geo") {
+    return (
+      <RhinoAfricaCaseStudy
+        project={project}
+        nextProject={nextProject}
+        prevProject={prevProject}
+      />
+    );
+  }
 
   if (slug === "ucook") {
     return (
