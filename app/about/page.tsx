@@ -4,6 +4,11 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Icon } from "@/components/material-icon";
 import { PrintsCarousel } from "@/components/prints-carousel";
 import { FadeIn } from "@/components/fade-in";
+import {
+  DeliveryWorkflowDiagram,
+  DesignSystemDiagram,
+  SemanticLayerNote,
+} from "@/components/workflow-diagrams";
 
 export const metadata: Metadata = {
   title: "About | Erick van Reenen",
@@ -216,7 +221,7 @@ export default function AboutPage() {
 
         {/* Tooling */}
         <FadeIn>
-        <section className="mb-0 pb-0">
+        <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
           <div className="flex items-center gap-3 mb-12 md:mb-14">
             <LogoMark size={14} opacity={0.2} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Tooling</h2>
@@ -227,6 +232,41 @@ export default function AboutPage() {
                 {tool}
               </span>
             ))}
+          </div>
+        </section>
+        </FadeIn>
+
+        {/* Workflow */}
+        <FadeIn>
+        <section className="mb-0 pb-0">
+          <div className="flex items-center gap-3 mb-4">
+            <LogoMark size={14} opacity={0.2} />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Workflow</h2>
+          </div>
+          <p className="text-sm text-foreground/60 leading-relaxed max-w-xl mb-12 md:mb-14">
+            How I work, and how the design system keeps it consistent.
+          </p>
+
+          {/* Design and delivery */}
+          <h3 className="text-base font-bold text-foreground">Design and delivery</h3>
+          <p className="text-sm text-foreground/60 leading-relaxed mt-1.5">
+            From proof of concept through to developer handover.
+          </p>
+          <div className="bg-white rounded-lg border border-border/40 p-5 md:p-7 mt-6">
+            <DeliveryWorkflowDiagram />
+          </div>
+          <p className="text-xs text-foreground/45 leading-relaxed mt-3">
+            HTML is included in handover where it saves build time.
+          </p>
+
+          {/* Design system */}
+          <h3 className="text-base font-bold text-foreground mt-14">Design system</h3>
+          <p className="text-sm text-foreground/60 leading-relaxed mt-1.5">
+            Built in Figma and in code, then checked against itself.
+          </p>
+          <div className="bg-white rounded-lg border border-border/40 p-5 md:p-7 mt-6">
+            <DesignSystemDiagram />
+            <SemanticLayerNote />
           </div>
         </section>
         </FadeIn>
