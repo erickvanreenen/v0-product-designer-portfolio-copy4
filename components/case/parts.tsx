@@ -44,7 +44,7 @@ export function CaseHero({
     ];
 
   return (
-    <section className="border-b border-line">
+    <section className="bg-surface border-b border-line">
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-14 md:pt-16 md:pb-20">
         <Link
           href="/projects"

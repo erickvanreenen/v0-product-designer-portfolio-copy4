@@ -20,7 +20,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="page-entry">
-      <section className="border-b border-line">
+      <section className="bg-surface border-b border-line">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <p className="t-label text-ember mb-6">Work</p>
           <h1 className="t-display text-5xl md:text-7xl text-ink mb-6">
