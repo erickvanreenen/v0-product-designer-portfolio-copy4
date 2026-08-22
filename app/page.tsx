@@ -31,8 +31,8 @@ export default function HomePage() {
 
   return (
     <div className="page-entry">
-      {/* Hero — unchanged */}
-      <section className="bg-[#FDFAF5]">
+      {/* Hero. Content and layout unchanged, background moved to white. */}
+      <section className="bg-surface border-b border-line">
         <div className="max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
           <HeroHeadline />
 
