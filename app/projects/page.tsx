@@ -30,9 +30,8 @@ export default function ProjectsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-3">
             Projects
           </h1>
-          <p className="text-base text-foreground/55 max-w-md leading-relaxed">
-            Nine of them, written up properly. E-commerce, omnichannel platforms
-            and education, mostly.
+          <p className="text-sm text-foreground/45 max-w-sm">
+            UX across e-commerce, omnichannel platforms, and education.
           </p>
         </div>
       </section>

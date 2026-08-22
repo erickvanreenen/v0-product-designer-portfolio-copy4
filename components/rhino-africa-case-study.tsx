@@ -14,9 +14,9 @@ import {
   CompetitorMatrix,
   FaqBeforeAfter,
   GeoSignals,
-} from "@/components/geo-diagrams";
+} from "@/components/rhino-geo-diagrams";
 
-interface GeoCaseStudyProps {
+interface RhinoAfricaCaseStudyProps {
   project: Project;
   nextProject?: Project;
   prevProject?: Project;
@@ -31,22 +31,22 @@ const personas = [
 ];
 
 const opportunities = [
-  { n: "01", title: "Aspiration-first planning", body: "Only one competitor attempts experience-led discovery. A 'start with how you want to feel' approach maps to how luxury travellers actually begin planning. and is largely unoccupied." },
+  { n: "01", title: "Aspiration-first planning", body: "Only one competitor attempts experience-led discovery. A 'start with how you want to feel' approach maps to how luxury travellers actually begin planning — and is largely unoccupied." },
   { n: "02", title: "Transparent enquiry process", body: "The anxiety of 'what happens after I click Enquire?' is unaddressed by five of six competitors. A clear three-step human process reduces drop-off before first contact." },
-  { n: "03", title: "Modern technical foundation", body: "Three of six run WordPress. A headless or Next.js architecture delivers speed, personalisation headroom, and SEO advantages that compound. and are perceptible to users calibrated to the best of the web." },
+  { n: "03", title: "Modern technical foundation", body: "Three of six run WordPress. A headless or Next.js architecture delivers speed, personalisation headroom, and SEO advantages that compound — and are perceptible to users calibrated to the best of the web." },
   { n: "04", title: "Itinerary visualisation", body: "No competitor offers an interactive itinerary builder or shareable journey map. Once a user is in consultation, a living collaborative plan is the highest-impact investment available in this space." },
 ];
 
 const implications = [
   { icon: "person", title: "Surface the consultant early", body: "It is the product, not a support feature. Across all five persona buckets, the named human relationship drives trust, conversion, and review." },
-  { icon: "verified", title: "Distribute trust signals", body: "Awards, press, named consultants, and testimonials belong at every decision point. not quarantined on dedicated pages." },
+  { icon: "verified", title: "Distribute trust signals", body: "Awards, press, named consultants, and testimonials belong at every decision point — not quarantined on dedicated pages." },
   { icon: "bolt", title: "Remove friction from enquiry", body: "One clear step, not a form. High-net-worth users have money and no patience for doubt." },
   { icon: "language", title: "Extend multilingual continuity", body: "Language must carry from the blog through to the enquiry form. Discovery and conversion cannot speak different languages." },
   { icon: "map", title: "Add a spatial orientation layer", body: "For a platform that sells geography as the product, a map-based entry point is a structural gap, not a feature request." },
   { icon: "tune", title: "Build personalisation cues", body: "Every touchpoint should signal the user is known and their trip is being considered individually." },
 ];
 
-export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudyProps) {
+export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: RhinoAfricaCaseStudyProps) {
   return (
     <div className="page-entry">
       <div>
@@ -113,7 +113,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
               It is an information architecture problem wearing a content marketing costume.
             </p>
             <p className="text-base text-foreground/70 leading-relaxed mb-5">
-              Rhino Africa is Africa&apos;s most awarded safari company. 5,300+ Trustpilot reviews
+              Rhino Africa is Africa&apos;s most awarded safari company — 5,300+ Trustpilot reviews
               at a 5.0 rating, destination coverage across twelve African countries, and a
               consultant relationship that customers name personally in almost every review.
               The authority is real and hard-won.
@@ -157,7 +157,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
             </h2>
             <p className="text-sm text-foreground/80 leading-relaxed mb-8">
               Before designing anything, I need to understand where a feature or page lives
-              within the ecosystem. the dependencies and interdependencies of every element.
+              within the ecosystem — the dependencies and interdependencies of every element.
               Only then does a page-level decision become defensible.
             </p>
             <div className="space-y-0">
@@ -201,7 +201,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
 
             <div className="mt-10 space-y-6">
               {[
-                { t: "The blog is a separate system", d: "It runs on a WordPress subdomain, mirrors the main taxonomy, and cross-links back. Critical top-of-funnel value. and a content consistency risk." },
+                { t: "The blog is a separate system", d: "It runs on a WordPress subdomain, mirrors the main taxonomy, and cross-links back. Critical top-of-funnel value — and a content consistency risk." },
                 { t: "Tours and Destinations are entangled", d: "Tours are multi-destination packages; destination pages surface relevant tours. Any IA work has to start with this relationship." },
                 { t: "Trust content is conversion infrastructure", d: "About Us, Price Guarantee, Client Feedback, and Financial Protection sit close to the booking funnel by design. They are not reference material." },
               ].map((item) => (
@@ -225,9 +225,10 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
               </h2>
             </div>
             <p className="text-sm text-foreground/65 mb-10 max-w-2xl leading-relaxed">
-              Plenty works. The destination taxonomy goes deep, down to reserve level, so Sabi Sand
-              sits under Kruger Private Game Reserve rather than under South Africa. You can land at
-              country, region or park depending on how much you already know.
+              The platform does a great deal well. Destination taxonomy runs genuinely deep —
+              down to reserve level, so Sabi Sand sits beneath Kruger Private Game Reserve rather
+              than under South Africa. Users can arrive at country, region, or park level
+              depending on the specificity of their intent.
             </p>
 
             <div className="grid grid-cols-2 gap-px bg-[#09332C]/10 mb-12">
@@ -262,7 +263,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
               {[
                 { t: "Authority is never declared machine-readably", d: "No entity block above the fold. No named consultant byline. No schema tying expertise to a person. A crawler reads a hero image and generic intro copy." },
                 { t: "FAQ answers cannot be extracted", d: "They exist, but open with preamble and never name Rhino Africa as the source. An AI agent has nothing clean to lift." },
-                { t: "Geography is the product, but there is no map", d: "Destination filtering is filter-driven. country, duration, budget. rather than spatial. For a platform selling place, that is a structural gap." },
+                { t: "Geography is the product, but there is no map", d: "Destination filtering is filter-driven — country, duration, budget — rather than spatial. For a platform selling place, that is a structural gap." },
               ].map((item) => (
                 <div key={item.t} className="flex items-start gap-4">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-2 shrink-0" />
@@ -331,7 +332,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
             </div>
           </section>
 
-          {/* The answer. GEO architecture */}
+          {/* The answer — GEO architecture */}
           <section className="mb-20 md:mb-24">
             <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
@@ -358,7 +359,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
             </div>
             <p className="text-sm text-foreground/65 mb-10 max-w-2xl leading-relaxed">
               Applied to the Kruger National Park destination page. The recommendations are
-              structural, not cosmetic. the words change because the job of the words changes.
+              structural, not cosmetic — the words change because the job of the words changes.
             </p>
 
             <FaqBeforeAfter />
@@ -371,7 +372,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
                 <div>
                   <p className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest mb-2">Current</p>
                   <p className="text-sm text-foreground/60 leading-relaxed">
-                    &ldquo;Kruger National Park. A Transformative Luxury Safari&rdquo;
+                    &ldquo;Kruger National Park — A Transformative Luxury Safari&rdquo;
                   </p>
                   <p className="text-xs text-foreground/45 mt-2">
                     Rhino Africa is not named. No authority claim.
@@ -422,7 +423,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
             </div>
             <p className="text-sm text-foreground/65 mb-10 max-w-2xl leading-relaxed">
               Six competitors, three local and three international, scored across five UX
-              dimensions. The purpose was not ranking. it was finding the unoccupied ground.
+              dimensions. The purpose was not ranking — it was finding the unoccupied ground.
             </p>
 
             <CompetitorMatrix />
@@ -446,7 +447,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
             </div>
           </section>
 
-          {/* Recommendations. the outcome */}
+          {/* Recommendations — the outcome */}
           <section className="mb-20 md:mb-24">
             <div className="flex items-center gap-3 mb-4">
               <LogoMark size={16} opacity={0.25} />
@@ -455,8 +456,8 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
               </h2>
             </div>
             <p className="text-sm text-foreground/65 mb-10 max-w-2xl leading-relaxed">
-              Six recommendations, in the order I would do them. These are the places where the
-              work pays back fastest, for the user and for the business.
+              Six design implications, ordered by leverage. These are where targeted architecture
+              work has the greatest effect on both experience and commercial conversion.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-px bg-border/50 rounded-md overflow-hidden">
@@ -476,7 +477,7 @@ export function GeoCaseStudy({ project, nextProject, prevProject }: GeoCaseStudy
 
             <div className="mt-12 pt-10 border-t border-border">
               <p className="text-lg md:text-xl text-foreground font-medium leading-snug">
-                The output of this project is not a screen. It is a structure. one that makes
+                The output of this project is not a screen. It is a structure — one that makes
                 fifteen years of earned expertise legible to a machine that has never met a
                 consultant.
               </p>

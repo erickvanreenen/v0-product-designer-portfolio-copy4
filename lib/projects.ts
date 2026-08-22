@@ -45,23 +45,23 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "geo",
-    title: "GEO",
-    subtitle: "Generative Engine Optimisation, built for Rhino Africa",
+    slug: "rhino-africa-geo",
+    title: "Rhino Africa",
+    subtitle: "Architecting content authority for AI-generated search",
     tags: ["GEO", "Information Architecture", "UX Strategy", "Content Design"],
     role: "UX Architect",
     team: "Self-initiated research",
     timeline: "June 2026",
     tools: ["Figma", "Claude", "Perplexity", "Schema.org", "Miro"],
-    thumbnail: "/images/thumb-geo.svg",
+    thumbnail: "/images/thumb-rhino.svg",
     outcomes: [
-      "A seven-layer page structure AI agents can read",
-      "Six competitors scored across five UX dimensions",
-      "Found where five languages collapse into one at checkout",
-      "Five buyer types mapped from six review platforms"
+      "Seven-layer GEO content architecture defined for high-value destination pages",
+      "Six competitors benchmarked across five UX dimensions",
+      "Multilingual conversion break identified between blog and enquiry flow",
+      "Five persona buckets mapped from conversation mining across six platforms"
     ],
-    summary: "Search is moving from ten blue links to one generated answer. If a machine cannot find your expertise on the page, you are not in that answer. This is the page structure that fixes it.",
-    context: "Rhino Africa has 5,300 Trustpilot reviews at a 5.0 rating and thirty years of expertise. None of it was written down in a way a machine could read. The authority was real. It was just invisible to the thing now answering the question.",
+    summary: "A structural analysis of how a luxury safari platform earns citation in AI-generated search. Generative Engine Optimisation is not a content problem — it is an information architecture problem. This project defines the hierarchy that lets a machine find, extract, and attribute expertise.",
+    context: "Rhino Africa is Africa's most awarded safari company, with 5,300+ Trustpilot reviews at a 5.0 rating. The platform is a content-to-conversion machine: six pillars funnelling toward a single outcome, the human Travel Expert relationship. But search is changing. Users increasingly ask Perplexity, ChatGPT Search, and Google AI Overviews rather than scanning ten blue links. In that world, ranking is not the goal. Being cited is.",
     goals: [
       "Understand the platform as a system before designing anything within it",
       "Establish how an AI agent reads, extracts, and attributes authority on a web page",
@@ -70,30 +70,30 @@ export const projects: Project[] = [
     ],
     research: "Four parallel investigations: platform information architecture mapping across six pillars and the blog subdomain; GEO performance analysis covering taxonomy depth, locale declarations, and multilingual continuity; persona research through conversation mining across Trustpilot, Travelstride, TripAdvisor, SafariBookings, Fodor's forums, and the client feedback page; and high-net-worth consumer behaviour drawn from luxury-segment conversion patterns rather than reviews.",
     insights: [
-      "The consultant is the product. Every review names a person, not a package",
-      "Nowhere on the page does it say who Rhino Africa is or why they can be trusted",
-      "The FAQs warm up for two sentences before answering. A machine gives up first",
-      "Five languages on the blog. Two on the site. One on the form you have to fill in",
-      "They sell geography and there is no map",
-      "Nobody in the category has built an itinerary you can see"
+      "The consultant is the product — across all five persona buckets, the named human relationship drives trust, conversion, and review",
+      "Authority was never declared machine-readably: no entity block, no named byline, no schema tying expertise to a person",
+      "FAQ answers existed but opened with preamble — an AI agent cannot extract a clean, citable response from prose",
+      "The multilingual effort stops at the content layer: five languages in the blog, two locale alternates on the main site, an English-only enquiry form",
+      "Destination filtering is filter-driven, not map-driven — for a platform that sells geography as the product, the spatial entry point is missing",
+      "Three of six competitors run WordPress; none offers itinerary visualisation or aspiration-led discovery"
     ],
-    iaFlows: "Six pillars, all pointing at one thing: get the user to a human. The blog sits on a separate WordPress subdomain and mirrors the main taxonomy, which is where the seams start. Tours and Destinations depend on each other. Trust pages sit next to the booking funnel because they do the same job.",
-    designExploration: "Seven layers, ordered the way a crawler reads them. Page identity, authority block, structured FAQ, expert tips, lodge blocks, the CTA, and a schema layer the user never sees. I tested each one against a single question. Can a machine pull the authority out of this without a human explaining it?",
-    finalUI: "A current versus recommended comparison for the Kruger page. Entity and claim in the H1. A named consultant above the fold. FAQ answers that start with the answer. Four schema types wrapping the lot: FAQPage, Article, TravelAgency, BreadcrumbList.",
-    testing: "Six competitors, five dimensions, scored the same way. Singita, Abercrombie & Kent and Extraordinary Journeys tied at 4.6. What interested me more was the empty space. Four opportunities nobody in the set has taken.",
-    outcome: "The deliverable is the structure. Seven layers a machine can read, nine signals to build against, and six recommendations ordered by what moves the needle first.",
+    iaFlows: "Mapped the platform as six primary pillars — Destinations, Experiences, Tours & Safaris, About Us, Blog, Start Planning — with the blog operating on a separate WordPress subdomain that mirrors the main taxonomy. Tours and Destinations are tightly interdependent: tours are multi-destination packages, destination pages surface relevant tours. Trust content sits close to the booking funnel by design, functioning as a conversion enabler rather than reference material.",
+    designExploration: "Architected a seven-layer content hierarchy for a high-value destination page, ordered by the sequence a crawler reads: page identity, authority block, structured FAQ, expert tips module, repeating lodge entity blocks, conversion anchor, and a machine layer of schema markup invisible to the user. Each layer was tested against the question: can an AI agent extract Rhino Africa's authority from this, unambiguously, without human interpretation?",
+    finalUI: "Delivered a current-versus-recommended comparison for the Kruger National Park destination page. Every recommendation is structural rather than cosmetic: entity and authority claim in the H1, a named consultant byline above the fold, FAQ answers that lead with the entity and carry no preamble, and four schema types wrapping the whole — FAQPage, Article, TravelAgency, and BreadcrumbList.",
+    testing: "Benchmarked six competitors across IA & navigation, enquiry & conversion, content strategy, visual design, and mobile experience. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average. The scoring surfaced four strategic opportunities unoccupied across the entire competitive set.",
+    outcome: "The deliverable is the architecture itself. A seven-layer content hierarchy that makes expertise machine-extractable, a nine-signal GEO framework, and six design implications ordered by leverage — surfacing the consultant early, distributing trust signals to every decision point, removing friction from the enquiry flow, extending multilingual continuity through to conversion, adding a spatial orientation layer, and building personalisation cues that signal the user is known.",
     learnings: [
-      "GEO is information architecture wearing a content marketing costume",
-      "A machine cannot infer authority. Say it plainly or it is not there",
-      "Understanding the whole system before designing one page is what makes the page defensible",
-      "Answer first, context second. Better for readers, better for machines"
+      "GEO is an information architecture discipline wearing a content marketing costume — the structure is the optimisation",
+      "Machines cannot infer authority. If expertise is not declared explicitly and consistently, it does not exist to a crawler",
+      "Understanding the ecosystem before designing a single page is not overhead. It is what makes the page decision defensible",
+      "The first hundred words carry the most weight — leading with the answer rather than the preamble is both better UX and better machine legibility"
     ],
     images: []
   },
   {
     slug: "ucook",
     title: "UCOOK",
-    subtitle: "Why people abandoned sign-up, and what fixed it",
+    subtitle: "Sign-up usability investigation and funnel redesign",
     tags: ["E-commerce", "Omnichannel", "UX Strategy", "Redesign"],
     role: "UX/UI Designer",
     team: "Product Team, Frontend & Backend Developers, Data Team",
@@ -101,13 +101,13 @@ export const projects: Project[] = [
     tools: ["Figma", "Miro", "Jira", "Google Analytics", "Google Tag Manager", "PostHog", "Maze"],
     thumbnail: "/images/thumb-ucook.svg",
     outcomes: [
-      "Sign-up completion went from 3.7% to 9.3%",
-      "About R1.3m a year in recovered revenue",
-      "A measurement framework that actually holds up",
-      "Fewer people dropping out at the first step"
+      "Sign-up completion rate increased from 3.7% to 9.3% (+5.6%)",
+      "Estimated ~R1,296,000/year revenue impact addressed",
+      "Validated measurement framework established",
+      "Reduced proportional abandonment at top of funnel"
     ],
-    summary: "Sixty people a week started signing up and gave up halfway. Nobody had asked why. I did, and the answer moved completion from 3.7% to 9.3%.",
-    context: "Silvertree, working on UCOOK, a subscription meal kit service. Customer service and behavioural data indicated users were abandoning sign-up while still expecting deliveries. Over 60 incomplete sign-ups were recorded in a single week, with retention through the sign-up path at just 1.43%.",
+    summary: "Self-initiated usability investigation into UCOOK's sign-up flow, uncovering critical conversion issues through mixed-methods research and delivering a redesigned funnel that increased completion from 3.7% to 9.3%.",
+    context: "Silvertree, working on UCOOK -- a subscription-based meal kit service. Customer service and behavioural data indicated users were abandoning sign-up while still expecting deliveries. Over 60 incomplete sign-ups were recorded in a single week, with retention through the sign-up path at just 1.43%.",
     goals: [
       "Validate whether sign-up was a genuine usability and conversion issue worth prioritising",
       "Identify where and why users were dropping out of the journey",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     ],
     research: "Led a seven-stage mixed-methods research process: customer service interviews, internal survey (16 respondents), competitive benchmarking (Marley Spoon, Taste Box, Hello Fresh), heuristic evaluation against Nielsen's 10 heuristics, unmoderated testing attempt (Maze), moderated usability testing (3 sessions), and measurement planning with Tag Manager triggers.",
     insights: [
-      "Sign-up felt unclear. Users confused subscription activation with simple account creation",
+      "Sign-up felt unclear -- users confused subscription activation with simple account creation",
       "Navigation and orientation issues: users couldn't find meal options or return to previous steps",
       "Checkout created confusion around subscription vs on-demand ordering and when payment would occur",
       "All test participants expected to pay immediately, with payment acting as task completion",
@@ -124,15 +124,15 @@ export const projects: Project[] = [
       "No clearly defined baseline funnel existed, preventing effective unmoderated testing"
     ],
     iaFlows: "Defined a clear separation between quick wins (communication, navigation, UI clarity) and larger structural work to redesign the sign-up funnel into a measurable happy path. Identified a key design decision: whether payment should be included within sign-up, balancing user expectation with operational constraints.",
-    designExploration: "Explored multiple approaches to funnel structure informed by competitive benchmarking patterns. Clear steps with one definitive payment action at the end. Issues from heuristic evaluation clustered into three themes: communication, navigation, and UI optimisation.",
+    designExploration: "Explored multiple approaches to funnel structure informed by competitive benchmarking patterns -- clearly structured steps with a definitive payment action at the end. Issues from heuristic evaluation clustered into three themes: communication, navigation, and UI optimisation.",
     finalUI: "Delivered annotated Figma prototypes with interaction documentation covering step transitions, progress behaviour, and error handling. Component-level specifications included scrollIntoView() behaviour, sticky header behaviour, form validation rules, and progress tracking triggers aligned to funnel steps.",
     testing: "Conducted three moderated usability tests surfacing recurring issues around navigation, plan selection, pricing clarity, and subscription vs on-demand confusion. Defined and implemented Tag Manager triggers across each step for funnel measurement.",
     outcome: "The redesigned funnel achieved a 9.3% completion rate, up from 3.7% baseline. The old funnel saw 405 users enter step 1 with 91.1% abandoning; the new funnel had 1,994 users enter with abandonment reduced to 75%. More users reached later stages, indicating increased confidence and clarity.",
     learnings: [
-      "Self-initiated research can drive business priorities. Spotting an unmet need shifted the roadmap",
+      "Self-initiated research can drive business priorities -- proactively identifying unmet user needs shifted roadmap focus",
       "Form friction on mobile is a strategic revenue issue with outsized effect on conversion and trust",
       "Leading discovery in low-UX maturity environments requires demonstrating value through data, not theory",
-      "Mixed methods research builds a case nobody argues with. Qualitative plus quantitative is hard to wave away"
+      "Mixed methods research builds unshakeable evidence -- combining qualitative with quantitative created a defensible case for change"
     ],
     images: [
       { src: "/images/ucook-analysis.jpg", caption: "Research framework and heuristic evaluation findings" },
@@ -142,11 +142,11 @@ export const projects: Project[] = [
   {
     slug: "faithful-to-nature",
     title: "Faithful to Nature",
-    subtitle: "Sole designer on a platform mid-migration",
+    subtitle: "Omnichannel platform redesign in a complex, dev-first environment",
     tags: ["E-commerce", "Redesign", "UX Strategy", "Omnichannel"],
     role: "Lead UX/UI Designer",
     team: "CEO, Co-CEO, CTO, BE Architecture Dev, Acumatica Dev, 2× BE Devs, 2× FE Devs, Product Owner, Project Manager, UX/UI Designer",
-    timeline: "September 2024, Present",
+    timeline: "September 2024 – Present",
     tools: ["Figma", "Miro", "Jira"],
     thumbnail: "/images/thumb-ftn.svg",
     outcomes: [
@@ -168,7 +168,7 @@ export const projects: Project[] = [
       "Dev-first culture created significant UX debt, patterns changed across category levels",
       "Design was constrained by data availability, not user need",
       "Legacy M1 dependencies limited what was buildable on M2",
-      "Systems thinking was not optional. Every decision had downstream consequences.",
+      "Systems thinking was non-negotiable. Every decision had downstream consequences.",
       "Advocating for UX required translating user needs into business and technical language"
     ],
     iaFlows: "",
@@ -187,7 +187,7 @@ export const projects: Project[] = [
   {
     slug: "flanksource",
     title: "Flanksource",
-    subtitle: "Five dashboards engineers had to check, turned into one",
+    subtitle: "Data dev dashboard redesign",
     tags: ["Data Dev", "Redesign", "UX Strategy"],
     role: "UX/UI Designer",
     team: "Nygaard Design",
@@ -199,15 +199,15 @@ export const projects: Project[] = [
       "Consolidated five major components into one view",
       "Improved operational visibility for engineering teams"
     ],
-    summary: "Engineers had metrics, logs and config in three different places and no way to see how they related. This pulls the five things that matter into one screen.",
-    context: "Flanksource began as a Kubernetes consulting firm. Teams were drowning in data but lacked context. They had metrics dashboards, log tools, and Git for config, but nothing tying them together. Mission Control was built to close that gap.",
+    summary: "Designed a new dashboard for Flanksource's Mission Control platform, surfacing actionable insights from topology, playbooks, catalog, health checks, and notifications into a single view.",
+    context: "Flanksource began as a Kubernetes consulting firm. Teams were drowning in data but lacked context. They had metrics dashboards, log tools, and Git for config -- but nothing tying them together. Mission Control was built to close that gap.",
     goals: [
       "Surface relevant actionables in one view",
       "Show general health of services at a glance",
       "Combine catalog, health checks, and notifications",
       "Present recent playbooks and catalog insights"
     ],
-    research: "Logged into the beta platform to understand each component: Topology, Playbooks, Catalog, Health Checks, and Notifications. Learned data dev terminology and component functions to inform information architecture and visual representation decisions.",
+    research: "Logged into the beta platform to understand each component: Topology, Playbooks, Catalog, Health Checks, and Notifications. Familiarised with data dev terminology and component functions to inform information architecture and visual representation decisions.",
     insights: [
       "Engineers needed context, not more data",
       "Key components were siloed across separate views",
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     testing: "Reviewed designs with the Flanksource product team. Iterated on information density and visual hierarchy based on feedback.",
     outcome: "Delivered a cohesive dashboard design that gives engineering teams a single entry point into system health, replacing the need to check five separate views.",
     learnings: [
-      "Domain immersion is not optional for unfamiliar products",
+      "Domain immersion is non-negotiable for unfamiliar products",
       "Data density requires strict visual hierarchy"
     ],
     images: [
@@ -231,7 +231,7 @@ export const projects: Project[] = [
   {
     slug: "overture",
     title: "Overture",
-    subtitle: "Four weeks, concept to sign-off",
+    subtitle: "Promoter documentation and orchestration app",
     tags: ["App", "Workflow Automation"],
     role: "UX Designer",
     team: "Erick van Reenen (UX), Brent Nygaard (UI)",
@@ -239,18 +239,18 @@ export const projects: Project[] = [
     tools: ["Figma", "Miro"],
     thumbnail: "/images/thumb-overture.svg",
     outcomes: [
-      "Signed off in four weeks",
-      "Tight scope, fast loops",
-      "The whole advancing workflow in one app"
+      "Final product signed off in 4 weeks",
+      "Quick iteration skills applied",
+      "Full advancing workflow in one app"
     ],
-    summary: "Advancing is the scramble before a gig, where paperwork bounces between promoters, agents and artists. No tool covered it, so we built one in four weeks.",
+    summary: "Promoter app for seamless event documentation gathering. Promoters, agents and artists during advancing.",
     context: "Advancing is the coordination phase before an event. Documentation flows between promoters, agents and artists. No single tool covered this workflow.",
     goals: [
-      "Gather event documentation cleanly",
+      "Gather event documentation seamlessly",
       "Connect promoters, agents and artists",
       "Ship fast with clean handoff"
     ],
-    research: "Benchmarked leading event platforms globally. Learned user journeys and deliverables during advancing.",
+    research: "Benchmarked leading event platforms globally. Familiarised with user journeys and deliverables during advancing.",
     insights: [
       "No existing tool covers the full advancing flow",
       "Speed matters more than feature depth"
@@ -268,7 +268,7 @@ export const projects: Project[] = [
   {
     slug: "edtech-interactive-learning",
     title: "Business Systems Analysis Programme",
-    subtitle: "Making systems theory learnable for Stellenbosch Business School",
+    subtitle: "Visual and infographic design for Masterstart, Stellenbosch Business School",
     tags: ["EdTech", "UX Strategy"],
     role: "Visual & Layout Designer",
     team: "Subject Matter Expert, Learning Designer",
@@ -311,7 +311,7 @@ export const projects: Project[] = [
   {
     slug: "uni4-online",
     title: "UNi4 Online Aggregator",
-    subtitle: "Several brands, one place to find a course",
+    subtitle: "Multi-brand education platform consolidation",
     tags: ["EdTech", "UX Strategy", "Leadership"],
     role: "Visual Team Lead & UX Designer",
     team: "Junior Designers, Learning Designers, Project Manager",
@@ -336,8 +336,8 @@ export const projects: Project[] = [
     insights: [
       "Designers needed clearer project visibility",
       "Regular check-ins improved team morale",
-      "Users needed smooth navigation between brands",
-      "Content consistency was essential for trust across multiple educational brands"
+      "Users needed seamless navigation between brands",
+      "Content consistency was crucial for trust across multiple educational brands"
     ],
     iaFlows: "Designed information architecture that allowed users to navigate between brands while maintaining clear context. Created unified design patterns that worked across all brands.",
     designExploration: "Explored approaches that balanced individual brand identities with platform consistency. Tested concepts with stakeholders.",
@@ -358,11 +358,11 @@ export const projects: Project[] = [
   {
     slug: "ada-ux-design",
     title: "Academy of Digital Arts",
-    subtitle: "Teaching UX to people who had never heard of it",
+    subtitle: "UX design lecturing for a Higher Certificate in Web Publishing and Interactive Media",
     tags: ["EdTech", "Content Design"],
     role: "Lecturer",
     team: "Independent",
-    timeline: "Jan 2024, Mar 2025",
+    timeline: "Jan 2024 – Mar 2025",
     tools: ["Figma", "Adobe Creative Suite", "Google Slides"],
     thumbnail: "/images/thumb-edtech.svg",
     outcomes: [
@@ -401,11 +401,11 @@ export const projects: Project[] = [
   {
     slug: "eduvos-content-writing",
     title: "Eduvos Digital Design Curriculum",
-    subtitle: "Two modules that contradicted each other, made into one",
+    subtitle: "Merging UX and UI into a unified degree programme module",
     tags: ["EdTech", "Content Design", "Leadership"],
     role: "Content Writer",
     team: "Academic Team, Learning Designers",
-    timeline: "May 2024, Present",
+    timeline: "May 2024 – Present",
     tools: ["Figma", "Adobe Creative Suite", "Google Docs", "Moodle"],
     thumbnail: "/images/thumb-edtech.svg",
     outcomes: [

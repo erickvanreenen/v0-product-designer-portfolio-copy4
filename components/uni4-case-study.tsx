@@ -135,7 +135,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Uni4CaseStu
               <div className="space-y-3">
                 {([
                   <>Multiple education brands needed to coexist on <strong>a single aggregator platform.</strong></>,
-                  <>Users required <strong>to move between brands</strong> without losing context.</>,
+                  <>Users required <strong>seamless navigation across brands</strong> without losing context.</>,
                   <><strong>Designed a unified information architecture</strong> that balanced brand identity with platform consistency.</>,
                   <><strong>Delivered a cohesive user experience</strong> across all brands under one platform.</>,
                 ] as React.ReactNode[]).map((item, idx) => (
