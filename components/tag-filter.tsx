@@ -22,7 +22,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
           base,
           activeTag === null
             ? "bg-ink text-paper border-ink"
-            : "bg-transparent text-ink/50 border-line hover:border-ink/40 hover:text-ink"
+            : "bg-surface text-ink/70 border-line hover:border-ink/45 hover:text-ink"
         )}
       >
         All
@@ -36,7 +36,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
             base,
             activeTag === tag
               ? "bg-ember text-white border-ember"
-              : "bg-transparent text-ink/50 border-line hover:border-ink/40 hover:text-ink"
+              : "bg-surface text-ink/70 border-line hover:border-ink/45 hover:text-ink"
           )}
         >
           {tag}
