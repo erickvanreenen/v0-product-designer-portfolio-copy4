@@ -3,10 +3,11 @@ import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { FadeIn } from "@/components/fade-in";
 import { HeroHeadline } from "@/components/hero-headline";
+import { HowIWorkVisual } from "@/components/how-i-work-visual";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
-  const featuredSlugs = ["ucook", "faithful-to-nature", "flanksource", "edtech-interactive-learning"];
+  const featuredSlugs = ["geo", "ucook", "faithful-to-nature", "flanksource"];
   const featuredProjects = featuredSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter(Boolean) as typeof projects;
@@ -40,36 +41,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Dark section: what I actually do */}
-      <section className="bg-[#09332C]">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid md:grid-cols-3 gap-10 md:gap-16">
+      {/* Proof strip */}
+      <section className="border-y border-border/60 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border/50">
             {[
-              {
-                n: "01",
-                title: "I notice things and follow through on them.",
-                body: "The UCOOK sign-up investigation started because I spotted something in the data that hadn't been flagged. I scoped it, researched it, and delivered a redesign that moved completion from 3.7% to 9.3%.",
-              },
-              {
-                n: "02",
-                title: "Research shapes the work.",
-                body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. Understanding people before designing for them makes everything more considered.",
-              },
-              {
-                n: "03",
-                title: "Specs developers can work from.",
-                body: "Annotated prototypes with scrollIntoView() behaviour, validation rules, and GTM triggers. The kind of handoff that reduces guesswork on both sides.",
-              },
-            ].map((item, i) => (
-              <FadeIn key={item.n} delay={i * 100}>
-                <div className="group">
-                  <span className="text-xs text-[#F7EDDA]/25 font-bold block mb-5 tracking-widest">{item.n}</span>
-                  <h3 className="text-base font-bold text-[#F7EDDA] mb-3 leading-snug group-hover:text-[#F0531C] transition-colors duration-300">{item.title}</h3>
-                  <p className="text-sm text-[#F7EDDA]/55 leading-relaxed">{item.body}</p>
+              { fig: "3.7 → 9.3%", label: "UCOOK sign-up completion" },
+              { fig: "R1.3m", label: "Annual revenue recovered" },
+              { fig: "15 yrs", label: "Designing and building" },
+              { fig: "9", label: "Case studies, written up" },
+            ].map((s, i) => (
+              <FadeIn key={s.label} delay={i * 70}>
+                <div className="py-8 md:py-10 px-4 md:px-6 text-center">
+                  <p className="text-xl md:text-3xl font-bold text-foreground tracking-tight tabular-nums">
+                    {s.fig}
+                  </p>
+                  <p className="text-[11px] text-foreground/45 mt-2 leading-snug">{s.label}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* How I work */}
+      <section className="bg-[#09332C]">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
+          <FadeIn>
+            <p className="text-xs text-[#F7EDDA]/35 font-medium uppercase tracking-widest mb-3">
+              How I work
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#F7EDDA] tracking-tight max-w-xl leading-snug mb-14 md:mb-16">
+              Most of the good work starts with something that looks slightly off.
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <HowIWorkVisual />
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <p className="text-sm text-[#F7EDDA]/50 leading-relaxed max-w-lg mt-14 md:mt-16">
+              The UCOOK redesign started because a number in a dashboard did not sit right.
+              Sixty people a week were dropping out of sign-up and nobody had asked why.
+              I asked. That is usually the whole job.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -105,10 +122,10 @@ export default function HomePage() {
         <section className="py-20 md:py-32 border-t border-border/50">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.04] mb-8 max-w-2xl">
-              Let&apos;s build delightful experiences together.
+              Got something that isn&apos;t working?
             </h2>
             <p className="text-foreground/50 mb-10 max-w-sm">
-              Full-time, contract, or something interesting. Cape Town and remote.
+              Full-time, contract, or a problem you want a second opinion on. Cape Town and remote.
             </p>
             <Link
               href="/contact"

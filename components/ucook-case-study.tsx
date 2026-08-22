@@ -54,7 +54,7 @@ const annotations = [
       "Current step highlighted with primary colour",
       "Completed steps filled/coloured; upcoming steps outlined/muted",
       "Independent step completion tracking",
-      "Non-sequential step completion allowed (accounts for partial and abandoned sign-ups — see user journeys)",
+      "Non-sequential step completion allowed (accounts for partial and abandoned sign-ups. see user journeys)",
       "Real-time visual updates",
     ],
   },
@@ -73,7 +73,7 @@ const annotations = [
       "Clear visual hierarchy, tap-to-select",
       "Step completes on plan category selection",
       "Enables 'Next' CTA on completion",
-      "Subscription selected by default — not part of progress bar. 1-week try-out offered as a selectable option.",
+      "Subscription selected by default. not part of progress bar. 1-week try-out offered as a selectable option.",
     ],
   },
   {
@@ -82,7 +82,7 @@ const annotations = [
       "Mobile-optimised form layout with large, tappable input fields",
       "Clear mandatory field indicators",
       "Address validation with mobile-friendly error handling",
-      "Delivery day selection via radio buttons — only available after all required fields are completed and validated",
+      "Delivery day selection via radio buttons. only available after all required fields are completed and validated",
       "Monday selected by default",
     ],
   },
@@ -499,18 +499,18 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
-        {/* Heuristic Evaluation — Screenshots */}
+        {/* Heuristic Evaluation. Screenshots */}
         <section className="mb-20 md:mb-24">
           <div className="flex items-center gap-3 mb-2">
             <LogoMark size={16} opacity={0.25} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Heuristic Evaluation</h2>
           </div>
-          <p className="text-sm text-foreground/65 mb-6">Nielsen&apos;s 10 heuristics — three theme clusters identified across the sign-up and reactivation flows.</p>
+          <p className="text-sm text-foreground/65 mb-6">Nielsen&apos;s 10 heuristics. Three theme clusters showed up across the sign-up and reactivation flows.</p>
           <ImageLightbox
             images={[
-              { src: "/ucook/heuristic-eval-1.png", alt: "Activate Now pop-up with no address associated error", caption: "When users clicked on \"Activate Now\" a pop-up appeared saying there is no address associated with this account and nothing happens beyond this — there’s no efficiency of use." },
-              { src: "/ucook/heuristic-eval-2.png", alt: "Inconsistent global navigation during sign-up", caption: "Inconsistent navigation — global nav changes at least three times during the sign-up process, as well as inaccurate information, although this was flagged and fixed as a quick win." },
-              { src: "/ucook/heuristic-eval-3.png", alt: "Order summary showing wrong configuration after phone verification", caption: "The system is broken and inaccurate — after phone number verification the order summary showed the wrong configuration." },
+              { src: "/ucook/heuristic-eval-1.png", alt: "Activate Now pop-up with no address associated error", caption: "When users clicked on \"Activate Now\" a pop-up appeared saying there is no address associated with this account and nothing happens beyond this. there’s no efficiency of use." },
+              { src: "/ucook/heuristic-eval-2.png", alt: "Inconsistent global navigation during sign-up", caption: "Inconsistent navigation. global nav changes at least three times during the sign-up process, as well as inaccurate information, although this was flagged and fixed as a quick win." },
+              { src: "/ucook/heuristic-eval-3.png", alt: "Order summary showing wrong configuration after phone verification", caption: "The system is broken and inaccurate. after phone number verification the order summary showed the wrong configuration." },
             ]}
           />
         </section>
@@ -732,7 +732,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           {/* Live app screens */}
           <div className="mt-12 md:mt-16">
             <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-1">Live app screens</h3>
-            <p className="text-xs text-foreground/40 mb-5">The redesigned funnel in production — 5 steps, single flow.</p>
+            <p className="text-xs text-foreground/40 mb-5">The redesigned funnel in production. 5 steps, single flow.</p>
             <div className="flex gap-2.5 overflow-x-auto pb-3 snap-x snap-mandatory">
               {appScreens.map((screen, i) => (
                 <button
@@ -744,7 +744,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
                   <div className="rounded-lg overflow-hidden border border-border bg-white aspect-[9/19] relative">
                     <Image
                       src={screen.src}
-                      alt={`${screen.label} — step ${screen.step}`}
+                      alt={`${screen.label}. step ${screen.step}`}
                       width={540}
                       height={1140}
                       className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
@@ -870,7 +870,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           <div className="border-t border-border pt-10 mt-10">
             <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">~R255k</p>
             <p className="flex items-center gap-1.5 text-xs text-foreground/65 font-medium uppercase tracking-widest mt-2 mb-6">
-              <Icon name="trending_up" size={13} />6-month redesign impact ROI · Aug 2025 – Jan 2026
+              <Icon name="trending_up" size={13} />6-month redesign impact ROI · Aug 2025, Jan 2026
             </p>
             <p className="text-sm text-foreground/50 leading-relaxed break-words">
               R405k × 63% (3.7% → 9.3%) = ~R255k

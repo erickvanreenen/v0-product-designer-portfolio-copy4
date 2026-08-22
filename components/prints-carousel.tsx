@@ -7,11 +7,11 @@ import { X } from "lucide-react";
 import { Icon } from "@/components/material-icon";
 
 const prints = [
-  { src: "/prints/print-1.jpg", alt: "Squirrel in flight — cream, indigo ink" },
-  { src: "/prints/print-2.jpg", alt: "Honeybees and hexagons — teal and gold" },
-  { src: "/prints/print-3.jpg", alt: "Yin Yang — energy diagram" },
-  { src: "/prints/print-4.jpg", alt: "Pigeon — teal on gold circle" },
-  { src: "/prints/print-5.jpg", alt: "Bird on branch — grey, red enso" },
+  { src: "/prints/print-1.jpg", alt: "Squirrel in flight, cream and indigo ink" },
+  { src: "/prints/print-2.jpg", alt: "Honeybees and hexagons, teal and gold" },
+  { src: "/prints/print-3.jpg", alt: "Yin Yang energy diagram" },
+  { src: "/prints/print-4.jpg", alt: "Pigeon, teal on gold circle" },
+  { src: "/prints/print-5.jpg", alt: "Bird on branch, grey with red enso" },
   { src: "/prints/print-6.jpg", alt: "Print 06" },
   { src: "/prints/print-7.jpg", alt: "Print 07" },
 ];
@@ -159,7 +159,7 @@ export function PrintsCarousel() {
       {/* Carousel */}
       <div className="relative">
 
-        {/* Scroll left — only visible once user has scrolled right */}
+        {/* Scroll left. only visible once user has scrolled right */}
         {canScrollLeft && (
           <button
             onClick={() => scrollCarousel("left")}
@@ -205,10 +205,10 @@ export function PrintsCarousel() {
           ))}
         </div>
 
-        {/* Fade edge — right */}
+        {/* Fade edge. right */}
         <div className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-[#FDFAF5] to-transparent" />
 
-        {/* Scroll right — hidden once fully scrolled */}
+        {/* Scroll right. hidden once fully scrolled */}
         {canScrollRight && (
           <button
             onClick={() => scrollCarousel("right")}
@@ -224,7 +224,7 @@ export function PrintsCarousel() {
       {/* Print count */}
       <p className="text-xs text-foreground/35 mt-3">{prints.length} prints</p>
 
-      {/* Lightbox — portalled to document.body to escape any parent transform context */}
+      {/* Lightbox. portalled to document.body to escape any parent transform context */}
       {mounted && createPortal(lightbox, document.body)}
     </>
   );

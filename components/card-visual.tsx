@@ -2,13 +2,28 @@ const G = "#09332C";
 const O = "#F0531C";
 const L = "#F5B86E";
 const BG = "#F7EDDA";
+const FF = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 interface CardVisualProps {
   slug: string;
 }
 
+/** What each diagram is actually showing, so it reads as a diagram and not decoration. */
+const captions: Record<string, string> = {
+  "geo": "Ten blue links, then one answer",
+  "ucook": "Sign-up completion, before and after",
+  "faithful-to-nature": "One pattern, every category level",
+  "flanksource": "Five views collapsed into one",
+  "overture": "Promoter, agent, artist. One thread.",
+  "edtech-interactive-learning": "Theory turned into something you can see",
+  "uni4-online": "Many brands, one front door",
+  "ada-ux-design": "How the module was built",
+  "eduvos-content-writing": "Two modules merged into one",
+};
+
 export function CardVisual({ slug }: CardVisualProps) {
   const patternId = `grid-${slug}`;
+  const caption = captions[slug];
   return (
     <svg
       viewBox="0 0 400 250"
@@ -30,12 +45,22 @@ export function CardVisual({ slug }: CardVisualProps) {
       <rect width="400" height="250" fill={BG} />
       <rect width="400" height="250" fill={`url(#${patternId})`} />
       <Composition slug={slug} />
+      {caption && (
+        <text
+          x="18" y="26" fontSize="9.5" fontWeight="700"
+          fill={G} fillOpacity="0.4" letterSpacing="0.4"
+          style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+        >
+          {caption}
+        </text>
+      )}
     </svg>
   );
 }
 
 function Composition({ slug }: { slug: string }) {
   switch (slug) {
+    case "geo":                         return <GeoVis />;
     case "ucook":                       return <UCookVis />;
     case "faithful-to-nature":          return <FtnVis />;
     case "flanksource":                 return <FlanksourceVis />;
@@ -48,7 +73,7 @@ function Composition({ slug }: { slug: string }) {
   }
 }
 
-// UCook — before / after conversion funnel
+// UCook. before / after conversion funnel
 // Left: large intake circle → thin line → tiny output (3.7%)
 // Right: same intake → same line → much larger output (9.3%)
 function UCookVis() {
@@ -68,6 +93,12 @@ function UCookVis() {
       <circle cx="280" cy="75"  r="30" fill={G} fillOpacity="0.75" />
       <circle cx="280" cy="183" r="22" fill={O} />
 
+      {/* Value labels */}
+      <text x="120" y="215" fontSize="13" fontWeight="700" fill={G} fillOpacity="0.45"
+        textAnchor="middle" style={{ fontFamily: FF }}>3.7%</text>
+      <text x="280" y="228" fontSize="15" fontWeight="700" fill={O}
+        textAnchor="middle" style={{ fontFamily: FF }}>9.3%</text>
+
       {/* Scatter accents */}
       <circle cx="66"  cy="96"  r="8"  fill={L} fillOpacity="0.75" />
       <circle cx="155" cy="198" r="5"  fill={L} fillOpacity="0.65" />
@@ -77,7 +108,7 @@ function UCookVis() {
   );
 }
 
-// Faithful to Nature — omnichannel hub-and-spoke
+// Faithful to Nature. omnichannel hub-and-spoke
 // Central orange platform node, spokes to 8 store/delivery nodes
 function FtnVis() {
   const cx = 200, cy = 125, r = 80;
@@ -109,7 +140,7 @@ function FtnVis() {
   );
 }
 
-// Flanksource — 5 separate tool views converge into 1 unified dashboard
+// Flanksource. 5 separate tool views converge into 1 unified dashboard
 function FlanksourceVis() {
   const leftX  = 88;
   const rightX = 312;
@@ -134,7 +165,7 @@ function FlanksourceVis() {
   );
 }
 
-// Overture — linear workflow: Promoter → Agent → Artist
+// Overture. linear workflow: Promoter → Agent → Artist
 function OvertureVis() {
   const nodes = [
     { x: 88,  y: 125, r: 28, color: G, opacity: 0.75 },
@@ -155,7 +186,7 @@ function OvertureVis() {
   );
 }
 
-// EdTech (BSA) — cascading learning progression, each stage larger than the last
+// EdTech (BSA). cascading learning progression, each stage larger than the last
 function EdtechVis() {
   const nodes = [
     { x: 78,  y: 188, r: 13 },
@@ -188,7 +219,7 @@ function EdtechVis() {
   );
 }
 
-// UNi4 — 4 brand clusters converge into one platform
+// UNi4. 4 brand clusters converge into one platform
 function Uni4Vis() {
   const center = { x: 210, y: 125 };
   const clusters = [
@@ -217,7 +248,7 @@ function Uni4Vis() {
   );
 }
 
-// ADA — teaching/UX knowledge network
+// ADA. teaching/UX knowledge network
 // Top node (curriculum) fans down to concept nodes, which connect to student nodes
 function AdaVis() {
   const nodes = [
@@ -248,7 +279,7 @@ function AdaVis() {
   );
 }
 
-// Eduvos — curriculum grid: 3×2 module structure, all interconnected
+// Eduvos. curriculum grid: 3×2 module structure, all interconnected
 function EduvosVis() {
   const cols = 3, rows = 2;
   const startX = 105, startY = 82, spX = 95, spY = 88;
@@ -283,6 +314,37 @@ function EduvosVis() {
       ))}
       <circle cx="46"  cy="125" r="9" fill={L} fillOpacity="0.78" />
       <circle cx="354" cy="125" r="9" fill={L} fillOpacity="0.78" />
+    </g>
+  );
+}
+
+// GEO. ranked list on the left, one generated answer on the right
+function GeoVis() {
+  return (
+    <g>
+      {/* Ten ranked results, fading down the page */}
+      {[0,1,2,3,4,5,6].map((i) => (
+        <rect key={i} x="46" y={78 + i * 15} width={[70,58,64,50,60,46,54][i]}
+          height="5" rx="2.5" fill={G} fillOpacity={0.28 - i * 0.03} />
+      ))}
+
+      {/* Arrow */}
+      <line x1="152" y1="128" x2="196" y2="128" stroke={G} strokeWidth="1.5" strokeOpacity="0.28" />
+      <polygon points="191,124 200,128 191,132" fill={G} fillOpacity="0.28" />
+
+      {/* One synthesised answer */}
+      <rect x="216" y="88" width="130" height="58" rx="5" fill={G} fillOpacity="0.08" />
+      <rect x="230" y="102" width="86" height="5" rx="2.5" fill={G} fillOpacity="0.3" />
+      <rect x="230" y="114" width="102" height="5" rx="2.5" fill={G} fillOpacity="0.2" />
+      <rect x="230" y="126" width="66" height="5" rx="2.5" fill={G} fillOpacity="0.2" />
+
+      {/* The citation you want to be */}
+      <rect x="230" y="158" width="62" height="18" rx="9" fill={O} />
+      <circle cx="308" cy="167" r="6" fill={G} fillOpacity="0.18" />
+      <circle cx="330" cy="167" r="6" fill={G} fillOpacity="0.18" />
+
+      <circle cx="368" cy="70"  r="7" fill={L} fillOpacity="0.75" />
+      <circle cx="34"  cy="196" r="6" fill={L} fillOpacity="0.7" />
     </g>
   );
 }

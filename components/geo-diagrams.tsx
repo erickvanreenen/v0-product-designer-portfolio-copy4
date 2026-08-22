@@ -6,7 +6,7 @@ const AMBER = "#FFA74F";
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /* ────────────────────────────────────────────────────────────
-   01 · The shift — ranked links vs generated answer
+   01 · The shift. ranked links vs generated answer
    Why GEO exists at all.
    ──────────────────────────────────────────────────────────── */
 export function SearchShiftDiagram() {
@@ -116,43 +116,43 @@ export function SearchShiftDiagram() {
 const geoLayers = [
   {
     n: "1", title: "Page Identity (H1)",
-    note: "First signal a crawler reads — entity and claim in one sentence",
+    note: "First signal a crawler reads. entity and claim in one sentence",
     example: "[Destination] Safari Guide: Expert Advice from Rhino Africa's Consultants",
     schema: null, group: "identity",
   },
   {
     n: "2", title: "Authority Block",
-    note: "Signals expertise before content begins — the machine reads this first",
+    note: "Signals expertise before content begins. the machine reads this first",
     example: "Entity declaration · Trust signals · Named consultant byline",
     schema: "TravelAgency · aggregateRating · Person", group: "authority",
   },
   {
     n: "3", title: "Structured FAQ (H2 → Q&A)",
-    note: "Highest extraction signal — answers must lead with the entity, no preamble",
+    note: "Highest extraction signal. answers must lead with the entity, no preamble",
     example: "Q: When is the best time to visit? → A: Rhino Africa recommends…",
     schema: "FAQPage", group: "authority",
   },
   {
     n: "4", title: "Expert Tips Module (H2)",
-    note: "AI looks for named, specific insight — generic tips are ignored",
+    note: "AI looks for named, specific insight. generic tips are ignored",
     example: "Attributed consultant recommendations, specific and citable",
     schema: "author", group: "depth",
   },
   {
     n: "5", title: "Lodge Blocks (H2 → H3)",
-    note: "Repeating structured entity blocks — ideal for machine extraction",
+    note: "Repeating structured entity blocks. ideal for machine extraction",
     example: "Name · Location hierarchy · Best for · Season · Consultant note",
     schema: null, group: "depth",
   },
   {
     n: "6", title: "Conversion Anchor",
-    note: "Human CTA — positioned only after content depth is established",
-    example: "Speak to a consultant about [Destination] — one CTA, no form friction",
+    note: "Human CTA. positioned only after content depth is established",
+    example: "Speak to a consultant about [Destination]. one CTA, no form friction",
     schema: null, group: "conversion",
   },
   {
     n: "7", title: "Machine Layer",
-    note: "Invisible to the user — tells AI agents who is speaking and why to trust them",
+    note: "Invisible to the user. tells AI agents who is speaking and why to trust them",
     example: "Structured data wrapping every layer above",
     schema: "FAQPage · Article · TravelAgency · BreadcrumbList", group: "machine",
   },
@@ -237,7 +237,7 @@ export function GeoLayerStack() {
 }
 
 /* ────────────────────────────────────────────────────────────
-   03 · Platform information architecture — and the seam
+   03 · Platform information architecture. and the seam
    ──────────────────────────────────────────────────────────── */
 export function PlatformIADiagram() {
   const pillars = [
@@ -309,7 +309,7 @@ export function PlatformIADiagram() {
           strokeDasharray="5 3" />
         <text x="360" y="291" fontSize="10" fontWeight="700" fill={GREEN}
           textAnchor="middle" opacity="0.75">
-          rhinoafrica.com/blog — WordPress subdomain
+          rhinoafrica.com/blog. WordPress subdomain
         </text>
         <text x="360" y="306" fontSize="8" fill={GREEN} opacity="0.45" textAnchor="middle">
           Mirrors the main taxonomy · 5 languages · top-of-funnel
@@ -336,7 +336,7 @@ export function MultilingualBreakDiagram() {
       <svg viewBox="0 0 720 210" className="w-full min-w-[560px]"
         xmlns="http://www.w3.org/2000/svg" style={{ fontFamily: FONT }}>
 
-        {/* Stage 1 — Blog */}
+        {/* Stage 1. Blog */}
         <text x="20" y="16" fontSize="8" fontWeight="700" fill={GREEN}
           opacity="0.4" letterSpacing="0.7">DISCOVERY · BLOG</text>
         <rect x="20" y="28" width="180" height="86" rx="5"
@@ -359,7 +359,7 @@ export function MultilingualBreakDiagram() {
           strokeOpacity="0.3" strokeWidth="1.3" />
         <path d="M 250 71 l -6 -3.5 l 0 7 z" fill={GREEN} fillOpacity="0.4" />
 
-        {/* Stage 2 — Main site */}
+        {/* Stage 2. Main site */}
         <text x="256" y="16" fontSize="8" fontWeight="700" fill={GREEN}
           opacity="0.4" letterSpacing="0.7">MAIN SITE</text>
         <rect x="256" y="28" width="150" height="86" rx="5"
@@ -380,7 +380,7 @@ export function MultilingualBreakDiagram() {
           −3 languages
         </text>
 
-        {/* Arrow 2 — the break */}
+        {/* Arrow 2. the break */}
         <line x1="406" y1="71" x2="450" y2="71" stroke={ORANGE}
           strokeWidth="1.3" strokeDasharray="4 3" />
         <path d="M 450 71 l -6 -3.5 l 0 7 z" fill={ORANGE} />
@@ -391,7 +391,7 @@ export function MultilingualBreakDiagram() {
         <text x="428" y="45" fontSize="10" fontWeight="700" fill="white"
           textAnchor="middle">!</text>
 
-        {/* Stage 3 — Enquiry */}
+        {/* Stage 3. Enquiry */}
         <text x="456" y="16" fontSize="8" fontWeight="700" fill={ORANGE}
           letterSpacing="0.7">CONVERSION · ENQUIRY FORM</text>
         <rect x="456" y="28" width="244" height="86" rx="5"
@@ -508,7 +508,7 @@ export function CompetitorMatrix() {
 }
 
 /* ────────────────────────────────────────────────────────────
-   06 · FAQ answer — before and after
+   06 · FAQ answer. before and after
    ──────────────────────────────────────────────────────────── */
 export function FaqBeforeAfter() {
   return (
@@ -565,11 +565,11 @@ export function FaqBeforeAfter() {
    07 · The nine GEO signals
    ──────────────────────────────────────────────────────────── */
 const signals = [
-  { s: "Structure for extraction", m: "Q&A format, definition blocks, self-contained paragraphs — not intro-heavy prose" },
+  { s: "Structure for extraction", m: "Q&A format, definition blocks, self-contained paragraphs. not intro-heavy prose" },
   { s: "Entity clarity", m: "Name brand, location, and subject in full. Never assume context" },
   { s: "Authoritative citations", m: "Link to trusted sources; earn citations from credible third parties" },
-  { s: "Conversational query matching", m: "Write as people ask — 'best time to visit Botswana', not 'optimal visit period'" },
-  { s: "Schema markup", m: "FAQ, HowTo, Article, LocalBusiness — improves extraction accuracy" },
+  { s: "Conversational query matching", m: "Write as people ask. 'best time to visit Botswana', not 'optimal visit period'" },
+  { s: "Schema markup", m: "FAQ, HowTo, Article, LocalBusiness. improves extraction accuracy" },
   { s: "E-E-A-T signals", m: "Named authors with credentials, first-hand accounts, transparent policies" },
   { s: "Above-the-fold answer", m: "First 100 words carry the most weight. Answer before context" },
   { s: "Brand mentions across the web", m: "Entity recognition reinforced by presence beyond owned channels" },

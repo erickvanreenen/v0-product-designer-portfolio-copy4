@@ -29,7 +29,7 @@ export function HeroHeadline() {
         ))}
       </h1>
 
-      {/* Context strip — 3rd beat */}
+      {/* Context strip. 3rd beat */}
       <div className="overflow-hidden mb-10 md:mb-14">
         <p
           className="text-sm tracking-wide"

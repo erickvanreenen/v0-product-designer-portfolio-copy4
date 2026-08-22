@@ -18,8 +18,8 @@ export function ModelComplexity() {
   const billingDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"];
   const bxStart = 20;
   const bxStep = 73;
-  const bxWed1 = bxStart + 2 * bxStep;  // 166 — billing start
-  const bxWed2 = bxStart + 9 * bxStep;  // 677 — billing end
+  const bxWed1 = bxStart + 2 * bxStep;  // 166. billing start
+  const bxWed2 = bxStart + 9 * bxStep;  // 677. billing end
   const bBracketCenter = (bxWed1 + bxWed2) / 2; // ~421
 
   return (
@@ -75,7 +75,7 @@ export function ModelComplexity() {
               </text>
             ))}
 
-            {/* Horizontal line — solid */}
+            {/* Horizontal line. solid */}
             <line x1={dxStart} y1="48" x2={dxSun} y2="48"
               stroke={deliveryColor} strokeWidth="1.2" opacity="0.2" />
             {/* Dashed extension to MON_next */}

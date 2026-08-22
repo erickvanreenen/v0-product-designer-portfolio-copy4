@@ -161,7 +161,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
       </div>
 
-      {/* Before / After — full width */}
+      {/* Before / After. full width */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="flex items-center gap-3 mb-12">

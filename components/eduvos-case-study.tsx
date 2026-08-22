@@ -227,7 +227,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: EduvosCas
           </p>
         </section>
 
-        {/* Assessment — Learning Objective */}
+        {/* Assessment. Learning Objective */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-10">
             <LogoMark size={16} opacity={0.25} />
