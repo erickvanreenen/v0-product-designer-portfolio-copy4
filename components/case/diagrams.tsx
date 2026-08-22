@@ -15,10 +15,22 @@ const INK = "var(--ink)";
 const ACCENT = "var(--accent)";
 const MONO = "var(--font-mono-face), ui-monospace, monospace";
 
+/*
+  Wide diagrams scroll inside their own box rather than stretching the page.
+  On a narrow screen the cut edge reads as broken unless you say so, hence
+  the hint and the fade.
+*/
 function Scroller({ children, min = 560 }: { children: React.ReactNode; min?: number }) {
   return (
-    <div className="overflow-x-auto -mx-1 px-1">
-      <div style={{ minWidth: min }}>{children}</div>
+    <div className="relative">
+      <div className="overflow-x-auto">
+        <div style={{ minWidth: min }}>{children}</div>
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-surface to-transparent sm:hidden"
+      />
+      <p className="t-label text-ink/35 mt-3 sm:hidden">Swipe to see the rest</p>
     </div>
   );
 }

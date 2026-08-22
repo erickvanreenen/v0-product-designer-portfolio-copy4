@@ -97,7 +97,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
             {featuredProjects.map((project, i) => (
-              <FadeIn key={project.slug} delay={i * 70}>
+              <FadeIn key={project.slug} delay={i * 70} className="h-full">
                 <ProjectCard project={project} />
               </FadeIn>
             ))}

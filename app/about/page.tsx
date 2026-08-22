@@ -104,7 +104,7 @@ export default function AboutPage() {
                   <Icon name={item.icon} size={13} />
                   {item.label}
                 </dt>
-                <dd className="text-sm text-ink/85 break-words leading-snug">
+                <dd className="text-sm text-ink/85 leading-snug min-w-0 [overflow-wrap:anywhere]">
                   {item.href ? (
                     <a
                       href={item.href}

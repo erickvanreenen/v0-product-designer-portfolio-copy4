@@ -56,7 +56,12 @@ export function CaseHero({
 
         <p className="t-label text-accent mb-4">{project.client}</p>
 
-        <h1 className="t-display text-6xl md:text-8xl text-ink mb-6">
+        {/*
+          Sized in vw rather than fixed steps. Single long words like
+          "Comprehension" and "Consolidation" are wider than a phone at a
+          fixed 60px, which pushed the whole page sideways.
+        */}
+        <h1 className="t-display text-[clamp(2.5rem,11vw,6rem)] text-ink mb-6">
           {project.title}
         </h1>
 
@@ -64,6 +69,11 @@ export function CaseHero({
           {project.subtitle}
         </p>
 
+        {/*
+          min-w-0 on both the cell and the value matters here. Grid items
+          default to min-width:auto, so a long value like a full institution
+          name cannot shrink and drags the whole page wider than the screen.
+        */}
         <dl className="grid grid-cols-2 md:grid-cols-4 mt-14 border-t border-line">
           {rows.map((item, i) => (
             <div
@@ -73,7 +83,9 @@ export function CaseHero({
               }`}
             >
               <dt className="t-label text-ink/40 mb-2">{item.label}</dt>
-              <dd className="text-sm text-ink/85 break-words leading-snug">{item.value}</dd>
+              <dd className="text-sm text-ink/85 leading-snug min-w-0 [overflow-wrap:anywhere]">
+                {item.value}
+              </dd>
             </div>
           ))}
         </dl>
@@ -262,9 +274,9 @@ export function Metrics({
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line">
       {items.map((m) => (
-        <div key={m.label} className="border-r border-b border-line p-5 md:p-7">
+        <div key={m.label} className="border-r border-b border-line p-5 md:p-7 min-w-0">
           <p
-            className={`t-num text-3xl md:text-[40px] font-semibold leading-none ${
+            className={`t-num text-2xl sm:text-3xl md:text-[40px] font-semibold leading-none [overflow-wrap:anywhere] ${
               m.lead ? "text-accent" : "text-ink/85"
             }`}
           >

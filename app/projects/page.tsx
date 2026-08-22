@@ -43,7 +43,7 @@ export default function ProjectsPage() {
             <h2 id="main-work" className="sr-only">Product and platform work</h2>
             <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
               {mainProjects.map((project, i) => (
-                <FadeIn key={project.slug} delay={i * 55}>
+                <FadeIn key={project.slug} delay={i * 55} className="h-full">
                   <ProjectCard project={project} />
                 </FadeIn>
               ))}
@@ -65,7 +65,7 @@ export default function ProjectsPage() {
             </FadeIn>
             <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
               {edtechProjects.map((project, i) => (
-                <FadeIn key={project.slug} delay={i * 55}>
+                <FadeIn key={project.slug} delay={i * 55} className="h-full">
                   <ProjectCard project={project} />
                 </FadeIn>
               ))}
