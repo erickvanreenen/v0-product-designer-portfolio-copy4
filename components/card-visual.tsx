@@ -1,34 +1,27 @@
-const G = "#09332C";
-const O = "#F0531C";
-const L = "#F5B86E";
-const BG = "#F7EDDA";
+/*
+  Thumbnails are miniature diagrams of the problem each project solved,
+  not decoration. Ink carries structure, the project accent carries the
+  thing that changed.
+*/
+
+const INK = "var(--ink)";
+/* Thumbnails carry no text, so they use the brighter tier. */
+const ACCENT = "var(--accent-vivid)";
 
 interface CardVisualProps {
   slug: string;
 }
 
 export function CardVisual({ slug }: CardVisualProps) {
-  const patternId = `grid-${slug}`;
   return (
     <svg
       viewBox="0 0 400 250"
       className="w-full h-full"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      style={{ fontFamily: "var(--font-mono-face), monospace" }}
     >
-      <defs>
-        <pattern id={patternId} width="20" height="20" patternUnits="userSpaceOnUse">
-          <path
-            d="M 20 0 L 0 0 0 20"
-            fill="none"
-            stroke={G}
-            strokeWidth="0.4"
-            strokeOpacity="0.12"
-          />
-        </pattern>
-      </defs>
-      <rect width="400" height="250" fill={BG} />
-      <rect width="400" height="250" fill={`url(#${patternId})`} />
+      <rect width="400" height="250" fill="var(--accent-wash)" />
       <Composition slug={slug} />
     </svg>
   );
@@ -36,268 +29,282 @@ export function CardVisual({ slug }: CardVisualProps) {
 
 function Composition({ slug }: { slug: string }) {
   switch (slug) {
-    case "ucook":                       return <UCookVis />;
-    case "faithful-to-nature":          return <FtnVis />;
-    case "flanksource":                 return <FlanksourceVis />;
-    case "overture":                    return <OvertureVis />;
-    case "edtech-interactive-learning": return <EdtechVis />;
-    case "uni4-online":                 return <Uni4Vis />;
-    case "ada-ux-design":               return <AdaVis />;
-    case "eduvos-content-writing":      return <EduvosVis />;
+    case "rhino-africa-geo":            return <GeoVis />;
+    case "ucook":                       return <FunnelVis />;
+    case "faithful-to-nature":          return <OmnichannelVis />;
+    case "flanksource":                 return <OneViewVis />;
+    case "overture":                    return <AdvancingVis />;
+    case "edtech-interactive-learning": return <ComprehensionVis />;
+    case "uni4-online":                 return <ConsolidationVis />;
+    case "ada-ux-design":               return <InstructionVis />;
+    case "eduvos-content-writing":      return <CurriculumVis />;
     default:                            return <DefaultVis />;
   }
 }
 
-// UCook — before / after conversion funnel
-// Left: large intake circle → thin line → tiny output (3.7%)
-// Right: same intake → same line → much larger output (9.3%)
-function UCookVis() {
+/* GEO — ten ranked results collapse into one cited answer */
+function GeoVis() {
   return (
     <g>
-      {/* Before */}
-      <line x1="120" y1="95" x2="120" y2="172" stroke={G} strokeWidth="1" strokeOpacity="0.2" />
-      <circle cx="120" cy="75"  r="30" fill={G} fillOpacity="0.75" />
-      <circle cx="120" cy="182" r="7"  fill={O} />
+      {Array.from({ length: 7 }).map((_, i) => (
+        <rect
+          key={i}
+          x="46" y={62 + i * 18}
+          width={[74, 92, 60, 84, 68, 88, 56][i]}
+          height="6" rx="3"
+          fill={INK} opacity={0.16}
+        />
+      ))}
 
-      {/* Arrow */}
-      <line x1="168" y1="125" x2="210" y2="125" stroke={G} strokeWidth="1.5" strokeOpacity="0.28" />
-      <polygon points="205,121 214,125 205,129" fill={G} fillOpacity="0.28" />
+      <path d="M 168 125 L 196 125" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <path d="M 196 125 l -7 -4 l 0 8 z" fill={INK} fillOpacity="0.3" />
 
-      {/* After */}
-      <line x1="280" y1="95" x2="280" y2="165" stroke={G} strokeWidth="1" strokeOpacity="0.2" />
-      <circle cx="280" cy="75"  r="30" fill={G} fillOpacity="0.75" />
-      <circle cx="280" cy="183" r="22" fill={O} />
+      <rect x="214" y="62" width="140" height="86" rx="4"
+        fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.4" strokeWidth="1.25" />
+      <rect x="230" y="80" width="108" height="6" rx="3" fill={INK} opacity="0.22" />
+      <rect x="230" y="94" width="90" height="6" rx="3" fill={INK} opacity="0.16" />
 
-      {/* Scatter accents */}
-      <circle cx="66"  cy="96"  r="8"  fill={L} fillOpacity="0.75" />
-      <circle cx="155" cy="198" r="5"  fill={L} fillOpacity="0.65" />
-      <circle cx="344" cy="58"  r="7"  fill={L} fillOpacity="0.70" />
-      <circle cx="338" cy="192" r="5"  fill={G} fillOpacity="0.25" />
+      {/* the citation, which is the whole point */}
+      <rect x="230" y="116" width="62" height="16" rx="8" fill={ACCENT} />
+      <rect x="240" y="122" width="42" height="4" rx="2" fill="var(--surface)" opacity="0.85" />
+      <rect x="300" y="116" width="38" height="16" rx="8"
+        fill={INK} fillOpacity="0.07" stroke={INK} strokeOpacity="0.14" />
     </g>
   );
 }
 
-// Faithful to Nature — omnichannel hub-and-spoke
-// Central orange platform node, spokes to 8 store/delivery nodes
-function FtnVis() {
-  const cx = 200, cy = 125, r = 80;
-  const nodes = [
-    { angle: 0,   size: 12, color: G,  opacity: 0.80 },
-    { angle: 45,  size: 8,  color: L,  opacity: 0.90 },
-    { angle: 90,  size: 14, color: G,  opacity: 0.65 },
-    { angle: 135, size: 9,  color: G,  opacity: 0.80 },
-    { angle: 180, size: 13, color: G,  opacity: 0.70 },
-    { angle: 225, size: 7,  color: L,  opacity: 0.90 },
-    { angle: 270, size: 12, color: G,  opacity: 0.75 },
-    { angle: 315, size: 10, color: L,  opacity: 0.80 },
-  ];
+/* Funnel — same intake, different completion */
+function FunnelVis() {
   return (
     <g>
-      {nodes.map((node, i) => {
-        const rad = (node.angle * Math.PI) / 180;
-        const x = cx + r * Math.cos(rad);
-        const y = cy + r * Math.sin(rad);
-        return (
-          <g key={i}>
-            <line x1={cx} y1={cy} x2={x} y2={y} stroke={G} strokeWidth="1" strokeOpacity="0.18" />
-            <circle cx={x} cy={y} r={node.size} fill={node.color} fillOpacity={node.opacity} />
-          </g>
-        );
-      })}
-      <circle cx={cx} cy={cy} r={34} fill={O} />
+      {/* before */}
+      <path d="M 60 62 L 156 62 L 122 132 L 122 172 L 94 172 L 94 132 Z"
+        fill={INK} fillOpacity="0.12" stroke={INK} strokeOpacity="0.22" strokeWidth="1.25" />
+      <rect x="94" y="160" width="28" height="12" fill={ACCENT} opacity="0.55" />
+
+      <path d="M 178 116 L 206 116" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <path d="M 206 116 l -7 -4 l 0 8 z" fill={INK} fillOpacity="0.3" />
+
+      {/* after */}
+      <path d="M 228 62 L 324 62 L 290 132 L 290 172 L 262 172 L 262 132 Z"
+        fill={INK} fillOpacity="0.12" stroke={INK} strokeOpacity="0.22" strokeWidth="1.25" />
+      <rect x="262" y="118" width="28" height="54" fill={ACCENT} />
+
+      <rect x="60" y="192" width="34" height="5" rx="2.5" fill={INK} opacity="0.2" />
+      <rect x="228" y="192" width="62" height="5" rx="2.5" fill={ACCENT} opacity="0.7" />
     </g>
   );
 }
 
-// Flanksource — 5 separate tool views converge into 1 unified dashboard
-function FlanksourceVis() {
-  const leftX  = 88;
-  const rightX = 312;
-  const leftYs = [48, 90, 125, 160, 202];
+/* Omnichannel — one catalogue, two ways to receive it */
+function OmnichannelVis() {
   return (
     <g>
-      {leftYs.map((y, i) => (
+      <rect x="164" y="46" width="72" height="34" rx="4" fill={ACCENT} />
+      <rect x="180" y="60" width="40" height="5" rx="2.5" fill="var(--surface)" opacity="0.9" />
+
+      <path d="M 200 80 L 200 104 M 104 104 L 296 104 M 104 104 L 104 126 M 296 104 L 296 126"
+        stroke={INK} strokeWidth="1.25" strokeOpacity="0.28" fill="none" />
+
+      {/* delivery: one destination */}
+      <rect x="60" y="126" width="88" height="30" rx="3"
+        fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
+      <rect x="76" y="138" width="56" height="5" rx="2.5" fill={INK} opacity="0.28" />
+      <path d="M 104 156 L 104 176" stroke={INK} strokeWidth="1.25" strokeOpacity="0.22" />
+      <circle cx="104" cy="186" r="9" fill={INK} fillOpacity="0.3" />
+
+      {/* collection: many */}
+      <rect x="252" y="126" width="88" height="30" rx="3"
+        fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.45" strokeWidth="1.25" />
+      <rect x="268" y="138" width="56" height="5" rx="2.5" fill={ACCENT} opacity="0.75" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
         <g key={i}>
-          <line
-            x1={leftX + 18} y1={y}
-            x2={rightX - 34} y2={125}
-            stroke={G} strokeWidth="1" strokeOpacity="0.20"
-          />
-          <circle cx={leftX} cy={y} r={17}
-            fill={i === 2 ? O : G}
-            fillOpacity={i === 2 ? 0.85 : 0.55}
-          />
+          <path d={`M 296 156 L ${256 + i * 16} 178`}
+            stroke={ACCENT} strokeWidth="1" strokeOpacity="0.28" />
+          <circle cx={256 + i * 16} cy={186} r="6" fill={ACCENT} opacity={0.75} />
         </g>
       ))}
-      <circle cx={rightX} cy={125} r={35} fill={O} />
     </g>
   );
 }
 
-// Overture — linear workflow: Promoter → Agent → Artist
-function OvertureVis() {
-  const nodes = [
-    { x: 88,  y: 125, r: 28, color: G, opacity: 0.75 },
-    { x: 200, y: 125, r: 35, color: O, opacity: 1.00 },
-    { x: 312, y: 125, r: 28, color: G, opacity: 0.65 },
-  ];
+/* One View — five panels become one */
+function OneViewVis() {
   return (
     <g>
-      <line x1="116" y1="125" x2="165" y2="125" stroke={G} strokeWidth="1.5" strokeOpacity="0.25" />
-      <line x1="235" y1="125" x2="284" y2="125" stroke={G} strokeWidth="1.5" strokeOpacity="0.25" />
-      {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill={n.color} fillOpacity={n.opacity} />
-      ))}
-      <circle cx="88"  cy="78"  r="8" fill={L} fillOpacity="0.80" />
-      <circle cx="340" cy="105" r="6" fill={L} fillOpacity="0.75" />
-      <circle cx="58"  cy="148" r="5" fill={L} fillOpacity="0.65" />
-    </g>
-  );
-}
-
-// EdTech (BSA) — cascading learning progression, each stage larger than the last
-function EdtechVis() {
-  const nodes = [
-    { x: 78,  y: 188, r: 13 },
-    { x: 143, y: 158, r: 16 },
-    { x: 200, y: 125, r: 20 },
-    { x: 258, y: 90,  r: 24 },
-    { x: 322, y: 60,  r: 29 },
-  ];
-  return (
-    <g>
-      {nodes.slice(0, -1).map((n, i) => (
-        <line
-          key={i}
-          x1={n.x} y1={n.y}
-          x2={nodes[i + 1].x} y2={nodes[i + 1].y}
-          stroke={G} strokeWidth="1.5" strokeOpacity="0.20"
-        />
-      ))}
-      {nodes.map((n, i) => (
-        <circle
-          key={i}
-          cx={n.x} cy={n.y} r={n.r}
-          fill={i === nodes.length - 1 ? O : G}
-          fillOpacity={i === nodes.length - 1 ? 1 : 0.45 + i * 0.08}
-        />
-      ))}
-      <circle cx="46"  cy="200" r="8" fill={L} fillOpacity="0.70" />
-      <circle cx="358" cy="98"  r="6" fill={L} fillOpacity="0.75" />
-    </g>
-  );
-}
-
-// UNi4 — 4 brand clusters converge into one platform
-function Uni4Vis() {
-  const center = { x: 210, y: 125 };
-  const clusters = [
-    { x: 68,  y: 62,  nodes: [{ dx: 0,   dy: 0,   r: 15 }, { dx: 22,  dy: -10, r: 8  }, { dx: 8,   dy: 18,  r: 6  }] },
-    { x: 75,  y: 190, nodes: [{ dx: 0,   dy: 0,   r: 13 }, { dx: 20,  dy: 8,   r: 7  }, { dx: -8,  dy: -15, r: 5  }] },
-    { x: 335, y: 65,  nodes: [{ dx: 0,   dy: 0,   r: 14 }, { dx: -19, dy: -8,  r: 7  }, { dx: 10,  dy: 15,  r: 6  }] },
-    { x: 338, y: 188, nodes: [{ dx: 0,   dy: 0,   r: 12 }, { dx: -16, dy: 10,  r: 6  }, { dx: 12,  dy: -10, r: 8  }] },
-  ];
-  return (
-    <g>
-      {clusters.map((cluster, ci) => (
-        <g key={ci}>
-          <line x1={cluster.x} y1={cluster.y} x2={center.x} y2={center.y} stroke={G} strokeWidth="1" strokeOpacity="0.18" />
-          {cluster.nodes.map((n, ni) => (
-            <circle
-              key={ni}
-              cx={cluster.x + n.dx} cy={cluster.y + n.dy} r={n.r}
-              fill={ni === 0 ? G : L}
-              fillOpacity={ni === 0 ? 0.72 : 0.78}
-            />
-          ))}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <g key={i}>
+          <rect x="54" y={54 + i * 30} width="76" height="22" rx="3"
+            fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
+          <rect x="64" y={62 + i * 30} width="40" height="5" rx="2.5" fill={INK} opacity="0.22" />
+          <path d={`M 130 ${65 + i * 30} L 216 125`}
+            stroke={INK} strokeWidth="1" strokeOpacity="0.2" />
         </g>
       ))}
-      <circle cx={center.x} cy={center.y} r={33} fill={O} />
+
+      <rect x="224" y="58" width="124" height="134" rx="4"
+        fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.45" strokeWidth="1.25" />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} x="240" y={76 + i * 28} width={[92, 72, 84, 62][i]} height="6" rx="3"
+          fill={i === 0 ? ACCENT : INK} opacity={i === 0 ? 0.85 : 0.18} />
+      ))}
+      <circle cx="332" cy="79" r="4" fill={ACCENT} />
     </g>
   );
 }
 
-// ADA — teaching/UX knowledge network
-// Top node (curriculum) fans down to concept nodes, which connect to student nodes
-function AdaVis() {
-  const nodes = [
-    { x: 200, y: 55,  r: 28, color: O,  opacity: 1.00 },
-    { x: 115, y: 125, r: 17, color: G,  opacity: 0.72 },
-    { x: 285, y: 125, r: 17, color: G,  opacity: 0.72 },
-    { x: 155, y: 192, r: 13, color: G,  opacity: 0.55 },
-    { x: 245, y: 192, r: 13, color: G,  opacity: 0.55 },
-    { x: 200, y: 155, r: 10, color: L,  opacity: 0.90 },
+/* Advancing — documentation passed between three roles before the date */
+function AdvancingVis() {
+  const roles = [
+    { x: 76, label: 0 },
+    { x: 200, label: 1 },
+    { x: 324, label: 2 },
   ];
-  const edges: [number, number][] = [[0,1],[0,2],[1,3],[2,4],[1,5],[2,5],[3,5],[4,5]];
   return (
     <g>
-      {edges.map(([a, b], i) => (
-        <line
-          key={i}
-          x1={nodes[a].x} y1={nodes[a].y}
-          x2={nodes[b].x} y2={nodes[b].y}
-          stroke={G} strokeWidth="1" strokeOpacity="0.20"
-        />
+      <path d="M 76 158 L 324 158" stroke={INK} strokeWidth="1.25" strokeOpacity="0.22" />
+
+      {roles.map((r, i) => (
+        <g key={i}>
+          <rect x={r.x - 34} y="72" width="68" height="48" rx="4"
+            fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
+          <rect x={r.x - 20} y="88" width="40" height="5" rx="2.5" fill={INK} opacity="0.24" />
+          <rect x={r.x - 20} y="99" width="26" height="5" rx="2.5" fill={INK} opacity="0.14" />
+          <path d={`M ${r.x} 120 L ${r.x} 158`} stroke={INK} strokeWidth="1.25" strokeOpacity="0.22" />
+          <circle cx={r.x} cy="158" r="5" fill={INK} fillOpacity="0.3" />
+        </g>
       ))}
-      {nodes.map((n, i) => (
-        <circle key={i} cx={n.x} cy={n.y} r={n.r} fill={n.color} fillOpacity={n.opacity} />
-      ))}
-      <circle cx="58"  cy="82"  r="7" fill={L} fillOpacity="0.70" />
-      <circle cx="342" cy="182" r="6" fill={L} fillOpacity="0.70" />
+
+      {/* the document moving along */}
+      <path d="M 110 96 L 162 96 M 238 96 L 286 96"
+        stroke={ACCENT} strokeWidth="1.5" strokeDasharray="4 3" />
+      <path d="M 166 96 l -7 -4 l 0 8 z" fill={ACCENT} />
+      <path d="M 290 96 l -7 -4 l 0 8 z" fill={ACCENT} />
+
+      {/* the show */}
+      <rect x="300" y="180" width="48" height="18" rx="9" fill={ACCENT} />
+      <rect x="312" y="187" width="24" height="4" rx="2" fill="var(--surface)" opacity="0.9" />
     </g>
   );
 }
 
-// Eduvos — curriculum grid: 3×2 module structure, all interconnected
-function EduvosVis() {
-  const cols = 3, rows = 2;
-  const startX = 105, startY = 82, spX = 95, spY = 88;
-  const nodes = Array.from({ length: rows * cols }, (_, i) => ({
-    x: startX + (i % cols) * spX,
-    y: startY + Math.floor(i / cols) * spY,
-  }));
-  const highlight = [1, 4];
+/* Comprehension — a tangle resolved into a readable diagram */
+function ComprehensionVis() {
   return (
     <g>
-      {nodes.map((n, i) => {
-        const col = i % cols;
-        const row = Math.floor(i / cols);
+      <path
+        d="M 54 132 C 78 78, 96 176, 122 108 S 152 62, 158 148 S 132 92, 108 160"
+        fill="none" stroke={INK} strokeWidth="1.5" strokeOpacity="0.28" />
+      <path
+        d="M 62 96 C 96 148, 118 74, 150 122"
+        fill="none" stroke={INK} strokeWidth="1.5" strokeOpacity="0.18" />
+
+      <path d="M 178 125 L 206 125" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <path d="M 206 125 l -7 -4 l 0 8 z" fill={INK} fillOpacity="0.3" />
+
+      {/* resolved */}
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <rect x={234 + i * 44} y="98" width="34" height="34" rx="3"
+            fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.45" strokeWidth="1.25" />
+          {i < 2 && (
+            <path d={`M ${268 + i * 44} 115 L ${278 + i * 44} 115`}
+              stroke={ACCENT} strokeWidth="1.25" strokeOpacity="0.6" />
+          )}
+        </g>
+      ))}
+      <rect x="234" y="150" width="122" height="5" rx="2.5" fill={ACCENT} opacity="0.5" />
+      <rect x="234" y="163" width="84" height="5" rx="2.5" fill={INK} opacity="0.16" />
+    </g>
+  );
+}
+
+/* Consolidation — four brands under one frame, still distinguishable */
+function ConsolidationVis() {
+  return (
+    <g>
+      <rect x="106" y="58" width="188" height="134" rx="5"
+        fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.45" strokeWidth="1.25" />
+      <rect x="106" y="58" width="188" height="26" rx="5" fill={ACCENT} opacity="0.12" />
+      <rect x="122" y="68" width="52" height="6" rx="3" fill={ACCENT} opacity="0.8" />
+
+      {[0, 1, 2, 3].map((i) => (
+        <g key={i}>
+          <rect
+            x={124 + (i % 2) * 82} y={100 + Math.floor(i / 2) * 48}
+            width="68" height="36" rx="3"
+            fill={INK} fillOpacity={0.06}
+            stroke={INK} strokeOpacity="0.18" strokeWidth="1" />
+          <circle
+            cx={138 + (i % 2) * 82} cy={118 + Math.floor(i / 2) * 48}
+            r="6" fill={ACCENT} opacity={0.35 + i * 0.16} />
+          <rect
+            x={150 + (i % 2) * 82} y={115 + Math.floor(i / 2) * 48}
+            width="32" height="5" rx="2.5" fill={INK} opacity="0.2" />
+        </g>
+      ))}
+    </g>
+  );
+}
+
+/* Instruction — the order a student meets things in */
+function InstructionVis() {
+  const steps = [0, 1, 2, 3];
+  return (
+    <g>
+      <path d="M 62 125 L 338 125" stroke={INK} strokeWidth="1.25" strokeOpacity="0.18" />
+      {steps.map((i) => {
+        const x = 74 + i * 84;
+        const isLast = i === steps.length - 1;
         return (
           <g key={i}>
-            {col < cols - 1 && (
-              <line x1={n.x + 19} y1={n.y} x2={nodes[i + 1].x - 19} y2={nodes[i + 1].y} stroke={G} strokeWidth="1" strokeOpacity="0.20" />
-            )}
-            {row < rows - 1 && (
-              <line x1={n.x} y1={n.y + 19} x2={nodes[i + cols].x} y2={nodes[i + cols].y - 19} stroke={G} strokeWidth="1" strokeOpacity="0.20" />
-            )}
+            <circle cx={x} cy="125" r={isLast ? 17 : 13}
+              fill={isLast ? ACCENT : "var(--surface)"}
+              stroke={isLast ? ACCENT : INK}
+              strokeOpacity={isLast ? 1 : 0.25} strokeWidth="1.5" />
+            <text x={x} y="129" textAnchor="middle" fontSize="11" fontWeight="600"
+              fill={isLast ? "var(--surface)" : INK}
+              opacity={isLast ? 1 : 0.45}>
+              {i + 1}
+            </text>
+            <rect x={x - 26} y="160" width={[46, 52, 40, 52][i]} height="5" rx="2.5"
+              fill={INK} opacity={0.18} />
           </g>
         );
       })}
-      {nodes.map((n, i) => (
-        <circle
-          key={i}
-          cx={n.x} cy={n.y} r={19}
-          fill={highlight.includes(i) ? O : G}
-          fillOpacity={highlight.includes(i) ? 0.90 : 0.58}
-        />
-      ))}
-      <circle cx="46"  cy="125" r="9" fill={L} fillOpacity="0.78" />
-      <circle cx="354" cy="125" r="9" fill={L} fillOpacity="0.78" />
     </g>
   );
 }
 
-// Default fallback
+/* Curriculum — two tracks merge into one */
+function CurriculumVis() {
+  return (
+    <g>
+      <rect x="52" y="74" width="30" height="14" rx="7" fill={INK} fillOpacity="0.28" />
+      <rect x="52" y="162" width="30" height="14" rx="7" fill={INK} fillOpacity="0.28" />
+
+      <path d="M 82 81 C 150 81, 160 125, 216 125" fill="none"
+        stroke={INK} strokeWidth="2" strokeOpacity="0.28" />
+      <path d="M 82 169 C 150 169, 160 125, 216 125" fill="none"
+        stroke={INK} strokeWidth="2" strokeOpacity="0.28" />
+
+      <path d="M 216 125 L 300 125" stroke={ACCENT} strokeWidth="3" />
+      <circle cx="216" cy="125" r="6" fill={ACCENT} />
+
+      <rect x="300" y="106" width="48" height="38" rx="4" fill={ACCENT} />
+      <rect x="312" y="120" width="24" height="5" rx="2.5" fill="var(--surface)" opacity="0.9" />
+      <rect x="312" y="130" width="16" height="5" rx="2.5" fill="var(--surface)" opacity="0.6" />
+    </g>
+  );
+}
+
 function DefaultVis() {
   return (
     <g>
-      <line x1="120" y1="90"  x2="200" y2="125" stroke={G} strokeWidth="1" strokeOpacity="0.20" />
-      <line x1="200" y1="125" x2="280" y2="160" stroke={G} strokeWidth="1" strokeOpacity="0.20" />
-      <circle cx="120" cy="90"  r="20" fill={G} fillOpacity="0.70" />
-      <circle cx="200" cy="125" r="35" fill={O} />
-      <circle cx="280" cy="160" r="20" fill={G} fillOpacity="0.70" />
-      <circle cx="70"  cy="155" r="8"  fill={L} fillOpacity="0.75" />
-      <circle cx="330" cy="90"  r="7"  fill={L} fillOpacity="0.75" />
+      <rect x="120" y="98" width="56" height="56" rx="4"
+        fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
+      <path d="M 176 125 L 220 125" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <rect x="224" y="98" width="56" height="56" rx="4" fill={ACCENT} />
     </g>
   );
 }

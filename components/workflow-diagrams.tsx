@@ -1,5 +1,5 @@
-const GREEN = "#09332C";
-const ORANGE = "#F0531C";
+const GREEN = "var(--ink)";
+const ORANGE = "var(--accent)";
 
 /* ── Design and delivery: seven steps ─────────────────── */
 export function DeliveryWorkflowDiagram() {
@@ -85,7 +85,7 @@ export function DesignSystemDiagram() {
         </g>
 
         {/* Outcome */}
-        <rect x="596" y="30" width="188" height="46" rx="6" fill="#E2F5EF" />
+        <rect x="596" y="30" width="188" height="46" rx="6" fill="var(--accent-wash)" />
         <text x="690" y="49" fontSize="10" fontWeight="700" fill={GREEN} textAnchor="middle">
           The workflow repeats
         </text>
@@ -100,27 +100,27 @@ export function DesignSystemDiagram() {
 /* ── The semantic layer explainer ─────────────────────── */
 export function SemanticLayerNote() {
   return (
-    <div className="border-t border-border/50 mt-4 pt-6">
-      <p className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest mb-2">
+    <div className="border-t border-line mt-4 pt-6">
+      <p className="text-[10px] text-ink/40 font-bold uppercase tracking-widest mb-2">
         The semantic layer
       </p>
-      <p className="text-xs text-foreground/50 leading-relaxed">
+      <p className="text-xs text-ink/50 leading-relaxed">
         The same colour, named three ways.
       </p>
       <div className="flex items-center gap-2.5 flex-wrap my-3.5">
-        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[#F7EDDA] text-foreground/75">
-          #F0531C
+        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/75">
+          var(--accent)
         </code>
-        <span className="text-foreground/30 text-xs">&rarr;</span>
-        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[#F7EDDA] text-foreground/75">
+        <span className="text-ink/30 text-xs">&rarr;</span>
+        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/75">
           orange-600
         </code>
-        <span className="text-foreground/30 text-xs">&rarr;</span>
-        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[#F0531C]/10 text-[#F0531C] font-bold">
+        <span className="text-ink/30 text-xs">&rarr;</span>
+        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] font-bold">
           action.primary
         </code>
       </div>
-      <p className="text-xs text-foreground/50 leading-relaxed">
+      <p className="text-xs text-ink/50 leading-relaxed">
         Only the last one still holds after a rebrand. It names the decision rather than
         the value, which is what makes generated output predictable.
       </p>

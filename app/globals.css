@@ -3,80 +3,185 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  ──────────────────────────────────────────────────────────────
+  Colour system
+  Brand DNA kept (deep green, cream paper, fiery orange), moved to
+  OKLCH and committed harder. Neutrals are tinted green so nothing
+  in the page is a pure grey.
+
+  Six project accents. Each project carries one from card through to
+  case study, so colour becomes a wayfinding device rather than
+  decoration. Ordered so no two neighbours in the grid share a hue.
+  ──────────────────────────────────────────────────────────────
+*/
+
 :root {
-  /* Palette: Venetian Lace #F7EDDA, Fiery Glow #F0531C, Fence Green #09332C, Macadamia Beige #F7DFBA, Pumpkin Vapor #FFA74F, Norfolk Green #2E4B3C, White #FFFFFF */
-  --background: #FDFAF5;
-  --foreground: #09332C;
-  --card: #FFFFFF;
-  --card-foreground: #09332C;
-  --popover: #FFFFFF;
-  --popover-foreground: #09332C;
-  --primary: #09332C;
-  --primary-foreground: #F7EDDA;
-  --secondary: #F7DFBA;
-  --secondary-foreground: #09332C;
-  --muted: #EDE0C8;
-  --muted-foreground: #2E4B3C;
-  --accent: #F0531C;
-  --accent-foreground: #FFFFFF;
-  --destructive: #F0531C;
-  --destructive-foreground: #FFFFFF;
-  --border: #D4C9B0;
-  --input: #FFFFFF;
-  --ring: #F0531C;
-  --chart-1: #F0531C;
-  --chart-2: #2E4B3C;
-  --chart-3: #FFA74F;
-  --chart-4: #09332C;
-  --chart-5: #F7DFBA;
-  --radius: 0.375rem;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #09332C;
-  --sidebar-primary: #09332C;
-  --sidebar-primary-foreground: #F7EDDA;
-  --sidebar-accent: #F0531C;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #d9d9d9;
-  --sidebar-ring: #F0531C;
+  /* Surfaces */
+  --paper:        oklch(0.978 0.011 85);    /* warm cream, the page */
+  --paper-sunk:   oklch(0.951 0.017 82);    /* recessed band */
+  --surface:      oklch(1 0 0);             /* raised card */
+  --ink:          oklch(0.268 0.043 168);   /* deep green, the type */
+  --ink-deep:     oklch(0.208 0.038 168);   /* near-black green */
+  --ink-mid:      oklch(0.397 0.043 160);   /* secondary green */
+
+  /*
+    Accents come in two tiers.
+    The base value is verified at 4.5:1 or better both as text on paper
+    and as a fill behind white text, so it is safe wherever it lands.
+    The -vivid tier is brighter and reserved for non-text graphics.
+    The -lift tier is for text on the dark ink bands.
+  */
+  --ember:        oklch(0.560 0.185 40);
+  --ember-vivid:  oklch(0.660 0.190 42);
+  --ember-lift:   oklch(0.720 0.150 45);
+
+  --clay:         oklch(0.560 0.150 22);
+  --clay-vivid:   oklch(0.620 0.165 24);
+
+  --forest:       oklch(0.520 0.095 162);
+  --forest-vivid: oklch(0.590 0.105 162);
+
+  --slate:        oklch(0.535 0.105 245);
+  --slate-vivid:  oklch(0.605 0.115 245);
+
+  --ochre:        oklch(0.540 0.130 70);
+  --ochre-vivid:  oklch(0.720 0.140 72);
+
+  --plum:         oklch(0.550 0.115 330);
+  --plum-vivid:   oklch(0.625 0.125 330);
+
+  /* Accent washes, for tinted surfaces */
+  --ember-wash:   oklch(0.955 0.030 50);
+  --clay-wash:    oklch(0.950 0.026 26);
+  --forest-wash:  oklch(0.952 0.024 165);
+  --slate-wash:   oklch(0.950 0.022 245);
+  --ochre-wash:   oklch(0.958 0.032 78);
+  --plum-wash:    oklch(0.950 0.022 330);
+
+  /* Lines */
+  --line:         oklch(0.884 0.016 90);
+  --line-soft:    oklch(0.925 0.013 88);
+  --line-ink:     oklch(0.360 0.040 165);
+
+  /* Per-project accent, set on a wrapper and consumed by children */
+  --accent:       var(--ember);
+  --accent-vivid: var(--ember-vivid);
+  --accent-wash:  var(--ember-wash);
+
+  /* shadcn compatibility layer */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-sunk);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-sunk);
+  --muted-foreground: var(--ink-mid);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: var(--clay);
+  --destructive-foreground: oklch(1 0 0);
+  --border: var(--line);
+  --input: var(--surface);
+  --ring: var(--ember);
+  --radius: 0.25rem;
 }
 
-.dark {
-  /* Dark mode using Fence Green as base */
-  --background: #09332C;
-  --foreground: #F7EDDA;
-  --card: #2E4B3C;
-  --card-foreground: #F7EDDA;
-  --popover: #2E4B3C;
-  --popover-foreground: #F7EDDA;
-  --primary: #F7EDDA;
-  --primary-foreground: #09332C;
-  --secondary: #2E4B3C;
-  --secondary-foreground: #F7EDDA;
-  --muted: #2E4B3C;
-  --muted-foreground: #F7DFBA;
-  --accent: #F0531C;
-  --accent-foreground: #FFFFFF;
-  --destructive: #F0531C;
-  --destructive-foreground: #FFFFFF;
-  --border: #2E4B3C;
-  --input: #2E4B3C;
-  --ring: #F0531C;
-  --chart-1: #F0531C;
-  --chart-2: #FFA74F;
-  --chart-3: #F7EDDA;
-  --chart-4: #F7DFBA;
-  --chart-5: #2E4B3C;
-  --sidebar: #2E4B3C;
-  --sidebar-foreground: #F7EDDA;
-  --sidebar-primary: #F7EDDA;
-  --sidebar-primary-foreground: #09332C;
-  --sidebar-accent: #F0531C;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #09332C;
-  --sidebar-ring: #F0531C;
+/* Project accent scopes */
+[data-accent="ember"]  { --accent: var(--ember);  --accent-vivid: var(--ember-vivid);  --accent-wash: var(--ember-wash); }
+[data-accent="clay"]   { --accent: var(--clay);   --accent-vivid: var(--clay-vivid);   --accent-wash: var(--clay-wash); }
+[data-accent="forest"] { --accent: var(--forest); --accent-vivid: var(--forest-vivid); --accent-wash: var(--forest-wash); }
+[data-accent="slate"]  { --accent: var(--slate);  --accent-vivid: var(--slate-vivid);  --accent-wash: var(--slate-wash); }
+[data-accent="ochre"]  { --accent: var(--ochre);  --accent-vivid: var(--ochre-vivid);  --accent-wash: var(--ochre-wash); }
+[data-accent="plum"]   { --accent: var(--plum);   --accent-vivid: var(--plum-vivid);   --accent-wash: var(--plum-wash); }
+
+@theme inline {
+  --font-sans: var(--font-archivo), 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-paper: var(--paper);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-deep: var(--ink-deep);
+  --color-ink-mid: var(--ink-mid);
+
+  --color-ember: var(--ember);
+  --color-ember-lift: var(--ember-lift);
+  --color-clay: var(--clay);
+  --color-forest: var(--forest);
+  --color-slate: var(--slate);
+  --color-ochre: var(--ochre);
+  --color-plum: var(--plum);
+
+  --color-accent: var(--accent);
+  --color-accent-vivid: var(--accent-vivid);
+  --color-accent-wash: var(--accent-wash);
+
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
 }
 
-/* Material Symbols Outlined */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv01';
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Give the eye a real focus ring, not the browser default */
+  :focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Material Symbols */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined', sans-serif;
   font-weight: normal;
@@ -91,106 +196,79 @@
   user-select: none;
 }
 
-@theme inline {
-  --font-sans: 'Helvetica Neue', 'Helvetica', 'Arial', system-ui, sans-serif;
-  --font-serif: 'Helvetica Neue', 'Helvetica', 'Arial', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  ::selection {
-    background: #F0531C;
-    color: #ffffff;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
 /*
-  Type scale — reference
-  ──────────────────────────────────────────────
-  h1  page title     text-4xl md:text-6xl font-bold tracking-tight
-  h2  section title  text-3xl md:text-4xl font-bold tracking-tight
-  h3  subsection     text-xl font-bold
-  h4  eyebrow/label  text-xs font-medium uppercase tracking-widest
-
-  b1  lead           text-lg  text-foreground/85
-  b2  body           text-base text-foreground/80
-  b3  support        text-sm  text-foreground/65
-      muted numbers  text-foreground/35
-  ──────────────────────────────────────────────
+  ──────────────────────────────────────────────────────────────
+  Type scale
+  Display sizes use tight tracking and heavy weight. Labels and
+  numbers use mono, which does the "this is data" work without a
+  box around it.
+  ──────────────────────────────────────────────────────────────
 */
 
-@keyframes tag-ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.t-display {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
 }
 
-/* Mobile menu slide-in */
+.t-h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.t-label {
+  font-family: var(--font-mono-face), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.t-num {
+  font-family: var(--font-mono-face), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Captions are sentences, so they stay sentence case. */
+.t-caption {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: color-mix(in oklch, var(--ink) 55%, transparent);
+  max-width: 62ch;
+}
+
+/* Prose measure, capped for readability */
+.measure    { max-width: 68ch; }
+.measure-sm { max-width: 56ch; }
+
+/* Rule that carries the project accent */
+.accent-rule {
+  height: 3px;
+  width: 2.5rem;
+  background: var(--accent);
+}
+
 @keyframes menu-slide-down {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .mobile-menu-open {
-  animation: menu-slide-down 0.2s ease forwards;
+  animation: menu-slide-down 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Underline draw animation for nav hover */
-@keyframes underline-draw {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
-/* Page entry fade */
 @keyframes page-fade-in {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .page-entry {
-  animation: page-fade-in 0.5s ease forwards;
+  animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: var(--dash, 400); }
+  to   { stroke-dashoffset: 0; }
 }

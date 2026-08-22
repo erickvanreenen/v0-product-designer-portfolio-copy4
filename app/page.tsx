@@ -5,22 +5,37 @@ import { FadeIn } from "@/components/fade-in";
 import { HeroHeadline } from "@/components/hero-headline";
 import { ArrowRight } from "lucide-react";
 
+const principles = [
+  {
+    n: "01",
+    title: "I notice things, then follow through",
+    body: "The UCOOK sign-up investigation started because I spotted something in the data nobody had flagged. I scoped it, researched it, and delivered a redesign that took completion from 3.7% to 9.3%.",
+  },
+  {
+    n: "02",
+    title: "Research shapes the work",
+    body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. Understanding people before designing for them makes everything more considered.",
+  },
+  {
+    n: "03",
+    title: "Specs developers can work from",
+    body: "Annotated prototypes with scrollIntoView() behaviour, validation rules, and GTM triggers. The kind of handoff that reduces guesswork on both sides.",
+  },
+];
+
 export default function HomePage() {
-  const featuredSlugs = ["ucook", "faithful-to-nature", "flanksource", "edtech-interactive-learning"];
+  const featuredSlugs = ["rhino-africa-geo", "ucook", "faithful-to-nature", "flanksource"];
   const featuredProjects = featuredSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter(Boolean) as typeof projects;
 
   return (
     <div className="page-entry">
-      {/* Hero */}
+      {/* Hero — unchanged */}
       <section className="bg-[#FDFAF5]">
         <div className="max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
-
-          {/* Headline */}
           <HeroHeadline />
 
-          {/* CTAs */}
           <div className="flex items-center gap-5">
             <Link
               href="/projects"
@@ -36,36 +51,24 @@ export default function HomePage() {
               Get in touch
             </Link>
           </div>
-
         </div>
       </section>
 
-      {/* Dark section: what I actually do */}
-      <section className="bg-[#09332C]">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid md:grid-cols-3 gap-10 md:gap-16">
-            {[
-              {
-                n: "01",
-                title: "I notice things and follow through on them.",
-                body: "The UCOOK sign-up investigation started because I spotted something in the data that hadn't been flagged. I scoped it, researched it, and delivered a redesign that moved completion from 3.7% to 9.3%.",
-              },
-              {
-                n: "02",
-                title: "Research shapes the work.",
-                body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. Understanding people before designing for them makes everything more considered.",
-              },
-              {
-                n: "03",
-                title: "Specs developers can work from.",
-                body: "Annotated prototypes with scrollIntoView() behaviour, validation rules, and GTM triggers. The kind of handoff that reduces guesswork on both sides.",
-              },
-            ].map((item, i) => (
-              <FadeIn key={item.n} delay={i * 100}>
-                <div className="group">
-                  <span className="text-xs text-[#F7EDDA]/25 font-bold block mb-5 tracking-widest">{item.n}</span>
-                  <h3 className="text-base font-bold text-[#F7EDDA] mb-3 leading-snug group-hover:text-[#F0531C] transition-colors duration-300">{item.title}</h3>
-                  <p className="text-sm text-[#F7EDDA]/55 leading-relaxed">{item.body}</p>
+      {/* How I work */}
+      <section className="bg-ink-deep text-paper">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid md:grid-cols-3 gap-x-12 gap-y-14">
+            {principles.map((item, i) => (
+              <FadeIn key={item.n} delay={i * 90}>
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="t-num text-sm font-semibold text-ember-lift">{item.n}</span>
+                    <span className="h-px flex-1 bg-paper/15" />
+                  </div>
+                  <h2 className="text-[19px] font-bold text-paper leading-snug tracking-[-0.015em] mb-3">
+                    {item.title}
+                  </h2>
+                  <p className="text-[14px] text-paper/55 leading-relaxed">{item.body}</p>
                 </div>
               </FadeIn>
             ))}
@@ -76,23 +79,25 @@ export default function HomePage() {
       {/* Selected work */}
       <section className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-6">
-
           <FadeIn>
-            <div className="flex items-baseline justify-between mb-14 md:mb-16">
-              <span className="text-xs text-foreground/40 font-medium uppercase tracking-widest">Selected work</span>
+            <div className="flex items-end justify-between mb-4">
+              <h2 className="t-h2 text-3xl md:text-[40px] text-ink">Selected work</h2>
               <Link
                 href="/projects"
-                className="text-xs text-foreground/50 hover:text-[#F0531C] transition-colors duration-200 flex items-center gap-1 group"
+                className="text-sm text-ink/55 hover:text-ember transition-colors duration-200 flex items-center gap-1.5 group pb-1.5"
               >
-                All projects
-                <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                All nine projects
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </Link>
             </div>
+            <p className="text-[15px] text-ink/55 measure mb-14 md:mb-16">
+              Each one is named for the problem it solves, not the company that paid for it.
+            </p>
           </FadeIn>
 
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
             {featuredProjects.map((project, i) => (
-              <FadeIn key={project.slug} delay={i * 80}>
+              <FadeIn key={project.slug} delay={i * 70}>
                 <ProjectCard project={project} />
               </FadeIn>
             ))}
@@ -102,17 +107,17 @@ export default function HomePage() {
 
       {/* CTA */}
       <FadeIn>
-        <section className="py-20 md:py-32 border-t border-border/50">
+        <section className="py-20 md:py-32 border-t border-line">
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight leading-[1.04] mb-8 max-w-2xl">
+            <h2 className="t-display text-5xl md:text-6xl lg:text-7xl text-ink mb-8 max-w-2xl">
               Let&apos;s build delightful experiences together.
             </h2>
-            <p className="text-foreground/50 mb-10 max-w-sm">
+            <p className="text-ink/55 mb-10 max-w-sm">
               Full-time, contract, or something interesting. Cape Town and remote.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#09332C] text-[#F7EDDA] text-sm font-medium px-6 py-3 hover:bg-[#F0531C] hover:text-white active:scale-[0.98] transition-all duration-200 group"
+              className="inline-flex items-center gap-2 bg-ink text-paper text-sm font-medium px-6 py-3 hover:bg-ember transition-colors duration-200 group"
             >
               Get in touch
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />

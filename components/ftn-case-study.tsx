@@ -1,341 +1,184 @@
 "use client";
-import { LogoMark } from "@/components/logo-mark";
 
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { Icon, metaIcon } from "@/components/material-icon";
 import { Project } from "@/lib/projects";
+import { FilterDrift, TwoSearchStreams } from "@/components/case/diagrams";
+import {
+  CaseShell, CaseHero, Premise, CaseBody, Section, Figure,
+  Prose, Lead, Findings, Compare, Pullquote, Outcome,
+  Reflection, LiveLink, CaseNav,
+} from "@/components/case/parts";
 
-interface FtnCaseStudyProps {
+interface Props {
   project: Project;
   nextProject?: Project;
   prevProject?: Project;
 }
 
-export function FtnCaseStudy({ project, nextProject, prevProject }: FtnCaseStudyProps) {
+const conditions = [
+  { t: "Dev-first culture", b: "Low UX maturity across the organisation. Design entered the conversation after the technical decision was already made." },
+  { t: "Accumulated UX debt", b: "Multiple designers came and went. Inconsistency was baked into the platform before I arrived." },
+  { t: "Data availability, not user need", b: "What could be designed was set by which data existed on which system, and when." },
+  { t: "Legacy M1 dependencies", b: "Magento 1 constraints define what is buildable on Magento 2 today, not in principle." },
+];
+
+export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
   return (
-    <div>
-      {/* Hero */}
-      <section className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="flex flex-wrap gap-1.5 mb-6">
-            {project.tags.map((tag) => (
-              <span key={tag} className="text-xs text-foreground/65">{tag}</span>
-            ))}
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 max-w-2xl">
-            {project.title}
-          </h1>
-          <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
-            {project.subtitle}
-          </p>
+    <CaseShell project={project}>
+      <CaseHero
+        project={project}
+        meta={[
+          { label: "Role", value: "Lead UX/UI Designer" },
+          { label: "Client", value: "Faithful to Nature" },
+          { label: "Since", value: "September 2024" },
+          { label: "Status", value: "Ongoing" },
+        ]}
+      />
 
-          {/* Meta grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 mt-14">
-            {[
-              { label: "Role", value: project.role, accent: false },
-              { label: "Timeline", value: project.timeline, accent: false },
-              { label: "Tools", value: project.tools.join(", "), accent: false },
-              { label: "Status", value: "Ongoing", accent: true },
-            ].map((item, i) => (
-              <div key={item.label} className={`p-6 min-w-0 overflow-hidden border-border ${
-                i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
-              } ${
-                i === 2 || i === 3 ? "border-t md:border-t-0" : ""
-              }`}>
-                <div className="flex items-center gap-1.5 text-foreground/35 mb-2">
-                  <Icon name={metaIcon(item.label)} size={14} />
-                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
-                </div>
-                <p className={`text-sm break-words ${item.accent ? "text-[#F0531C]" : "text-foreground"}`}>{item.value}</p>
+      <Premise question={project.question} answer={project.answer} />
+
+      <CaseBody>
+        <Section>
+          <Lead>
+            One of South Africa&apos;s largest online wellness retailers, live and taking
+            revenue, halfway through a platform migration that started in 2020.
+          </Lead>
+          <div className="mt-8">
+            <Prose>
+              <p>
+                Rapid store expansion moved the platform into a full omnichannel environment
+                while the Magento 1 to Magento 2 migration was still running. Multiple designers
+                passed through. I joined as the lone lead UX/UI designer in September 2024.
+              </p>
+              <p>
+                Nothing was broken enough to stop. That is the harder version of this problem.
+                Years of dev-first decisions had accumulated into UX debt, and no designer had
+                stayed long enough to address it systematically.
+              </p>
+            </Prose>
+          </div>
+        </Section>
+
+        <Section
+          label="Conditions"
+          title="What the work has to survive"
+          intro="These are not complaints. They are the constraints every design decision gets measured against, and naming them is what makes a decision defensible six months later."
+        >
+          <div className="grid sm:grid-cols-2 border-t border-l border-line">
+            {conditions.map((c) => (
+              <div key={c.t} className="border-r border-b border-line p-6 md:p-7 bg-surface">
+                <h3 className="text-base font-bold text-ink mb-2.5">{c.t}</h3>
+                <p className="text-[15px] text-ink/60 leading-relaxed">{c.b}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Section>
 
-      <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+        <Section>
+          <Pullquote>
+            Advocating for UX here means translating user needs into business outcomes and
+            technical language at the same time. It is a skill, and it has become one of my
+            strongest.
+          </Pullquote>
+        </Section>
 
-        {/* Context */}
-        <section className="mb-24">
-          <p className="text-lg text-foreground leading-relaxed mb-6">
-            One of South Africa's largest online wellness retailers.{" "}
-            <strong>Rapid store expansion has moved the platform into a full omnichannel environment.</strong>
-          </p>
-          <p className="text-base text-foreground/80 leading-relaxed mb-4">
-            The Magento 1 to Magento 2 migration started around 2020. Multiple designers passed through. <strong>I joined as the lone lead UX/UI designer in September 2024.</strong>
-          </p>
-          <p className="text-base text-foreground/80 leading-relaxed">
-            <strong>The platform was live. Revenue was flowing.</strong> But <strong>years of dev-first decisions had accumulated into significant UX debt.</strong> No single designer had stayed long enough to address it systematically.
-          </p>
-        </section>
+        <Section
+          label="Shipped"
+          title="One filtering system"
+          intro="When I joined, filtering changed structure between category levels. L1 did not match L2, and L2 did not match L3. No shared logic, no shared pattern, so the user relearned navigation on every step down."
+        >
+          <Figure caption="Filtering before and after. The fix is one pattern applied at every level, not three good patterns.">
+            <FilterDrift />
+          </Figure>
 
-        {/* The Environment */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">The Environment</h2>
-            </div>
+          <div className="mt-14">
+            <h3 className="t-h2 text-2xl text-ink mb-4">Two ways to search, one destination</h3>
+            <p className="text-[16px] text-ink/65 leading-relaxed measure mb-8">
+              Faithful to Nature sells on values as much as on product. The filtering system
+              carries both entry points without splitting the catalogue in two.
+            </p>
+            <Figure caption="Values-led and product-led search converge on the same result set">
+              <TwoSearchStreams />
+            </Figure>
+          </div>
+        </Section>
 
-          <section className="mb-10 bg-white rounded-lg p-8 md:p-10">
-            <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Working conditions</h2>
-            <div className="space-y-5">
+        <Section
+          label="In progress"
+          title="Omnichannel collection"
+          intro="Stores are opening at pace. The platform had to extend past its original delivery-only model into somewhere a customer can choose how they receive an order."
+        >
+          <Compare
+            before={{
+              label: "Existing",
+              body: "Delivery, with two warehouse collection points.",
+              notes: [
+                "Economy delivery",
+                "Express delivery, selected areas",
+                "Pargo collection point",
+                "FtN warehouse, Johannesburg",
+                "FtN warehouse, Cape Town",
+              ],
+            }}
+            after={{
+              label: "Added",
+              body: "Collection where the customer already is, and delivery when they choose.",
+              notes: [
+                "In-store collection across 17 locations and growing",
+                "Scheduled delivery with date and timeslot",
+              ],
+            }}
+          />
+
+          <div className="mt-12">
+            <p className="t-label text-ink/40 mb-6">What each option has to clear</p>
+            <ol className="border-t border-line">
               {[
-                "Dev-first culture. Low UX maturity across the organisation.",
-                "Significant accumulated UX debt. Inconsistency baked into the platform.",
-                "Design constrained by data availability, not by user need.",
-                "Legacy Magento 1 dependencies limit what is buildable on Magento 2.",
-                "Historical decisions frequently misaligned with UX best practice.",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
-                  <p className="text-sm text-foreground/80 leading-relaxed">{item}</p>
-                </div>
+                { h: "Logistics", b: "What is executable given postcode, zone, and area parameters." },
+                { h: "Data", b: "What is available now against what arrives in a staggered rollout." },
+                { h: "Omnichannel", b: "Decisions account for the full ecosystem, not the isolated feature." },
+                { h: "M1 dependencies", b: "Legacy constraints define what is buildable on M2 today." },
+              ].map((r, i) => (
+                <li
+                  key={r.h}
+                  className="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_1fr] gap-x-4 py-5 border-b border-line"
+                >
+                  <span className="t-num text-sm text-accent pt-1">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="md:flex md:gap-6">
+                    <span className="text-[16px] font-bold text-ink md:w-48 shrink-0">{r.h}</span>
+                    <span className="text-[15px] text-ink/60 leading-relaxed">{r.b}</span>
+                  </div>
+                </li>
               ))}
-            </div>
-          </section>
+            </ol>
+          </div>
+        </Section>
 
-          <p className="text-base text-foreground/80 leading-relaxed mb-4">
-            <strong>Systems thinking became non-negotiable.</strong> Every design decision had downstream consequences: across tech, logistics, data, and operations.
+        <Section label="Findings" title="What the platform taught me">
+          <Findings label="Five things that hold across the work" items={project.insights} />
+        </Section>
+
+        <Outcome>
+          <p>
+            Consistent filtering system shipped. Omnichannel collection and delivery options in
+            active design. A UX practice established in a team that did not have one.
+            Project ongoing.
           </p>
-          <p className="text-base text-foreground/80 leading-relaxed">
-            <strong>Advocating for good UX here means translating user needs into business outcomes and technical language simultaneously.</strong> It is a skill. It has become one of my strongest.
-          </p>
-        </section>
+        </Outcome>
 
-        {/* Team */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Team</h2>
-            </div>
-          <div className="grid md:grid-cols-2 gap-px bg-border">
-            {[
-              "CEO",
-              "Co-CEO",
-              "Chief Technology Officer",
-              "BE Architecture Developer",
-              "Acumatica Developer",
-              "2× Backend Developers",
-              "2× Frontend Developers",
-              "Product Owner",
-              "Project Manager",
-              "UX/UI Designer (me)",
-            ].map((member) => (
-              <div key={member} className="bg-white p-5 flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-border shrink-0" />
-                <p className="text-sm text-foreground/80">{member}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Reflection items={project.learnings} />
 
-        {/* Filtering System */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-4">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Consistent filtering system</h2>
-            </div>
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-10">Shipped</p>
-
-          <p className="text-base text-foreground/80 leading-relaxed mb-10">
-            When I joined, <strong>filtering changed structure between category levels.</strong> L1 looked different from L2. L2 from L3. <strong>No shared logic. No shared pattern.</strong>
-          </p>
-
-          {/* Problem / Solution */}
-          <div className="grid md:grid-cols-2 gap-px bg-border mb-12">
-            <div className="bg-white p-8">
-              <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-4">The problem</h3>
-              <p className="text-sm text-foreground/80 leading-relaxed">Filtering patterns varied across every category level. Users had to relearn navigation at each step.</p>
-            </div>
-            <div className="bg-white p-8">
-              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">The solution</h3>
-              <p className="text-sm text-foreground/80 leading-relaxed">One consistent filtering system. Two search streams. Applied at every level of the platform.</p>
-            </div>
-          </div>
-
-          {/* Two streams */}
-          <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Two search streams</h3>
-          <div className="grid md:grid-cols-2 gap-px bg-border mb-10">
-            {/* Values */}
-            <div className="bg-white p-8">
-              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">01: Values</p>
-              <p className="text-sm font-semibold text-foreground mb-4">Search by what matters to the user.</p>
-              <div className="space-y-2">
-                {["Social values", "Environmental values", "Business values", "Ingredient values"].map((v) => (
-                  <div key={v} className="flex items-center gap-2">
-                    <span className="w-1 h-1 rounded-full bg-[#F0531C]/40 shrink-0" />
-                    <p className="text-xs text-foreground/65">{v}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Product */}
-            <div className="bg-white p-8">
-              <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-3">02: Product</p>
-              <p className="text-sm font-semibold text-foreground mb-4">Traditional product-led search.</p>
-              <p className="text-xs text-foreground/65 leading-relaxed">Search by product type, category, or keyword. Familiar. Fast. Consistent at every level.</p>
-            </div>
-          </div>
-
-          {/* Convergence */}
-          <div className="bg-white rounded-lg p-8 text-center">
-            <div className="flex items-center justify-center gap-4 mb-3">
-              <span className="text-xs text-foreground/65 uppercase tracking-widest">Values search</span>
-              <span className="text-foreground/35">→</span>
-              <span className="text-xs text-[#F0531C] font-medium uppercase tracking-widest">Product found</span>
-              <span className="text-foreground/35">←</span>
-              <span className="text-xs text-foreground/65 uppercase tracking-widest">Product search</span>
-            </div>
-            <p className="text-xs text-foreground/65">Both paths lead to the same destination.</p>
-          </div>
-        </section>
-
-        {/* Omnichannel collection options */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-4">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Omnichannel collection options</h2>
-            </div>
-          <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-10">In progress</p>
-
-          <p className="text-base text-foreground/80 leading-relaxed mb-10">
-            <strong>Faithful to Nature is opening stores at a rapid rate.</strong> The platform needed to reflect this, <strong>extending beyond its original delivery model into a true omnichannel experience.</strong>
-          </p>
-
-          {/* Existing vs New */}
-          <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-6">Delivery and collection options</h3>
-          <div className="grid md:grid-cols-2 gap-px bg-border mb-12">
-            <div className="bg-white p-8">
-              <h3 className="text-xs text-foreground/65 font-medium uppercase tracking-widest mb-5">Existing</h3>
-              <div className="space-y-3">
-                {[
-                  "Economy delivery",
-                  "Express delivery (selected areas)",
-                  "Pargo collection point",
-                  "FtN warehouse, Johannesburg",
-                  "FtN warehouse, Cape Town",
-                ].map((opt) => (
-                  <div key={opt} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-border mt-[0.35rem] shrink-0" />
-                    <p className="text-sm text-foreground/65">{opt}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white p-8">
-              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-5">New</h3>
-              <div className="space-y-3">
-                {[
-                  "In-store collection: 17 locations and growing",
-                  "Scheduled delivery: choose date and timeslot",
-                ].map((opt) => (
-                  <div key={opt} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.35rem] shrink-0" />
-                    <p className="text-sm text-foreground/80">{opt}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Considerations */}
-          <section className="bg-white rounded-lg p-8 md:p-10">
-            <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">Design considerations</h2>
-            <div className="space-y-5">
-              {[
-                "Logistics: what is executable given postcode, zone, and area parameters.",
-                "Data: what is available now vs. what is coming in a staggered rollout.",
-                "Omnichannel: decisions must account for the full ecosystem, not isolated features.",
-                "M1 dependencies: legacy constraints define what is buildable on M2 today.",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F0531C] mt-[0.4rem] shrink-0" />
-                  <p className="text-sm text-foreground/80 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        </section>
-
-        {/* Outcome */}
-        <section className="mb-24 bg-white rounded-lg p-8 md:p-10">
-          <h2 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">Outcome</h2>
-          <p className="text-base text-foreground/80 leading-relaxed">
-            Consistent filtering system shipped. Omnichannel collection options in active design. UX practice embedded in a team that had none. Project ongoing.
-          </p>
-        </section>
-
-        {/* Reflection */}
-        <section className="mb-24">
-          <div className="flex items-center gap-3 mb-10">
-              <LogoMark size={16} opacity={0.25} />
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Reflection</h2>
-            </div>
-          <div className="space-y-6">
-            {project.learnings.map((learning, i) => (
-              <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-foreground/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-foreground/85 leading-relaxed">{learning}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* View live CTA */}
         {project.externalLink && (
-          <section className="mb-24">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border border-border rounded-lg p-8">
-              <div>
-                <p className="text-xs text-foreground/35 font-medium uppercase tracking-widest mb-1">Production site</p>
-                <p className="text-sm text-foreground/70">View the current live experience.</p>
-              </div>
-              <a
-                href={project.externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#09332C] transition-all duration-200 group shrink-0"
-              >
-                View live
-                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-              </a>
-            </div>
-          </section>
-        )}
-
-      </div>
-
-      {/* Navigation */}
-      <div>
-        <div className="max-w-3xl mx-auto px-6 py-10">
-          <div className="flex justify-between">
-            {prevProject ? (
-              <Link
-                href={`/projects/${prevProject.slug}`}
-                className="group flex items-center gap-3 text-foreground/65 hover:text-foreground transition-colors duration-200"
-              >
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
-                <div>
-                  <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest">Previous</p>
-                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
-                </div>
-              </Link>
-            ) : <div />}
-            {nextProject && (
-              <Link
-                href={`/projects/${nextProject.slug}`}
-                className="group flex items-center gap-3 text-foreground/65 hover:text-foreground transition-colors duration-200 text-right"
-              >
-                <div>
-                  <p className="text-xs text-foreground/65 font-medium uppercase tracking-widest">Next</p>
-                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
-                </div>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-              </Link>
-            )}
+          <div className="border-t border-line pt-12">
+            <p className="t-label text-ink/40 mb-3">Production site</p>
+            <p className="text-[16px] text-ink/70 mb-6 measure">
+              The current live experience, including the filtering system.
+            </p>
+            <LiveLink href={project.externalLink} label="Open the live site" />
           </div>
-        </div>
-      </div>
-    </div>
+        )}
+      </CaseBody>
+
+      <CaseNav prevProject={prevProject} nextProject={nextProject} />
+    </CaseShell>
   );
 }

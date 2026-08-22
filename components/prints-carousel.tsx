@@ -7,11 +7,11 @@ import { X } from "lucide-react";
 import { Icon } from "@/components/material-icon";
 
 const prints = [
-  { src: "/prints/print-1.jpg", alt: "Squirrel in flight — cream, indigo ink" },
-  { src: "/prints/print-2.jpg", alt: "Honeybees and hexagons — teal and gold" },
-  { src: "/prints/print-3.jpg", alt: "Yin Yang — energy diagram" },
-  { src: "/prints/print-4.jpg", alt: "Pigeon — teal on gold circle" },
-  { src: "/prints/print-5.jpg", alt: "Bird on branch — grey, red enso" },
+  { src: "/prints/print-1.jpg", alt: "Squirrel in flight, cream and indigo ink" },
+  { src: "/prints/print-2.jpg", alt: "Honeybees and hexagons, teal and gold" },
+  { src: "/prints/print-3.jpg", alt: "Yin Yang energy diagram" },
+  { src: "/prints/print-4.jpg", alt: "Pigeon, teal on a gold circle" },
+  { src: "/prints/print-5.jpg", alt: "Bird on a branch, grey with a red enso" },
   { src: "/prints/print-6.jpg", alt: "Print 06" },
   { src: "/prints/print-7.jpg", alt: "Print 07" },
 ];
@@ -95,7 +95,7 @@ export function PrintsCarousel() {
       {/* Close */}
       <button
         onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
-        className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center text-white"
+        className="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface/10 hover:bg-surface/20 transition-colors duration-200 flex items-center justify-center text-white"
         aria-label="Close"
       >
         <X size={16} />
@@ -104,7 +104,7 @@ export function PrintsCarousel() {
       {/* Prev */}
       <button
         onClick={(e) => { e.stopPropagation(); prev(); }}
-        className="absolute left-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center text-white"
+        className="absolute left-4 w-10 h-10 rounded-full bg-surface/10 hover:bg-surface/20 transition-colors duration-200 flex items-center justify-center text-white"
         aria-label="Previous print"
       >
         <Icon name="arrow_back" size={20} className="text-white" />
@@ -130,7 +130,7 @@ export function PrintsCarousel() {
       {/* Next */}
       <button
         onClick={(e) => { e.stopPropagation(); next(); }}
-        className="absolute right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 flex items-center justify-center text-white"
+        className="absolute right-4 w-10 h-10 rounded-full bg-surface/10 hover:bg-surface/20 transition-colors duration-200 flex items-center justify-center text-white"
         aria-label="Next print"
       >
         <Icon name="arrow_forward" size={20} className="text-white" />
@@ -144,8 +144,8 @@ export function PrintsCarousel() {
             onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
             className={`rounded-full transition-all duration-200 ${
               i === lightboxIndex
-                ? "w-4 h-1.5 bg-white"
-                : "w-1.5 h-1.5 bg-white/35 hover:bg-white/60"
+                ? "w-4 h-1.5 bg-surface"
+                : "w-1.5 h-1.5 bg-surface/35 hover:bg-surface/60"
             }`}
             aria-label={`Go to print ${i + 1}`}
           />
@@ -163,7 +163,7 @@ export function PrintsCarousel() {
         {canScrollLeft && (
           <button
             onClick={() => scrollCarousel("left")}
-            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-sm border border-border/30 flex items-center justify-center hover:bg-[#F7EDDA] transition-colors duration-200 text-foreground/60 hover:text-foreground"
+            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/60 hover:text-ink"
             aria-label="Scroll left"
           >
             <Icon name="chevron_left" size={18} />
@@ -180,7 +180,7 @@ export function PrintsCarousel() {
             <button
               key={i}
               onClick={() => openLightbox(i)}
-              className="flex-shrink-0 group relative overflow-hidden rounded-lg bg-[#F7EDDA]/40 cursor-zoom-in"
+              className="flex-shrink-0 group relative overflow-hidden rounded-lg bg-[var(--paper-sunk)]/40 cursor-zoom-in"
               style={{
                 width: "clamp(160px, 22vw, 220px)",
                 aspectRatio: "3/4",
@@ -196,9 +196,9 @@ export function PrintsCarousel() {
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-[#09332C]/0 group-hover:bg-[#09332C]/10 transition-colors duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
-                  <Icon name="zoom_in" size={16} className="text-[#09332C]" />
+              <div className="absolute inset-0 bg-[var(--ink)]/0 group-hover:bg-[var(--ink)]/10 transition-colors duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 rounded-full bg-surface/90 flex items-center justify-center">
+                  <Icon name="zoom_in" size={16} className="text-[var(--ink)]" />
                 </div>
               </div>
             </button>
@@ -206,13 +206,13 @@ export function PrintsCarousel() {
         </div>
 
         {/* Fade edge — right */}
-        <div className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-[#FDFAF5] to-transparent" />
+        <div className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-[var(--paper)] to-transparent" />
 
         {/* Scroll right — hidden once fully scrolled */}
         {canScrollRight && (
           <button
             onClick={() => scrollCarousel("right")}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white shadow-sm border border-border/30 flex items-center justify-center hover:bg-[#F7EDDA] transition-colors duration-200 text-foreground/60 hover:text-foreground"
+            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/60 hover:text-ink"
             aria-label="Scroll right"
           >
             <Icon name="chevron_right" size={18} />
@@ -222,7 +222,7 @@ export function PrintsCarousel() {
       </div>
 
       {/* Print count */}
-      <p className="text-xs text-foreground/35 mt-3">{prints.length} prints</p>
+      <p className="text-xs text-ink/35 mt-3">{prints.length} prints</p>
 
       {/* Lightbox — portalled to document.body to escape any parent transform context */}
       {mounted && createPortal(lightbox, document.body)}

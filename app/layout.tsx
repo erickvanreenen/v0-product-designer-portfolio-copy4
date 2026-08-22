@@ -1,9 +1,22 @@
 import React from "react"
 import type { Metadata } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-face",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Erick van Reenen | UX/UI Designer",
@@ -48,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${mono.variable}`}>
       <head>
         <link
           rel="stylesheet"
@@ -56,8 +69,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-paper focus:px-4 focus:py-2 focus:text-sm"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main className="pt-16 min-h-screen">{children}</main>
+        <main id="main" className="pt-14 min-h-screen">{children}</main>
         <Footer />
         <Analytics />
       </body>

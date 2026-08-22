@@ -10,15 +10,19 @@ interface TagFilterProps {
 }
 
 export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
+  const base =
+    "t-label px-3 py-2 border transition-colors duration-200";
+
   return (
-    <div className="flex flex-wrap gap-2">
+    <div role="group" aria-label="Filter projects by discipline" className="flex flex-wrap gap-2">
       <button
         onClick={() => onTagChange(null)}
+        aria-pressed={activeTag === null}
         className={cn(
-          "text-xs font-medium px-3 py-1.5 border transition-colors duration-200",
+          base,
           activeTag === null
-            ? "bg-[#09332C] text-[#F7EDDA] border-[#09332C]"
-            : "bg-transparent text-foreground/50 border-border/70 hover:border-foreground/40 hover:text-foreground"
+            ? "bg-ink text-paper border-ink"
+            : "bg-transparent text-ink/50 border-line hover:border-ink/40 hover:text-ink"
         )}
       >
         All
@@ -26,12 +30,13 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
       {tags.map((tag) => (
         <button
           key={tag}
-          onClick={() => onTagChange(tag)}
+          onClick={() => onTagChange(activeTag === tag ? null : tag)}
+          aria-pressed={activeTag === tag}
           className={cn(
-            "text-xs font-medium px-3 py-1.5 border transition-colors duration-200",
+            base,
             activeTag === tag
-              ? "bg-[#F0531C] text-white border-[#F0531C]"
-              : "bg-transparent text-foreground/50 border-border/70 hover:border-foreground/40 hover:text-foreground"
+              ? "bg-ember text-white border-ember"
+              : "bg-transparent text-ink/50 border-line hover:border-ink/40 hover:text-ink"
           )}
         >
           {tag}

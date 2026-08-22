@@ -1,7 +1,7 @@
 export function ModelComplexity() {
-  const deliveryColor = "#09332C";
-  const billingColor = "#F0531C";
-  const fontFamily = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+  const deliveryColor = "var(--ink)";
+  const billingColor = "var(--accent)";
+  const fontFamily = "var(--font-mono-face), ui-monospace, monospace";
 
   // Delivery cycle: 7 days MON–SUN, dashed extension to MON (next week)
   // Positions: x = 30 + i * 95 for i = 0..6 (MON–SUN), dashed to x=680
@@ -23,8 +23,8 @@ export function ModelComplexity() {
   const bBracketCenter = (bxWed1 + bxWed2) / 2; // ~421
 
   return (
-    <div className="mt-10 pt-8 border-t border-border/40">
-      <p className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest mb-8">
+    <div className="mt-10 pt-8 border-t border-line">
+      <p className="text-[10px] text-ink/40 font-bold uppercase tracking-widest mb-8">
         Model complexity
       </p>
 
@@ -33,7 +33,7 @@ export function ModelComplexity() {
         <div className="flex items-center gap-3 mb-5">
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: `${deliveryColor}10` }}
+            style={{ background: "color-mix(in oklch, var(--ink) 8%, transparent)" }}
           >
             {/* Truck icon */}
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -47,7 +47,7 @@ export function ModelComplexity() {
           </div>
           <div>
             <p className="text-sm font-bold" style={{ color: deliveryColor }}>Delivery cycle</p>
-            <p className="text-xs text-foreground/50">Weekly › Sunday or Monday</p>
+            <p className="text-xs text-ink/50">Weekly › Sunday or Monday</p>
           </div>
         </div>
 
@@ -172,14 +172,14 @@ export function ModelComplexity() {
       </div>
 
       {/* Divider */}
-      <div className="border-t border-border/30 my-6" />
+      <div className="border-t border-line my-6" />
 
       {/* ── Billing cycle ───────────────────────────── */}
       <div>
         <div className="flex items-center gap-3 mb-5">
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: `${billingColor}10` }}
+            style={{ background: "color-mix(in oklch, var(--accent) 12%, transparent)" }}
           >
             {/* Invoice icon */}
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
@@ -193,7 +193,7 @@ export function ModelComplexity() {
           </div>
           <div>
             <p className="text-sm font-bold" style={{ color: billingColor }}>Billing cycle</p>
-            <p className="text-xs text-foreground/50">Wednesday 9am › Wednesday 9am</p>
+            <p className="text-xs text-ink/50">Wednesday 9am › Wednesday 9am</p>
           </div>
         </div>
 
@@ -213,7 +213,7 @@ export function ModelComplexity() {
                 textAnchor="middle"
                 fontSize="9"
                 fontWeight="700"
-                fill="#09332C"
+                fill="var(--ink)"
                 opacity="0.4"
                 letterSpacing="0.5"
               >

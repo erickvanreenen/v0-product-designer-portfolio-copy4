@@ -1,9 +1,9 @@
 "use client";
 
-const GREEN = "#09332C";
-const ORANGE = "#F0531C";
-const AMBER = "#FFA74F";
-const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const GREEN = "var(--ink)";
+const ORANGE = "var(--accent)";
+const AMBER = "var(--ochre)";
+const FONT = "var(--font-mono-face), ui-monospace, monospace";
 
 /* ────────────────────────────────────────────────────────────
    01 · The shift — ranked links vs generated answer
@@ -116,43 +116,43 @@ export function SearchShiftDiagram() {
 const geoLayers = [
   {
     n: "1", title: "Page Identity (H1)",
-    note: "First signal a crawler reads — entity and claim in one sentence",
+    note: "First signal a crawler reads. Entity and claim in one sentence",
     example: "[Destination] Safari Guide: Expert Advice from Rhino Africa's Consultants",
     schema: null, group: "identity",
   },
   {
     n: "2", title: "Authority Block",
-    note: "Signals expertise before content begins — the machine reads this first",
+    note: "Signals expertise before content begins. The machine reads this first",
     example: "Entity declaration · Trust signals · Named consultant byline",
     schema: "TravelAgency · aggregateRating · Person", group: "authority",
   },
   {
     n: "3", title: "Structured FAQ (H2 → Q&A)",
-    note: "Highest extraction signal — answers must lead with the entity, no preamble",
+    note: "Highest extraction signal. Answers lead with the entity, no preamble",
     example: "Q: When is the best time to visit? → A: Rhino Africa recommends…",
     schema: "FAQPage", group: "authority",
   },
   {
     n: "4", title: "Expert Tips Module (H2)",
-    note: "AI looks for named, specific insight — generic tips are ignored",
+    note: "AI looks for named, specific insight. Generic tips are ignored",
     example: "Attributed consultant recommendations, specific and citable",
     schema: "author", group: "depth",
   },
   {
     n: "5", title: "Lodge Blocks (H2 → H3)",
-    note: "Repeating structured entity blocks — ideal for machine extraction",
+    note: "Repeating structured entity blocks, ideal for machine extraction",
     example: "Name · Location hierarchy · Best for · Season · Consultant note",
     schema: null, group: "depth",
   },
   {
     n: "6", title: "Conversion Anchor",
-    note: "Human CTA — positioned only after content depth is established",
-    example: "Speak to a consultant about [Destination] — one CTA, no form friction",
+    note: "Human CTA, positioned only after content depth is established",
+    example: "Speak to a consultant about [Destination]. One CTA, no form friction",
     schema: null, group: "conversion",
   },
   {
     n: "7", title: "Machine Layer",
-    note: "Invisible to the user — tells AI agents who is speaking and why to trust them",
+    note: "Invisible to the user. Tells AI agents who is speaking and why to trust them",
     example: "Structured data wrapping every layer above",
     schema: "FAQPage · Article · TravelAgency · BreadcrumbList", group: "machine",
   },
@@ -162,8 +162,8 @@ const groupStyle: Record<string, { bar: string; label: string }> = {
   identity: { bar: GREEN, label: "Entity & identity" },
   authority: { bar: ORANGE, label: "Authority & trust" },
   depth: { bar: AMBER, label: "Content depth" },
-  conversion: { bar: "#2E4B3C", label: "Conversion" },
-  machine: { bar: "#2E4B3C", label: "Machine layer" },
+  conversion: { bar: "var(--ink-mid)", label: "Conversion" },
+  machine: { bar: "var(--ink-mid)", label: "Machine layer" },
 };
 
 export function GeoLayerStack() {
@@ -171,11 +171,11 @@ export function GeoLayerStack() {
     <div>
       {/* Reading direction marker */}
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+        <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
           Crawler reading order
         </span>
-        <div className="flex-1 h-px bg-border/50" />
-        <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+        <div className="flex-1 h-px bg-line" />
+        <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
           Top → bottom
         </span>
       </div>
@@ -186,7 +186,7 @@ export function GeoLayerStack() {
           return (
             <div
               key={layer.n}
-              className="flex gap-4 bg-white rounded-md p-4 md:p-5 border border-border/40"
+              className="flex gap-4 bg-surface p-4 md:p-5 border border-line"
             >
               {/* Group colour bar */}
               <div className="w-[3px] rounded-full shrink-0"
@@ -200,16 +200,16 @@ export function GeoLayerStack() {
 
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h4 className="text-sm font-bold text-foreground">{layer.title}</h4>
+                  <h3 className="text-sm font-bold text-ink">{layer.title}</h3>
                   {layer.schema && (
-                    <code className="text-[10px] text-foreground/45 font-mono bg-[#F7EDDA]/70 px-1.5 py-0.5 rounded">
+                    <code className="text-[10px] text-ink/55 font-mono bg-ink/6 px-1.5 py-0.5 rounded">
                       {layer.schema}
                     </code>
                   )}
                 </div>
-                <p className="text-xs text-foreground/50 mt-1 leading-relaxed">{layer.note}</p>
-                <p className="text-xs text-foreground/75 mt-2 leading-relaxed border-l-2 pl-3"
-                  style={{ borderColor: `${style.bar}40` }}>
+                <p className="text-xs text-ink/50 mt-1 leading-relaxed">{layer.note}</p>
+                <p className="text-xs text-ink/75 mt-2 leading-relaxed border-l-2 pl-3"
+                  style={{ borderColor: `color-mix(in oklch, ${style.bar} 35%, transparent)` }}>
                   {layer.example}
                 </p>
               </div>
@@ -219,16 +219,16 @@ export function GeoLayerStack() {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5 pt-4 border-t border-border/40">
+      <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5 pt-4 border-t border-line">
         {[
           { c: GREEN, l: "Entity & identity" },
           { c: ORANGE, l: "Authority & trust" },
           { c: AMBER, l: "Content depth" },
-          { c: "#2E4B3C", l: "Conversion & machine layer" },
+          { c: "var(--ink-mid)", l: "Conversion & machine layer" },
         ].map((item) => (
           <div key={item.l} className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-sm" style={{ background: item.c }} />
-            <span className="text-[11px] text-foreground/55">{item.l}</span>
+            <span className="text-[11px] text-ink/55">{item.l}</span>
           </div>
         ))}
       </div>
@@ -256,7 +256,7 @@ export function PlatformIADiagram() {
         {/* Root */}
         <rect x="272" y="20" width="176" height="34" rx="5"
           fill={GREEN} />
-        <text x="360" y="41" fontSize="11" fontWeight="700" fill="#F7EDDA"
+        <text x="360" y="41" fontSize="11" fontWeight="700" fill="var(--paper)"
           textAnchor="middle">rhinoafrica.com</text>
 
         {/* Trunk */}
@@ -271,7 +271,7 @@ export function PlatformIADiagram() {
             <line x1={p.x} y1="76" x2={p.x} y2="98" stroke={GREEN}
               strokeOpacity="0.35" strokeWidth="1.3" />
             <rect x={p.x - 54} y="98" width="108" height="42" rx="4"
-              fill="white" stroke={p.label === "Start Planning" ? ORANGE : GREEN}
+              fill="var(--surface)" stroke={p.label === "Start Planning" ? ORANGE : GREEN}
               strokeOpacity={p.label === "Start Planning" ? 0.6 : 0.25} strokeWidth="1.2" />
             <text x={p.x} y="116" fontSize="9.5" fontWeight="700"
               fill={p.label === "Start Planning" ? ORANGE : GREEN}
@@ -309,14 +309,14 @@ export function PlatformIADiagram() {
           strokeDasharray="5 3" />
         <text x="360" y="291" fontSize="10" fontWeight="700" fill={GREEN}
           textAnchor="middle" opacity="0.75">
-          rhinoafrica.com/blog — WordPress subdomain
+          rhinoafrica.com/blog · WordPress subdomain
         </text>
         <text x="360" y="306" fontSize="8" fill={GREEN} opacity="0.45" textAnchor="middle">
           Mirrors the main taxonomy · 5 languages · top-of-funnel
         </text>
 
         {/* Seam marker */}
-        <circle cx="360" cy="264" r="4.5" fill="white" stroke={ORANGE} strokeWidth="1.8" />
+        <circle cx="360" cy="264" r="4.5" fill="var(--surface)" stroke={ORANGE} strokeWidth="1.8" />
         <text x="378" y="268" fontSize="8" fontWeight="700" fill={ORANGE}>
           the seam
         </text>
@@ -340,7 +340,7 @@ export function MultilingualBreakDiagram() {
         <text x="20" y="16" fontSize="8" fontWeight="700" fill={GREEN}
           opacity="0.4" letterSpacing="0.7">DISCOVERY · BLOG</text>
         <rect x="20" y="28" width="180" height="86" rx="5"
-          fill="white" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
+          fill="var(--surface)" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
         {langs.map((l, i) => (
           <g key={l}>
             <rect x={34 + (i % 3) * 52} y={44 + Math.floor(i / 3) * 32}
@@ -363,7 +363,7 @@ export function MultilingualBreakDiagram() {
         <text x="256" y="16" fontSize="8" fontWeight="700" fill={GREEN}
           opacity="0.4" letterSpacing="0.7">MAIN SITE</text>
         <rect x="256" y="28" width="150" height="86" rx="5"
-          fill="white" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
+          fill="var(--surface)" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
         {["EN", "PT"].map((l, i) => (
           <g key={l}>
             <rect x={280 + i * 56} y="52" width="42" height="22" rx="11"
@@ -388,7 +388,7 @@ export function MultilingualBreakDiagram() {
         {/* Break marker */}
         <line x1="428" y1="46" x2="428" y2="96" stroke={ORANGE} strokeWidth="1.5" />
         <circle cx="428" cy="41" r="8" fill={ORANGE} />
-        <text x="428" y="45" fontSize="10" fontWeight="700" fill="white"
+        <text x="428" y="45" fontSize="10" fontWeight="700" fill="var(--surface)"
           textAnchor="middle">!</text>
 
         {/* Stage 3 — Enquiry */}
@@ -440,21 +440,21 @@ export function CompetitorMatrix() {
     <div className="overflow-x-auto">
       <div className="min-w-[560px]">
         {/* Header */}
-        <div className="flex items-end gap-2 pb-3 mb-1 border-b border-border">
+        <div className="flex items-end gap-2 pb-3 mb-1 border-b border-line">
           <div className="w-[190px] shrink-0">
-            <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
               Competitor
             </span>
           </div>
           {dimensions.map((d) => (
             <div key={d} className="flex-1 text-center">
-              <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+              <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
                 {d}
               </span>
             </div>
           ))}
           <div className="w-[52px] text-right shrink-0">
-            <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
               Avg
             </span>
           </div>
@@ -463,16 +463,16 @@ export function CompetitorMatrix() {
         {/* Rows */}
         {competitors.map((c) => (
           <div key={c.name}
-            className="flex items-center gap-2 py-3 border-b border-border/40">
+            className="flex items-center gap-2 py-3 border-b border-line">
             <div className="w-[190px] shrink-0 min-w-0">
               <div className="flex items-center gap-2">
                 <span className="text-[9px] font-bold uppercase tracking-wider shrink-0"
                   style={{ color: c.market === "Intl" ? ORANGE : GREEN, opacity: 0.5 }}>
                   {c.market}
                 </span>
-                <span className="text-sm font-bold text-foreground truncate">{c.name}</span>
+                <span className="text-sm font-bold text-ink truncate">{c.name}</span>
               </div>
-              <p className="text-[10px] text-foreground/40 mt-0.5">{c.stack}</p>
+              <p className="text-[10px] text-ink/40 mt-0.5">{c.stack}</p>
             </div>
 
             {c.scores.map((s, i) => (
@@ -499,7 +499,7 @@ export function CompetitorMatrix() {
           </div>
         ))}
 
-        <p className="text-[10px] text-foreground/35 mt-4">
+        <p className="text-[10px] text-ink/35 mt-4">
           Scored 1–5 · 1 = weak · 5 = best in class
         </p>
       </div>
@@ -512,49 +512,49 @@ export function CompetitorMatrix() {
    ──────────────────────────────────────────────────────────── */
 export function FaqBeforeAfter() {
   return (
-    <div className="grid md:grid-cols-2 gap-px bg-border/50 rounded-md overflow-hidden">
+    <div className="grid md:grid-cols-2 gap-px bg-line overflow-hidden">
       {/* Before */}
-      <div className="bg-white p-5 md:p-6">
+      <div className="bg-surface p-5 md:p-6">
         <div className="flex items-center gap-2 mb-4">
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN, opacity: 0.3 }} />
-          <span className="text-[10px] text-foreground/40 font-bold uppercase tracking-widest">
+          <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
             Current
           </span>
         </div>
-        <p className="text-xs text-foreground/45 font-medium mb-2">
+        <p className="text-xs text-ink/45 font-medium mb-2">
           Q: When is the best time to visit Kruger?
         </p>
-        <p className="text-sm text-foreground/60 leading-relaxed">
+        <p className="text-sm text-ink/60 leading-relaxed">
           &ldquo;The Kruger National Park is a year-round destination, and there is truly no bad
           time to experience its magic. That said, many travellers find that the seasons each
           offer something unique, and much depends on what you hope to see…&rdquo;
         </p>
-        <div className="mt-5 pt-4 border-t border-border/40 space-y-1.5">
-          <p className="text-[11px] text-foreground/50">→ Preamble before the answer</p>
-          <p className="text-[11px] text-foreground/50">→ No entity named as the source</p>
-          <p className="text-[11px] text-foreground/50">→ Nothing clean to extract or cite</p>
+        <div className="mt-5 pt-4 border-t border-line space-y-1.5">
+          <p className="text-[11px] text-ink/50">→ Preamble before the answer</p>
+          <p className="text-[11px] text-ink/50">→ No entity named as the source</p>
+          <p className="text-[11px] text-ink/50">→ Nothing clean to extract or cite</p>
         </div>
       </div>
 
       {/* After */}
-      <div className="bg-white p-5 md:p-6">
+      <div className="bg-surface p-5 md:p-6">
         <div className="flex items-center gap-2 mb-4">
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: ORANGE }} />
           <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: ORANGE }}>
             Recommended
           </span>
         </div>
-        <p className="text-xs text-foreground/45 font-medium mb-2">
+        <p className="text-xs text-ink/45 font-medium mb-2">
           Q: When is the best time to visit Kruger?
         </p>
-        <p className="text-sm text-foreground/85 leading-relaxed">
+        <p className="text-sm text-ink/85 leading-relaxed">
           &ldquo;<strong style={{ color: ORANGE }}>Rhino Africa recommends</strong> May–September
           for Big 5 density; November–April for newborns and dramatic skies.&rdquo;
         </p>
-        <div className="mt-5 pt-4 border-t border-border/40 space-y-1.5">
-          <p className="text-[11px] text-foreground/70">→ Entity leads the first sentence</p>
-          <p className="text-[11px] text-foreground/70">→ Specific, self-contained, citable</p>
-          <p className="text-[11px] text-foreground/70">→ Wrapped in FAQPage schema</p>
+        <div className="mt-5 pt-4 border-t border-line space-y-1.5">
+          <p className="text-[11px] text-ink/70">→ Entity leads the first sentence</p>
+          <p className="text-[11px] text-ink/70">→ Specific, self-contained, citable</p>
+          <p className="text-[11px] text-ink/70">→ Wrapped in FAQPage schema</p>
         </div>
       </div>
     </div>
@@ -565,11 +565,11 @@ export function FaqBeforeAfter() {
    07 · The nine GEO signals
    ──────────────────────────────────────────────────────────── */
 const signals = [
-  { s: "Structure for extraction", m: "Q&A format, definition blocks, self-contained paragraphs — not intro-heavy prose" },
+  { s: "Structure for extraction", m: "Q&A format, definition blocks, self-contained paragraphs, not intro-heavy prose" },
   { s: "Entity clarity", m: "Name brand, location, and subject in full. Never assume context" },
   { s: "Authoritative citations", m: "Link to trusted sources; earn citations from credible third parties" },
-  { s: "Conversational query matching", m: "Write as people ask — 'best time to visit Botswana', not 'optimal visit period'" },
-  { s: "Schema markup", m: "FAQ, HowTo, Article, LocalBusiness — improves extraction accuracy" },
+  { s: "Conversational query matching", m: "Write as people ask. 'best time to visit Botswana', not 'optimal visit period'" },
+  { s: "Schema markup", m: "FAQ, HowTo, Article, LocalBusiness. Improves extraction accuracy" },
   { s: "E-E-A-T signals", m: "Named authors with credentials, first-hand accounts, transparent policies" },
   { s: "Above-the-fold answer", m: "First 100 words carry the most weight. Answer before context" },
   { s: "Brand mentions across the web", m: "Entity recognition reinforced by presence beyond owned channels" },
@@ -581,13 +581,13 @@ export function GeoSignals() {
     <div className="space-y-0">
       {signals.map((sig, i) => (
         <div key={sig.s}
-          className="flex gap-4 md:gap-5 py-4 border-b border-border/40 last:border-0">
-          <span className="text-xs text-foreground/30 font-bold tabular-nums shrink-0 pt-0.5">
+          className="flex gap-4 md:gap-5 py-4 border-b border-line last:border-0">
+          <span className="text-xs text-ink/30 font-bold tabular-nums shrink-0 pt-0.5">
             {String(i + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0">
-            <h4 className="text-sm font-bold text-foreground">{sig.s}</h4>
-            <p className="text-xs text-foreground/55 mt-1 leading-relaxed">{sig.m}</p>
+            <h3 className="text-sm font-bold text-ink">{sig.s}</h3>
+            <p className="text-xs text-ink/55 mt-1 leading-relaxed">{sig.m}</p>
           </div>
         </div>
       ))}

@@ -1,9 +1,22 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export async function POST(request: Request) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("Contact form: RESEND_API_KEY is not set.");
+    return NextResponse.json({ error: "Failed to send message." }, { status: 500 });
+  }
+
   try {
     const { name, email, message } = await request.json();
 
@@ -11,17 +24,23 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "All fields are required." }, { status: 400 });
     }
 
+    const safeName = escapeHtml(String(name));
+    const safeEmail = escapeHtml(String(email));
+    const safeMessage = escapeHtml(String(message));
+
+    const resend = new Resend(apiKey);
+
     await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: "erickvanreenen@gmail.com",
-      replyTo: email,
-      subject: `New message from ${name}`,
+      replyTo: String(email),
+      subject: `New message from ${String(name)}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
       html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${encodeURI(String(email))}">${safeEmail}</a></p>
         <hr />
-        <p>${message.replace(/\n/g, "<br/>")}</p>
+        <p>${safeMessage.replace(/\n/g, "<br/>")}</p>
       `,
     });
 

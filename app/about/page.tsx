@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Icon } from "@/components/material-icon";
 import { PrintsCarousel } from "@/components/prints-carousel";
 import { FadeIn } from "@/components/fade-in";
@@ -12,13 +12,13 @@ import {
 
 export const metadata: Metadata = {
   title: "About | Erick van Reenen",
-  description: "Senior UX Designer. E-commerce, omnichannel, EdTech.",
+  description: "Senior UX Designer. E-commerce, omnichannel, EdTech. Cape Town.",
 };
 
 const experience = [
   { title: "UX/UI Designer", company: "Silvertree Brands", period: "Sep 2024 – Present", desc: "Designing across UCOOK, Faithful to Nature, and Pet Heaven. Omnichannel e-commerce, desktop and mobile." },
   { title: "Moderator, Content Design", company: "UX Design Institute", period: "Aug 2024 – Mar 2026", desc: "Reviewing student projects against the six Content Design principles." },
-  { title: "Content Writer, Digital & Web Design", company: "Eduvos", period: "Apr 2024 – Sep 2025", desc: "Consolidating UX/UI modules into a unified strand within the three-year Digital Design degree." },
+  { title: "Content Writer, Digital & Web Design", company: "Eduvos", period: "Apr 2024 – Sep 2025", desc: "Consolidating UX and UI modules into a unified strand within the three-year Digital Design degree." },
   { title: "Lecturer, UX Design", company: "Academy of Digital Arts", period: "Feb 2024 – Mar 2025", desc: "Delivering the UX Design module: instruction, workshops, and assessment." },
   { title: "UX Designer", company: "YumEase", period: "Jul 2023 – Aug 2024", desc: "Sole designer. Took the product from inception to launch." },
   { title: "Visual Team Lead", company: "UNi4 Online", period: "May 2021 – Aug 2024", desc: "Led the design team. Built the aggregator UX." },
@@ -45,258 +45,248 @@ const skills = [
   "Usability Testing", "Content Design", "CX Design",
 ];
 
-const tools = [
-  "Figma", "Adobe Creative Suite", "Miro", "Jira",
-  "Articulate 360", "Google Suite",
+const tools = ["Figma", "Adobe Creative Suite", "Miro", "Jira", "Articulate 360", "Google Suite"];
+const aiTools = ["Perplexity", "ChatGPT", "Claude", "NotebookLM", "Figma Make", "Stitch by Google"];
+
+const contact = [
+  { label: "Location", value: "Cape Town, South Africa", icon: "location_on", href: "https://maps.google.com/?q=Cape+Town,+South+Africa" },
+  { label: "Email", value: "erickvanreenen@gmail.com", icon: "mail", href: "mailto:erickvanreenen@gmail.com" },
+  { label: "Phone", value: "+27 620 969 497", icon: "phone", href: "tel:+27620969497" },
+  { label: "Status", value: "Full time, contract, freelance", icon: "work", href: undefined },
 ];
 
-const aiTools = [
-  "Perplexity", "ChatGPT", "Claude", "NotebookLM",
-  "Figma Make", "Stitch by Google",
-];
-
-function LogoMark({ size = 28, opacity = 1 }: { size?: number; color?: string; opacity?: number }) {
+function SectionHead({ label, title, intro }: { label?: string; title: string; intro?: string }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src="/images/erick-logo.svg" width={size} height={size} alt="" style={{ opacity }} />
+    <header className="mb-12 md:mb-14">
+      {label && <p className="t-label text-ember mb-4">{label}</p>}
+      <h2 className="t-h2 text-3xl md:text-[42px] text-ink">{title}</h2>
+      {intro && <p className="text-[16px] text-ink/60 leading-relaxed measure mt-5">{intro}</p>}
+    </header>
+  );
+}
+
+function Pills({ items }: { items: string[] }) {
+  return (
+    <ul className="flex flex-wrap gap-2">
+      {items.map((s) => (
+        <li key={s} className="text-sm px-3.5 py-2 bg-surface border border-line text-ink/75">
+          {s}
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export default function AboutPage() {
   return (
     <div className="page-entry">
-      {/* Hero */}
-      <section className="bg-[#FDFAF5]">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-28">
+      <section className="border-b border-line">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
+          <p className="t-label text-ember mb-6">About</p>
 
-          <div className="flex items-start gap-5 mb-10 md:mb-12">
-            <div className="mt-1.5 shrink-0">
-              <LogoMark size={40} />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.05]">
-              Follow the curiosity.
-            </h1>
-          </div>
+          <h1 className="t-display text-5xl md:text-7xl lg:text-8xl text-ink mb-8">
+            Follow the curiosity.
+          </h1>
 
-          <p className="text-base md:text-lg text-foreground/65 max-w-xl leading-relaxed mb-12 md:mb-16">
+          <p className="text-xl md:text-2xl text-ink/70 measure leading-[1.4] font-light mb-14 md:mb-16">
             Systems thinking. Fifteen years making and building things people use and love.
           </p>
 
-          {/* Contact meta */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-border/60">
-            {[
-              { label: "Location", value: "Cape Town, South Africa", icon: "location_on", href: "https://maps.google.com/?q=Cape+Town,+South+Africa" },
-              { label: "Email", value: "erickvanreenen@gmail.com", icon: "mail", href: "mailto:erickvanreenen@gmail.com" },
-              { label: "Phone", value: "+27 620 969 497", icon: "phone", href: "tel:+27620969497" },
-              { label: "Status", value: "Full Time, Contract, Freelance", icon: "work", href: undefined },
-            ].map((item, i) => (
+          <dl className="grid grid-cols-2 md:grid-cols-4 border-t border-line">
+            {contact.map((item, i) => (
               <div
                 key={item.label}
-                className={`py-5 px-4 min-w-0 border-border/60 ${
-                  i === 1 || i === 3 ? "border-l" : i === 2 ? "md:border-l" : ""
-                } ${
-                  i === 2 || i === 3 ? "border-t md:border-t-0" : ""
+                className={`py-5 md:pr-6 min-w-0 ${i > 0 ? "md:pl-6 md:border-l border-line" : ""} ${
+                  i % 2 === 1 ? "pl-5 border-l border-line md:pl-6" : ""
                 }`}
               >
-                <div className="flex items-center gap-1.5 text-foreground/30 mb-1.5">
+                <dt className="flex items-center gap-1.5 t-label text-ink/40 mb-2">
                   <Icon name={item.icon} size={13} />
-                  <span className="text-xs font-medium uppercase tracking-widest">{item.label}</span>
-                </div>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200 break-all"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <p className="text-sm text-foreground break-all">{item.value}</p>
-                )}
+                  {item.label}
+                </dt>
+                <dd className="text-sm text-ink/85 break-words leading-snug">
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="hover:text-ember transition-colors duration-200"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      {/* Bio + Beyond + Experience + Education + Tooling */}
-      <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
+      <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
 
-        {/* Bio */}
         <FadeIn>
-        <section className="mb-20 md:mb-24 max-w-2xl">
-          <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed mb-6">
-            I am an experienced designer with a diverse background in entrepreneurship, business development, branding, product design, visual and online education design, and UX/UI.
-          </p>
-          <p className="text-base text-foreground/70 leading-relaxed mb-5">
-            I have a passion for how exceptional design impacts users' lives, blending creativity, empathy, and kindness in everything I create. My work is driven by a deep curiosity and an endless desire to understand the intricacies of design, focusing on the people I design for and with.
-          </p>
-          <p className="text-base text-foreground/70 leading-relaxed">
-            I embrace research as an essential tool for uncovering user needs, shaping experiences that resonate with their motivations and aspirations. I'm a dedicated problem-solver and advocate for quality design, balancing innovation with practical solutions.
-          </p>
-        </section>
+          <section className="mb-24 md:mb-28">
+            <p className="text-xl md:text-2xl text-ink leading-[1.45] font-medium measure mb-8">
+              I am an experienced designer with a background in entrepreneurship, business
+              development, branding, product design, visual and online education design,
+              and UX/UI.
+            </p>
+            <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
+              <p>
+                I care about how good design changes people&apos;s lives, and I bring creativity,
+                empathy and kindness to everything I make. Curiosity drives the work, and an
+                endless desire to understand how design fits together, focused on the people
+                I design for and with.
+              </p>
+              <p>
+                Research is how I uncover what people actually need, so the experience meets
+                their motivations rather than my assumptions. I am a problem-solver and an
+                advocate for quality design, balancing invention against what can practically ship.
+              </p>
+            </div>
+          </section>
         </FadeIn>
 
-        {/* Beyond work */}
-        <section className="mb-20 md:mb-24 pb-16 md:pb-20 border-b border-border/60">
-          <div className="flex items-center gap-3 mb-5">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-xs text-foreground/40 font-medium uppercase tracking-widest">Beyond work</h2>
-          </div>
-          <p className="text-base text-foreground/70 leading-relaxed max-w-2xl mb-14">
-            Beyond design, I'm a proud father who draws inspiration and solace from nature, Tai Chi, meditation, breathwork, trail running, and early morning swims in the Atlantic Ocean, infusing my work with a sense of calm and reflection.
-          </p>
-          <div>
-            <p className="text-sm text-foreground/55 leading-relaxed mb-8">
-              I enjoy making prints for free play as a creative outlet.
+        <FadeIn>
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead label="Beyond work" title="What keeps the work steady" />
+            <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
+              I am a proud father who draws inspiration and solace from nature, Tai Chi,
+              meditation, breathwork, trail running, and early morning swims in the Atlantic.
+              That calm and reflection ends up in the work.
+            </p>
+            <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
+              I make prints for free play, as a creative outlet.
             </p>
             <PrintsCarousel />
-          </div>
-        </section>
+          </section>
+        </FadeIn>
 
-        {/* Experience */}
         <FadeIn>
-        <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
-          <div className="flex items-center gap-3 mb-12 md:mb-14">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Experience</h2>
-          </div>
-          <div className="space-y-0">
-            {experience.map((exp, i, arr) => (
-              <div key={`${exp.company}-${exp.title}`} className="flex gap-5 md:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#F0531C] shrink-0 mt-2" />
-                  {i < arr.length - 1 && <div className="w-px flex-1 bg-border/60 mt-1.5" />}
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead label="Experience" title="Where I have worked" />
+            <ol>
+              {experience.map((exp, i, arr) => (
+                <li key={`${exp.company}-${exp.title}`} className="flex gap-5 md:gap-7">
+                  <div className="flex flex-col items-center pt-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
+                    {i < arr.length - 1 && <span className="w-px flex-1 bg-line mt-2" />}
+                  </div>
+                  <div className="pb-10 grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-1 flex-1">
+                    <p className="t-label text-ink/40 md:pt-1">{exp.period}</p>
+                    <div>
+                      <h3 className="text-[17px] font-bold text-ink">{exp.title}</h3>
+                      <p className="text-sm text-ember mb-2">{exp.company}</p>
+                      <p className="text-[15px] text-ink/60 leading-relaxed measure">{exp.desc}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </FadeIn>
+
+        <FadeIn>
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead label="Education" title="What I studied" />
+            <dl className="border-t border-line">
+              {education.map((edu) => (
+                <div
+                  key={edu.title}
+                  className="grid grid-cols-[4.5rem_1fr] md:grid-cols-[8rem_1fr] gap-x-4 py-5 border-b border-line"
+                >
+                  <dt className="t-num text-sm text-ink/40 pt-0.5">{edu.year}</dt>
+                  <dd>
+                    <p className="text-[16px] font-bold text-ink leading-snug">{edu.title}</p>
+                    <p className="text-sm text-ink/55 mt-1">{edu.institution}</p>
+                  </dd>
                 </div>
-                <div className="pb-9 md:pb-10">
-                  <p className="text-xs text-foreground/40 font-medium mb-1">{exp.period}</p>
-                  <h3 className="text-base font-bold text-foreground">{exp.title}</h3>
-                  <p className="text-sm text-[#F0531C] mb-1">{exp.company}</p>
-                  <p className="text-sm text-foreground/55">{exp.desc}</p>
-                </div>
+              ))}
+            </dl>
+          </section>
+        </FadeIn>
+
+        <FadeIn>
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead label="Capability" title="Skills and tooling" />
+            <div className="space-y-10">
+              <div>
+                <p className="t-label text-ink/40 mb-5">Skills</p>
+                <Pills items={skills} />
               </div>
-            ))}
-          </div>
-        </section>
-        </FadeIn>
-
-        {/* Education */}
-        <FadeIn>
-        <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
-          <div className="flex items-center gap-3 mb-12 md:mb-14">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Education</h2>
-          </div>
-          <div className="space-y-7 md:space-y-8">
-            {education.map((edu) => (
-              <div key={edu.title} className="flex items-start gap-6 md:gap-10">
-                <span className="text-xs text-foreground/35 font-medium w-14 shrink-0 pt-0.5">{edu.year}</span>
-                <div>
-                  <h3 className="text-sm md:text-base font-bold text-foreground">{edu.title}</h3>
-                  <p className="text-sm text-foreground/50 mt-0.5">{edu.institution}</p>
-                </div>
+              <div>
+                <p className="t-label text-ink/40 mb-5">Tools</p>
+                <Pills items={tools} />
               </div>
-            ))}
-          </div>
-        </section>
+              <div>
+                <p className="t-label text-ink/40 mb-5">AI</p>
+                <Pills items={aiTools} />
+              </div>
+            </div>
+          </section>
         </FadeIn>
 
-        {/* Skills */}
         <FadeIn>
-        <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
-          <div className="flex items-center gap-3 mb-12 md:mb-14">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Skills</h2>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <span key={skill} className="text-sm px-3 py-1.5 bg-[#F7EDDA] text-foreground/70 font-medium">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section>
-        </FadeIn>
+          <section>
+            <SectionHead
+              label="Workflow"
+              title="How I work"
+              intro="From proof of concept through to developer handover, and how the design system keeps it consistent."
+            />
 
-        {/* Tooling */}
-        <FadeIn>
-        <section className="mb-20 md:mb-24 pb-20 md:pb-24 border-b border-border/60">
-          <div className="flex items-center gap-3 mb-12 md:mb-14">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Tooling</h2>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {[...tools, ...aiTools].map((tool) => (
-              <span key={tool} className="text-sm px-3 py-1.5 bg-[#F7EDDA] text-foreground/70 font-medium">
-                {tool}
-              </span>
-            ))}
-          </div>
-        </section>
-        </FadeIn>
+            <div className="mb-16">
+              <h3 className="text-xl font-bold text-ink tracking-[-0.015em]">Design and delivery</h3>
+              <p className="text-[15px] text-ink/60 leading-relaxed mt-2 measure">
+                HTML is included in handover where it saves build time.
+              </p>
+              <figure className="mt-7">
+                <div className="bg-surface border border-line p-5 md:p-8">
+                  <DeliveryWorkflowDiagram />
+                </div>
+              </figure>
+            </div>
 
-        {/* Workflow */}
-        <FadeIn>
-        <section className="mb-0 pb-0">
-          <div className="flex items-center gap-3 mb-4">
-            <LogoMark size={14} opacity={0.2} />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">Workflow</h2>
-          </div>
-          <p className="text-sm text-foreground/60 leading-relaxed max-w-xl mb-12 md:mb-14">
-            How I work, and how the design system keeps it consistent.
-          </p>
-
-          {/* Design and delivery */}
-          <h3 className="text-base font-bold text-foreground">Design and delivery</h3>
-          <p className="text-sm text-foreground/60 leading-relaxed mt-1.5">
-            From proof of concept through to developer handover.
-          </p>
-          <div className="bg-white rounded-lg border border-border/40 p-5 md:p-7 mt-6">
-            <DeliveryWorkflowDiagram />
-          </div>
-          <p className="text-xs text-foreground/45 leading-relaxed mt-3">
-            HTML is included in handover where it saves build time.
-          </p>
-
-          {/* Design system */}
-          <h3 className="text-base font-bold text-foreground mt-14">Design system</h3>
-          <p className="text-sm text-foreground/60 leading-relaxed mt-1.5">
-            Built in Figma and in code, then checked against itself.
-          </p>
-          <div className="bg-white rounded-lg border border-border/40 p-5 md:p-7 mt-6">
-            <DesignSystemDiagram />
-            <SemanticLayerNote />
-          </div>
-        </section>
+            <div>
+              <h3 className="text-xl font-bold text-ink tracking-[-0.015em]">Design system</h3>
+              <p className="text-[15px] text-ink/60 leading-relaxed mt-2 measure">
+                Built in Figma and in code, then checked against itself.
+              </p>
+              <figure className="mt-7">
+                <div className="bg-surface border border-line p-5 md:p-8">
+                  <DesignSystemDiagram />
+                  <SemanticLayerNote />
+                </div>
+              </figure>
+            </div>
+          </section>
         </FadeIn>
 
       </div>
 
-      {/* CTA */}
-      <section className="bg-[#09332C]">
+      <section className="bg-ink-deep">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
             <div>
-              <p className="text-xs text-[#F7EDDA]/30 font-medium uppercase tracking-widest mb-5">Open to work</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#F7EDDA] tracking-tight mb-3">
+              <p className="t-label text-ember-lift mb-5">Open to work</p>
+              <h2 className="t-h2 text-3xl md:text-[42px] text-paper mb-4">
                 Available for opportunities.
               </h2>
-              <p className="text-[#F7EDDA]/55 max-w-sm text-sm">
-                Full-time roles, contract work, and interesting challenges. Let's talk.
+              <p className="text-paper/60 max-w-sm">
+                Full-time roles, contract work, and interesting challenges. Let&apos;s talk.
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#F0531C] text-white text-sm font-medium px-6 py-3 hover:bg-[#F7EDDA] hover:text-[#09332C] transition-colors duration-200 group shrink-0"
+              className="inline-flex items-center gap-2 bg-ember text-white text-sm font-medium px-6 py-3 hover:bg-paper hover:text-ink-deep transition-colors duration-200 group shrink-0"
             >
               Get in touch
-              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </div>
         </div>
       </section>
-
     </div>
   );
 }
