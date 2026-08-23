@@ -91,14 +91,20 @@ export function KurtosysScreen({
 
       <figcaption className="t-caption mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         {caption && <span className="flex-1 min-w-0">{caption}</span>}
+        {/*
+          Six of these appear on the page. The visible text stays short, but
+          each needs its own accessible name, otherwise anyone navigating by
+          links hears "open full size" six times with no way to tell them apart.
+        */}
         <a
           href={`/kurtosys/${spec.file}.html`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Open full size in a new tab: ${spec.title}`}
           className="inline-flex items-center gap-1 text-accent hover:underline underline-offset-4 shrink-0 py-1"
         >
           Open full size
-          <ArrowUpRight size={12} />
+          <ArrowUpRight size={12} aria-hidden="true" />
         </a>
       </figcaption>
     </figure>
