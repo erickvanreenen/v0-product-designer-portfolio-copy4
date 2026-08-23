@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>04 · Stress test — Kurtosys Rule Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071935; --primary: #0342E4; --accent: #31FF9C; --pale-blue: #D9E3FB;
+    --white: #FFFFFF; --mint: #F9FFFA; --grey-50: #FAFAFA; --grey-100: #F4F4F4;
+    --grey-150: #F2F1F1; --grey-200: #E9E9E9; --border: #D1D1D1;
+    --text-muted: #54595F; --text-disabled: #818A91; --text-grey: #7A7A7A;
+    --success: #0E8C5A; --info-bg: #E8EEFD;
+    --shadow-card: 0 15px 30px rgba(58, 64, 81, 0.2);
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: var(--font); color: var(--ink); background: #ECEEF2; }
+  body { padding: 48px 0 80px; }
+  .canvas { width: 1440px; margin: 0 auto; }
+  .screen-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; padding: 0 4px; }
+  .screen-meta .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .screen-meta h1 { font-size: 22px; font-weight: 600; }
+  .screen-meta .sub { font-size: 14px; color: var(--text-muted); margin-left: auto; }
+  .frame { width: 1440px; height: 1100px; background: var(--white); box-shadow: var(--shadow-card); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 240px 1fr; position: relative; }
+
+  .sb { background: var(--ink); padding: 32px 24px; color: var(--white); display: flex; flex-direction: column; gap: 8px; }
+  .sb-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .sb-logo .dot { width: 24px; height: 24px; background: var(--accent); border-radius: 6px; }
+  .sb-logo .wm { font-size: 18px; font-weight: 700; letter-spacing: -0.4px; }
+  .sb-eye { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; opacity: 0.5; margin: 16px 0 4px; }
+  .sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; font-size: 14px; color: rgba(255,255,255,0.7); cursor: pointer; }
+  .sb-item .marker { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); }
+  .sb-item.active { background: rgba(255,255,255,0.08); color: var(--white); font-weight: 600; }
+  .sb-item.active .marker { background: var(--accent); }
+  .sb-section { display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .sb-section .chev { margin-left: auto; font-size: 10px; opacity: 0.5; }
+  .sb-child { padding-left: 32px; font-size: 13px; }
+
+  .main { display: flex; flex-direction: column; min-width: 0; }
+  .tb { height: 64px; border-bottom: 1px solid var(--grey-200); padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .tb-search { display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 36px; background: var(--grey-100); border-radius: 50px; min-width: 320px; }
+  .tb-search .ph { font-size: 13px; color: var(--text-disabled); flex: 1; }
+  .tb-search .kbd { font-size: 10px; color: var(--text-disabled); border: 1px solid var(--grey-200); border-radius: 4px; padding: 2px 6px; background: var(--white); }
+  .tb-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .tb-link { font-size: 13px; color: var(--text-muted); }
+  .tb-icon { width: 36px; height: 36px; border-radius: 18px; background: var(--grey-100); display: grid; place-items: center; font-size: 14px; }
+  .tb-avatar { width: 36px; height: 36px; border-radius: 18px; background: var(--primary); color: var(--white); font-weight: 700; font-size: 14px; display: grid; place-items: center; }
+
+  .body { padding: 32px 48px; display: flex; flex-direction: column; gap: 20px; }
+  .crumb { font-size: 12px; color: var(--text-grey); display: flex; gap: 6px; align-items: center; }
+  .crumb .here { color: var(--ink); font-weight: 600; }
+  .crumb .sep { color: var(--text-disabled); }
+  .header-row { display: flex; align-items: flex-start; gap: 16px; }
+  .title-block h1 { font-size: 32px; line-height: 40px; font-weight: 600; }
+  .title-block p { font-size: 14px; color: var(--text-muted); max-width: 720px; margin-top: 6px; }
+
+  .columns { display: grid; grid-template-columns: 1fr 460px; gap: 24px; }
+
+  .editor { background: var(--white); border: 1px solid var(--grey-200); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+  .ed-head { display: flex; align-items: center; gap: 12px; }
+  .ed-head h2 { font-size: 16px; font-weight: 700; }
+  .ed-status { padding: 4px 10px; border: 1px solid var(--primary); border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--primary); }
+  .ed-then { padding: 12px 16px; background: var(--grey-100); border: 1px solid var(--grey-200); border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+  .ed-then .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); width: 36px; }
+  .ed-then .lk { color: var(--text-disabled); margin-left: auto; font-size: 11px; }
+
+  .blk-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); margin-bottom: 8px; }
+
+  .group { border: 1px solid var(--grey-200); border-left: 3px solid var(--primary); border-radius: 8px; padding: 16px; background: var(--grey-50); }
+  .group .gh { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .group .gh .glbl { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .group .gh .conn { padding: 2px 8px; background: var(--ink); color: var(--white); border-radius: 4px; font-size: 10px; font-weight: 700; }
+  .group .gh .name { font-size: 12px; color: var(--text-muted); }
+
+  .cond-row { display: flex; align-items: center; gap: 4px; margin-bottom: 4px; }
+  .cond-cell { flex: 1; height: 36px; padding: 0 12px; border: 1px solid var(--grey-200); border-radius: 6px; background: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; }
+  .cond-cell .chev { color: var(--text-disabled); font-size: 10px; }
+  .cond-cell.field { background: var(--pale-blue); border-color: var(--pale-blue); font-weight: 600; max-width: 160px; }
+  .cond-cell.op { max-width: 64px; justify-content: center; font-weight: 700; }
+
+  .or-divider { display: flex; align-items: center; gap: 12px; margin: 6px 0; }
+  .or-divider .line { flex: 1; height: 1px; background: var(--grey-200); }
+  .or-divider .badge { padding: 4px 14px; background: var(--accent); color: var(--ink); border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.4px; }
+
+  .add-link { font-size: 12px; padding: 8px 12px; border: 1px dashed var(--border); border-radius: 8px; color: var(--text-muted); cursor: pointer; display: inline-block; margin-top: 8px; }
+
+  .echo-panel { background: var(--info-bg); border-radius: 8px; padding: 24px; border-left: 4px solid var(--primary); }
+  .echo-panel .lead { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; }
+  .echo-panel h3 { font-size: 18px; font-weight: 600; line-height: 28px; margin-bottom: 16px; color: var(--ink); }
+  .echo-panel ul { list-style: none; margin: 0; padding: 0; }
+  .echo-panel li { padding: 12px 16px; background: var(--white); border-radius: 6px; margin-bottom: 8px; font-size: 14px; line-height: 20px; color: var(--ink); }
+  .echo-panel li strong { background: rgba(3,66,228,0.08); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+  .echo-panel .or-row { text-align: center; padding: 8px 0; }
+  .echo-panel .or-row .b { display: inline-block; padding: 4px 14px; background: var(--accent); color: var(--ink); border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.4px; }
+  .echo-meta { margin-top: 12px; font-size: 12px; color: var(--text-muted); }
+  .echo-meta strong { color: var(--ink); }
+
+  .chip { position: absolute; width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; box-shadow: 0 4px 8px rgba(3,66,228,0.4); border: 2px solid var(--white); z-index: 10; }
+
+  .reasoning { width: 1440px; margin: 32px auto 0; background: var(--white); border-radius: 8px; padding: 32px 48px; box-shadow: var(--shadow-card); }
+  .reasoning h2 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .reasoning .lead { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .note { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  .note .n { width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+  .note .body h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .note .body p { font-size: 13px; line-height: 19px; color: var(--text-muted); }
+
+  /* === v2 · Mid-fi chrome to spotlight the rule builder === */
+  .sb { background: #3D4654 !important; }
+  .sb-logo .dot { background: rgba(255,255,255,0.4) !important; }
+  .sb-item.active .marker { background: rgba(255,255,255,0.7) !important; }
+  .tb-avatar { background: #6B7280 !important; color: #FFF !important; }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="screen-meta">
+    <span class="eyebrow">04 · Stress test</span>
+    <h1>Does the echo scale to five conditions?</h1>
+    <span class="sub">1440 × 1100 desktop</span>
+  </div>
+
+  <div class="frame">
+    <aside class="sb">
+      <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+      <div class="sb-eye">Workspace</div>
+      <div class="sb-item"><div class="marker"></div>Templates</div>
+      <div class="sb-section">Documents<span class="chev">▾</span></div>
+      <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+      <div class="sb-item sb-child active"><div class="marker"></div>Rules</div>
+      <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+      <div class="sb-item"><div class="marker"></div>Data sources</div>
+      <div class="sb-item"><div class="marker"></div>Runs</div>
+    </aside>
+
+    <section class="main">
+      <div class="tb">
+        <div class="tb-search"><span>⌕</span><span class="ph">Jump to template, rule, fund…</span><span class="kbd">⌘K</span></div>
+        <div class="tb-right"><span class="tb-link">Help</span><span class="tb-icon">◔</span><span class="tb-avatar">L</span></div>
+      </div>
+
+      <div class="body">
+        <div class="crumb">Documents <span class="sep">·</span> Rules <span class="sep">·</span> <span class="here">EU distribution disclaimer</span></div>
+        <div class="header-row">
+          <div class="title-block">
+            <h1>EU distribution disclaimer</h1>
+            <p>Complex regulatory rule covering institutional German distribution and retail Italian distribution. Demonstrates how the echo holds up at five conditions across two groups.</p>
+          </div>
+        </div>
+
+        <div class="columns">
+          <!-- EDITOR -->
+          <div class="editor" style="position: relative;">
+            <div class="ed-head">
+              <h2>Conditions</h2>
+              <span class="ed-status">Live preview</span>
+            </div>
+
+            <div class="ed-then">
+              <span class="lbl">Then</span>
+              <span>Show EU disclaimer</span>
+              <span class="lk">🔒 Locked</span>
+            </div>
+
+            <div>
+              <div class="blk-label">If</div>
+
+              <!-- GROUP 1 -->
+              <div class="group" style="position: relative;">
+                <div class="gh">
+                  <span class="glbl">Group 1</span>
+                  <span class="conn">AND</span>
+                  <span class="name">Institutional in Germany</span>
+                </div>
+                <div class="cond-row">
+                  <div class="cond-cell field"><span>Jurisdiction</span><span class="chev">▾</span></div>
+                  <div class="cond-cell op">=</div>
+                  <div class="cond-cell"><span>DE</span><span class="chev">▾</span></div>
+                </div>
+                <div class="cond-row">
+                  <div class="cond-cell field"><span>Doc type</span><span class="chev">▾</span></div>
+                  <div class="cond-cell op">=</div>
+                  <div class="cond-cell"><span>Institutional</span><span class="chev">▾</span></div>
+                </div>
+                <div class="cond-row">
+                  <div class="cond-cell field"><span>AUM</span><span class="chev">▾</span></div>
+                  <div class="cond-cell op">&gt;</div>
+                  <div class="cond-cell"><span>€100m</span><span class="chev">▾</span></div>
+                </div>
+                <div class="chip" style="left: -10px; top: -10px;">1</div>
+              </div>
+
+              <div class="or-divider"><div class="line"></div><span class="badge">OR</span><div class="line"></div></div>
+
+              <!-- GROUP 2 -->
+              <div class="group" style="position: relative;">
+                <div class="gh">
+                  <span class="glbl">Group 2</span>
+                  <span class="conn">AND</span>
+                  <span class="name">Retail in Italy</span>
+                </div>
+                <div class="cond-row">
+                  <div class="cond-cell field"><span>Jurisdiction</span><span class="chev">▾</span></div>
+                  <div class="cond-cell op">=</div>
+                  <div class="cond-cell"><span>IT</span><span class="chev">▾</span></div>
+                </div>
+                <div class="cond-row">
+                  <div class="cond-cell field"><span>Doc type</span><span class="chev">▾</span></div>
+                  <div class="cond-cell op">=</div>
+                  <div class="cond-cell"><span>Retail</span><span class="chev">▾</span></div>
+                </div>
+                <div class="chip" style="left: -10px; top: -10px;">2</div>
+              </div>
+
+              <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <span class="add-link">+ Add condition</span>
+                <span class="add-link">+ Add group</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ECHO -->
+          <div class="echo-panel" style="position: relative;">
+            <div class="lead">Plain English</div>
+            <h3>EU disclaimer will appear when any of the following are true:</h3>
+            <ul>
+              <li>
+                <strong>Jurisdiction</strong> is <strong>Germany</strong>, the document is for <strong>Institutional</strong> investors, and <strong>AUM</strong> is over <strong>€100m</strong>.
+              </li>
+              <li class="or-row"><span class="b">OR</span></li>
+              <li>
+                <strong>Jurisdiction</strong> is <strong>Italy</strong> and the document is for <strong>Retail</strong> investors.
+              </li>
+            </ul>
+            <div class="echo-meta">Reads as: <strong>(A AND B AND C) OR (D AND E)</strong>. Updates as you edit.</div>
+            <div class="chip" style="position: absolute; right: -10px; top: -10px;">3</div>
+            <div class="chip" style="position: absolute; left: 80px; bottom: 60px;">4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="reasoning">
+  <h2>Why this screen looks the way it does</h2>
+  <p class="lead">Numbered points map to the blue chips on the screen above.</p>
+  <div class="notes">
+    <div class="note"><div class="n">1</div><div class="body"><h3>Group is a visual container, not parentheses</h3><p>Operator precedence in non-technical UIs has to be visual, not syntactic. A bordered box with its own header beats nesting parentheses because users don't have to mentally parse syntax.</p></div></div>
+    <div class="note"><div class="n">2</div><div class="body"><h3>Group naming is encouraged, not enforced</h3><p>"Institutional in Germany" sits next to the group header to remind the user what this group represents. Optional, but helps when the rule is reopened weeks later by someone else.</p></div></div>
+    <div class="note"><div class="n">3</div><div class="body"><h3>The echo flattens nesting into a list</h3><p>Even when the rule has two-level structure, the echo reads top to bottom: "this OR that". Nested prose ("when A and B and either C or D...") fails fast. A list does not.</p></div></div>
+    <div class="note"><div class="n">4</div><div class="body"><h3>The mathematical shape is shown explicitly</h3><p>"(A AND B AND C) OR (D AND E)" near the foot of the echo helps the rule author confirm the structure without leaving the form. Optional reading; helpful for audits.</p></div></div>
+  </div>
+</div>
+
+</body>
+</html>

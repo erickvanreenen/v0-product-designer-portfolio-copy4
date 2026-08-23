@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>06 · Library states — Kurtosys Rule Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071935; --primary: #0342E4; --accent: #31FF9C; --pale-blue: #D9E3FB;
+    --white: #FFFFFF; --mint: #F9FFFA; --grey-50: #FAFAFA; --grey-100: #F4F4F4;
+    --grey-150: #F2F1F1; --grey-200: #E9E9E9; --border: #D1D1D1;
+    --text-muted: #54595F; --text-disabled: #818A91; --text-grey: #7A7A7A;
+    --success: #0E8C5A; --success-bg: #E6F6EE;
+    --warning: #B26A00; --warning-bg: #FFF4E0;
+    --danger: #B3261E; --danger-bg: #FCEAE8;
+    --info-bg: #E8EEFD;
+    --shadow-card: 0 15px 30px rgba(58, 64, 81, 0.2);
+    --shadow-pop: 0 8px 24px rgba(7, 25, 53, 0.16);
+    --font: 'Plus Jakarta Sans', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: var(--font); color: var(--ink); background: #ECEEF2; }
+  body { padding: 48px 0 80px; }
+  .canvas { width: 1440px; margin: 0 auto; }
+  .screen-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; padding: 0 4px; }
+  .screen-meta .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .screen-meta h1 { font-size: 22px; font-weight: 600; }
+  .screen-meta .sub { font-size: 14px; color: var(--text-muted); margin-left: auto; }
+
+  .stack { display: flex; flex-direction: column; gap: 32px; }
+  .state-frame { background: var(--white); border-radius: 8px; box-shadow: var(--shadow-card); overflow: hidden; }
+  .state-head { padding: 20px 32px; border-bottom: 1px solid var(--grey-200); display: flex; align-items: baseline; gap: 16px; }
+  .state-head .label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .state-head h2 { font-size: 18px; font-weight: 700; }
+  .state-head p { font-size: 13px; color: var(--text-muted); margin-left: auto; max-width: 600px; line-height: 1.5; }
+  .state-body { padding: 0; }
+
+  /* Common */
+  .body-frame { display: grid; grid-template-columns: 240px 1fr; height: 620px; }
+  .sb { background: var(--ink); padding: 28px 24px; color: var(--white); display: flex; flex-direction: column; gap: 6px; }
+  .sb-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+  .sb-logo .dot { width: 22px; height: 22px; background: var(--accent); border-radius: 6px; }
+  .sb-logo .wm { font-size: 16px; font-weight: 700; letter-spacing: -0.4px; }
+  .sb-eye { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; opacity: 0.5; margin: 10px 0 4px; }
+  .sb-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 6px; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .sb-item .marker { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); }
+  .sb-item.active { background: rgba(255,255,255,0.08); color: var(--white); font-weight: 600; }
+  .sb-item.active .marker { background: var(--accent); }
+  .sb-section { display: flex; align-items: center; gap: 10px; padding: 8px 12px; font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .sb-section .chev { margin-left: auto; font-size: 10px; opacity: 0.5; }
+  .sb-child { padding-left: 30px; font-size: 12px; }
+
+  .main { display: flex; flex-direction: column; background: var(--white); position: relative; overflow: hidden; }
+  .main .body { padding: 28px 40px; display: flex; flex-direction: column; gap: 20px; flex: 1; }
+
+  .crumb { font-size: 12px; color: var(--text-grey); }
+  .crumb .here { color: var(--ink); font-weight: 600; }
+  .crumb .sep { color: var(--text-disabled); }
+
+  .header-row { display: flex; align-items: flex-start; gap: 16px; }
+  .title-block h1 { font-size: 32px; line-height: 40px; font-weight: 600; }
+  .title-block p { font-size: 14px; color: var(--text-muted); margin-top: 4px; max-width: 520px; }
+  .cta-cluster { margin-left: auto; display: flex; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 700; cursor: pointer; border: 0; font-family: inherit; letter-spacing: -0.2px; }
+  .btn.secondary { background: var(--white); color: var(--ink); border: 1px solid var(--ink); padding: 0 18px; font-size: 13px; font-weight: 600; }
+  .btn.primary { background: var(--ink); color: var(--accent); padding: 0 24px; }
+  .btn.danger-ghost { background: transparent; color: var(--danger); border: 1px solid var(--danger); padding: 0 18px; font-size: 13px; font-weight: 600; }
+  .btn.bulk { background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.2); padding: 0 16px; font-size: 13px; font-weight: 600; height: 36px; }
+
+  /* EMPTY STATE */
+  .empty { flex: 1; display: grid; place-items: center; padding: 32px; }
+  .empty .card { max-width: 480px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .empty .icon-wrap { width: 80px; height: 80px; background: var(--info-bg); border-radius: 24px; display: grid; place-items: center; font-size: 32px; color: var(--primary); }
+  .empty h2 { font-size: 24px; font-weight: 700; }
+  .empty p { font-size: 15px; color: var(--text-muted); line-height: 22px; max-width: 380px; }
+  .empty .actions { display: flex; gap: 12px; margin-top: 8px; }
+  .empty .link { font-size: 13px; color: var(--primary); font-weight: 600; padding: 12px 14px; }
+
+  /* BULK BAR */
+  .bulk-bar { background: var(--ink); color: var(--white); border-radius: 8px; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
+  .bulk-bar .count { font-size: 14px; font-weight: 700; }
+  .bulk-bar .count .accent { color: var(--accent); }
+  .bulk-bar .divider { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
+  .bulk-bar .clear { font-size: 12px; color: rgba(255,255,255,0.7); margin-left: auto; cursor: pointer; }
+  .bulk-bar .actions { display: flex; gap: 8px; }
+
+  /* TABLE */
+  .table { background: var(--white); border: 1px solid var(--grey-200); border-radius: 8px; overflow: visible; position: relative; }
+  .th { background: var(--mint); height: 40px; display: grid; grid-template-columns: 48px 1fr 120px 130px 160px 160px 48px; align-items: center; }
+  .th > div { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); padding: 0 12px; }
+  .th > div:first-child { padding-left: 20px; }
+
+  .row { display: grid; grid-template-columns: 48px 1fr 120px 130px 160px 160px 48px; border-bottom: 1px solid var(--grey-150); padding: 14px 0; position: relative; }
+  .row:last-child { border-bottom: 0; }
+  .row > div { padding: 0 12px; display: flex; flex-direction: column; gap: 3px; }
+  .row > div:first-child { padding-left: 20px; padding-top: 4px; }
+  .row.sel { background: var(--info-bg); }
+  .cb { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--white); }
+  .cb.checked { background: var(--ink); border-color: var(--ink); position: relative; }
+  .cb.checked::after { content: '✓'; color: var(--accent); font-size: 11px; font-weight: 700; position: absolute; top: 0; left: 3px; }
+  .rule-name { font-size: 13px; font-weight: 600; line-height: 18px; }
+  .rule-cond { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+  .badge { display: inline-flex; align-items: center; padding: 2px 10px; height: 22px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; align-self: flex-start; }
+  .badge.active { background: var(--success-bg); color: var(--success); }
+  .badge.draft { background: var(--grey-100); color: var(--text-muted); }
+  .meta { font-size: 13px; color: var(--ink); }
+  .meta-sub { font-size: 11px; color: var(--text-grey); }
+  .health { font-size: 12px; font-weight: 600; }
+  .health.ok { color: var(--success); }
+  .more-cell { display: grid; place-items: center; padding-top: 0; padding-right: 12px; }
+  .more-btn { width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center; color: var(--text-muted); cursor: pointer; font-size: 14px; }
+  .more-btn:hover, .more-btn.open { background: var(--grey-100); }
+
+  /* OVERFLOW POPOVER */
+  .popover { position: absolute; right: 8px; top: 38px; width: 220px; background: var(--white); border: 1px solid var(--grey-200); border-radius: 8px; box-shadow: var(--shadow-pop); z-index: 20; padding: 6px; }
+  .popover .item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 6px; font-size: 13px; color: var(--ink); cursor: pointer; }
+  .popover .item:hover { background: var(--grey-100); }
+  .popover .item .ic { width: 18px; color: var(--text-muted); }
+  .popover .item .kbd { margin-left: auto; font-size: 10px; color: var(--text-grey); }
+  .popover .divider { height: 1px; background: var(--grey-150); margin: 6px 0; }
+  .popover .item.destructive { color: var(--danger); }
+  .popover .item.destructive .ic { color: var(--danger); }
+
+  /* CALLOUT CHIPS */
+  .chip { position: absolute; width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; box-shadow: 0 4px 8px rgba(3,66,228,0.4); border: 2px solid var(--white); z-index: 30; }
+
+  /* REASONING */
+  .reasoning { width: 1440px; margin: 32px auto 0; background: var(--white); border-radius: 8px; padding: 32px 48px; box-shadow: var(--shadow-card); }
+  .reasoning h2 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .reasoning .lead { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .note { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  .note .n { width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+  .note .body h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .note .body p { font-size: 13px; line-height: 19px; color: var(--text-muted); }
+
+  /* === v2 · Mid-fi chrome to spotlight the rule builder === */
+  .sb { background: #3D4654 !important; }
+  .sb-logo .dot { background: rgba(255,255,255,0.4) !important; }
+  .sb-item.active .marker { background: rgba(255,255,255,0.7) !important; }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="screen-meta">
+    <span class="eyebrow">06 · Library states</span>
+    <h1>Empty · Bulk selection · Overflow menu</h1>
+    <span class="sub">1440 desktop</span>
+  </div>
+
+  <div class="stack">
+
+    <!-- STATE 1 — EMPTY -->
+    <div class="state-frame">
+      <div class="state-head">
+        <span class="label">State 1</span>
+        <h2>Empty</h2>
+        <p>First-time setup or after clearing all rules. The page explains the concept and provides exactly one way in.</p>
+      </div>
+      <div class="state-body">
+        <div class="body-frame">
+          <aside class="sb">
+            <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+            <div class="sb-eye">Workspace</div>
+            <div class="sb-item"><div class="marker"></div>Templates</div>
+            <div class="sb-section">Documents<span class="chev">▾</span></div>
+            <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+            <div class="sb-item sb-child active"><div class="marker"></div>Rules</div>
+            <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+            <div class="sb-item"><div class="marker"></div>Data sources</div>
+            <div class="sb-item"><div class="marker"></div>Runs</div>
+          </aside>
+          <div class="main">
+            <div class="body" style="position: relative;">
+              <div class="crumb">Documents <span class="sep">·</span> <span class="here">Rules</span></div>
+              <div class="header-row">
+                <div class="title-block">
+                  <h1>Rules</h1>
+                  <p>Conditional logic that controls which sections appear in fund reports.</p>
+                </div>
+              </div>
+              <div class="empty">
+                <div class="card" style="position: relative;">
+                  <div class="icon-wrap">⌥</div>
+                  <h2>No rules yet</h2>
+                  <p>Rules control which sections appear in your fund reports based on the data behind each fund. Create your first rule to get started.</p>
+                  <div class="actions">
+                    <button class="btn primary">+ New rule</button>
+                    <span class="link">Read the guide →</span>
+                  </div>
+                  <div class="chip" style="left: -34px; top: 80px;">1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE 2 — BULK SELECTION -->
+    <div class="state-frame">
+      <div class="state-head">
+        <span class="label">State 2</span>
+        <h2>Bulk selection</h2>
+        <p>Three or more rules selected. The filter pills are replaced by a contextual action bar. Mode shift is visible.</p>
+      </div>
+      <div class="state-body">
+        <div class="body-frame">
+          <aside class="sb">
+            <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+            <div class="sb-eye">Workspace</div>
+            <div class="sb-item"><div class="marker"></div>Templates</div>
+            <div class="sb-section">Documents<span class="chev">▾</span></div>
+            <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+            <div class="sb-item sb-child active"><div class="marker"></div>Rules</div>
+            <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+            <div class="sb-item"><div class="marker"></div>Data sources</div>
+            <div class="sb-item"><div class="marker"></div>Runs</div>
+          </aside>
+          <div class="main">
+            <div class="body">
+              <div class="crumb">Documents <span class="sep">·</span> <span class="here">Rules</span></div>
+              <div class="header-row">
+                <div class="title-block">
+                  <h1>Rules</h1>
+                  <p>Conditional logic that controls which sections appear in fund reports.</p>
+                </div>
+              </div>
+
+              <div class="bulk-bar" style="position: relative;">
+                <span class="count"><span class="accent">3</span> rules selected</span>
+                <div class="divider"></div>
+                <div class="actions">
+                  <button class="btn bulk">Archive</button>
+                  <button class="btn bulk">Duplicate</button>
+                  <button class="btn bulk">Export</button>
+                  <button class="btn bulk" style="color: #FFA1A1; border-color: rgba(255,161,161,0.4);">Delete</button>
+                </div>
+                <span class="clear">Clear selection</span>
+                <div class="chip" style="left: -10px; top: -10px;">2</div>
+                <div class="chip" style="right: -10px; top: -10px;">3</div>
+              </div>
+
+              <div class="table">
+                <div class="th">
+                  <div></div><div>Rule</div><div>Status</div><div>Used in</div><div>Last edited</div><div>Health</div><div></div>
+                </div>
+                <div class="row sel">
+                  <div><div class="cb checked"></div></div>
+                  <div><div class="rule-name">Show risk warning for high-vol funds</div><div class="rule-cond">Volatility = High AND Doc type ≠ Institutional</div></div>
+                  <div><span class="badge active">Active</span></div>
+                  <div><span class="meta">3 templates</span></div>
+                  <div><span class="meta">2 days ago</span><span class="meta-sub">Sarah Kim</span></div>
+                  <div><span class="health ok">✓ Matched</span></div>
+                  <div class="more-cell"><span class="more-btn">⋮</span></div>
+                </div>
+                <div class="row sel">
+                  <div><div class="cb checked"></div></div>
+                  <div><div class="rule-name">Hide ESG section for non-ESG funds</div><div class="rule-cond">Doc type ≠ ESG fund</div></div>
+                  <div><span class="badge active">Active</span></div>
+                  <div><span class="meta">12 templates</span></div>
+                  <div><span class="meta">5 days ago</span><span class="meta-sub">Mira Patel</span></div>
+                  <div><span class="health ok">✓ Matched</span></div>
+                  <div class="more-cell"><span class="more-btn">⋮</span></div>
+                </div>
+                <div class="row sel">
+                  <div><div class="cb checked"></div></div>
+                  <div><div class="rule-name">Performance commentary on underperformance</div><div class="rule-cond">Return YTD &lt; Benchmark YTD</div></div>
+                  <div><span class="badge active">Active</span></div>
+                  <div><span class="meta">8 templates</span></div>
+                  <div><span class="meta">2 weeks ago</span><span class="meta-sub">Tom Reilly</span></div>
+                  <div><span class="health ok">✓ Matched</span></div>
+                  <div class="more-cell"><span class="more-btn">⋮</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE 3 — OVERFLOW MENU -->
+    <div class="state-frame">
+      <div class="state-head">
+        <span class="label">State 3</span>
+        <h2>Overflow menu</h2>
+        <p>Per-row actions collapsed behind a three-dot button. Destructive actions sit under a divider in danger colour.</p>
+      </div>
+      <div class="state-body">
+        <div class="body-frame">
+          <aside class="sb">
+            <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+            <div class="sb-eye">Workspace</div>
+            <div class="sb-item"><div class="marker"></div>Templates</div>
+            <div class="sb-section">Documents<span class="chev">▾</span></div>
+            <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+            <div class="sb-item sb-child active"><div class="marker"></div>Rules</div>
+            <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+            <div class="sb-item"><div class="marker"></div>Data sources</div>
+            <div class="sb-item"><div class="marker"></div>Runs</div>
+          </aside>
+          <div class="main">
+            <div class="body">
+              <div class="crumb">Documents <span class="sep">·</span> <span class="here">Rules</span></div>
+              <div class="header-row">
+                <div class="title-block">
+                  <h1>Rules</h1>
+                </div>
+              </div>
+
+              <div class="table">
+                <div class="th">
+                  <div></div><div>Rule</div><div>Status</div><div>Used in</div><div>Last edited</div><div>Health</div><div></div>
+                </div>
+                <div class="row">
+                  <div><div class="cb"></div></div>
+                  <div><div class="rule-name">Show risk warning for high-vol funds</div><div class="rule-cond">Volatility = High AND Doc type ≠ Institutional</div></div>
+                  <div><span class="badge active">Active</span></div>
+                  <div><span class="meta">3 templates</span></div>
+                  <div><span class="meta">2 days ago</span><span class="meta-sub">Sarah Kim</span></div>
+                  <div><span class="health ok">✓ Matched</span></div>
+                  <div class="more-cell" style="position: relative;">
+                    <span class="more-btn open">⋮</span>
+                    <div class="popover">
+                      <div class="item"><span class="ic">✎</span>Edit<span class="kbd">⌘E</span></div>
+                      <div class="item"><span class="ic">⎘</span>Duplicate</div>
+                      <div class="item"><span class="ic">⊞</span>View history</div>
+                      <div class="item"><span class="ic">↗</span>Open in template</div>
+                      <div class="item"><span class="ic">↧</span>Export rule</div>
+                      <div class="divider"></div>
+                      <div class="item"><span class="ic">⌫</span>Archive</div>
+                      <div class="item destructive"><span class="ic">✕</span>Delete<span class="kbd">⌫</span></div>
+                    </div>
+                    <div class="chip" style="position: absolute; right: 16px; top: -10px;">4</div>
+                    <div class="chip" style="position: absolute; right: -34px; top: 200px;">5</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div><div class="cb"></div></div>
+                  <div><div class="rule-name">Hide ESG section for non-ESG funds</div><div class="rule-cond">Doc type ≠ ESG fund</div></div>
+                  <div><span class="badge active">Active</span></div>
+                  <div><span class="meta">12 templates</span></div>
+                  <div><span class="meta">5 days ago</span><span class="meta-sub">Mira Patel</span></div>
+                  <div><span class="health ok">✓ Matched</span></div>
+                  <div class="more-cell"><span class="more-btn">⋮</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="reasoning">
+  <h2>Why these states look the way they do</h2>
+  <p class="lead">Numbered points map to the blue chips above.</p>
+  <div class="notes">
+    <div class="note"><div class="n">1</div><div class="body"><h3>One primary action, one passive link</h3><p>An empty page is most useful when it does one thing: tells you what this thing is and how to start. Resist offering five "things to try". Single doorway in.</p></div></div>
+    <div class="note"><div class="n">2</div><div class="body"><h3>Action bar replaces the filter row, doesn't sit on top</h3><p>The page is in a different mode when rows are selected. Replacing the filter pills with a bulk action bar signals that mode shift unambiguously. No visual stacking, no ambiguity about which row of controls is live.</p></div></div>
+    <div class="note"><div class="n">3</div><div class="body"><h3>"Clear selection" is always reachable</h3><p>Exit from bulk mode is one click. Critical because the user can otherwise feel trapped in a mode they didn't intend to enter (e.g. accidental shift-click).</p></div></div>
+    <div class="note"><div class="n">4</div><div class="body"><h3>Per-row overflow, not a global toolbar</h3><p>Row-level actions stay close to the object they act on. A floating toolbar at the top of the page would force the user to re-establish which row they meant.</p></div></div>
+    <div class="note"><div class="n">5</div><div class="body"><h3>Destructive actions live below a divider in danger colour</h3><p>Standard pattern with a standard payoff. The visual break and colour shift reduce mis-clicks on Delete. Archive sits above the divider because it's reversible.</p></div></div>
+  </div>
+</div>
+
+</body>
+</html>

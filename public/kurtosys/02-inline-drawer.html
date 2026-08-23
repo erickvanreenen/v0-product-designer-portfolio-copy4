@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>02 · Inline drawer — Kurtosys Rule Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071935;
+    --primary: #0342E4;
+    --accent: #31FF9C;
+    --sky: #6EC1E4;
+    --pale-blue: #D9E3FB;
+    --white: #FFFFFF;
+    --mint: #F9FFFA;
+    --grey-50: #FAFAFA;
+    --grey-100: #F4F4F4;
+    --grey-150: #F2F1F1;
+    --grey-200: #E9E9E9;
+    --border: #D1D1D1;
+    --text-muted: #54595F;
+    --text-disabled: #818A91;
+    --text-grey: #7A7A7A;
+    --success: #0E8C5A;
+    --success-bg: #E6F6EE;
+    --warning: #B26A00;
+    --warning-bg: #FFF4E0;
+    --info-bg: #E8EEFD;
+    --shadow-card: 0 15px 30px rgba(58, 64, 81, 0.2);
+    --shadow-drawer: -15px 0 40px rgba(7, 25, 53, 0.12);
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: var(--font); color: var(--ink); background: #ECEEF2; }
+  body { padding: 48px 0 80px; }
+  .canvas { width: 1440px; margin: 0 auto; }
+  .screen-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; padding: 0 4px; }
+  .screen-meta .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .screen-meta h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.2px; }
+  .screen-meta .sub { font-size: 14px; color: var(--text-muted); margin-left: auto; }
+  .frame { width: 1440px; height: 1100px; background: var(--white); box-shadow: var(--shadow-card); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 240px 1fr; position: relative; }
+
+  /* SIDEBAR */
+  .sb { background: var(--ink); padding: 32px 24px; color: var(--white); display: flex; flex-direction: column; gap: 8px; }
+  .sb-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .sb-logo .dot { width: 24px; height: 24px; background: var(--accent); border-radius: 6px; }
+  .sb-logo .wm { font-size: 18px; font-weight: 700; letter-spacing: -0.4px; }
+  .sb-eye { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; opacity: 0.5; margin: 16px 0 4px; }
+  .sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; font-size: 14px; color: rgba(255,255,255,0.7); cursor: pointer; }
+  .sb-item .marker { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); }
+  .sb-item.active { background: rgba(255,255,255,0.08); color: var(--white); font-weight: 600; }
+  .sb-item.active .marker { background: var(--accent); }
+  .sb-section { display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .sb-section .chev { margin-left: auto; font-size: 10px; opacity: 0.5; }
+  .sb-child { padding-left: 32px; font-size: 13px; }
+
+  /* MAIN */
+  .main { display: flex; flex-direction: column; min-width: 0; position: relative; }
+  .tb { height: 64px; border-bottom: 1px solid var(--grey-200); padding: 0 32px; display: flex; align-items: center; gap: 16px; }
+  .tb-search { display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 36px; background: var(--grey-100); border-radius: 50px; min-width: 280px; }
+  .tb-search .ph { font-size: 13px; color: var(--text-disabled); flex: 1; }
+  .tb-search .kbd { font-size: 10px; color: var(--text-disabled); border: 1px solid var(--grey-200); border-radius: 4px; padding: 2px 6px; background: var(--white); }
+  .tb-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .tb-link { font-size: 13px; color: var(--text-muted); }
+  .tb-icon { width: 36px; height: 36px; border-radius: 18px; background: var(--grey-100); display: grid; place-items: center; font-size: 14px; }
+  .tb-avatar { width: 36px; height: 36px; border-radius: 18px; background: var(--primary); color: var(--white); font-weight: 700; font-size: 14px; display: grid; place-items: center; }
+
+  /* TEMPLATE EDITOR */
+  .te-wrap { display: grid; grid-template-columns: 320px 1fr; height: calc(100% - 64px); }
+  .te-sections { background: var(--grey-50); border-right: 1px solid var(--grey-200); padding: 24px 20px; overflow: hidden; }
+  .te-eye { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); margin-bottom: 12px; }
+  .te-templ { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .te-sub { font-size: 12px; color: var(--text-grey); margin-bottom: 20px; }
+  .te-section { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 6px; font-size: 13px; color: var(--ink); margin-bottom: 2px; cursor: pointer; }
+  .te-section:hover { background: var(--white); }
+  .te-section .order { font-size: 11px; color: var(--text-grey); width: 18px; }
+  .te-section.selected { background: var(--white); box-shadow: 0 1px 2px rgba(0,0,0,0.05); font-weight: 600; outline: 1.5px solid var(--ink); }
+  .te-section .vis { margin-left: auto; font-size: 11px; color: var(--text-grey); }
+  .te-section.selected .vis { color: var(--primary); font-weight: 700; }
+  .te-canvas { padding: 32px 40px; overflow: hidden; }
+  .te-crumb { font-size: 12px; color: var(--text-grey); margin-bottom: 8px; }
+  .te-h { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
+  .te-sub2 { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .te-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 8px; padding: 20px; margin-bottom: 12px; opacity: 0.45; }
+  .te-card.focus { opacity: 1; outline: 2px solid var(--primary); outline-offset: 4px; border-color: transparent; }
+  .te-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .te-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
+  .te-card .vis-row { display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--grey-200); margin-top: 12px; font-size: 12px; color: var(--text-muted); }
+  .te-card .vis-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--info-bg); color: var(--primary); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  /* DRAWER */
+  .drawer { position: absolute; top: 64px; right: 0; width: 560px; height: calc(100% - 64px); background: var(--white); box-shadow: var(--shadow-drawer); display: flex; flex-direction: column; z-index: 5; }
+  .dw-head { padding: 24px 28px 20px; border-bottom: 1px solid var(--grey-150); }
+  .dw-eye { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); margin-bottom: 4px; }
+  .dw-title-row { display: flex; align-items: center; gap: 12px; }
+  .dw-title { font-size: 24px; font-weight: 700; }
+  .dw-close { margin-left: auto; width: 32px; height: 32px; border-radius: 16px; display: grid; place-items: center; color: var(--text-muted); cursor: pointer; }
+  .dw-ctx { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+  .dw-body { padding: 24px 28px; overflow: auto; flex: 1; display: flex; flex-direction: column; gap: 20px; }
+
+  .seg { display: inline-flex; padding: 3px; background: var(--grey-100); border-radius: 8px; align-self: flex-start; }
+  .seg span { padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--text-muted); border-radius: 6px; cursor: pointer; }
+  .seg span.on { background: var(--white); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+
+  .blk-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); margin-bottom: 8px; }
+  .blk-label .lock { color: var(--text-disabled); }
+
+  .then-pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; background: var(--grey-100); border: 1px solid var(--grey-200); font-size: 14px; font-weight: 600; color: var(--ink); }
+  .then-pill .lk { color: var(--text-disabled); font-size: 12px; }
+  .then-help { font-size: 12px; color: var(--text-grey); margin-top: 8px; line-height: 1.5; }
+
+  .cond-rows { display: flex; flex-direction: column; gap: 4px; }
+  .cond-row { display: flex; align-items: center; gap: 4px; }
+  .cond-cell { flex: 1; height: 40px; padding: 0 12px; border: 1px solid var(--grey-200); border-radius: 8px; background: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink); cursor: pointer; }
+  .cond-cell .chev { color: var(--text-disabled); font-size: 10px; }
+  .cond-cell .ph { color: var(--text-disabled); }
+  .cond-cell.field { background: var(--pale-blue); border-color: var(--pale-blue); font-weight: 600; max-width: 180px; }
+  .cond-cell.op { max-width: 80px; justify-content: center; font-weight: 700; }
+  .cond-cell.val { flex: 1; }
+  .cond-x { width: 32px; height: 40px; display: grid; place-items: center; color: var(--text-disabled); cursor: pointer; }
+  .conn-row { display: flex; justify-content: center; padding: 6px 0; }
+  .conn { padding: 4px 12px; font-size: 11px; font-weight: 700; background: var(--ink); color: var(--white); border-radius: 4px; cursor: pointer; }
+  .cond-add { display: flex; gap: 8px; margin-top: 8px; }
+  .cond-add a { font-size: 12px; padding: 8px 12px; border: 1px dashed var(--border); border-radius: 8px; color: var(--text-muted); cursor: pointer; }
+  .cond-add a.add-group { color: var(--text-grey); font-style: italic; }
+
+  .echo { background: var(--info-bg); border-radius: 8px; padding: 16px 18px; font-size: 14px; color: var(--ink); line-height: 1.55; border-left: 3px solid var(--primary); }
+  .echo .lead { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+  .echo em { font-style: normal; background: rgba(3,66,228,0.08); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+
+  .save-opt { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--grey-50); border: 1px solid var(--grey-200); border-radius: 8px; }
+  .save-opt .cb { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--white); flex-shrink: 0; margin-top: 2px; }
+  .save-opt label { font-size: 13px; color: var(--ink); font-weight: 600; }
+  .save-opt label small { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+
+  .dw-footer { padding: 20px 28px; border-top: 1px solid var(--grey-150); display: flex; align-items: center; gap: 12px; }
+  .dw-footer .cancel { font-size: 14px; color: var(--text-muted); font-weight: 600; cursor: pointer; padding: 12px 16px; }
+  .dw-footer .spacer { flex: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 700; cursor: pointer; border: 0; font-family: inherit; letter-spacing: -0.2px; }
+  .btn.primary { background: var(--ink); color: var(--accent); padding: 0 26px; }
+
+  /* CALLOUT CHIPS */
+  .chip { position: absolute; width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; box-shadow: 0 4px 8px rgba(3,66,228,0.4); border: 2px solid var(--white); z-index: 20; }
+
+  /* REASONING */
+  .reasoning { width: 1440px; margin: 32px auto 0; background: var(--white); border-radius: 8px; padding: 32px 48px; box-shadow: var(--shadow-card); }
+  .reasoning h2 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .reasoning .lead { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .note { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  .note .n { width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+  .note .body h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .note .body p { font-size: 13px; line-height: 19px; color: var(--text-muted); }
+
+  /* === v2 · Mid-fi chrome to spotlight the rule builder ===
+     Chrome drops to greyscale design tokens.
+     Anything tied to the rule (drawer, focused section, conditional marker) keeps full fidelity. */
+
+  /* Sidebar — flat grey wireframe */
+  .sb { background: var(--grey-100) !important; color: var(--text-muted) !important; }
+  .sb-logo .dot { background: var(--border) !important; }
+  .sb-logo .wm { color: var(--text-grey) !important; }
+  .sb-eye { color: var(--text-disabled) !important; opacity: 1 !important; }
+  .sb-item { color: var(--text-grey) !important; }
+  .sb-item .marker { background: var(--border) !important; }
+  .sb-item.active { background: var(--grey-200) !important; color: var(--text-muted) !important; }
+  .sb-item.active .marker { background: var(--text-grey) !important; }
+  .sb-section { color: var(--text-muted) !important; }
+
+  /* Topbar — muted accents */
+  .tb-avatar { background: var(--grey-200) !important; color: var(--text-grey) !important; }
+  .tb-icon { color: var(--text-grey) !important; }
+
+  /* Template editor — greyscale type */
+  .te-templ { color: var(--text-muted) !important; }
+  .te-h { color: var(--text-muted) !important; }
+  .te-sub2 { color: var(--text-grey) !important; }
+  .te-card { background: var(--grey-50) !important; opacity: 1 !important; }
+  .te-card h4 { color: var(--text-grey) !important; }
+  .te-card p { color: var(--text-disabled) !important; }
+
+  /* Section rail — greyscale, except the row currently being authored */
+  .te-section { color: var(--text-grey) !important; }
+  .te-section .vis { color: var(--text-disabled) !important; }
+  .te-section.selected { color: var(--ink) !important; outline-color: var(--primary) !important; }
+  .te-section.selected .vis { color: var(--primary) !important; }
+
+  /* Focused card belongs to the rule — full fidelity */
+  .te-card.focus { background: var(--white) !important; outline: 2px solid var(--primary) !important; }
+  .te-card.focus h4 { color: var(--ink) !important; }
+  .te-card.focus p { color: var(--text-muted) !important; }
+  .te-card.focus .vis-pill { background: var(--info-bg) !important; color: var(--primary) !important; }
+  .te-card.focus .vis-row { color: var(--text-muted) !important; }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="screen-meta">
+    <span class="eyebrow">02 · Inline drawer</span>
+    <h1>Entry point B — from the template editor</h1>
+    <span class="sub">1440 × 1100 desktop</span>
+  </div>
+
+  <div class="frame">
+    <!-- SIDEBAR -->
+    <aside class="sb">
+      <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+      <div class="sb-eye">Workspace</div>
+      <div class="sb-item active"><div class="marker"></div>Templates</div>
+      <div class="sb-section">Documents<span class="chev">▾</span></div>
+      <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+      <div class="sb-item sb-child"><div class="marker"></div>Rules</div>
+      <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+      <div class="sb-item"><div class="marker"></div>Data sources</div>
+      <div class="sb-item"><div class="marker"></div>Runs</div>
+    </aside>
+
+    <!-- MAIN -->
+    <section class="main">
+      <!-- TOPBAR -->
+      <div class="tb">
+        <div class="tb-search"><span>⌕</span><span class="ph">Jump to template, rule, fund…</span><span class="kbd">⌘K</span></div>
+        <div class="tb-right">
+          <span class="tb-link">Help</span>
+          <span class="tb-icon">◔</span>
+          <span class="tb-avatar">L</span>
+        </div>
+      </div>
+
+      <!-- TEMPLATE EDITOR + DRAWER -->
+      <div class="te-wrap">
+        <!-- Sections rail -->
+        <div class="te-sections">
+          <div class="te-eye">Template</div>
+          <div class="te-templ">Q4 Aberdeen Global Equity factsheet</div>
+          <div class="te-sub">8 sections · last edited today</div>
+          <div class="te-section"><span class="order">01</span><span>Cover</span><span class="vis">Always</span></div>
+          <div class="te-section"><span class="order">02</span><span>Fund overview</span><span class="vis">Always</span></div>
+          <div class="te-section"><span class="order">03</span><span>Performance</span><span class="vis">Always</span></div>
+          <div class="te-section"><span class="order">04</span><span>Holdings</span><span class="vis">Always</span></div>
+          <div class="te-section"><span class="order">05</span><span>Performance commentary</span><span class="vis">Conditional</span></div>
+          <div class="te-section selected"><span class="order">06</span><span>Risk warning</span><span class="vis">Conditional</span></div>
+          <div class="te-section"><span class="order">07</span><span>ESG highlights</span><span class="vis">Conditional</span></div>
+          <div class="te-section"><span class="order">08</span><span>Disclaimers</span><span class="vis">Always</span></div>
+        </div>
+
+        <!-- Editor canvas -->
+        <div class="te-canvas">
+          <div class="te-crumb">Templates · Q4 Aberdeen Global Equity factsheet</div>
+          <div class="te-h">Section settings</div>
+          <div class="te-sub2">Define when and how each section appears in this template.</div>
+
+          <div class="te-card focus">
+            <h4>Risk warning</h4>
+            <p>Standard risk disclosure page shown to retail investors when fund volatility warrants additional caution.</p>
+            <div class="vis-row"><span>Visibility</span><span class="vis-pill">Conditional</span><span>· rule being authored</span></div>
+          </div>
+          <div class="te-card">
+            <h4>ESG highlights</h4>
+            <p>ESG section, only for ESG-classified funds.</p>
+          </div>
+          <div class="te-card">
+            <h4>Disclaimers</h4>
+            <p>Footer legal text.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAWER -->
+      <aside class="drawer">
+        <div class="dw-head">
+          <div class="dw-eye">Make conditional</div>
+          <div class="dw-title-row">
+            <div class="dw-title">Risk warning</div>
+            <div class="dw-close">✕</div>
+          </div>
+          <div class="dw-ctx">Section in Q4 Aberdeen Global Equity factsheet</div>
+        </div>
+
+        <div class="dw-body">
+
+          <div class="seg" style="position: relative;">
+            <span class="on">Guided</span>
+            <span>Expression</span>
+            <div class="chip" style="left: 130px; top: -10px;">1</div>
+          </div>
+
+          <!-- THEN -->
+          <div style="position: relative;">
+            <div class="blk-label">Then <span class="lock">🔒 Locked</span></div>
+            <div class="then-pill"><span class="lk">🔒</span>Show this section</div>
+            <div class="then-help">The system locks the action to the section you came from. You define the condition; the system handles where the rule applies.</div>
+            <div class="chip" style="position: absolute; left: -10px; top: -10px;">2</div>
+          </div>
+
+          <!-- IF -->
+          <div style="position: relative;">
+            <div class="blk-label">If</div>
+            <div class="cond-rows">
+              <div class="cond-row">
+                <div class="cond-cell field"><span>Volatility</span><span class="chev">▾</span></div>
+                <div class="cond-cell op"><span>=</span></div>
+                <div class="cond-cell val"><span>High</span><span class="chev">▾</span></div>
+                <div class="cond-x">✕</div>
+              </div>
+              <div class="conn-row"><span class="conn">AND</span></div>
+              <div class="cond-row">
+                <div class="cond-cell field"><span>Doc type</span><span class="chev">▾</span></div>
+                <div class="cond-cell op"><span>≠</span></div>
+                <div class="cond-cell val"><span>Institutional</span><span class="chev">▾</span></div>
+                <div class="cond-x">✕</div>
+              </div>
+            </div>
+            <div class="cond-add">
+              <a>+ Add condition</a>
+              <a class="add-group">+ Add group (advanced)</a>
+            </div>
+            <div class="chip" style="position: absolute; left: 200px; top: 40px;">3</div>
+            <div class="chip" style="position: absolute; left: 230px; top: 86px;">4</div>
+          </div>
+
+          <!-- ECHO -->
+          <div class="echo" style="position: relative;">
+            <span class="lead">Plain English</span>
+            <span>Risk warning will appear when <em>Volatility</em> is <em>High</em> and <em>Doc type</em> is not <em>Institutional</em>.</span>
+            <div class="chip" style="position: absolute; right: -10px; top: -10px;">5</div>
+          </div>
+
+          <!-- SAVE OPTION -->
+          <div class="save-opt" style="position: relative;">
+            <div class="cb"></div>
+            <label>Save to library so it can be reused on other templates
+              <small>By default this rule applies only to this template. Tick to make it available to others.</small>
+            </label>
+            <div class="chip" style="position: absolute; right: -10px; top: -10px;">6</div>
+          </div>
+
+        </div>
+
+        <div class="dw-footer">
+          <span class="cancel">Cancel</span>
+          <div class="spacer"></div>
+          <button class="btn primary">Save &amp; apply</button>
+        </div>
+      </aside>
+
+    </section>
+  </div>
+</div>
+
+<div class="reasoning">
+  <h2>Why this screen looks the way it does</h2>
+  <p class="lead">Numbered points map to the blue chips on the screen above.</p>
+  <div class="notes">
+    <div class="note"><div class="n">1</div><div class="body"><h3>Guided is the default, Expression is opt-in</h3><p>The audience is ops, not engineers. Form-based input is the path. Expression mode stays available because some users will want to copy or share rules as text. Switching is non-destructive.</p></div></div>
+    <div class="note"><div class="n">2</div><div class="body"><h3>The THEN clause is locked to the section</h3><p>You came here from the Risk warning section, so the rule applies to that section. The system locks the action to prevent whole categories of error. You only define the IF.</p></div></div>
+    <div class="note"><div class="n">3</div><div class="body"><h3>Each condition is field, operator, value</h3><p>Familiar pattern from Airtable, Notion, every modern filter UI. The operator changes options based on field type — numeric gives you &gt;, &lt;, between; categorical gives you in / not in; dates give you before / after.</p></div></div>
+    <div class="note"><div class="n">4</div><div class="body"><h3>AND/OR connector is a visible toggle</h3><p>Defaults to AND because that's the more common case. Tap to flip to OR. Visible only when two or more conditions exist, so the affordance appears when needed and nowhere else.</p></div></div>
+    <div class="note"><div class="n">5</div><div class="body"><h3>Plain-English echo closes the loop</h3><p>The system reads back what the rule will actually do. Confirms the user expressed what they meant. Reused in the stress test (screen 04) to prove the pattern scales to five conditions and nested groups.</p></div></div>
+    <div class="note"><div class="n">6</div><div class="body"><h3>"Save to library" is opt-in, not the default</h3><p>Most rules are one-off for one template. The minority that should be reused get promoted to the library explicitly. Avoids the library filling up with throwaway rules from every template.</p></div></div>
+  </div>
+</div>
+
+</body>
+</html>

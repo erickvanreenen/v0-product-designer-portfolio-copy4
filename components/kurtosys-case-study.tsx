@@ -6,10 +6,9 @@ import {
   Prose, Lead, Findings, Pullquote, Outcome, Reflection, CaseNav,
 } from "@/components/case/parts";
 import {
-  PlatformMap, EcosystemFlow, TemplateHierarchy, BuilderDrawer,
-  PlainEnglishEcho, StressTest, DebugTrace, StatusVsHealth,
-  NestedGroupsDecision, LeftOut,
+  PlatformMap, EcosystemFlow, DocumentSections, TemplateHierarchy, LeftOut,
 } from "@/components/case/kurtosys-ui";
+import { KurtosysScreen } from "@/components/case/kurtosys-screen";
 
 interface Props {
   project: Project;
@@ -36,6 +35,15 @@ const surfaces = [
     state: "Debugging",
     body: "A report has gone out and a section is missing. Working backwards from the render to the reason.",
   },
+];
+
+/* The drill down, stated as four levels so the diagrams below read as one
+   descent rather than four unrelated pictures. */
+const DESCENT = [
+  { level: "Platform", detail: "Kurtosys Cloud, five modules" },
+  { level: "Module", detail: "Documents, where reports are automated" },
+  { level: "Document", detail: "A sequence of sections" },
+  { level: "Section", detail: "Two of them are rule touchpoints" },
 ];
 
 export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) {
@@ -79,20 +87,34 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
           </div>
         </Section>
 
-        {/* ── Process: understand the system first ── */}
+        {/* ── The drill down ──────────────────────── */}
         <Section
           label="Process"
           title="Before designing screens, I needed to understand the system"
-          intro="Three passes before any interface. Where the feature belongs, how information moves through the platform, and how a document is actually put together."
+          intro="Four levels down, from the whole platform to the two sections a rule is actually allowed to touch. Each level narrows the next, and the last one is where the feature lives."
+          wide
         >
-          <Figure caption="Rule Builder sits inside the Documents module, next to Templates, Production Centre and audit. Not on its own.">
+          <ol className="grid sm:grid-cols-4 border-t border-line mb-12">
+            {DESCENT.map((d, i) => (
+              <li
+                key={d.level}
+                className={`py-5 sm:pr-5 ${i > 0 ? "sm:pl-5 sm:border-l border-line" : ""} border-b sm:border-b-0 border-line`}
+              >
+                <span className="t-num text-sm text-accent">0{i + 1}</span>
+                <p className="text-[17px] font-bold text-ink mt-2">{d.level}</p>
+                <p className="text-[14px] text-ink/60 leading-relaxed mt-1">{d.detail}</p>
+              </li>
+            ))}
+          </ol>
+
+          <Figure caption="Level one and two. Kurtosys Cloud has five modules. Rule Builder sits inside Documents, next to Templates, Production Centre and audit.">
             <PlatformMap />
           </Figure>
         </Section>
 
         <Section
           title="Data comes in, rules shape the report, outputs go out"
-          intro="Rules are not a feature bolted onto a document editor. They sit at the exact point where incoming data decides what a reader ends up seeing."
+          intro="Before going further down, the sideways view. Rules are not a feature bolted onto a document editor. They sit at the exact point where incoming data decides what a reader ends up seeing."
         >
           <Figure caption="The rules layer sits between the systems that supply data and every format the report is delivered in.">
             <EcosystemFlow />
@@ -100,10 +122,19 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         </Section>
 
         <Section
-          title="Only some sections are a rule's business"
-          intro="Zooming into a single template made the scope of the feature concrete. Most sections always appear. A small number are conditional, and those are the only ones a rule ever touches."
+          title="A document is a sequence, and only part of it is a rule's business"
+          intro="Level three. Opening a single report shows where a rule can and cannot reach. Most sections are fixed. Two are the reason this feature exists."
         >
-          <Figure caption="Cover and disclaimers are constants. Risk warning and ESG highlights are where rules do their work.">
+          <Figure caption="Level three and four. Risk warning and ESG highlights are the rule touchpoints. Everything else appears regardless.">
+            <DocumentSections />
+          </Figure>
+        </Section>
+
+        <Section
+          title="Which becomes three states a section can be in"
+          intro="Restating the same document as the template that generates it. Always, Optional, Conditional. Only the conditional rows are addressable by a rule, and that is the whole surface area of the feature."
+        >
+          <Figure caption="The template hierarchy. Conditional is the only state a rule controls.">
             <TemplateHierarchy />
           </Figure>
         </Section>
@@ -136,42 +167,41 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
           </div>
         </Section>
 
-        {/* ── The design ──────────────────────────── */}
+        {/* ── The screens ─────────────────────────── */}
         <Section
-          label="The design"
+          label="A · Authoring"
           title="Lock what the system already knows"
-          intro="The builder opens from inside a template, on a specific section. So the THEN clause is already decided. Asking the user to restate it would be asking them to repeat something they have just done."
+          intro="The builder opens from inside a template, on a specific section. So the THEN clause is already decided. Asking the user to restate it would be asking them to repeat something they have just done. Below it, the rule is echoed back in plain English and updates as it is edited."
+          wide
         >
-          <Figure caption="THEN is locked to the section you came from. The only thing left to define is the condition.">
-            <BuilderDrawer />
-          </Figure>
+          <KurtosysScreen
+            screen="drawer"
+            caption="The rule builder drawer, opened from the template editor. THEN is locked to the section you came from."
+          />
         </Section>
 
         <Section
-          title="Say the rule back in words"
-          intro="Fields, operators and values are precise and easy to misread. So every rule is echoed back in plain English, and that echo updates as the rule is edited."
+          label="B · Auditing"
+          title="Rules as objects, not settings buried in templates"
+          intro="Once rules are shared across templates they need somewhere to live. Status, usage, last edited and health, all scannable, with schema drift surfaced before it reaches a real report."
+          wide
         >
-          <Figure caption="The same readback component appears in the builder, the stress test and the debug trace.">
-            <PlainEnglishEcho />
-          </Figure>
+          <KurtosysScreen
+            screen="library"
+            caption="The rules library. Status and health are separate columns, for reasons covered further down."
+          />
         </Section>
 
         <Section
-          title="Then try to break it"
-          intro="A readback that only works on simple rules is decoration. So I built the most hostile realistic case I could: a five-condition EU distribution rule spanning two groups joined by OR."
-        >
-          <Figure caption="Five conditions, two groups. The echo resolves to (A AND B AND C) OR (D AND E) and stays readable.">
-            <StressTest />
-          </Figure>
-        </Section>
-
-        <Section
+          label="C · Debugging"
           title="Answer the question asked after the fact"
-          intro="The hardest moment is not authoring a rule. It is a month later, when a section is missing from a delivered report and nobody can say why."
+          intro="The hardest moment is not authoring a rule. It is a month later, when a section is missing from a delivered report and nobody can say why. The trace shows each condition against the data as it actually was at render time."
+          wide
         >
-          <Figure caption="The trace shows each condition against the data as it actually was at render time, and which one failed.">
-            <DebugTrace />
-          </Figure>
+          <KurtosysScreen
+            screen="debug"
+            caption="Production debug. Volatility matched, doc type did not, so the section never rendered."
+          />
         </Section>
 
         {/* ── Systems decisions ───────────────────── */}
@@ -179,34 +209,66 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
           label="Systems thinking"
           title="Three calls that reach past this feature"
           intro="The decisions worth defending were not about the screens. They were about the model underneath, and each one generalises to other parts of the platform."
-        />
-
-        <Section
-          title="Status is not health"
-          intro="Status is intent: Active, Draft, Archived. Health is reality: does this rule still run against the data that exists today? They are different questions and they need different columns."
-        >
-          <Figure caption="An Active rule whose field no longer exists is the urgent case. One column would hide it.">
-            <StatusVsHealth />
-          </Figure>
-        </Section>
-
-        <Section
-          title="Complexity earned, not toggled"
-          intro="Nested groups are genuinely advanced, and most rules never need them. The question was not whether to support nesting but when to admit it exists."
+          wide
         >
           <div className="mt-2">
-            <NestedGroupsDecision />
+            <Prose>
+              <p>
+                <strong>Status is not health.</strong> Status is intent: Active, Draft,
+                Archived. Health is reality: does this rule still run against the data that
+                exists today? An Active rule whose field no longer exists is the urgent case,
+                and one combined column would hide it. This applies to any object with a
+                publishing lifecycle.
+              </p>
+              <p>
+                <strong>One readback, three contexts.</strong> The same plain-English echo
+                appears in the builder, in the stress test and in the debug trace. The
+                audience learns the pattern once and recognises it everywhere. Reusable in any
+                form that produces a parseable rule.
+              </p>
+              <p>
+                <strong>Complexity earned, not toggled.</strong> The group affordance appears
+                after three conditions exist, rather than always or never. No Advanced mode,
+                so there is no second interface to maintain.
+              </p>
+            </Prose>
           </div>
-          <p className="t-caption mt-3">
-            Three options compared. The recommendation surfaces the group affordance once a
-            rule reaches three conditions, so the user earns it by using complexity.
-          </p>
         </Section>
 
-        <Findings
-          label="What the mapping surfaced"
-          items={project.insights}
-        />
+        <Section
+          title="Proving the readback holds at scale"
+          intro="An echo that only works on simple rules is decoration. So I built the most hostile realistic case I could: a five-condition EU distribution rule spanning two groups joined by OR."
+          wide
+        >
+          <KurtosysScreen
+            screen="stress"
+            caption="Five conditions, two groups. The echo resolves to (A AND B AND C) OR (D AND E) and stays readable."
+          />
+        </Section>
+
+        <Section
+          title="When should nesting admit it exists?"
+          intro="Nested groups are genuinely advanced and most rules never need them. The question was not whether to support nesting, but when to show it. Three options, compared on what each one costs."
+          wide
+        >
+          <KurtosysScreen
+            screen="nested"
+            caption="Option B recommended. The affordance surfaces once a rule reaches three conditions, so the user earns it by using complexity."
+          />
+        </Section>
+
+        <Section
+          title="The states that finish a management surface"
+          intro="Empty, bulk selection and overflow. The three states that decide whether a table is a real product surface or a demo."
+          wide
+        >
+          <KurtosysScreen
+            screen="states"
+            caption="Library states. The empty state explains the concept and offers exactly one way in."
+          />
+        </Section>
+
+        <Findings label="What the mapping surfaced" items={project.insights} />
 
         {/* ── Conclusion ──────────────────────────── */}
         <Outcome>
@@ -219,8 +281,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
             </p>
             <p>
               Six screens covered creation, management, debugging, behaviour at scale, the
-              nested-groups decision, and the empty, bulk and overflow states that finish a
-              management surface.
+              nested-groups decision, and the empty, bulk and overflow states.
             </p>
           </div>
         </Outcome>

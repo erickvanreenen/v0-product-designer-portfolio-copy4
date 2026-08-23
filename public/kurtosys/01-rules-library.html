@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>01 · Rules library — Kurtosys Rule Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #071935;
+    --primary: #0342E4;
+    --accent: #31FF9C;
+    --white: #FFFFFF;
+    --mint: #F9FFFA;
+    --pale-blue: #D9E3FB;
+    --grey-50: #FAFAFA;
+    --grey-100: #F4F4F4;
+    --grey-150: #F2F1F1;
+    --grey-200: #E9E9E9;
+    --border: #D1D1D1;
+    --text-muted: #54595F;
+    --text-disabled: #818A91;
+    --text-grey: #7A7A7A;
+    --success: #0E8C5A;
+    --success-bg: #E6F6EE;
+    --warning: #B26A00;
+    --warning-bg: #FFF4E0;
+    --warning-border: #FFE3B0;
+    --shadow-card: 0 15px 30px rgba(58, 64, 81, 0.2);
+    --shadow-soft: 0 12.5px 10px rgba(0,0,0,0.016), 0 100px 80px rgba(0,0,0,0.03);
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: var(--font); color: var(--ink); background: #ECEEF2; }
+  body { padding: 48px 0 80px; }
+
+  .canvas { width: 1440px; margin: 0 auto; }
+  .screen-meta { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; padding: 0 4px; }
+  .screen-meta .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); }
+  .screen-meta h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.2px; }
+  .screen-meta .sub { font-size: 14px; color: var(--text-muted); margin-left: auto; }
+
+  .frame {
+    width: 1440px; height: 1100px; background: var(--white);
+    box-shadow: var(--shadow-card);
+    border-radius: 8px; overflow: hidden;
+    display: grid; grid-template-columns: 240px 1fr;
+    position: relative;
+  }
+
+  /* SIDEBAR */
+  .sb { background: var(--ink); padding: 32px 24px; color: var(--white); display: flex; flex-direction: column; gap: 8px; }
+  .sb-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .sb-logo .dot { width: 24px; height: 24px; background: var(--accent); border-radius: 6px; }
+  .sb-logo .wm { font-size: 18px; font-weight: 700; letter-spacing: -0.4px; }
+  .sb-eye { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; opacity: 0.5; margin: 16px 0 4px; }
+  .sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.7); cursor: pointer; }
+  .sb-item .marker { width: 6px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); }
+  .sb-item.active { background: rgba(255,255,255,0.08); color: var(--white); font-weight: 600; }
+  .sb-item.active .marker { background: var(--accent); }
+  .sb-item .count { margin-left: auto; font-size: 12px; opacity: 0.4; font-weight: 400; }
+  .sb-section { display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600; }
+  .sb-section .chev { margin-left: auto; font-size: 10px; opacity: 0.5; }
+  .sb-child { padding-left: 32px; font-size: 13px; }
+
+  /* MAIN */
+  .main { display: flex; flex-direction: column; min-width: 0; }
+
+  /* TOPBAR */
+  .tb { height: 64px; border-bottom: 1px solid var(--grey-200); padding: 0 48px; display: flex; align-items: center; gap: 16px; }
+  .tb-search { display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 36px; background: var(--grey-100); border-radius: 50px; min-width: 320px; }
+  .tb-search .icn { color: var(--text-disabled); font-size: 14px; }
+  .tb-search .ph { font-size: 13px; color: var(--text-disabled); flex: 1; }
+  .tb-search .kbd { font-size: 10px; color: var(--text-disabled); border: 1px solid var(--grey-200); border-radius: 4px; padding: 2px 6px; background: var(--white); }
+  .tb-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .tb-link { font-size: 13px; color: var(--text-muted); }
+  .tb-icon { width: 36px; height: 36px; border-radius: 18px; background: var(--grey-100); display: grid; place-items: center; font-size: 14px; color: var(--ink); }
+  .tb-avatar { width: 36px; height: 36px; border-radius: 18px; background: var(--primary); color: var(--white); font-weight: 700; font-size: 14px; display: grid; place-items: center; }
+
+  /* BODY */
+  .body { padding: 32px 48px; display: flex; flex-direction: column; gap: 24px; }
+  .crumb { font-size: 12px; color: var(--text-grey); display: flex; gap: 6px; align-items: center; }
+  .crumb .here { color: var(--ink); font-weight: 600; }
+
+  .header-row { display: flex; align-items: flex-start; gap: 16px; }
+  .title-block { display: flex; flex-direction: column; gap: 6px; max-width: 720px; }
+  .title-block h1 { font-size: 40px; line-height: 50px; font-weight: 600; letter-spacing: 0; color: var(--ink); }
+  .title-block p { font-size: 16px; line-height: 24px; color: var(--text-muted); max-width: 520px; }
+
+  .cta-cluster { margin-left: auto; display: flex; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; border-radius: 999px; font-size: 16px; font-weight: 700; letter-spacing: -0.2px; cursor: pointer; border: 0; font-family: inherit; }
+  .btn.secondary { background: var(--white); color: var(--ink); border: 1px solid var(--ink); padding: 0 20px; font-size: 14px; font-weight: 600; }
+  .btn.primary { background: var(--ink); color: var(--accent); padding: 0 28px; }
+  .btn.primary .plus { font-size: 18px; }
+
+  /* PILLS */
+  .pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; height: 36px; border-radius: 999px; background: var(--white); border: 1px solid var(--grey-200); font-size: 13px; font-weight: 600; color: var(--ink); cursor: pointer; }
+  .pill .ct { color: var(--text-grey); font-weight: 400; }
+  .pill.active { background: var(--ink); color: var(--white); font-weight: 700; border-color: var(--ink); }
+  .pill.active .ct { color: var(--accent); font-weight: 700; }
+  .pill.alert { background: var(--warning-bg); color: var(--warning); border-color: var(--warning); }
+  .pill.alert .ct { color: var(--warning); }
+
+  /* BANNER */
+  .banner { display: flex; align-items: center; gap: 14px; padding: 0 20px; height: 56px; background: var(--warning-bg); border: 1px solid var(--warning-border); border-radius: 8px; }
+  .banner .icn { color: var(--warning); font-weight: 700; font-size: 16px; }
+  .banner .msg { font-size: 14px; color: var(--ink); }
+  .banner .action { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--warning); cursor: pointer; }
+
+  /* TOOLBAR */
+  .toolbar { display: flex; gap: 8px; align-items: center; }
+  .search-input { flex: 1; height: 44px; border: 1px solid var(--border); border-radius: 50px; padding: 0 18px; display: flex; align-items: center; gap: 10px; background: var(--white); }
+  .search-input .icn { color: var(--text-disabled); }
+  .search-input .ph { font-size: 14px; color: var(--text-disabled); }
+  .tb-pill { height: 44px; padding: 0 18px; border: 1px solid var(--border); border-radius: 50px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink); background: var(--white); cursor: pointer; }
+  .tb-pill .icn { color: var(--text-muted); }
+
+  /* TABLE */
+  .table { background: var(--white); border: 1px solid var(--grey-200); border-radius: 8px; overflow: hidden; }
+  .th { background: var(--mint); height: 44px; display: grid; grid-template-columns: 48px 1fr 120px 130px 160px 160px; align-items: center; }
+  .th div { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-grey); padding: 0 12px; }
+  .th div:first-child { padding-left: 24px; }
+  .th .sort::after { content: ' ▼'; font-size: 9px; color: var(--text-grey); }
+
+  .row { display: grid; grid-template-columns: 48px 1fr 120px 130px 160px 160px; border-bottom: 1px solid var(--grey-150); padding: 16px 0; }
+  .row:last-of-type { border-bottom: 0; }
+  .row > div { padding: 0 12px; display: flex; flex-direction: column; gap: 4px; justify-content: flex-start; }
+  .row .cell-check { padding-left: 24px; padding-top: 6px; }
+  .cb { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--white); }
+  .rule-name { font-size: 14px; font-weight: 600; line-height: 20px; color: var(--ink); }
+  .rule-cond { font-family: var(--mono); font-size: 12px; line-height: 18px; color: var(--text-muted); }
+  .badge { display: inline-flex; align-items: center; padding: 0 10px; height: 24px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; align-self: flex-start; }
+  .badge.active { background: var(--success-bg); color: var(--success); }
+  .badge.draft { background: var(--grey-100); color: var(--text-muted); }
+  .badge.archived { background: var(--white); color: var(--text-grey); border: 1px solid var(--grey-200); }
+  .meta { font-size: 14px; color: var(--ink); }
+  .meta.muted { color: var(--text-grey); }
+  .meta-sub { font-size: 12px; color: var(--text-grey); }
+  .health { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; align-self: flex-start; }
+  .health.ok { color: var(--success); }
+  .health.err { color: var(--warning); }
+  .health.muted { color: var(--text-grey); }
+
+  .table-footer { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-top: 1px solid var(--grey-150); }
+  .table-footer .count { font-size: 13px; color: var(--text-grey); }
+  .pg { margin-left: auto; display: flex; gap: 4px; }
+  .pg button { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--grey-200); background: var(--white); font-family: inherit; font-size: 13px; color: var(--ink); cursor: pointer; }
+  .pg button.cur { background: var(--ink); color: var(--white); border-color: var(--ink); font-weight: 700; }
+
+  /* CALLOUT CHIPS overlaid on screen */
+  .chip { position: absolute; width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; box-shadow: 0 4px 8px rgba(3,66,228,0.4); border: 2px solid var(--white); z-index: 10; }
+
+  /* REASONING BELOW */
+  .reasoning { width: 1440px; margin: 32px auto 0; background: var(--white); border-radius: 8px; padding: 32px 48px; box-shadow: var(--shadow-card); }
+  .reasoning h2 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .reasoning .lead { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .note { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  .note .n { width: 22px; height: 22px; border-radius: 11px; background: var(--primary); color: var(--white); font-size: 11px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+  .note .body h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .note .body p { font-size: 13px; line-height: 19px; color: var(--text-muted); }
+
+  /* === v2 · Mid-fi chrome to spotlight the rule builder === */
+  .sb { background: #3D4654 !important; }
+  .sb-logo .dot { background: rgba(255,255,255,0.4) !important; }
+  .sb-item.active .marker { background: rgba(255,255,255,0.7) !important; }
+  .tb-avatar { background: #6B7280 !important; color: #FFF !important; }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="screen-meta">
+    <span class="eyebrow">01 · Rules library</span>
+    <h1>Entry point A — standalone management view</h1>
+    <span class="sub">1440 × 1100 desktop</span>
+  </div>
+
+  <div class="frame">
+    <!-- SIDEBAR -->
+    <aside class="sb">
+      <div class="sb-logo"><div class="dot"></div><div class="wm">kurtosys</div></div>
+      <div class="sb-eye">Workspace</div>
+      <div class="sb-item"><div class="marker"></div>Templates</div>
+      <div class="sb-section">Documents<span class="chev">▾</span></div>
+      <div class="sb-item sb-child"><div class="marker"></div>All documents</div>
+      <div class="sb-item sb-child active"><div class="marker"></div>Rules<div class="count">24</div></div>
+      <div class="sb-item sb-child"><div class="marker"></div>Distributions</div>
+      <div class="sb-item"><div class="marker"></div>Data sources</div>
+      <div class="sb-item"><div class="marker"></div>Runs</div>
+      <div class="sb-eye">Settings</div>
+      <div class="sb-item"><div class="marker"></div>Team</div>
+      <div class="sb-item"><div class="marker"></div>Brand</div>
+      <div class="sb-item"><div class="marker"></div>Integrations</div>
+      <!-- Chip on Rules nav -->
+      <div class="chip" style="top: 196px; left: 218px;">1</div>
+    </aside>
+
+    <!-- MAIN -->
+    <section class="main">
+      <!-- TOPBAR -->
+      <div class="tb">
+        <div class="tb-search">
+          <span class="icn">⌕</span>
+          <span class="ph">Jump to template, rule, fund…</span>
+          <span class="kbd">⌘K</span>
+        </div>
+        <div class="tb-right">
+          <span class="tb-link">Help</span>
+          <span class="tb-icon">◔</span>
+          <span class="tb-avatar">L</span>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="body">
+        <div class="crumb">Documents <span>·</span> <span class="here">Rules</span></div>
+
+        <div class="header-row">
+          <div class="title-block">
+            <h1>Rules</h1>
+            <p>Conditional logic that controls which sections appear in fund reports.</p>
+          </div>
+          <div class="cta-cluster">
+            <button class="btn secondary"><span>↧</span> Import</button>
+            <button class="btn primary"><span class="plus">+</span> New rule</button>
+            <!-- Chip on primary CTA -->
+            <div class="chip" style="position:relative; margin-left:-12px; align-self:flex-start; transform: translate(8px, -8px);">2</div>
+          </div>
+        </div>
+
+        <div class="pills" style="position: relative;">
+          <span class="pill active">All <span class="ct">24</span></span>
+          <span class="pill">Active <span class="ct">18</span></span>
+          <span class="pill">Draft <span class="ct">4</span></span>
+          <span class="pill">Archived <span class="ct">2</span></span>
+          <span class="pill alert">⚠ Needs attention <span class="ct">2</span></span>
+          <div class="chip" style="position:absolute; right: -10px; top: -10px;">3</div>
+        </div>
+
+        <div class="banner" style="position: relative;">
+          <span class="icn">⚠</span>
+          <span class="msg">2 active rules reference fields no longer in the data dictionary.</span>
+          <span class="action">Review →</span>
+          <div class="chip" style="position:absolute; left: -10px; top: -10px;">4</div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-input"><span class="icn">⌕</span><span class="ph">Search rules by name, field or template</span></div>
+          <button class="tb-pill"><span class="icn">⫶</span> Filter</button>
+          <button class="tb-pill"><span class="icn">⇅</span> Sort</button>
+        </div>
+
+        <div class="table" style="position: relative;">
+          <div class="th">
+            <div></div>
+            <div>Rule</div>
+            <div>Status</div>
+            <div>Used in</div>
+            <div class="sort">Last edited</div>
+            <div>Health</div>
+          </div>
+
+          <div class="row">
+            <div class="cell-check"><div class="cb"></div></div>
+            <div>
+              <div class="rule-name">Show risk warning for high-vol funds</div>
+              <div class="rule-cond">Volatility = High AND Doc type ≠ Institutional</div>
+            </div>
+            <div><span class="badge active">Active</span></div>
+            <div><span class="meta">3 templates</span></div>
+            <div><span class="meta">2 days ago</span><span class="meta-sub">Sarah Kim</span></div>
+            <div><span class="health ok">✓ Matched</span></div>
+          </div>
+
+          <div class="row">
+            <div class="cell-check"><div class="cb"></div></div>
+            <div>
+              <div class="rule-name">Hide ESG section for non-ESG funds</div>
+              <div class="rule-cond">Doc type ≠ ESG fund</div>
+            </div>
+            <div><span class="badge active">Active</span></div>
+            <div><span class="meta">12 templates</span></div>
+            <div><span class="meta">5 days ago</span><span class="meta-sub">Mira Patel</span></div>
+            <div><span class="health err">⚠ Field missing</span></div>
+          </div>
+
+          <div class="row">
+            <div class="cell-check"><div class="cb"></div></div>
+            <div>
+              <div class="rule-name">Performance commentary on underperformance</div>
+              <div class="rule-cond">Return YTD &lt; Benchmark YTD</div>
+            </div>
+            <div><span class="badge active">Active</span></div>
+            <div><span class="meta">8 templates</span></div>
+            <div><span class="meta">2 weeks ago</span><span class="meta-sub">Tom Reilly</span></div>
+            <div><span class="health ok">✓ Matched</span></div>
+          </div>
+
+          <div class="row">
+            <div class="cell-check"><div class="cb"></div></div>
+            <div>
+              <div class="rule-name">UCITS disclaimer for EU jurisdictions</div>
+              <div class="rule-cond">Jurisdiction in {DE, FR, IT, NL, ES}</div>
+            </div>
+            <div><span class="badge draft">Draft</span></div>
+            <div><span class="meta muted">Unattached</span></div>
+            <div><span class="meta">Today</span><span class="meta-sub">Legend</span></div>
+            <div><span class="health muted">○ Not tested</span></div>
+          </div>
+
+          <div class="row">
+            <div class="cell-check"><div class="cb"></div></div>
+            <div>
+              <div class="rule-name">Quarterly commentary cutoff</div>
+              <div class="rule-cond">Report date &gt; quarter-end + 5 days</div>
+            </div>
+            <div><span class="badge archived">Archived</span></div>
+            <div><span class="meta muted">0 templates</span></div>
+            <div><span class="meta">3 months ago</span><span class="meta-sub">Sarah Kim</span></div>
+            <div><span class="health muted">—</span></div>
+          </div>
+
+          <div class="table-footer">
+            <span class="count">Showing 5 of 24</span>
+            <div class="pg">
+              <button>‹</button>
+              <button class="cur">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>…</button>
+              <button>›</button>
+            </div>
+          </div>
+
+          <!-- Chips inside table -->
+          <div class="chip" style="position:absolute; left: 360px; top: 12px;">5</div>
+          <div class="chip" style="position:absolute; left: 580px; top: 64px;">6</div>
+          <div class="chip" style="position:absolute; right: 150px; top: 64px;">7</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="reasoning">
+  <h2>Why this screen looks the way it does</h2>
+  <p class="lead">Numbered points map to the blue chips on the screen above. Use these as talking points in the presentation.</p>
+  <div class="notes">
+    <div class="note"><div class="n">1</div><div class="body"><h3>Rules in the main nav, not under Templates</h3><p>Rules are first-class objects, not side-effects of templates. They get audited, reused, and reasoned about as a portfolio. Cost: one extra nav item. Benefit: makes the platform credible to a regulated audience.</p></div></div>
+    <div class="note"><div class="n">2</div><div class="body"><h3>Ink + mint pill for primary CTA</h3><p>Brand-true: on light surfaces the primary CTA flips to ink fill with mint label. Import sits next to it as outlined secondary because creating is far more frequent than importing.</p></div></div>
+    <div class="note"><div class="n">3</div><div class="body"><h3>"Needs attention" as a filter pill</h3><p>Same problem as the banner but a different action: this filters the table to just the broken rules so the user can work through them. Warning treatment uses the proposed semantic token, not the decorative mint.</p></div></div>
+    <div class="note"><div class="n">4</div><div class="body"><h3>Schema-drift banner on load</h3><p>Schema drift is the silent killer of rule systems. Surfacing it on the library page means it's caught before someone opens a template and produces a broken report. Banner gives a one-click Review action.</p></div></div>
+    <div class="note"><div class="n">5</div><div class="body"><h3>Plain-English condition under the name</h3><p>Users scan for what a rule does, not what it's called. The mono font keeps field references like Volatility = High legible at small size. Truncation rather than wrap keeps row height predictable for large libraries.</p></div></div>
+    <div class="note"><div class="n">6</div><div class="body"><h3>Status and Health are two different columns</h3><p>Status is lifecycle (Active, Draft, Archived). Health is "is this actually running cleanly right now". Combining them would hide the most important signal: an Active rule with a missing field is the urgent case.</p></div></div>
+    <div class="note"><div class="n">7</div><div class="body"><h3>Health is derived from production runs</h3><p>Matched, Field missing, Not tested, em-dash for never-run. Surfacing runtime health on a management page closes the loop between configuration and what users actually see in their reports.</p></div></div>
+  </div>
+</div>
+
+</body>
+</html>
