@@ -39,6 +39,118 @@ function Scroller({ children, min = 560 }: { children: React.ReactNode; min?: nu
    FUNNEL — UCOOK
    ══════════════════════════════════════════════════════════ */
 
+/*
+  The three heuristic findings, drawn rather than screenshotted. Each one is
+  a different shape of failure, so each gets a different shape of picture:
+  a path that stops, a thing that will not hold still, and two states that
+  disagree.
+*/
+
+/* 1. The dead end. Click, error, nothing. */
+export function DeadEnd() {
+  return (
+    <svg viewBox="0 0 300 150" className="w-full" style={{ fontFamily: MONO }} role="img"
+      aria-label="Activate Now leads to an error, and the path stops there">
+      <rect x="16" y="52" width="86" height="30" rx="4" fill={ACCENT} />
+      <text x="59" y="71" fontSize="9.5" fontWeight="700" fill="var(--surface)" textAnchor="middle">
+        Activate Now
+      </text>
+
+      <path d="M 108 67 L 138 67" stroke={INK} strokeWidth="1.25" strokeOpacity="0.35" />
+      <path d="M 138 67 l -6 -3.5 l 0 7 z" fill={INK} fillOpacity="0.35" />
+
+      <rect x="146" y="46" width="94" height="42" rx="4" fill="var(--accent-wash)"
+        stroke={ACCENT} strokeWidth="1.25" />
+      <text x="193" y="63" fontSize="8.5" fontWeight="700" fill={ACCENT} textAnchor="middle">
+        NO ADDRESS
+      </text>
+      <text x="193" y="77" fontSize="8.5" fontWeight="700" fill={ACCENT} textAnchor="middle">
+        ASSOCIATED
+      </text>
+
+      {/* the path stops, and the stop is the finding */}
+      <path d="M 246 67 L 268 67" stroke={INK} strokeWidth="1.25" strokeOpacity="0.18"
+        strokeDasharray="3 3" />
+      <path d="M 272 59 l 14 16 M 286 59 l -14 16" stroke={INK} strokeOpacity="0.3"
+        strokeWidth="1.5" strokeLinecap="round" />
+
+      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+        No recovery, no next step, no way back.
+      </text>
+    </svg>
+  );
+}
+
+/* 2. The moving target. Same journey, three different navigations. */
+export function ShiftingNav() {
+  const bars = [
+    { y: 40, widths: [26, 20, 30, 16] },
+    { y: 74, widths: [18, 34, 14, 24, 12] },
+    { y: 108, widths: [32, 22, 28] },
+  ];
+  return (
+    <svg viewBox="0 0 300 150" className="w-full" style={{ fontFamily: MONO }} role="img"
+      aria-label="The global navigation is arranged differently at three points in one sign-up">
+      {bars.map((b, i) => (
+        <g key={b.y}>
+          <text x="16" y={b.y + 10} fontSize="8.5" fontWeight="700" fill={INK} opacity="0.45">
+            {["STEP 1", "STEP 3", "STEP 5"][i]}
+          </text>
+          <rect x="66" y={b.y} width="218" height="18" rx="3"
+            fill="var(--surface)" stroke={INK} strokeOpacity="0.16" strokeWidth="1" />
+          {b.widths.reduce<{ x: number; els: React.ReactNode[] }>((acc, wdt, j) => {
+            acc.els.push(
+              <rect key={j} x={acc.x} y={b.y + 6} width={wdt} height="6" rx="3"
+                fill={ACCENT} fillOpacity={0.28 + i * 0.24} />
+            );
+            acc.x += wdt + 9;
+            return acc;
+          }, { x: 76, els: [] }).els}
+        </g>
+      ))}
+      <text x="150" y="142" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+        One journey. The furniture moves three times.
+      </text>
+    </svg>
+  );
+}
+
+/* 3. The disagreement. What the system confirmed, against what it then showed. */
+export function StateMismatch() {
+  return (
+    <svg viewBox="0 0 300 150" className="w-full" style={{ fontFamily: MONO }} role="img"
+      aria-label="A verified phone number, then an order summary showing the wrong configuration">
+      <text x="16" y="26" fontSize="8" fontWeight="700" fill={INK} opacity="0.4"
+        letterSpacing="0.6">CONFIRMED</text>
+      <rect x="16" y="34" width="118" height="56" rx="4" fill="var(--surface)"
+        stroke={INK} strokeOpacity="0.16" strokeWidth="1.25" />
+      <circle cx="34" cy="62" r="8" fill={INK} fillOpacity="0.08" />
+      <path d="M 30 62 l 3 3.5 l 6 -7" stroke={INK} strokeWidth="1.6" fill="none"
+        strokeLinecap="round" strokeOpacity="0.6" />
+      <rect x="50" y="55" width="66" height="5" rx="2.5" fill={INK} opacity="0.28" />
+      <rect x="50" y="66" width="42" height="5" rx="2.5" fill={INK} opacity="0.14" />
+
+      {/* the two panels disagree, so the link between them is broken */}
+      <path d="M 140 62 L 152 62" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <path d="M 160 54 l 0 16" stroke={ACCENT} strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M 168 62 L 180 62" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3"
+        strokeDasharray="3 3" />
+
+      <text x="186" y="26" fontSize="8" fontWeight="700" fill={ACCENT}
+        letterSpacing="0.6">THEN SHOWN</text>
+      <rect x="186" y="34" width="98" height="56" rx="4" fill="var(--accent-wash)"
+        stroke={ACCENT} strokeWidth="1.25" />
+      <rect x="200" y="48" width="58" height="5" rx="2.5" fill={ACCENT} fillOpacity="0.75" />
+      <rect x="200" y="59" width="70" height="5" rx="2.5" fill={ACCENT} fillOpacity="0.45" />
+      <rect x="200" y="70" width="40" height="5" rx="2.5" fill={ACCENT} fillOpacity="0.45" />
+
+      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+        The summary contradicted the step before it.
+      </text>
+    </svg>
+  );
+}
+
 /* The expectation gap. Users treat payment as the finish line, and
    payment arrives days after they leave. */
 export function ExpectationGap() {

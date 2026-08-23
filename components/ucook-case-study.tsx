@@ -5,7 +5,9 @@ import Image from "next/image";
 import { Project } from "@/lib/projects";
 import { ImageLightbox } from "@/components/image-lightbox";
 import { ModelComplexity } from "@/components/ucook-model-complexity";
-import { ExpectationGap, FunnelComparison } from "@/components/case/diagrams";
+import {
+  ExpectationGap, FunnelComparison, DeadEnd, ShiftingNav, StateMismatch,
+} from "@/components/case/diagrams";
 import {
   CaseShell, CaseHero, Premise, CaseBody, Section, Figure,
   Prose, Lead, Findings, Metrics, Compare, Steps, Pullquote,
@@ -171,25 +173,40 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           title="Heuristic evaluation"
           intro="Nielsen's 10 heuristics across the sign-up and reactivation flows. Three theme clusters came out of it: communication, navigation, and UI optimisation."
         >
-          <ImageLightbox
-            images={[
+          {/*
+            The findings, drawn rather than screenshotted. Each is tagged with
+            the theme cluster it fed, so the three pictures and the three
+            clusters named above are visibly the same three things.
+          */}
+          <div className="grid md:grid-cols-3 gap-6 md:gap-5">
+            {[
               {
-                src: "/ucook/heuristic-eval-1.png",
-                alt: "Activate Now pop-up showing a no-address-associated error",
-                caption: "Clicking Activate Now returned a no-address-associated error, and nothing happened beyond it. No efficiency of use.",
+                cluster: "UI optimisation",
+                Visual: DeadEnd,
+                finding: "Clicking Activate Now returned a no-address-associated error, and nothing happened beyond it. No efficiency of use.",
               },
               {
-                src: "/ucook/heuristic-eval-2.png",
-                alt: "Inconsistent global navigation during sign-up",
-                caption: "Global navigation changed at least three times during sign-up, alongside inaccurate information. Flagged and fixed as a quick win.",
+                cluster: "Navigation",
+                Visual: ShiftingNav,
+                finding: "Global navigation changed at least three times during sign-up, alongside inaccurate information. Flagged and fixed as a quick win.",
               },
               {
-                src: "/ucook/heuristic-eval-3.png",
-                alt: "Order summary showing the wrong configuration after phone verification",
-                caption: "After phone verification, the order summary showed the wrong configuration.",
+                cluster: "Communication",
+                Visual: StateMismatch,
+                finding: "After phone verification, the order summary showed the wrong configuration.",
               },
-            ]}
-          />
+            ].map(({ cluster, Visual, finding }) => (
+              <figure key={cluster} className="flex flex-col">
+                <div className="bg-surface border border-line p-4 md:p-5">
+                  <Visual />
+                </div>
+                <figcaption className="mt-4">
+                  <span className="t-label text-accent">{cluster}</span>
+                  <p className="text-[14px] text-ink/65 leading-relaxed mt-2">{finding}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </Section>
 
         <Section label="Insights" title="Four things that decided the redesign">
