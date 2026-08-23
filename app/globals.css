@@ -63,18 +63,19 @@
   --positive:     oklch(0.505 0.145 152);
 
   /*
-    Band fill. The ink green lightened, so it reads as the same family rather
-    than a new colour. Sits against warm cream on a hue shift as much as a
-    lightness one, which is why it needs a rule to define its edges.
+    Band fill. A pale slate blue rather than a green. Two reasons: it sits 153
+    degrees from the warm cream page so the band edge is obvious, and it sits
+    166 degrees from ember, so orange on it reads as near complementary and
+    carries far more than the contrast ratio alone suggests.
   */
-  --sage:         oklch(0.935 0.050 166);
+  --band:         oklch(0.945 0.035 242);
 
   /*
-    Ember, a step deeper. On sage the standard ember measures 4.24:1, just
-    under AA for label-sized text. This clears it at 4.62:1 and is close
-    enough to the standard value to read as the same orange.
+    The band orange. More saturated than standard ember, 0.205 against 0.185,
+    and darkened enough to clear 4.80:1 on the band at label size rather than
+    sitting on the 4.5 line.
   */
-  --ember-deep:   oklch(0.540 0.185 40);
+  --ember-deep:   oklch(0.535 0.205 42);
 
   /* Lines */
   --line:         oklch(0.884 0.016 90);
@@ -137,7 +138,7 @@
   --color-ochre: var(--ochre);
   --color-plum: var(--plum);
   --color-positive: var(--positive);
-  --color-sage: var(--sage);
+  --color-band: var(--band);
   --color-ember-deep: var(--ember-deep);
 
   --color-accent: var(--accent);

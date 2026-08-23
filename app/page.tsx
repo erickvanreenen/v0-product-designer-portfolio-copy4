@@ -12,12 +12,6 @@ import { ArrowRight } from "lucide-react";
 */
 const capabilities = [
   {
-    name: "Design",
-    body: "Interface, interaction and design systems. On Flanksource that meant working out how much density a dashboard could carry before it stopped being scannable.",
-    href: "/projects/flanksource",
-    cue: "Flanksource",
-  },
-  {
     name: "AI design workflows",
     body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch, used across research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
     href: "/about#tooling",
@@ -46,6 +40,12 @@ const capabilities = [
     body: "Creativity and empathy in the making, balanced against what can practically ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
     href: "/projects/ada-ux-design",
     cue: "Academy of Digital Arts",
+  },
+  {
+    name: "Design",
+    body: "Interface, interaction and design systems. On Flanksource that meant working out how much density a dashboard could carry before it stopped being scannable.",
+    href: "/projects/flanksource",
+    cue: "Flanksource",
   },
 ];
 
@@ -83,16 +83,12 @@ export default function HomePage() {
       {/*
         What I do.
 
-        A sage band rather than the near-black one that used to sit here. It is
-        the ink green lightened, so it separates from the cream page on hue as
-        much as on lightness. That also means the lightness difference is small,
-        hence the rule top and bottom to define where the band starts and stops.
-
-        Orange sits on the label, the numbers and the hover state, at
-        ember-deep. Standard ember measures 4.24:1 here, just under AA for text
-        this size.
+        A pale band rather than the near-black one that used to sit here. The
+        fill is slate blue, chosen so orange sits opposite it on the wheel and
+        actually pops. Lightness contrast against the cream page is slight, so
+        a rule top and bottom defines where the band starts and stops.
       */}
-      <section className="bg-sage text-ink border-y border-ink/12">
+      <section className="bg-band text-ink border-y border-ink/12">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <FadeIn>
             <p className="t-label text-ember-deep mb-5">What I do</p>
