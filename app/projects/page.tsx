@@ -24,11 +24,11 @@ export default function ProjectsPage() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <p className="t-label text-ember mb-6">Work</p>
           <h1 className="t-display text-5xl md:text-7xl text-ink mb-6">
-            Nine solved challenges.
+            Ten solved challenges.
           </h1>
           <p className="text-lg text-ink/60 measure">
             Each project is titled by the work it involved. The company is underneath.
-            E-commerce, omnichannel platforms, data tooling, and education.
+            E-commerce, omnichannel platforms, investment reporting, data tooling, and education.
           </p>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function ProjectsPage() {
               onClick={() => setActiveTag(null)}
               className="t-label text-ember hover:underline underline-offset-4 py-2.5 -my-2.5 inline-block"
             >
-              Show all nine
+              Show all ten
             </button>
           </div>
         )}

@@ -105,6 +105,8 @@
 @theme inline {
   --font-sans: var(--font-archivo), 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
   --font-mono: var(--font-mono-face), ui-monospace, 'SF Mono', Menlo, monospace;
+  /* Kurtosys's own face, used only inside that case study's design figures. */
+  --font-kurtosys: var(--font-jakarta), 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   --color-paper: var(--paper);
   --color-paper-sunk: var(--paper-sunk);

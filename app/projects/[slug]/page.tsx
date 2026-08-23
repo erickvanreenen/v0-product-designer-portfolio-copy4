@@ -10,6 +10,7 @@ import { EdtechCaseStudy } from "@/components/edtech-case-study";
 import { EduvosCaseStudy } from "@/components/eduvos-case-study";
 import { AdaCaseStudy } from "@/components/ada-case-study";
 import { Uni4CaseStudy } from "@/components/uni4-case-study";
+import { KurtosysCaseStudy } from "@/components/kurtosys-case-study";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -60,6 +61,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (slug === "rhino-africa-geo") {
     return (
       <RhinoAfricaCaseStudy
+        project={project}
+        nextProject={nextProject}
+        prevProject={prevProject}
+      />
+    );
+  }
+
+  if (slug === "kurtosys-rule-builder") {
+    return (
+      <KurtosysCaseStudy
         project={project}
         nextProject={nextProject}
         prevProject={prevProject}

@@ -35,9 +35,9 @@ const capabilities = [
   {
     n: "04",
     name: "Systems thinking",
-    body: "Mapping dependencies before designing solutions. At Faithful to Nature every decision carried downstream consequences across seventeen stores and two legacy systems.",
-    href: "/projects/faithful-to-nature",
-    cue: "Faithful to Nature",
+    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and the anatomy of a document before drawing a single screen, which is what made the later decisions defensible.",
+    href: "/projects/kurtosys-rule-builder",
+    cue: "Kurtosys",
   },
   {
     n: "05",
@@ -49,7 +49,7 @@ const capabilities = [
 ];
 
 export default function HomePage() {
-  const featuredSlugs = ["rhino-africa-geo", "ucook", "faithful-to-nature", "flanksource"];
+  const featuredSlugs = ["rhino-africa-geo", "kurtosys-rule-builder", "ucook", "faithful-to-nature"];
   const featuredProjects = featuredSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter(Boolean) as typeof projects;
@@ -139,7 +139,7 @@ export default function HomePage() {
                 href="/projects"
                 className="text-sm text-ink/55 hover:text-ember transition-colors duration-200 flex items-center gap-1.5 group pb-1.5"
               >
-                All nine projects
+                All ten projects
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </Link>
             </div>

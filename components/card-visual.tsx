@@ -30,6 +30,7 @@ export function CardVisual({ slug }: CardVisualProps) {
 function Composition({ slug }: { slug: string }) {
   switch (slug) {
     case "rhino-africa-geo":            return <GeoVis />;
+    case "kurtosys-rule-builder":       return <RuleVis />;
     case "ucook":                       return <FunnelVis />;
     case "faithful-to-nature":          return <OmnichannelVis />;
     case "flanksource":                 return <OneViewVis />;
@@ -43,6 +44,42 @@ function Composition({ slug }: { slug: string }) {
 }
 
 /* GEO — ten ranked results collapse into one cited answer */
+/* A rule decides which sections of a document survive to the reader. */
+function RuleVis() {
+  const rows = [
+    { y: 60, on: true }, { y: 78, on: true }, { y: 96, on: false },
+    { y: 114, on: true }, { y: 132, on: false }, { y: 150, on: true },
+  ];
+  return (
+    <g>
+      {/* the condition */}
+      <rect x="40" y="88" width="104" height="34" rx="4"
+        fill="var(--surface)" stroke={ACCENT} strokeOpacity="0.45" strokeWidth="1.25" />
+      <rect x="54" y="99" width="34" height="5" rx="2.5" fill={INK} opacity="0.3" />
+      <rect x="94" y="99" width="10" height="5" rx="2.5" fill={ACCENT} />
+      <rect x="110" y="99" width="20" height="5" rx="2.5" fill={INK} opacity="0.3" />
+      <rect x="54" y="110" width="62" height="4" rx="2" fill={INK} opacity="0.14" />
+
+      <path d="M 156 105 L 188 105" stroke={INK} strokeWidth="1.25" strokeOpacity="0.3" />
+      <path d="M 188 105 l -7 -4 l 0 8 z" fill={INK} fillOpacity="0.3" />
+
+      {/* the document, some sections kept, some dropped */}
+      <rect x="206" y="44" width="150" height="162" rx="4"
+        fill="var(--surface)" stroke={INK} strokeOpacity="0.14" strokeWidth="1.25" />
+      {rows.map((r) => (
+        <g key={r.y}>
+          <rect x="224" y={r.y} width={r.on ? 100 : 68} height="7" rx="3.5"
+            fill={r.on ? INK : INK} opacity={r.on ? 0.24 : 0.07} />
+          {r.on
+            ? <rect x="332" y={r.y} width="7" height="7" rx="3.5" fill={ACCENT} />
+            : <path d={`M 333 ${r.y + 1} l 5 5 M 338 ${r.y + 1} l -5 5`}
+                stroke={INK} strokeOpacity="0.18" strokeWidth="1.25" strokeLinecap="round" />}
+        </g>
+      ))}
+    </g>
+  );
+}
+
 function GeoVis() {
   return (
     <g>

@@ -10,6 +10,7 @@ export type ProjectTag =
   | "Data Dev"
   | "Workflow Automation"
   | "GEO"
+  | "FinTech"
   | "Information Architecture";
 
 export type Accent = "ember" | "clay" | "forest" | "slate" | "ochre" | "plum";
@@ -107,6 +108,55 @@ export const projects: Project[] = [
       "Machines cannot infer authority. If expertise is not declared explicitly and consistently, it does not exist to a crawler",
       "Understanding the ecosystem before designing a single page is not overhead. It is what makes the page decision defensible",
       "The first hundred words carry the most weight. Leading with the answer rather than the preamble is both better UX and better machine legibility"
+    ],
+    images: []
+  },
+  {
+    slug: "kurtosys-rule-builder",
+    title: "Systems thinking",
+    client: "Kurtosys",
+    subtitle: "Conditional logic people can actually read",
+    question: "Rule logic is powerful and unreadable. How do you make it understandable without making it simplistic?",
+    answer: "Plain English readback of every rule, in one component, wherever a rule appears.",
+    metric: { value: "3", label: "entry points" },
+    accent: "slate",
+    tags: ["FinTech", "UX Strategy", "Information Architecture", "Workflow Automation"],
+    role: "Product Designer",
+    team: "Independent",
+    timeline: "May 2026",
+    tools: ["Figma", "Claude", "HTML"],
+    thumbnail: "/images/thumb-kurtosys.svg",
+    outcomes: [
+      "Three entry points designed, each serving a different mental state",
+      "One plain English echo component reused across builder, stress test and debug trace",
+      "Six screens covering creation, management, debugging, scale, edge cases and empty states",
+      "Five scope exclusions documented with the reasoning behind each"
+    ],
+    summary: "A rule builder for the conditional logic that decides which sections appear in an automated fund report. The hard part is not the logic. It is making the logic readable to the person who has to trust it.",
+    context: "Kurtosys is a financial technology company that helps investment and financial services businesses manage, automate and distribute complex investor communications and reporting. Inside its Documents module, templates generate fund reports and rules decide which sections of those reports appear, for which funds, for which audiences. Get a rule wrong and a regulatory disclosure goes missing from a document that has already reached an investor.",
+    goals: [
+      "Surface assumptions, questions and constraints before designing any screen",
+      "Design the end to end path: build, preview, validate and govern rules",
+      "Prove the patterns hold at scale, with edge cases and the rationale behind each"
+    ],
+    research: "Mapped the platform before designing anything inside it. Three passes: where the feature belongs in the information architecture, how information flows through the ecosystem, and how a document breaks into sections that a rule can control.",
+    insights: [
+      "Rule Builder belongs inside the Documents module. It sits with Templates, Production Centre, approval workflows and audit, not on its own",
+      "Data comes in from fund admin, market data, ESG and risk systems. Rules shape the report. Outputs go to PDFs, investor portals, fund websites, decks and email",
+      "A document is a sequence of sections and only some are rule touchpoints. Cover and disclaimers always appear. Risk warning and ESG highlights are conditional",
+      "Status and health answer different questions. Status is intent, health is whether the rule can still run against the data that exists today",
+      "The simple case dominates. Most rules are one or two conditions, so the interface should not be built for the tail"
+    ],
+    iaFlows: "Rule Builder sits inside the Documents module of Kurtosys Cloud, alongside Templates, Production Centre, approval workflows, and audit and retention. The surrounding modules are DXM for sites and experiences, Data as the reporting book of record, Studio for the component library, and Communities for investor portals.",
+    designExploration: "Three surfaces, chosen because each catches the user in a different mental state. A Rules Library for managing rules as first class objects. An inline drawer for authoring a rule in the flow of editing a template. A production debug view for the moment after a report has already gone out and a section is missing.",
+    finalUI: "Six screens. The library with status, usage and health. The inline drawer with the THEN clause locked to the section you came from. The debug trace showing actual data values against each condition. A five condition stress test across two groups. A decision artefact comparing three options for nested groups. And the library empty, bulk selection and overflow states.",
+    testing: "The echo pattern was stress tested against a deliberately hostile case: a five condition EU distribution rule spanning two AND groups joined by OR. If the plain English readback stayed legible there, it would hold anywhere.",
+    outcome: "Five design decisions carried the work: human readable rules, simple by default with advanced available when needed, a reusable rules library, a live connection to the data dictionary, and version history with an audit trail.",
+    learnings: [
+      "Status is not health. Combining lifecycle and runtime into one column would hide the urgent case, an Active rule that can no longer run",
+      "One readback component across three contexts means the audience learns the pattern once and recognises it everywhere",
+      "Complexity should be earned rather than toggled. The group affordance appears after three conditions exist, so beginners never meet it and no second interface has to be maintained",
+      "Naming what you left out, and why, is part of the design. Scope choices are decisions, not gaps"
     ],
     images: []
   },

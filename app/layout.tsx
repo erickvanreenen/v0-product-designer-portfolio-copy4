@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from "next";
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -16,6 +16,18 @@ const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono-face",
   display: "swap",
+});
+
+/*
+  Kurtosys's own typeface, used only inside the design figures on that one
+  case study. preload is off so the file is fetched when something actually
+  renders in it, rather than on every page.
+*/
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -61,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${mono.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${mono.variable} ${jakarta.variable}`}>
       <head>
         <link
           rel="stylesheet"
