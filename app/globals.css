@@ -63,19 +63,19 @@
   --positive:     oklch(0.505 0.145 152);
 
   /*
-    Band fill. A pale slate blue rather than a green. Two reasons: it sits 153
-    degrees from the warm cream page so the band edge is obvious, and it sits
-    166 degrees from ember, so orange on it reads as near complementary and
-    carries far more than the contrast ratio alone suggests.
+    Band fill. A pale green, warmed toward 160 and lifted in chroma so it stays
+    clearly green at this lightness rather than washing out to grey. Blue tested
+    better for making orange pop, but read cold against warm cream and green ink.
+    Lightness sits close to the page, so the band needs a rule to define it.
   */
-  --band:         oklch(0.945 0.035 242);
+  --band:         oklch(0.950 0.060 160);
 
   /*
     The band orange. More saturated than standard ember, 0.205 against 0.185,
-    and darkened enough to clear 4.80:1 on the band at label size rather than
-    sitting on the 4.5 line.
+    pitched to clear 4.76:1 on the band at label size rather than sitting on
+    the 4.5 line.
   */
-  --ember-deep:   oklch(0.535 0.205 42);
+  --ember-deep:   oklch(0.545 0.205 42);
 
   /* Lines */
   --line:         oklch(0.884 0.016 90);

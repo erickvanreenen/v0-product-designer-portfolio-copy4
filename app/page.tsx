@@ -83,17 +83,24 @@ export default function HomePage() {
       {/*
         What I do.
 
-        A pale band rather than the near-black one that used to sit here. The
-        fill is slate blue, chosen so orange sits opposite it on the wheel and
-        actually pops. Lightness contrast against the cream page is slight, so
-        a rule top and bottom defines where the band starts and stops.
+        A pale green band rather than the near-black one that used to sit here.
+        Lightness contrast against the cream page is slight by design, so the
+        separation comes from hue and from a rule top and bottom.
       */}
       <section className="bg-band text-ink border-y border-ink/12">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          {/*
+            No standfirst here. The line that used to sit under this heading
+            restated the list without adding to it, so the heading carries the
+            section on its own and the rule holds the orange.
+          */}
           <FadeIn>
-            <p className="t-label text-ember-deep mb-5">What I do</p>
-            <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-12 md:mb-16 max-w-xl">
-              Six areas the work keeps returning to.
+            <div
+              aria-hidden="true"
+              className="h-[3px] w-10 bg-ember-deep mb-7"
+            />
+            <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-12 md:mb-16">
+              What I do
             </h2>
           </FadeIn>
 
