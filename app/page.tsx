@@ -49,7 +49,7 @@ const capabilities = [
 ];
 
 export default function HomePage() {
-  const featuredSlugs = ["rhino-africa-geo", "kurtosys-rule-builder", "ucook", "faithful-to-nature"];
+  const featuredSlugs = ["ucook", "faithful-to-nature", "rhino-africa-geo", "kurtosys-rule-builder"];
   const featuredProjects = featuredSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
     .filter(Boolean) as typeof projects;
