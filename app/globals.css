@@ -62,6 +62,13 @@
   /* Result signal, independent of the per-project accent. 5.42:1 on white. */
   --positive:     oklch(0.505 0.145 152);
 
+  /*
+    Band fill. The ink green lightened, so it reads as the same family rather
+    than a new colour. Sits against warm cream on a hue shift as much as a
+    lightness one. Ink text on it measures 11.2:1, ink/75 body 5.7:1.
+  */
+  --sage:         oklch(0.900 0.042 166);
+
   /* Lines */
   --line:         oklch(0.884 0.016 90);
   --line-soft:    oklch(0.925 0.013 88);
@@ -123,6 +130,7 @@
   --color-ochre: var(--ochre);
   --color-plum: var(--plum);
   --color-positive: var(--positive);
+  --color-sage: var(--sage);
 
   --color-accent: var(--accent);
   --color-accent-vivid: var(--accent-vivid);

@@ -79,12 +79,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What I do */}
-      <section className="bg-ink-deep text-paper">
+      {/*
+        What I do.
+
+        A sage band rather than the near-black one that used to sit here. It is
+        the ink green lightened, so it separates from the cream page on hue as
+        much as on lightness, and the section stops weighing down the middle of
+        the page. Ember does not clear AA on a green this light, so the accent
+        inside is carried by depth of ink and by the hover state instead.
+      */}
+      <section className="bg-sage text-ink">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <FadeIn>
-            <p className="t-label text-ember-lift mb-5">What I do</p>
-            <h2 className="t-h2 text-3xl md:text-[40px] text-paper mb-12 md:mb-16 max-w-xl">
+            <p className="t-label text-ink/70 mb-5">What I do</p>
+            <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-12 md:mb-16 max-w-xl">
               Five areas the work keeps returning to.
             </h2>
           </FadeIn>
@@ -93,27 +101,28 @@ export default function HomePage() {
             A list rather than a card grid. Five items do not divide evenly into
             columns, and each one earns a full line of explanation anyway.
           */}
-          <ul className="border-t border-paper/15">
+          <ul className="border-t border-ink/15">
             {capabilities.map((item, i) => (
               <FadeIn key={item.n} delay={i * 70}>
                 <li>
                   <Link
                     href={item.href}
-                    className="group grid md:grid-cols-[auto_1fr_1.5fr] gap-x-8 lg:gap-x-12 gap-y-3 py-7 md:py-8
-                               border-b border-paper/15 items-baseline
-                               focus-visible:outline-none focus-visible:bg-paper/5"
+                    className="group grid md:grid-cols-[auto_1fr_1.5fr] gap-x-8 lg:gap-x-12 gap-y-3
+                               px-3 -mx-3 py-7 md:py-8 border-b border-ink/15 items-baseline
+                               transition-colors duration-200
+                               hover:bg-ink/[0.045] focus-visible:outline-none focus-visible:bg-ink/[0.045]"
                   >
-                    <span className="t-num text-sm font-semibold text-ember-lift md:pt-1">
+                    <span className="t-num text-sm font-semibold text-ink/70 md:pt-1">
                       {item.n}
                     </span>
 
-                    <h3 className="text-[21px] md:text-[23px] font-bold text-paper leading-snug tracking-[-0.015em] group-hover:text-ember-lift transition-colors duration-200">
+                    <h3 className="text-[21px] md:text-[23px] font-bold text-ink-deep leading-snug tracking-[-0.015em] group-hover:underline underline-offset-4 decoration-ink/30">
                       {item.name}
                     </h3>
 
                     <div>
-                      <p className="text-[14.5px] text-paper/65 leading-relaxed">{item.body}</p>
-                      <span className="inline-flex items-center gap-1.5 t-label text-paper/55 mt-3 group-hover:text-ember-lift transition-colors duration-200">
+                      <p className="text-[14.5px] text-ink/75 leading-relaxed">{item.body}</p>
+                      <span className="inline-flex items-center gap-1.5 t-label text-ink/70 mt-3">
                         {item.cue}
                         <ArrowRight
                           size={12}

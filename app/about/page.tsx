@@ -162,8 +162,8 @@ export default function AboutPage() {
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
             <SectionHead
-              label="Workflow"
-              title="How I work"
+              label="Practice"
+              title="Current design workflow"
               intro="From proof of concept through to developer handover, and how the design system keeps it consistent."
             />
 
