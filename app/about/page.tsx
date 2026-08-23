@@ -77,6 +77,14 @@ function Pills({ items }: { items: string[] }) {
   );
 }
 
+/*
+  Section order matters here. The page used to run intro, personal, then three
+  list sections in a row, with the workflow diagrams last. That put the least
+  distinctive material in the middle and the most distinctive at the bottom.
+
+  Now: who I am, how I work, where I have worked, what I hold, then the
+  personal note as the close.
+*/
 export default function AboutPage() {
   return (
     <div className="page-entry">
@@ -126,8 +134,9 @@ export default function AboutPage() {
 
       <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
 
+        {/* ── Who I am ─────────────────────────────── */}
         <FadeIn>
-          <section className="mb-24 md:mb-28">
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
             <p className="text-xl md:text-2xl text-ink leading-[1.45] font-medium measure mb-8">
               I am an experienced designer with a background in entrepreneurship, business
               development, branding, product design, visual and online education design,
@@ -149,87 +158,9 @@ export default function AboutPage() {
           </section>
         </FadeIn>
 
+        {/* ── How I work, promoted ─────────────────── */}
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
-            <SectionHead label="Beyond work" title="What keeps the work steady" />
-            <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
-              I am a proud father who draws inspiration and solace from nature, Tai Chi,
-              meditation, breathwork, trail running, and early morning swims in the Atlantic.
-              That calm and reflection ends up in the work.
-            </p>
-            <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
-              I make prints for free play, as a creative outlet.
-            </p>
-            <PrintsCarousel />
-          </section>
-        </FadeIn>
-
-        <FadeIn>
-          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
-            <SectionHead label="Experience" title="Where I have worked" />
-            <ol>
-              {experience.map((exp, i, arr) => (
-                <li key={`${exp.company}-${exp.title}`} className="flex gap-5 md:gap-7">
-                  <div className="flex flex-col items-center pt-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
-                    {i < arr.length - 1 && <span className="w-px flex-1 bg-line mt-2" />}
-                  </div>
-                  <div className="pb-10 grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-1 flex-1">
-                    <p className="t-label text-ink/40 md:pt-1">{exp.period}</p>
-                    <div>
-                      <h3 className="text-[17px] font-bold text-ink">{exp.title}</h3>
-                      <p className="text-sm text-ember mb-2">{exp.company}</p>
-                      <p className="text-[15px] text-ink/60 leading-relaxed measure">{exp.desc}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
-        </FadeIn>
-
-        <FadeIn>
-          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
-            <SectionHead label="Education" title="What I studied" />
-            <dl className="border-t border-line">
-              {education.map((edu) => (
-                <div
-                  key={edu.title}
-                  className="grid grid-cols-[4.5rem_1fr] md:grid-cols-[8rem_1fr] gap-x-4 py-5 border-b border-line"
-                >
-                  <dt className="t-num text-sm text-ink/40 pt-0.5">{edu.year}</dt>
-                  <dd>
-                    <p className="text-[16px] font-bold text-ink leading-snug">{edu.title}</p>
-                    <p className="text-sm text-ink/55 mt-1">{edu.institution}</p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </section>
-        </FadeIn>
-
-        <FadeIn>
-          <section id="tooling" className="mb-24 md:mb-28 pb-20 border-b border-line scroll-mt-24">
-            <SectionHead label="Capability" title="Skills and tooling" />
-            <div className="space-y-10">
-              <div>
-                <p className="t-label text-ink/40 mb-5">Skills</p>
-                <Pills items={skills} />
-              </div>
-              <div>
-                <p className="t-label text-ink/40 mb-5">Tools</p>
-                <Pills items={tools} />
-              </div>
-              <div>
-                <p className="t-label text-ink/40 mb-5">AI</p>
-                <Pills items={aiTools} />
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
-        <FadeIn>
-          <section>
             <SectionHead
               label="Workflow"
               title="How I work"
@@ -260,6 +191,94 @@ export default function AboutPage() {
                 </div>
               </figure>
             </div>
+          </section>
+        </FadeIn>
+
+        {/* ── Track record ─────────────────────────── */}
+        <FadeIn>
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead label="Experience" title="Where I have worked" />
+            <ol>
+              {experience.map((exp, i, arr) => (
+                <li key={`${exp.company}-${exp.title}`} className="flex gap-5 md:gap-7">
+                  <div className="flex flex-col items-center pt-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-ember shrink-0" />
+                    {i < arr.length - 1 && <span className="w-px flex-1 bg-line mt-2" />}
+                  </div>
+                  <div className="pb-10 grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-1 flex-1">
+                    <p className="t-label text-ink/40 md:pt-1">{exp.period}</p>
+                    <div>
+                      <h3 className="text-[17px] font-bold text-ink">{exp.title}</h3>
+                      <p className="text-sm text-ember mb-2">{exp.company}</p>
+                      <p className="text-[15px] text-ink/60 leading-relaxed measure">{exp.desc}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </FadeIn>
+
+        {/*
+          Education and tooling were two consecutive list sections. Merged into
+          one, side by side on a wide screen, so the page has two list beats
+          rather than three. The tooling id is kept because the home page links
+          straight to it.
+        */}
+        <FadeIn>
+          <section id="tooling" className="mb-24 md:mb-28 pb-20 border-b border-line scroll-mt-24">
+            <SectionHead label="Credentials" title="What I studied, and what I work with" />
+
+            <div className="grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-16">
+              <div>
+                <p className="t-label text-ink/40 mb-5">Education</p>
+                <dl className="border-t border-line">
+                  {education.map((edu) => (
+                    <div
+                      key={edu.title}
+                      className="grid grid-cols-[4.5rem_1fr] md:grid-cols-[6.5rem_1fr] gap-x-4 py-4 border-b border-line"
+                    >
+                      <dt className="t-num text-sm text-ink/40 pt-0.5">{edu.year}</dt>
+                      <dd>
+                        <p className="text-[15px] font-bold text-ink leading-snug">{edu.title}</p>
+                        <p className="text-sm text-ink/55 mt-1">{edu.institution}</p>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div className="space-y-10">
+                <div>
+                  <p className="t-label text-ink/40 mb-5">Skills</p>
+                  <Pills items={skills} />
+                </div>
+                <div>
+                  <p className="t-label text-ink/40 mb-5">Tools</p>
+                  <Pills items={tools} />
+                </div>
+                <div>
+                  <p className="t-label text-ink/40 mb-5">AI</p>
+                  <Pills items={aiTools} />
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* ── The close ────────────────────────────── */}
+        <FadeIn>
+          <section>
+            <SectionHead label="Beyond work" title="What keeps the work steady" />
+            <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
+              I am a proud father who draws inspiration and solace from nature, Tai Chi,
+              meditation, breathwork, trail running, and early morning swims in the Atlantic.
+              That calm and reflection ends up in the work.
+            </p>
+            <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
+              I make prints for free play, as a creative outlet.
+            </p>
+            <PrintsCarousel />
           </section>
         </FadeIn>
 

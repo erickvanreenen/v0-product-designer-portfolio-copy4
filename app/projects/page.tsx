@@ -41,7 +41,7 @@ export default function ProjectsPage() {
         {mainProjects.length > 0 && (
           <section aria-labelledby="main-work">
             <h2 id="main-work" className="sr-only">Product and platform work</h2>
-            <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
+            <div className="grid md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-12">
               {mainProjects.map((project, i) => (
                 <FadeIn key={project.slug} delay={i * 55} className="h-full">
                   <ProjectCard project={project} />
@@ -63,7 +63,7 @@ export default function ProjectsPage() {
                 </p>
               </div>
             </FadeIn>
-            <div className="grid md:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-20">
+            <div className="grid md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-12">
               {edtechProjects.map((project, i) => (
                 <FadeIn key={project.slug} delay={i * 55} className="h-full">
                   <ProjectCard project={project} />
