@@ -51,7 +51,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Props) 
           title="What passes between whom"
           intro="Mapping the handoffs first made it obvious what the app had to hold. It is not a document store. It is a sequence with a deadline."
         >
-          <Figure caption="Advancing handoffs, promoter to agent to artist, against show day">
+          <Figure caption="Advancing handoffs before and after the app, promoter to agent to artist, against show day">
             <AdvancingLanes />
           </Figure>
         </Section>

@@ -5,21 +5,46 @@ import { FadeIn } from "@/components/fade-in";
 import { HeroHeadline } from "@/components/hero-headline";
 import { ArrowRight } from "lucide-react";
 
-const principles = [
+/*
+  The five areas the work groups into. Every line here is drawn from an
+  existing case study or the About page, so each one has somewhere real to
+  point at.
+*/
+const capabilities = [
   {
     n: "01",
-    title: "I notice things, then follow through",
-    body: "The UCOOK sign-up investigation started because I spotted something in the data nobody had flagged. I scoped it, researched it, and delivered a redesign that took completion from 3.7% to 9.3%.",
+    name: "AI design workflows",
+    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch, used across research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
+    href: "/about#tooling",
+    cue: "Tooling",
   },
   {
     n: "02",
-    title: "Research shapes the work",
-    body: "Customer interviews, heatmaps, usability testing, internal surveys, competitive benchmarking. Understanding people before designing for them makes everything more considered.",
+    name: "GEO",
+    body: "Generative Engine Optimisation is an information architecture discipline that gets filed under content marketing. For Rhino Africa I defined seven content layers, ordered by the sequence a crawler reads them.",
+    href: "/projects/rhino-africa-geo",
+    cue: "Rhino Africa",
   },
   {
     n: "03",
-    title: "Specs developers can work from",
-    body: "Annotated prototypes with scrollIntoView() behaviour, validation rules, and GTM triggers. The kind of handoff that reduces guesswork on both sides.",
+    name: "Research",
+    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. It is how I uncover what people actually need, rather than what I assume they need.",
+    href: "/projects/ucook",
+    cue: "UCOOK",
+  },
+  {
+    n: "04",
+    name: "Systems thinking",
+    body: "Mapping dependencies before designing solutions. At Faithful to Nature every decision carried downstream consequences across seventeen stores and two legacy systems.",
+    href: "/projects/faithful-to-nature",
+    cue: "Faithful to Nature",
+  },
+  {
+    n: "05",
+    name: "Design thinking",
+    body: "Creativity and empathy in the making, balanced against what can practically ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
+    href: "/projects/ada-ux-design",
+    cue: "Academy of Digital Arts",
   },
 ];
 
@@ -54,25 +79,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How I work */}
+      {/* What I do */}
       <section className="bg-ink-deep text-paper">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="grid md:grid-cols-3 gap-x-12 gap-y-14">
-            {principles.map((item, i) => (
-              <FadeIn key={item.n} delay={i * 90}>
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="t-num text-sm font-semibold text-ember-lift">{item.n}</span>
-                    <span className="h-px flex-1 bg-paper/15" />
-                  </div>
-                  <h2 className="text-[19px] font-bold text-paper leading-snug tracking-[-0.015em] mb-3">
-                    {item.title}
-                  </h2>
-                  <p className="text-[14px] text-paper/55 leading-relaxed">{item.body}</p>
-                </div>
+          <FadeIn>
+            <p className="t-label text-ember-lift mb-5">What I do</p>
+            <h2 className="t-h2 text-3xl md:text-[40px] text-paper mb-12 md:mb-16 max-w-xl">
+              Five areas the work keeps returning to.
+            </h2>
+          </FadeIn>
+
+          {/*
+            A list rather than a card grid. Five items do not divide evenly into
+            columns, and each one earns a full line of explanation anyway.
+          */}
+          <ul className="border-t border-paper/15">
+            {capabilities.map((item, i) => (
+              <FadeIn key={item.n} delay={i * 70}>
+                <li>
+                  <Link
+                    href={item.href}
+                    className="group grid md:grid-cols-[auto_1fr_1.5fr] gap-x-8 lg:gap-x-12 gap-y-3 py-7 md:py-8
+                               border-b border-paper/15 items-baseline
+                               focus-visible:outline-none focus-visible:bg-paper/5"
+                  >
+                    <span className="t-num text-sm font-semibold text-ember-lift md:pt-1">
+                      {item.n}
+                    </span>
+
+                    <h3 className="text-[21px] md:text-[23px] font-bold text-paper leading-snug tracking-[-0.015em] group-hover:text-ember-lift transition-colors duration-200">
+                      {item.name}
+                    </h3>
+
+                    <div>
+                      <p className="text-[14.5px] text-paper/65 leading-relaxed">{item.body}</p>
+                      <span className="inline-flex items-center gap-1.5 t-label text-paper/55 mt-3 group-hover:text-ember-lift transition-colors duration-200">
+                        {item.cue}
+                        <ArrowRight
+                          size={12}
+                          className="group-hover:translate-x-0.5 transition-transform duration-200"
+                        />
+                      </span>
+                    </div>
+                  </Link>
+                </li>
               </FadeIn>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -91,7 +144,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="text-[15px] text-ink/55 measure mb-14 md:mb-16">
-              Each one is named for the problem it solves, not the company that paid for it.
+              Each one is named for the work it involved, not the company that paid for it.
             </p>
           </FadeIn>
 

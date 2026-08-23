@@ -108,7 +108,7 @@ export function Premise({
       <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
         <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-10 items-start">
           <div>
-            <p className="t-label text-ink/45 mb-4">The problem</p>
+            <p className="t-label text-ink/45 mb-4">The challenge</p>
             <p className="text-lg md:text-xl text-ink leading-snug font-medium">
               {question}
             </p>

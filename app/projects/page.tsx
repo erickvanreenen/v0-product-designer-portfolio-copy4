@@ -24,10 +24,10 @@ export default function ProjectsPage() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
           <p className="t-label text-ember mb-6">Work</p>
           <h1 className="t-display text-5xl md:text-7xl text-ink mb-6">
-            Nine problems.
+            Nine solved challenges.
           </h1>
           <p className="text-lg text-ink/60 measure">
-            Each project is titled by the problem it addresses. The company is underneath.
+            Each project is titled by the work it involved. The company is underneath.
             E-commerce, omnichannel platforms, data tooling, and education.
           </p>
         </div>

@@ -25,8 +25,11 @@ export interface Project {
   question: string;
   /** What the project turned out to be, in one line. */
   answer: string;
-  /** Headline figure, where one exists. */
-  metric?: { value: string; label: string };
+  /**
+   * Headline figure, where one exists. Supply `from` to render a before and
+   * after pair; the after half then carries the positive colour.
+   */
+  metric?: { value: string; label: string; from?: string };
   accent: Accent;
   tags: ProjectTag[];
   role: string;
@@ -109,12 +112,12 @@ export const projects: Project[] = [
   },
   {
     slug: "ucook",
-    title: "Funnel",
+    title: "Conversion Optimisation",
     client: "UCOOK",
     subtitle: "Sign-up drop-off, diagnosed and rebuilt",
     question: "Why were people abandoning sign-up while still expecting their meal boxes to arrive?",
     answer: "They thought they had finished. Payment came days later, so nothing told them they had not.",
-    metric: { value: "3.7% → 9.3%", label: "sign-up completion" },
+    metric: { from: "3.7%", value: "9.3%", label: "sign-up completion" },
     accent: "clay",
     tags: ["E-commerce", "Omnichannel", "UX Strategy", "Redesign"],
     role: "UX/UI Designer",
@@ -210,7 +213,7 @@ export const projects: Project[] = [
   },
   {
     slug: "flanksource",
-    title: "One View",
+    title: "Minimizing complexity",
     client: "Flanksource",
     subtitle: "Five tools, one screen",
     question: "Engineers had metrics, logs, and config in Git. What they did not have was one place that told them what needed attention.",
@@ -259,7 +262,7 @@ export const projects: Project[] = [
   },
   {
     slug: "overture",
-    title: "Advancing",
+    title: "Quick iteration",
     client: "Overture",
     subtitle: "The coordination phase before an event",
     question: "Promoters, agents and artists trade documentation before every show. No single tool covered that handover.",
@@ -301,7 +304,7 @@ export const projects: Project[] = [
   },
   {
     slug: "edtech-interactive-learning",
-    title: "Comprehension",
+    title: "Online course creation",
     client: "Masterstart, Stellenbosch Business School",
     subtitle: "Making systems theory learnable",
     question: "How do you make abstract Business Systems Analysis models land for a learner reading them for the first time?",
@@ -349,7 +352,7 @@ export const projects: Project[] = [
   },
   {
     slug: "uni4-online",
-    title: "Consolidation",
+    title: "Aggregator site design",
     client: "UNi4 Online",
     subtitle: "Multiple education brands, one platform",
     question: "How do several education brands share one platform without losing what makes each of them distinct?",
@@ -397,7 +400,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ada-ux-design",
-    title: "Instruction",
+    title: "Curriculum creation, and lecturer",
     client: "Academy of Digital Arts",
     subtitle: "Teaching UX to people who have never designed",
     question: "What does a student need to encounter first, and in what order, to leave able to run a UX process themselves?",
@@ -444,7 +447,7 @@ export const projects: Project[] = [
   },
   {
     slug: "eduvos-content-writing",
-    title: "Curriculum",
+    title: "Content writer",
     client: "Eduvos",
     subtitle: "Two modules merged into one",
     question: "UX and UI were taught as separate disciplines. What survives the merge, and what should go?",

@@ -49,7 +49,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
         <Section label="Two tracks" title="Team and platform, run in parallel" wide>
           <Compare
             before={{
-              label: "Track 01 · Team leadership",
+              label: "Track 01 · As Team Leader",
               title: "Designers working in isolation",
               body: "Output quality was inconsistent and KPIs were being missed.",
               notes: [

@@ -49,9 +49,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="mt-auto pt-4 border-t border-line">
             {project.metric ? (
               <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                <span className="t-num text-lg font-semibold text-accent">
-                  {project.metric.value}
-                </span>
+                {/*
+                  A before and after pair reads as a direction, not two numbers.
+                  The arrow and the result carry the positive colour so the
+                  improvement is legible without reading the label.
+                */}
+                {project.metric.from ? (
+                  <span className="t-num text-lg font-semibold flex items-baseline gap-2">
+                    <span className="text-ink/45">{project.metric.from}</span>
+                    <span aria-hidden="true" className="text-positive">
+                      &rarr;
+                    </span>
+                    <span className="text-positive">{project.metric.value}</span>
+                  </span>
+                ) : (
+                  <span className="t-num text-lg font-semibold text-accent">
+                    {project.metric.value}
+                  </span>
+                )}
                 <span className="t-label text-ink/45">{project.metric.label}</span>
               </div>
             ) : (

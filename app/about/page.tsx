@@ -209,7 +209,7 @@ export default function AboutPage() {
         </FadeIn>
 
         <FadeIn>
-          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+          <section id="tooling" className="mb-24 md:mb-28 pb-20 border-b border-line scroll-mt-24">
             <SectionHead label="Capability" title="Skills and tooling" />
             <div className="space-y-10">
               <div>

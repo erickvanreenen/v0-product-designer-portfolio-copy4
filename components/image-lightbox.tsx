@@ -83,10 +83,16 @@ export function ImageLightbox({ images, cols, contain = false }: ImageLightboxPr
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full flex-1 min-h-0 aspect-[4/3] max-h-[76vh]">
+              {/*
+                priority, not the default lazy loading. This image mounts only
+                once the dialog opens, and the lazy loader does not fire for it,
+                which left the viewer looking at an empty dark panel.
+              */}
               <Image
                 src={images[open].src}
                 alt={images[open].alt}
                 fill
+                priority
                 sizes="100vw"
                 className="object-contain"
               />

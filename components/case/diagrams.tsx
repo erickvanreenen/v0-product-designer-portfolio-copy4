@@ -345,52 +345,110 @@ export function Convergence() {
    ADVANCING — Overture
    ══════════════════════════════════════════════════════════ */
 
+/*
+  Two panels, same four exchanges. The top panel is the workflow as it ran
+  before: each handoff its own thread, nothing holding the sequence. The
+  bottom panel is the same four artefacts once the app existed. The point of
+  the pairing is that the work did not reduce, the scatter did.
+*/
 export function AdvancingLanes() {
   const lanes = ["Promoter", "Agent", "Artist"];
+  const artefacts = ["Brief", "Rider", "Tech spec", "Signed pack"];
   const handoffs = [
-    { from: 0, to: 1, x: 168, label: "Brief" },
+    { from: 0, to: 1, x: 176, label: "Brief" },
     { from: 1, to: 2, x: 288, label: "Rider" },
-    { from: 2, to: 1, x: 408, label: "Tech spec" },
-    { from: 1, to: 0, x: 528, label: "Signed pack" },
+    { from: 2, to: 1, x: 400, label: "Tech spec" },
+    { from: 1, to: 0, x: 512, label: "Signed pack" },
   ];
+
+  const laneY = (i: number) => 58 + i * 46;
+  const roleY = (i: number) => 330 + i * 46;
 
   return (
     <Scroller min={660}>
-      <svg viewBox="0 0 700 230" className="w-full" style={{ fontFamily: MONO }}>
+      <svg viewBox="0 0 700 470" className="w-full" style={{ fontFamily: MONO }}>
+        {/* ── Panel 1: before ─────────────────────────── */}
+        <text x="20" y="20" fontSize="8.5" fontWeight="700" fill={INK} opacity="0.4" letterSpacing="0.7">
+          BEFORE, FOUR SEPARATE EMAIL THREADS
+        </text>
+
         {lanes.map((lane, i) => (
           <g key={lane}>
-            <text x="20" y={51 + i * 56} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.6">
+            <text x="20" y={laneY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.6">
               {lane}
             </text>
-            <line x1="104" y1={46 + i * 56} x2="620" y2={46 + i * 56}
+            <line x1="104" y1={laneY(i)} x2="620" y2={laneY(i)}
               stroke={INK} strokeWidth="1" strokeOpacity="0.14" />
           </g>
         ))}
 
         {handoffs.map((h) => {
-          const y1 = 46 + h.from * 56;
-          const y2 = 46 + h.to * 56;
+          const y1 = laneY(h.from);
+          const y2 = laneY(h.to);
           return (
             <g key={h.label}>
-              <path d={`M ${h.x} ${y1} L ${h.x + 40} ${y2}`}
-                stroke={ACCENT} strokeWidth="1.5" />
+              <path d={`M ${h.x} ${y1} L ${h.x + 40} ${y2}`} stroke={ACCENT} strokeWidth="1.5" />
               <circle cx={h.x} cy={y1} r="4" fill={ACCENT} />
               <circle cx={h.x + 40} cy={y2} r="4" fill={ACCENT} />
-              <text x={h.x + 20} y={(y1 + y2) / 2 - 8} fontSize="8" fontWeight="600"
+              <text x={h.x + 20} y={(y1 + y2) / 2 - 7} fontSize="8" fontWeight="600"
                 fill={ACCENT} textAnchor="middle">{h.label}</text>
             </g>
           );
         })}
 
-        {/* Show date */}
-        <line x1="620" y1="30" x2="620" y2="176" stroke={INK} strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="4 3" />
-        <rect x="584" y="182" width="72" height="22" rx="11" fill={INK} />
-        <text x="620" y="197" fontSize="9" fontWeight="700" fill="var(--paper)" textAnchor="middle">
+        <line x1="620" y1="40" x2="620" y2="172" stroke={INK} strokeWidth="1.5"
+          strokeOpacity="0.3" strokeDasharray="4 3" />
+        <rect x="584" y="178" width="72" height="22" rx="11" fill={INK} />
+        <text x="620" y="193" fontSize="9" fontWeight="700" fill="var(--paper)" textAnchor="middle">
           Show day
         </text>
 
-        <text x="20" y="222" fontSize="10" fill={INK} opacity="0.55">
-          Every handoff previously lived in email. One app holds the whole exchange.
+        <text x="20" y="222" fontSize="9.5" fill={INK} opacity="0.55">
+          Four exchanges, four threads. Nothing holds the sequence.
+        </text>
+
+        {/* ── Divider ─────────────────────────────────── */}
+        <line x1="20" y1="252" x2="680" y2="252" stroke={INK} strokeWidth="1" strokeOpacity="0.12" />
+
+        {/* ── Panel 2: after ──────────────────────────── */}
+        <text x="20" y="288" fontSize="8.5" fontWeight="700" fill={ACCENT} letterSpacing="0.7">
+          AFTER, ONE SHARED RECORD
+        </text>
+
+        {lanes.map((lane, i) => (
+          <g key={`after-${lane}`}>
+            <text x="20" y={roleY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.6">
+              {lane}
+            </text>
+            {/* every role writes into and reads from the same record */}
+            <path d={`M 104 ${roleY(i)} L 250 ${roleY(i)} L 286 ${roleY(1)}`}
+              fill="none" stroke={ACCENT} strokeWidth="1.5" strokeOpacity="0.55" />
+            <circle cx="104" cy={roleY(i)} r="4" fill={ACCENT} />
+          </g>
+        ))}
+
+        <rect x="290" y="304" width="196" height="112" rx="4"
+          fill="var(--accent-wash)" stroke={ACCENT} strokeWidth="1.5" />
+        <text x="304" y="322" fontSize="8" fontWeight="700" fill={ACCENT} letterSpacing="0.5">
+          THE ADVANCE
+        </text>
+        {artefacts.map((a, i) => (
+          <g key={`item-${a}`}>
+            <circle cx="308" cy={340 + i * 18} r="2.5" fill={ACCENT} />
+            <text x="320" y={343 + i * 18} fontSize="8.5" fill={INK} opacity="0.75">{a}</text>
+          </g>
+        ))}
+
+        <path d={`M 486 ${roleY(1)} L 620 ${roleY(1)}`} stroke={ACCENT} strokeWidth="1.5" />
+        <line x1="620" y1="312" x2="620" y2="412" stroke={INK} strokeWidth="1.5"
+          strokeOpacity="0.3" strokeDasharray="4 3" />
+        <rect x="584" y="418" width="72" height="22" rx="11" fill={INK} />
+        <text x="620" y="433" fontSize="9" fontWeight="700" fill="var(--paper)" textAnchor="middle">
+          Show day
+        </text>
+
+        <text x="20" y="462" fontSize="9.5" fill={INK} opacity="0.55">
+          The same four exchanges, in one place all three parties can see.
         </text>
       </svg>
     </Scroller>
