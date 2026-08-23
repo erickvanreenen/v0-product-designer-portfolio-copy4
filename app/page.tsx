@@ -13,7 +13,7 @@ import { ArrowRight } from "lucide-react";
 const capabilities = [
   {
     name: "AI design workflows",
-    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch. I use them across research, synthesis and exploration, and I studied AI Fundamentals for UX in 2025.",
+    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch, used across research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
     href: "/about#tooling",
     cue: "Tooling",
   },
@@ -25,13 +25,13 @@ const capabilities = [
   },
   {
     name: "Research",
-    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. It is how I find out what people need instead of guessing.",
+    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. It is how I uncover what people actually need, rather than what I assume they need.",
     href: "/projects/ucook",
     cue: "UCOOK",
   },
   {
     name: "Systems thinking",
-    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and the anatomy of a document before drawing a single screen. The screens came out of that map.",
+    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and the anatomy of a document before drawing a single screen, which is what made the later decisions defensible.",
     href: "/projects/kurtosys-rule-builder",
     cue: "Kurtosys",
   },

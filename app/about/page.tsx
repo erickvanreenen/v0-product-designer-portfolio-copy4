@@ -138,20 +138,21 @@ export default function AboutPage() {
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
             <p className="text-xl md:text-2xl text-ink leading-[1.45] font-medium measure mb-8">
-              I am a designer with a background in entrepreneurship, business
+              I am an experienced designer with a background in entrepreneurship, business
               development, branding, product design, visual and online education design,
               and UX/UI.
             </p>
             <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
               <p>
-                I care about what good design does for people&apos;s lives. I work with
-                creativity, empathy and kindness, and I stay curious about how the pieces
-                fit together. The focus is the people I design for, and with.
+                I care about how good design changes people&apos;s lives, and I bring creativity,
+                empathy and kindness to everything I make. Curiosity drives the work, and an
+                endless desire to understand how design fits together, focused on the people
+                I design for and with.
               </p>
               <p>
-                Research is how I find out what people need, so the experience meets their
-                motivations instead of my assumptions. I solve problems, I push for quality
-                design, and I weigh invention against what can practically ship.
+                Research is how I uncover what people actually need, so the experience meets
+                their motivations rather than my assumptions. I am a problem-solver and an
+                advocate for quality design, balancing invention against what can practically ship.
               </p>
             </div>
           </section>
@@ -270,12 +271,12 @@ export default function AboutPage() {
           <section>
             <SectionHead label="Beyond work" title="What keeps the work steady" />
             <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
-              I am a proud father. Nature, Tai Chi, meditation, breathwork, trail running and
-              early morning swims in the Atlantic are where I find calm, and it ends up in
-              the work.
+              I am a proud father who draws inspiration and solace from nature, Tai Chi,
+              meditation, breathwork, trail running, and early morning swims in the Atlantic.
+              That calm and reflection ends up in the work.
             </p>
             <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
-              I make prints for free play.
+              I make prints for free play, as a creative outlet.
             </p>
             <PrintsCarousel />
           </section>

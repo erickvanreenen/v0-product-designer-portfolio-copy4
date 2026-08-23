@@ -156,7 +156,7 @@ export const projects: Project[] = [
       "Status is not health. Combining lifecycle and runtime into one column would hide the urgent case, an Active rule that can no longer run",
       "One readback component across three contexts means the audience learns the pattern once and recognises it everywhere",
       "Complexity should be earned rather than toggled. The group affordance appears after three conditions exist, so beginners never meet it and no second interface has to be maintained",
-      "Writing down what I left out, and why, saved re-arguing it later"
+      "Naming what you left out, and why, is part of the design. Scope choices are decisions, not gaps"
     ],
     images: []
   },
@@ -181,7 +181,7 @@ export const projects: Project[] = [
       "Multilingual conversion break identified between blog and enquiry flow",
       "Five persona buckets mapped from conversation mining across six platforms"
     ],
-    summary: "A structural analysis of how a luxury safari platform earns citation in AI-generated search. Generative Engine Optimisation is an information architecture problem, not a content problem. This project defines the hierarchy that lets a machine find, extract, and attribute expertise.",
+    summary: "A structural analysis of how a luxury safari platform earns citation in AI-generated search. Generative Engine Optimisation is not a content problem, it is an information architecture problem. This project defines the hierarchy that lets a machine find, extract, and attribute expertise.",
     context: "Rhino Africa is Africa's most awarded safari company, with 5,300+ Trustpilot reviews at a 5.0 rating. The platform is a content-to-conversion machine, six pillars funnelling toward a single outcome, the human Travel Expert relationship. But search is changing. Users increasingly ask Perplexity, ChatGPT Search, and Google AI Overviews rather than scanning ten blue links. In that world, ranking is not the goal. Being cited is.",
     goals: [
       "Understand the platform as a system before designing anything within it",
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     learnings: [
       "GEO is an information architecture discipline that gets filed under content marketing. The structure is the optimisation",
       "Machines cannot infer authority. If expertise is not declared explicitly and consistently, it does not exist to a crawler",
-      "Understanding the ecosystem before designing a single page is not overhead. The page decisions fall out of it",
+      "Understanding the ecosystem before designing a single page is not overhead. It is what makes the page decision defensible",
       "The first hundred words carry the most weight. Leading with the answer rather than the preamble is both better UX and better machine legibility"
     ],
     images: []
@@ -242,10 +242,10 @@ export const projects: Project[] = [
     ],
     research: "Immersed in the existing platform to map UX debt and misaligned historical decisions. Identified filtering inconsistencies across category levels and gaps in delivery and collection options. Mapped omnichannel dependencies across logistics, data availability, and legacy systems.",
     insights: [
-      "Dev-first culture created UX debt. Patterns changed between category levels",
+      "Dev-first culture created significant UX debt. Patterns changed between category levels",
       "Design was constrained by data availability, not by user need",
       "Legacy M1 dependencies limited what was buildable on M2",
-      "Every decision had downstream consequences, so nothing could be designed in isolation",
+      "Systems thinking was non-negotiable. Every decision had downstream consequences",
       "Advocating for UX meant translating user needs into business and technical language"
     ],
     iaFlows: "",
@@ -302,7 +302,7 @@ export const projects: Project[] = [
     testing: "Reviewed designs with the Flanksource product team, iterating on information density and visual hierarchy from their feedback.",
     outcome: "A cohesive dashboard that gives engineering teams one entry point into system health, replacing the need to check five separate views.",
     learnings: [
-      "You cannot design an unfamiliar product without learning the domain first",
+      "Domain immersion is non-negotiable for unfamiliar products",
       "Data density requires strict visual hierarchy"
     ],
     images: [
@@ -393,8 +393,8 @@ export const projects: Project[] = [
     testing: "",
     outcome: "The course went live on Masterstart. Seeing course content come to life in Articulate Rise, and knowing it was built for Stellenbosch Business School, is work I value.",
     learnings: [
-      "Designing for learning is designing for comprehension. The bar is higher than in most design work",
-      "Working with subject matter experts and learning designers sharpens the brief",
+      "Designing for learning is designing for comprehension. The bar is higher than most design contexts",
+      "Collaboration with subject matter experts and learning designers sharpens the brief considerably",
       "Articulate Rise rewards visual restraint and clear hierarchy above anything else"
     ],
     images: [],
@@ -415,7 +415,7 @@ export const projects: Project[] = [
     tools: ["Figma", "Miro", "Articulate 360", "Adobe Creative Suite"],
     thumbnail: "/images/thumb-uni4.svg",
     outcomes: [
-      "Team productivity improved",
+      "Team productivity increased significantly",
       "KPIs met consistently",
       "Designer collaboration improved",
       "Aggregator platform designed and delivered"
@@ -432,7 +432,7 @@ export const projects: Project[] = [
     insights: [
       "Designers needed clearer project visibility",
       "Regular check-ins improved team morale",
-      "Users needed to move between brands without losing their place",
+      "Users needed seamless navigation between brands",
       "Content consistency was what built trust across multiple educational brands"
     ],
     iaFlows: "Designed an information architecture that lets users move between brands while keeping clear context, with unified design patterns that work across all of them.",
@@ -442,7 +442,7 @@ export const projects: Project[] = [
     outcome: "Team productivity increased significantly, KPIs were consistently met, and the aggregator platform received positive feedback from stakeholders.",
     learnings: [
       "Leadership means balancing individual needs against team goals",
-      "A process change can move output quality more than a design change can",
+      "Process improvements can dramatically change output quality and efficiency",
       "Platforms need flexibility for multi-brand contexts under one roof"
     ],
     externalLink: "https://www.uni4online.com/",

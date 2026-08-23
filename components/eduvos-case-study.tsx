@@ -210,7 +210,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="The brief"
           title="Revamp a real non-profit website"
-          intro="Students apply the core principles of UI and UX design to a real scenario. They build personas, make mid-fidelity prototypes, and choose the platform to build on. It ends in usability testing, so the design has to improve the interaction while staying true to the non-profit's mission and brand."
+          intro="This brief immerses students in the core principles of UI and UX design by applying them to a real-world scenario. They develop user personas, create mid-fidelity prototypes, and select the best platform for implementation. It culminates in usability testing, so the design has to improve interaction while staying true to the non-profit's mission and brand identity."
         >
           <Compare
             before={{

@@ -32,16 +32,16 @@ const personas = [
 ];
 
 const opportunities = [
-  { title: "Aspiration-first planning", body: "Only one competitor attempts experience-led discovery. Starting with how you want to feel matches how luxury travellers begin planning, and almost nobody is there." },
-  { title: "Transparent enquiry process", body: "Five of six competitors leave the anxiety of what happens after clicking Enquire unaddressed. A clear three-step human process reduces drop-off before first contact." },
-  { title: "Modern technical foundation", body: "Three of six run WordPress. A headless or Next.js architecture gives speed, room for personalisation, and SEO advantages, and this audience notices when a site is fast." },
-  { title: "Itinerary visualisation", body: "No competitor offers an interactive itinerary builder or shareable journey map. Once a user is in consultation, a shared plan they can watch change is the biggest thing missing." },
+  { title: "Aspiration-first planning", body: "Only one competitor attempts experience-led discovery. Starting with how you want to feel maps to how luxury travellers actually begin planning, and it is largely unoccupied." },
+  { title: "Transparent enquiry process", body: "The anxiety of what happens after clicking Enquire is unaddressed by five of six competitors. A clear three-step human process reduces drop-off before first contact." },
+  { title: "Modern technical foundation", body: "Three of six run WordPress. A headless or Next.js architecture delivers speed, personalisation headroom, and SEO advantages that compound, and are perceptible to users calibrated to the best of the web." },
+  { title: "Itinerary visualisation", body: "No competitor offers an interactive itinerary builder or shareable journey map. Once a user is in consultation, a living collaborative plan is the highest-impact investment available in this space." },
 ];
 
 const implications = [
   { icon: "person", title: "Surface the consultant early", body: "It is the product, not a support feature. Across all five persona buckets, the named human relationship drives trust, conversion, and review." },
   { icon: "verified", title: "Distribute trust signals", body: "Awards, press, named consultants, and testimonials belong at every decision point, not quarantined on dedicated pages." },
-  { icon: "bolt", title: "Remove friction from enquiry", body: "One clear step, not a form. This audience will not sit through doubt." },
+  { icon: "bolt", title: "Remove friction from enquiry", body: "One clear step, not a form. High-net-worth users have money and no patience for doubt." },
   { icon: "language", title: "Extend multilingual continuity", body: "Language must carry from the blog through to the enquiry form. Discovery and conversion cannot speak different languages." },
   { icon: "map", title: "Add a spatial orientation layer", body: "For a platform that sells geography as the product, a map-based entry point is a structural gap, not a feature request." },
   { icon: "tune", title: "Build personalisation cues", body: "Every touchpoint should signal the user is known and their trip is being considered individually." },
@@ -74,12 +74,12 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
                 Rhino Africa is Africa&apos;s most awarded safari company. Over 5,300 Trustpilot
                 reviews at a 5.0 rating, destination coverage across twelve African countries,
                 and a consultant relationship customers name personally in almost every review.
-                The authority is real.
+                The authority is real and hard-won.
               </p>
               <p>
-                Authority a machine cannot read is authority that does not exist. So this
-                project maps the platform as a system, works out how AI agents extract and
-                attribute expertise, and sets out the hierarchy that makes it legible.
+                Authority a machine cannot read is authority that does not exist. This project
+                maps the platform as a system, establishes how AI agents actually extract and
+                attribute expertise, and architects the hierarchy that makes it legible.
               </p>
             </Prose>
           </div>
@@ -88,7 +88,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Why now"
           title="Ranking gets you on the list. Structure gets you in the answer."
-          intro="Search behaviour is shifting from scanning results to reading answers. Perplexity, ChatGPT Search, and Google AI Overviews synthesise a response and cite two or three sources. That changes what visibility is worth."
+          intro="Search behaviour is shifting from scanning results to reading answers. Perplexity, ChatGPT Search, and Google AI Overviews synthesise a response and cite two or three sources. The economics of visibility change completely."
         >
           <Figure caption="Ten ranked results against one synthesised answer with three citations">
             <SearchShiftDiagram />
@@ -107,7 +107,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Method"
           title="Understand the ecosystem before touching a page"
-          intro="Before designing anything I want to know where a feature or page sits in the system, and what depends on what. The page decisions follow from that."
+          intro="Before designing anything I need to know where a feature or page lives inside the system, and what depends on what. Only then does a page-level decision become defensible."
         >
           <Steps
             items={[
@@ -123,7 +123,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="The system"
           title="Six pillars, one destination"
-          intro="Everything funnels toward the human Travel Expert relationship. The platform is a content-to-conversion machine, and the blog runs on a separate subdomain that mirrors the main taxonomy."
+          intro="Everything funnels toward the human Travel Expert relationship. The platform is fundamentally a content-to-conversion machine, and the blog runs on a separate subdomain that mirrors the main taxonomy."
         >
           <Figure caption="Platform IA, with the WordPress blog subdomain marked as the seam">
             <PlatformIADiagram />
@@ -144,7 +144,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Findings"
           title="Where it breaks"
-          intro="The platform does a great deal well. Destination taxonomy runs deep, down to reserve level, so Sabi Sand sits beneath Kruger Private Game Reserve rather than under South Africa. Users can arrive at country, region, or park level depending on how specific their intent is."
+          intro="The platform does a great deal well. Destination taxonomy runs genuinely deep, down to reserve level, so Sabi Sand sits beneath Kruger Private Game Reserve rather than under South Africa. Users can arrive at country, region, or park level depending on how specific their intent is."
         >
           <Metrics
             items={[
@@ -160,9 +160,9 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
               The language drops away at the moment the user commits
             </h3>
             <p className="text-[16px] text-ink/65 leading-relaxed measure mb-8">
-              The blog is available in five languages, which matches where the buyer markets
-              are. The main site declares two locale alternates. The enquiry form is English
-              only.
+              The blog is available in five languages, which reflects real awareness of where
+              the buyer markets sit. The main site declares two locale alternates. The enquiry
+              form is English only.
             </p>
             <Figure caption="Discovery to conversion, with the multilingual break marked">
               <MultilingualBreakDiagram />
@@ -279,7 +279,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Competitive set"
           title="Looking for the unoccupied ground"
-          intro="Six competitors, three local and three international, scored across five UX dimensions. I was looking for unoccupied ground rather than a league table. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average."
+          intro="Six competitors, three local and three international, scored across five UX dimensions. The purpose was not ranking. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average."
         >
           <CompetitorMatrix />
 
@@ -313,7 +313,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Outcome>
           <p>
             The output of this project is not a screen. It is a structure, one that makes
-            fifteen years of expertise legible to a machine that has never met a
+            fifteen years of earned expertise legible to a machine that has never met a
             consultant.
           </p>
         </Outcome>

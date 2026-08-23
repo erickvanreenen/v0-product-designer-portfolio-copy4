@@ -49,7 +49,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
               <p>
                 Metrics dashboards, log tools, Git for config. Each one good at its job and
                 none of them tied together. Mission Control was built to close that gap,
-                and the dashboard is where you have to be able to see it.
+                and the dashboard is where the closing has to be visible.
               </p>
             </Prose>
           </div>

@@ -86,9 +86,9 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           <div className="mt-10">
             <Prose>
               <p>
-                This was not on the roadmap. I started looking because the pattern in the
-                complaints did not match the pattern in the data, and that gap usually means
-                the interface is telling people something untrue.
+                This was not on the roadmap. I initiated the investigation because the pattern
+                in the complaints did not match the pattern in the data, and that gap usually
+                means the interface is telling people something untrue.
               </p>
             </Prose>
           </div>
@@ -97,7 +97,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="The gap"
           title="They thought they had finished"
-          intro="Every test participant expected to pay immediately. Payment is what completion feels like. In the old flow it arrived days later, so the moment they left the screen there was nothing to tell them otherwise."
+          intro="Every test participant expected to pay immediately. Payment is what completion feels like. In the old flow it arrived days later, so the moment they left the screen there was nothing to contradict the belief that they were done."
         >
           <Figure caption="Sign-up completion against actual first billing">
             <ExpectationGap />
@@ -108,7 +108,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           <Compare
             before={{
               label: "User pain",
-              body: "Hesitation at the moment the flow needed commitment.",
+              body: "Hesitation at exactly the moment the flow needed commitment.",
               notes: [
                 "Sign-up was confused with simple account creation",
                 "Meals could not be found, and there was no way back a step",
@@ -132,7 +132,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="Constraints"
           title="Why payment could not simply move"
-          intro="The obvious fix is to charge at sign-up. Delivery and billing run on different cycles that do not align, and that mismatch is where the expectation gap comes from."
+          intro="The obvious fix is to charge at sign-up. Delivery and billing run on different cycles that do not align, and that mismatch is the reason the expectation gap exists in the first place."
         >
           <Figure>
             <ModelComplexity />
@@ -140,10 +140,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           <div className="mt-10">
             <Prose>
               <p>
-                Billing logic was complex and did not match the user&apos;s mental model. Moving
-                payment earlier brought a refund risk, because reduced orders take more than
-                two days to reflect. That creates billing confusion at the point of highest
-                user trust.
+                Billing logic was complex and misaligned with the user&apos;s mental model.
+                Moving payment earlier introduced operational refund risk, because reduced
+                orders take more than two days to reflect. That creates billing confusion at
+                the point of highest user trust.
               </p>
             </Prose>
           </div>
@@ -243,7 +243,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="Option considered"
           title="Pay on sign-up"
-          intro="Move payment to the start, use the cart as the entry point, and deduce the customer profile from the order. I worked it through, and here is why it was not the answer."
+          intro="Move payment to the start, use the cart as the entry point, and deduce the customer profile from the order. I worked it through and documented why it was not the answer."
         >
           <div className="grid grid-cols-3 sm:grid-cols-6 border-t border-l border-line mb-10">
             {[
@@ -411,8 +411,8 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
               <p className="t-num text-5xl md:text-6xl font-semibold text-accent leading-none">+5.6%</p>
               <p className="t-label text-ink/45 mt-5">Absolute increase in completion</p>
               <p className="text-[15px] text-ink/60 leading-relaxed mt-3">
-                Top-of-funnel abandonment dropped from 91.1% to 75%, so more users reached
-                the later stages.
+                Top-of-funnel abandonment dropped from 91.1% to 75%. More users reached the
+                later stages, which points to increased confidence and clarity.
               </p>
             </div>
             <div>
@@ -452,7 +452,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           items={[
             "Users do not drop off because of one problem. It is cumulative friction",
             "Clarity early in a journey is worth more than persuasion later",
-            "Small interaction decisions, scroll behaviour included, matter more than you would think",
+            "Small interaction decisions, scroll behaviour included, have outsized impact",
             "Self-initiated research can move a roadmap, if you bring the numbers with you",
           ]}
         />
