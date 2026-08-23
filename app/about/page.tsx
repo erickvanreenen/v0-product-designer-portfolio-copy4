@@ -40,9 +40,9 @@ const education = [
 ];
 
 const skills = [
-  "User Research", "UX Strategy", "Information Architecture",
-  "Prototyping", "UI Design", "Design Systems",
-  "Usability Testing", "Content Design", "CX Design",
+  "User research", "UX strategy", "Information architecture",
+  "Prototyping", "UI design", "Design systems",
+  "Usability testing", "Content design", "CX design",
 ];
 
 const tools = ["Figma", "Adobe Creative Suite", "Miro", "Jira", "Articulate 360", "Google Suite"];
