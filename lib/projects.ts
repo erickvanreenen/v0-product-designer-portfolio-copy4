@@ -115,7 +115,7 @@ export const projects: Project[] = [
     slug: "kurtosys-rule-builder",
     title: "Systems thinking",
     client: "Kurtosys",
-    subtitle: "Conditional logic people can actually read",
+    subtitle: "Conditional logic",
     question: "Rule logic is powerful and unreadable. How do you make it understandable without making it simplistic?",
     answer: "Plain English readback of every rule, in one component, wherever a rule appears.",
     metric: { value: "3", label: "entry points" },
