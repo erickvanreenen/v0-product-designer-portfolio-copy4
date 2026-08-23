@@ -65,9 +65,16 @@
   /*
     Band fill. The ink green lightened, so it reads as the same family rather
     than a new colour. Sits against warm cream on a hue shift as much as a
-    lightness one. Ink text on it measures 11.2:1, ink/75 body 5.7:1.
+    lightness one, which is why it needs a rule to define its edges.
   */
-  --sage:         oklch(0.900 0.042 166);
+  --sage:         oklch(0.935 0.050 166);
+
+  /*
+    Ember, a step deeper. On sage the standard ember measures 4.24:1, just
+    under AA for label-sized text. This clears it at 4.62:1 and is close
+    enough to the standard value to read as the same orange.
+  */
+  --ember-deep:   oklch(0.540 0.185 40);
 
   /* Lines */
   --line:         oklch(0.884 0.016 90);
@@ -131,6 +138,7 @@
   --color-plum: var(--plum);
   --color-positive: var(--positive);
   --color-sage: var(--sage);
+  --color-ember-deep: var(--ember-deep);
 
   --color-accent: var(--accent);
   --color-accent-vivid: var(--accent-vivid);

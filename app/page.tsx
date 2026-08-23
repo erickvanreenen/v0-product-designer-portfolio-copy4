@@ -6,41 +6,42 @@ import { HeroHeadline } from "@/components/hero-headline";
 import { ArrowRight } from "lucide-react";
 
 /*
-  The five areas the work groups into. Every line here is drawn from an
+  The six areas the work groups into. Every line here is drawn from an
   existing case study or the About page, so each one has somewhere real to
   point at.
 */
 const capabilities = [
   {
-    n: "01",
+    name: "Design",
+    body: "Interface, interaction and design systems. On Flanksource that meant working out how much density a dashboard could carry before it stopped being scannable.",
+    href: "/projects/flanksource",
+    cue: "Flanksource",
+  },
+  {
     name: "AI design workflows",
     body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch, used across research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
     href: "/about#tooling",
     cue: "Tooling",
   },
   {
-    n: "02",
     name: "GEO",
     body: "Generative Engine Optimisation is an information architecture discipline that gets filed under content marketing. For Rhino Africa I defined seven content layers, ordered by the sequence a crawler reads them.",
     href: "/projects/rhino-africa-geo",
     cue: "Rhino Africa",
   },
   {
-    n: "03",
     name: "Research",
     body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. It is how I uncover what people actually need, rather than what I assume they need.",
     href: "/projects/ucook",
     cue: "UCOOK",
   },
   {
-    n: "04",
     name: "Systems thinking",
     body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and the anatomy of a document before drawing a single screen, which is what made the later decisions defensible.",
     href: "/projects/kurtosys-rule-builder",
     cue: "Kurtosys",
   },
   {
-    n: "05",
     name: "Design thinking",
     body: "Creativity and empathy in the making, balanced against what can practically ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
     href: "/projects/ada-ux-design",
@@ -84,26 +85,29 @@ export default function HomePage() {
 
         A sage band rather than the near-black one that used to sit here. It is
         the ink green lightened, so it separates from the cream page on hue as
-        much as on lightness, and the section stops weighing down the middle of
-        the page. Ember does not clear AA on a green this light, so the accent
-        inside is carried by depth of ink and by the hover state instead.
+        much as on lightness. That also means the lightness difference is small,
+        hence the rule top and bottom to define where the band starts and stops.
+
+        Orange sits on the label, the numbers and the hover state, at
+        ember-deep. Standard ember measures 4.24:1 here, just under AA for text
+        this size.
       */}
-      <section className="bg-sage text-ink">
+      <section className="bg-sage text-ink border-y border-ink/12">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <FadeIn>
-            <p className="t-label text-ink/70 mb-5">What I do</p>
+            <p className="t-label text-ember-deep mb-5">What I do</p>
             <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-12 md:mb-16 max-w-xl">
-              Five areas the work keeps returning to.
+              Six areas the work keeps returning to.
             </h2>
           </FadeIn>
 
           {/*
-            A list rather than a card grid. Five items do not divide evenly into
-            columns, and each one earns a full line of explanation anyway.
+            A list rather than a card grid. Six items would make a lopsided grid,
+            and each one earns a full line of explanation anyway.
           */}
           <ul className="border-t border-ink/15">
             {capabilities.map((item, i) => (
-              <FadeIn key={item.n} delay={i * 70}>
+              <FadeIn key={item.name} delay={i * 70}>
                 <li>
                   <Link
                     href={item.href}
@@ -112,17 +116,17 @@ export default function HomePage() {
                                transition-colors duration-200
                                hover:bg-ink/[0.045] focus-visible:outline-none focus-visible:bg-ink/[0.045]"
                   >
-                    <span className="t-num text-sm font-semibold text-ink/70 md:pt-1">
-                      {item.n}
+                    <span className="t-num text-sm font-semibold text-ember-deep md:pt-1">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    <h3 className="text-[21px] md:text-[23px] font-bold text-ink-deep leading-snug tracking-[-0.015em] group-hover:underline underline-offset-4 decoration-ink/30">
+                    <h3 className="text-[21px] md:text-[23px] font-bold text-ink-deep leading-snug tracking-[-0.015em] group-hover:text-ember-deep transition-colors duration-200">
                       {item.name}
                     </h3>
 
                     <div>
                       <p className="text-[14.5px] text-ink/75 leading-relaxed">{item.body}</p>
-                      <span className="inline-flex items-center gap-1.5 t-label text-ink/70 mt-3">
+                      <span className="inline-flex items-center gap-1.5 t-label text-ink/70 mt-3 group-hover:text-ember-deep transition-colors duration-200">
                         {item.cue}
                         <ArrowRight
                           size={12}
