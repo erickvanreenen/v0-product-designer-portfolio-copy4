@@ -58,8 +58,8 @@ export default function ProjectsPage() {
                 <p className="t-label text-plum mb-3">Discipline</p>
                 <h2 className="t-h2 text-3xl md:text-4xl text-ink mb-3">Education</h2>
                 <p className="text-[15px] text-ink/55 measure">
-                  Four projects where the user is a learner. Designing for comprehension holds
-                  a higher bar than most design contexts, because if it does not land, nothing else happens.
+                  Four projects where the user is a learner. The bar is higher than in most
+                  design work, because if the idea does not land, nothing else happens.
                 </p>
               </div>
             </FadeIn>

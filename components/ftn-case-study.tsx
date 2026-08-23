@@ -61,7 +61,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="Conditions"
           title="What the work has to survive"
-          intro="These are not complaints. They are the constraints every design decision gets measured against, and naming them is what makes a decision defensible six months later."
+          intro="These are the constraints every design decision gets measured against. They explain the shape of everything that follows."
         >
           <div className="grid sm:grid-cols-2 border-t border-l border-line">
             {conditions.map((c) => (
@@ -105,7 +105,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="In progress"
           title="Omnichannel collection"
-          intro="Stores are opening at pace. The platform had to extend past its original delivery-only model into somewhere a customer can choose how they receive an order."
+          intro="Stores are opening at pace. The platform had to grow past its delivery-only model so a customer can choose how they receive an order."
         >
           <Compare
             before={{

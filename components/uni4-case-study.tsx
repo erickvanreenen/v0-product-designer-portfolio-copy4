@@ -55,7 +55,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
               notes: [
                 "No shared visibility across projects",
                 "Introduced regular check-ins, shared workflows, and Kanban-based tracking",
-                "Team productivity increased significantly and KPI achievement became consistent",
+                "Team productivity went up and KPIs were met consistently",
               ],
             }}
             after={{
@@ -85,7 +85,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
           <Steps
             items={[
               { title: "Team process audit", body: "Analysed existing workflows and interviewed designers individually about friction and morale. Lack of shared visibility was the core problem." },
-              { title: "Kanban implementation", body: "A shared board, weekly check-ins, and clear task ownership. Output quality improved and missed deadlines dropped significantly." },
+              { title: "Kanban implementation", body: "A shared board, weekly check-ins, and clear task ownership. Output quality improved and missed deadlines dropped." },
               { title: "Competitor analysis", body: "Studied multi-brand education aggregators globally for navigation patterns and IA approaches to consolidating distinct brands." },
               { title: "Information architecture", body: "Designed the IA for cross-brand navigation with each brand's identity intact, on unified patterns built to flex." },
               { title: "Platform design", body: "Delivered the aggregator design. Stakeholders across all brands reviewed and signed off." },
@@ -106,8 +106,8 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Outcome>
           <p>
-            Team productivity increased significantly, KPIs were consistently met, and the
-            aggregator platform received positive feedback from stakeholders.
+            Team productivity went up, KPIs were met consistently, and stakeholders across
+            the brands responded well to the aggregator platform.
           </p>
         </Outcome>
 
