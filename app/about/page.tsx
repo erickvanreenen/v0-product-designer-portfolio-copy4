@@ -191,6 +191,31 @@ export default function AboutPage() {
           </section>
         </FadeIn>
 
+        {/* ── Artificial intelligence ──────────────── */}
+        <FadeIn>
+          <section className="mb-24 md:mb-28 pb-20 border-b border-line">
+            <SectionHead
+              label="Tooling"
+              title="Artificial intelligence"
+              intro="A working partner, not a shortcut."
+            />
+            <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
+              <p>
+                I use AI throughout the process. Speeding up research, analysing qualitative
+                and quantitative data, exploring ideas, reviewing prototypes against usability
+                and WCAG accessibility principles, refining UX copy, building and evolving
+                design system components, and shaping content strategy for AI-driven
+                search (GEO).
+              </p>
+              <p>
+                It means faster iteration, structured critique, and more rigorous testing of
+                ideas across several projects at once. Human judgement, user needs and
+                business context stay at the centre of every design decision.
+              </p>
+            </div>
+          </section>
+        </FadeIn>
+
         {/* ── Track record ─────────────────────────── */}
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
