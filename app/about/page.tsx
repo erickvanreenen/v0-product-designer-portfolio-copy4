@@ -97,7 +97,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-ink/70 measure leading-[1.4] font-light mb-14 md:mb-16">
-            Systems thinking. Fifteen years making and building things people use and love.
+            Fifteen years making and building things people use.
           </p>
 
           <dl className="grid grid-cols-2 md:grid-cols-4 border-t border-line">
@@ -138,21 +138,18 @@ export default function AboutPage() {
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
             <p className="text-xl md:text-2xl text-ink leading-[1.45] font-medium measure mb-8">
-              I am an experienced designer with a background in entrepreneurship, business
-              development, branding, product design, visual and online education design,
-              and UX/UI.
+              I have worked in entrepreneurship, business development, branding, product
+              design, visual and online education design, and UX/UI.
             </p>
             <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
               <p>
-                I care about how good design changes people&apos;s lives, and I bring creativity,
-                empathy and kindness to everything I make. Curiosity drives the work, and an
-                endless desire to understand how design fits together, focused on the people
-                I design for and with.
+                Most of what I do comes down to working out how the pieces fit together, and
+                who they are for.
               </p>
               <p>
-                Research is how I uncover what people actually need, so the experience meets
-                their motivations rather than my assumptions. I am a problem-solver and an
-                advocate for quality design, balancing invention against what can practically ship.
+                Research is mostly how I check whether what I think is happening is what is
+                actually happening. The rest is working out what can realistically ship, and
+                arguing for the version still worth building.
               </p>
             </div>
           </section>
@@ -271,12 +268,11 @@ export default function AboutPage() {
           <section>
             <SectionHead label="Beyond work" title="What keeps the work steady" />
             <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
-              I am a proud father who draws inspiration and solace from nature, Tai Chi,
-              meditation, breathwork, trail running, and early morning swims in the Atlantic.
-              That calm and reflection ends up in the work.
+              I am a proud father. The rest of it is nature, Tai Chi, meditation, breathwork,
+              trail running, and early morning swims in the Atlantic.
             </p>
             <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
-              I make prints for free play, as a creative outlet.
+              I make prints for free play.
             </p>
             <PrintsCarousel />
           </section>

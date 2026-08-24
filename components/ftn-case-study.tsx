@@ -50,9 +50,9 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
                 passed through. I joined as the lone lead UX/UI designer in September 2024.
               </p>
               <p>
-                Nothing was broken enough to stop. That is the harder version of this problem.
-                Years of dev-first decisions had accumulated into UX debt, and no designer had
-                stayed long enough to address it systematically.
+                Nothing was broken enough to stop and fix. Years of dev-first decisions had
+                accumulated into UX debt, and no designer had stayed long enough to work
+                through it.
               </p>
             </Prose>
           </div>
@@ -61,7 +61,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="Conditions"
           title="What the work has to survive"
-          intro="These are not complaints. They are the constraints every design decision gets measured against, and naming them is what makes a decision defensible six months later."
+          intro="The constraints every design decision here gets measured against."
         >
           <div className="grid sm:grid-cols-2 border-t border-l border-line">
             {conditions.map((c) => (
@@ -75,9 +75,8 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Section>
           <Pullquote>
-            Advocating for UX here means translating user needs into business outcomes and
-            technical language at the same time. It is a skill, and it has become one of my
-            strongest.
+            Most of the job is translating what users need into business outcomes and technical
+            language at the same time.
           </Pullquote>
         </Section>
 
@@ -105,7 +104,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="In progress"
           title="Omnichannel collection"
-          intro="Stores are opening at pace. The platform had to extend past its original delivery-only model into somewhere a customer can choose how they receive an order."
+          intro="Stores are opening quickly. The platform had to move past delivery-only so a customer can choose how they receive an order."
         >
           <Compare
             before={{
@@ -135,7 +134,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
               {[
                 { h: "Logistics", b: "What is executable given postcode, zone, and area parameters." },
                 { h: "Data", b: "What is available now against what arrives in a staggered rollout." },
-                { h: "Omnichannel", b: "Decisions account for the full ecosystem, not the isolated feature." },
+                { h: "Omnichannel", b: "Decisions have to account for the whole ecosystem, not the isolated feature." },
                 { h: "M1 dependencies", b: "Legacy constraints define what is buildable on M2 today." },
               ].map((r, i) => (
                 <li
@@ -159,9 +158,8 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Outcome>
           <p>
-            Consistent filtering system shipped. Omnichannel collection and delivery options in
-            active design. A UX practice established in a team that did not have one.
-            Project ongoing.
+            The filtering system shipped. Omnichannel collection and delivery are in active
+            design. There is now a UX practice in a team that did not have one. Ongoing.
           </p>
         </Outcome>
 

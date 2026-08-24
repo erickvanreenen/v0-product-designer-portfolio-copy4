@@ -193,7 +193,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="The merge"
           title="What survives, and what it builds toward"
-          intro="Merging two modules is not concatenation. Every piece that stays has to earn its place against the assessment at the end, otherwise it is there because it always was."
+          intro="Every piece that stays has to earn its place against the assessment at the end. Otherwise it is there because it always was."
         >
           <Figure caption="Two modules evaluated into one, with every exercise pointing at the summative">
             <ModuleMerge />
@@ -202,15 +202,15 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Section>
           <Pullquote>
-            Curriculum design is a form of UX. Clarity and flow matter, and relevance to
-            industry has to drive every content decision.
+            Curriculum design works like UX. Clarity and sequence matter, and industry
+            relevance decides what goes in.
           </Pullquote>
         </Section>
 
         <Section
           label="The brief"
           title="Revamp a real non-profit website"
-          intro="This brief immerses students in the core principles of UI and UX design by applying them to a real-world scenario. They develop user personas, create mid-fidelity prototypes, and select the best platform for implementation. It culminates in usability testing, so the design has to improve interaction while staying true to the non-profit's mission and brand identity."
+          intro="Students apply the core principles of UI and UX design to a real scenario. They build personas, make mid-fidelity prototypes, and choose the platform to build on. It ends in usability testing, so the design has to improve the interaction while staying true to the non-profit's mission and brand."
         >
           <Compare
             before={{
@@ -261,7 +261,7 @@ export function EduvosCaseStudy({ project, nextProject, prevProject }: Props) {
           <p>
             The unified UX and UI module was delivered with formative and summative
             assessments, lesson plans, and practical briefs. I enjoyed this work because it
-            forced me to assess what is genuinely most relevant to put in a learning path.
+            forced me to decide what is actually worth putting in a learning path.
           </p>
         </Outcome>
 

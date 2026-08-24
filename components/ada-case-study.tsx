@@ -128,9 +128,9 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
                 creation, and assessment design.
               </p>
               <p>
-                Two summative assessments were authored around real apps and real research
-                methods. Students went from competitive benchmarking and usability testing
-                through to wireframes and final presentations.
+                I wrote two summative assessments around real apps and real research methods.
+                Students went from competitive benchmarking and usability testing through to
+                wireframes and final presentations.
               </p>
             </Prose>
           </div>

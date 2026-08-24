@@ -49,7 +49,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="The workflow"
           title="What passes between whom"
-          intro="Mapping the handoffs first made it obvious what the app had to hold. It is not a document store. It is a sequence with a deadline."
+          intro="Mapping the handoffs first showed what the app had to hold. It is a sequence with a deadline rather than a document store."
         >
           <Figure caption="Advancing handoffs before and after the app, promoter to agent to artist, against show day">
             <AdvancingLanes />
@@ -59,7 +59,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="Approach"
           title="Two weeks means scope is the design decision"
-          intro="I benchmarked leading event platforms globally and mapped the journeys and deliverables across advancing. Two findings set the shape of the product."
+          intro="I benchmarked event platforms and mapped the journeys and deliverables across advancing. Two things came out of it."
         >
           <div className="grid md:grid-cols-2 border-t border-l border-line">
             {[

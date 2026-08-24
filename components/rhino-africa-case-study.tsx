@@ -32,19 +32,19 @@ const personas = [
 ];
 
 const opportunities = [
-  { title: "Aspiration-first planning", body: "Only one competitor attempts experience-led discovery. Starting with how you want to feel maps to how luxury travellers actually begin planning, and it is largely unoccupied." },
-  { title: "Transparent enquiry process", body: "The anxiety of what happens after clicking Enquire is unaddressed by five of six competitors. A clear three-step human process reduces drop-off before first contact." },
-  { title: "Modern technical foundation", body: "Three of six run WordPress. A headless or Next.js architecture delivers speed, personalisation headroom, and SEO advantages that compound, and are perceptible to users calibrated to the best of the web." },
-  { title: "Itinerary visualisation", body: "No competitor offers an interactive itinerary builder or shareable journey map. Once a user is in consultation, a living collaborative plan is the highest-impact investment available in this space." },
+  { title: "Aspiration-first planning", body: "Only one competitor tries experience-led discovery, and it is closer to how these travellers start planning." },
+  { title: "Transparent enquiry process", body: "Five of six competitors say nothing about what happens after you click Enquire. Three clear steps would cover it." },
+  { title: "Modern technical foundation", body: "Three of six run WordPress. A headless build would be faster and leave room for personalisation." },
+  { title: "Itinerary visualisation", body: "Nobody offers an itinerary builder or a shareable journey map. Once someone is talking to a consultant, a plan they can both see and change is the obvious gap." },
 ];
 
 const implications = [
-  { icon: "person", title: "Surface the consultant early", body: "It is the product, not a support feature. Across all five persona buckets, the named human relationship drives trust, conversion, and review." },
+  { icon: "person", title: "Surface the consultant early", body: "Across all five persona buckets, people name their consultant. That is the product, not a support function." },
   { icon: "verified", title: "Distribute trust signals", body: "Awards, press, named consultants, and testimonials belong at every decision point, not quarantined on dedicated pages." },
-  { icon: "bolt", title: "Remove friction from enquiry", body: "One clear step, not a form. High-net-worth users have money and no patience for doubt." },
-  { icon: "language", title: "Extend multilingual continuity", body: "Language must carry from the blog through to the enquiry form. Discovery and conversion cannot speak different languages." },
-  { icon: "map", title: "Add a spatial orientation layer", body: "For a platform that sells geography as the product, a map-based entry point is a structural gap, not a feature request." },
-  { icon: "tune", title: "Build personalisation cues", body: "Every touchpoint should signal the user is known and their trip is being considered individually." },
+  { icon: "bolt", title: "Remove friction from enquiry", body: "One clear step rather than a form. This audience does not wait around." },
+  { icon: "language", title: "Extend multilingual continuity", body: "Language has to carry from the blog through to the enquiry form." },
+  { icon: "map", title: "Add a spatial orientation layer", body: "The product is geography and there is no map. That is a structural gap." },
+  { icon: "tune", title: "Build personalisation cues", body: "Signal that the trip is being planned for this person, not assembled from a template." },
 ];
 
 export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Props) {
@@ -65,8 +65,8 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
       <CaseBody>
         <Section>
           <Lead>
-            Generative Engine Optimisation is widely treated as a content problem. It is not.
-            It is an information architecture problem that gets filed under content marketing.
+            Generative Engine Optimisation is usually treated as a content problem. It is
+            closer to information architecture that happens to get filed under content marketing.
           </Lead>
           <div className="mt-8">
             <Prose>
@@ -74,12 +74,11 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
                 Rhino Africa is Africa&apos;s most awarded safari company. Over 5,300 Trustpilot
                 reviews at a 5.0 rating, destination coverage across twelve African countries,
                 and a consultant relationship customers name personally in almost every review.
-                The authority is real and hard-won.
               </p>
               <p>
-                Authority a machine cannot read is authority that does not exist. This project
-                maps the platform as a system, establishes how AI agents actually extract and
-                attribute expertise, and architects the hierarchy that makes it legible.
+                None of that is declared in a way a machine can read. So I mapped the platform,
+                looked at how AI agents extract and attribute expertise, and worked out what the
+                page hierarchy would have to look like.
               </p>
             </Prose>
           </div>
@@ -88,7 +87,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Why now"
           title="Ranking gets you on the list. Structure gets you in the answer."
-          intro="Search behaviour is shifting from scanning results to reading answers. Perplexity, ChatGPT Search, and Google AI Overviews synthesise a response and cite two or three sources. The economics of visibility change completely."
+          intro="Search is shifting from scanning results to reading answers. Perplexity, ChatGPT Search and Google AI Overviews write a response and cite two or three sources."
         >
           <Figure caption="Ten ranked results against one synthesised answer with three citations">
             <SearchShiftDiagram />
@@ -96,9 +95,9 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
           <div className="mt-10">
             <Prose>
               <p>
-                In the old model, being on page one gave you a chance. In the new one, being
-                structurally legible determines whether you are in the answer at all. The
-                competition is no longer for attention. It is for extraction.
+                Page one used to give you a chance at the click. Now the question is whether you
+                are in the answer at all, and that depends on whether the page can be read by a
+                machine.
               </p>
             </Prose>
           </div>
@@ -107,7 +106,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Method"
           title="Understand the ecosystem before touching a page"
-          intro="Before designing anything I need to know where a feature or page lives inside the system, and what depends on what. Only then does a page-level decision become defensible."
+          intro="I wanted to know where a page sits in the system, and what depends on what, before making any page-level decisions."
         >
           <Steps
             items={[
@@ -123,7 +122,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="The system"
           title="Six pillars, one destination"
-          intro="Everything funnels toward the human Travel Expert relationship. The platform is fundamentally a content-to-conversion machine, and the blog runs on a separate subdomain that mirrors the main taxonomy."
+          intro="Everything funnels toward contact with a Travel Expert. The blog runs on a separate subdomain that mirrors the main taxonomy."
         >
           <Figure caption="Platform IA, with the WordPress blog subdomain marked as the seam">
             <PlatformIADiagram />
@@ -144,7 +143,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Findings"
           title="Where it breaks"
-          intro="The platform does a great deal well. Destination taxonomy runs genuinely deep, down to reserve level, so Sabi Sand sits beneath Kruger Private Game Reserve rather than under South Africa. Users can arrive at country, region, or park level depending on how specific their intent is."
+          intro="A lot of this works. The destination taxonomy runs deep, down to reserve level, so Sabi Sand sits under Kruger Private Game Reserve rather than under South Africa. People can arrive at country, region or park level."
         >
           <Metrics
             items={[
@@ -160,9 +159,8 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
               The language drops away at the moment the user commits
             </h3>
             <p className="text-[16px] text-ink/65 leading-relaxed measure mb-8">
-              The blog is available in five languages, which reflects real awareness of where
-              the buyer markets sit. The main site declares two locale alternates. The enquiry
-              form is English only.
+              The blog is in five languages. The main site declares two locale alternates. The
+              enquiry form is English only.
             </p>
             <Figure caption="Discovery to conversion, with the multilingual break marked">
               <MultilingualBreakDiagram />
@@ -216,9 +214,8 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
               The consultant is the product.
             </Pullquote>
             <p className="text-[16px] text-ink/65 leading-relaxed measure mt-6">
-              Across all five buckets, the named human relationship is what drives trust,
-              conversion, and review. The platform&apos;s primary job is to establish credibility
-              and remove friction fast enough to reach that first human contact.
+              Across all five buckets, people name their consultant. The platform&apos;s job is to
+              get someone to that first conversation without losing them on the way.
             </p>
           </div>
         </Section>
@@ -234,7 +231,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Applied"
           title="What changes in practice"
-          intro="Applied to the Kruger National Park destination page. The recommendations are structural rather than cosmetic. The words change because the job of the words changes."
+          intro="Applied to the Kruger National Park destination page. The changes are structural, not cosmetic."
         >
           <FaqBeforeAfter />
 
@@ -267,7 +264,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Framework"
           title="The nine signals"
-          intro="What the architecture is built on. Each signal is something a machine can detect, and something a designer can deliberately structure for."
+          intro="Each signal is something a machine can detect, and something you can structure a page around."
         >
           <GeoSignals />
           <p className="text-[13px] text-ink/45 mt-8 leading-relaxed measure">
@@ -279,7 +276,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Competitive set"
           title="Looking for the unoccupied ground"
-          intro="Six competitors, three local and three international, scored across five UX dimensions. The purpose was not ranking. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average."
+          intro="Six competitors, three local and three international, scored across five UX dimensions. I was looking for gaps rather than a ranking. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average."
         >
           <CompetitorMatrix />
 
@@ -312,9 +309,8 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
 
         <Outcome>
           <p>
-            The output of this project is not a screen. It is a structure, one that makes
-            fifteen years of earned expertise legible to a machine that has never met a
-            consultant.
+            The output is a structure rather than a screen. It makes fifteen years of expertise
+            readable to a machine that has never met a consultant.
           </p>
         </Outcome>
 

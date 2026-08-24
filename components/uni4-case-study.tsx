@@ -38,9 +38,9 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
           <div className="mt-8">
             <Prose>
               <p>
-                They turned out to be the same problem at different scales. Designers without
-                shared visibility produce inconsistent output, and brands without shared
-                patterns produce a platform users have to relearn on every hop.
+                They turned out to be versions of the same problem. Designers without shared
+                visibility produce inconsistent work, and brands without shared patterns
+                produce a platform people have to relearn on every hop.
               </p>
             </Prose>
           </div>
@@ -55,7 +55,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
               notes: [
                 "No shared visibility across projects",
                 "Introduced regular check-ins, shared workflows, and Kanban-based tracking",
-                "Team productivity increased significantly and KPI achievement became consistent",
+                "Output went up and KPIs were met consistently",
               ],
             }}
             after={{
@@ -65,7 +65,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
               notes: [
                 "Designed a unified information architecture",
                 "Balanced brand identity against platform consistency",
-                "Delivered a cohesive experience across all brands under one roof",
+                "Delivered one platform carrying all the brands",
               ],
             }}
           />
@@ -74,7 +74,7 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
         <Section
           label="The platform"
           title="Shared where it helps, distinct where it matters"
-          intro="Consolidation fails when it flattens everything. Navigation, patterns, and content structure are shared. Brand identity stays where a prospective student is deciding which institution they are choosing."
+          intro="Navigation, patterns and content structure are shared. Brand identity stays where a prospective student is choosing between institutions."
         >
           <Figure caption="Four separate sites becoming one platform without dissolving the brands">
             <BrandConsolidation />
@@ -84,8 +84,8 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
         <Section label="Process" title="What I did">
           <Steps
             items={[
-              { title: "Team process audit", body: "Analysed existing workflows and interviewed designers individually about friction and morale. Lack of shared visibility was the core problem." },
-              { title: "Kanban implementation", body: "A shared board, weekly check-ins, and clear task ownership. Output quality improved and missed deadlines dropped significantly." },
+              { title: "Team process audit", body: "Looked at existing workflows and talked to each designer about friction and morale. Nobody could see what anyone else was doing." },
+              { title: "Kanban implementation", body: "A shared board, weekly check-ins and clear task ownership. Output improved and missed deadlines dropped." },
               { title: "Competitor analysis", body: "Studied multi-brand education aggregators globally for navigation patterns and IA approaches to consolidating distinct brands." },
               { title: "Information architecture", body: "Designed the IA for cross-brand navigation with each brand's identity intact, on unified patterns built to flex." },
               { title: "Platform design", body: "Delivered the aggregator design. Stakeholders across all brands reviewed and signed off." },
@@ -95,8 +95,8 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Section>
           <Pullquote>
-            Leadership means balancing individual needs against team goals. The process change
-            did more for output quality than any individual design decision I made that year.
+            The process change did more for output quality than any design decision I made
+            that year.
           </Pullquote>
         </Section>
 
@@ -106,8 +106,8 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Outcome>
           <p>
-            Team productivity increased significantly, KPIs were consistently met, and the
-            aggregator platform received positive feedback from stakeholders.
+            Output went up, KPIs were met consistently, and stakeholders across the brands
+            signed off on the platform.
           </p>
         </Outcome>
 

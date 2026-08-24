@@ -72,16 +72,15 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
           <div className="mt-8">
             <Prose>
               <p>
-                That sounds administrative until you consider what a section is. A risk
+                That sounds administrative until you look at what a section is. A risk
                 warning. An ESG disclosure. A jurisdiction-specific disclaimer. Get the rule
                 wrong and a regulatory disclosure goes missing from a document that has
                 already reached an investor.
               </p>
               <p>
-                So the logic has to be powerful enough to express real regulatory conditions,
-                and legible enough that the person configuring it can be certain what they
-                have built. Those two requirements pull against each other. That tension is
-                the whole design problem.
+                So the logic has to handle real regulatory conditions, and still be readable
+                enough that whoever configures it knows what they have built. Those two pull
+                against each other.
               </p>
             </Prose>
           </div>
@@ -91,7 +90,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="Process"
           title="Before designing screens, I needed to understand the system"
-          intro="Four levels down, from the whole platform to the two sections a rule is actually allowed to touch. Each level narrows the next, and the last one is where the feature lives."
+          intro="Four levels down, from the platform to the two sections a rule can actually touch. Each level narrows the next."
           wide
         >
           <ol className="grid sm:grid-cols-4 border-t border-line mb-12">
@@ -114,7 +113,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
 
         <Section
           title="Data comes in, rules shape the report, outputs go out"
-          intro="Before going further down, the sideways view. Rules are not a feature bolted onto a document editor. They sit at the exact point where incoming data decides what a reader ends up seeing."
+          intro="A sideways view before going further down. Rules sit between the data coming in and what a reader ends up seeing."
         >
           <Figure caption="The rules layer sits between the systems that supply data and every format the report is delivered in.">
             <EcosystemFlow />
@@ -132,7 +131,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
 
         <Section
           title="Which becomes three states a section can be in"
-          intro="Restating the same document as the template that generates it. Always, Optional, Conditional. Only the conditional rows are addressable by a rule, and that is the whole surface area of the feature."
+          intro="The same document, as the template that generates it. Always, Optional, Conditional. Only the conditional rows can be touched by a rule."
         >
           <Figure caption="The template hierarchy. Conditional is the only state a rule controls.">
             <TemplateHierarchy />
@@ -140,15 +139,15 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         </Section>
 
         <Pullquote>
-          Mapping the system first is what made the next decisions defensible rather than
-          stylistic.
+          By the time I got to the screens, most of the decisions had already been made by the
+          model underneath.
         </Pullquote>
 
         {/* ── Three surfaces ──────────────────────── */}
         <Section
           label="Where to design"
           title="Three surfaces, three states of mind"
-          intro="A rule is not encountered once. It is written, later audited, and eventually questioned after a report has already gone out. Each of those moments needs a different interface."
+          intro="A rule gets written once, audited later, and questioned after a report has gone out. Those are three different jobs."
           wide
         >
           <div className="grid sm:grid-cols-3 gap-5 mt-2">
@@ -171,7 +170,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="A · Authoring"
           title="Lock what the system already knows"
-          intro="The builder opens from inside a template, on a specific section. So the THEN clause is already decided. Asking the user to restate it would be asking them to repeat something they have just done. Below it, the rule is echoed back in plain English and updates as it is edited."
+          intro="The builder opens from inside a template, on a specific section, so the THEN clause is already known. Asking someone to restate it would be asking them to repeat themselves. Underneath, the rule is echoed back in plain English as it is edited."
           wide
         >
           <KurtosysScreen
@@ -183,7 +182,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="B · Auditing"
           title="Rules as objects, not settings buried in templates"
-          intro="Once rules are shared across templates they need somewhere to live. Status, usage, last edited and health, all scannable, with schema drift surfaced before it reaches a real report."
+          intro="Once rules are shared across templates they need somewhere to live. Status, usage, last edited and health in one table, so a broken rule shows up before it reaches a report."
           wide
         >
           <KurtosysScreen
@@ -195,7 +194,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="C · Debugging"
           title="Answer the question asked after the fact"
-          intro="The hardest moment is not authoring a rule. It is a month later, when a section is missing from a delivered report and nobody can say why. The trace shows each condition against the data as it actually was at render time."
+          intro="The harder moment is a month later, when a section is missing from a delivered report and nobody can say why. The trace shows each condition against the data as it was at render time."
           wide
         >
           <KurtosysScreen
@@ -208,7 +207,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="Systems thinking"
           title="Three calls that reach past this feature"
-          intro="The decisions worth defending were not about the screens. They were about the model underneath, and each one generalises to other parts of the platform."
+          intro="Three decisions about the model underneath rather than the screens. Each one applies elsewhere in the platform."
           wide
         >
           <div className="mt-2">
@@ -237,7 +236,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
 
         <Section
           title="Proving the readback holds at scale"
-          intro="An echo that only works on simple rules is decoration. So I built the most hostile realistic case I could: a five-condition EU distribution rule spanning two groups joined by OR."
+          intro="An echo that only works on simple rules is not much use, so I tested it on the worst realistic case I could find. A five-condition EU distribution rule across two groups joined by OR."
           wide
         >
           <KurtosysScreen
@@ -248,18 +247,18 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
 
         <Section
           title="When should nesting admit it exists?"
-          intro="Nested groups are genuinely advanced and most rules never need them. The question was not whether to support nesting, but when to show it. Three options, compared on what each one costs."
+          intro="Most rules never need nested groups. The question was when to show the option, not whether to support it. Three options, compared on what each costs."
           wide
         >
           <KurtosysScreen
             screen="nested"
-            caption="Option B recommended. The affordance surfaces once a rule reaches three conditions, so the user earns it by using complexity."
+            caption="Option B recommended. The option appears once a rule reaches three conditions."
           />
         </Section>
 
         <Section
           title="The states that finish a management surface"
-          intro="Empty, bulk selection and overflow. The three states that decide whether a table is a real product surface or a demo."
+          intro="Empty, bulk selection and overflow. The states that decide whether the table holds up with real data in it."
           wide
         >
           <KurtosysScreen
@@ -290,7 +289,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
         <Section
           label="Scope"
           title="What I deliberately left out"
-          intro="These are choices, not gaps. Each one merits its own thinking, and naming them is part of the design rather than an admission about it."
+          intro="Each of these needs its own thinking, so I left them out rather than half-answer them."
           wide
         >
           <div className="mt-2">

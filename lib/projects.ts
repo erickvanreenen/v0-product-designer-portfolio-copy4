@@ -156,7 +156,7 @@ export const projects: Project[] = [
       "Status is not health. Combining lifecycle and runtime into one column would hide the urgent case, an Active rule that can no longer run",
       "One readback component across three contexts means the audience learns the pattern once and recognises it everywhere",
       "Complexity should be earned rather than toggled. The group affordance appears after three conditions exist, so beginners never meet it and no second interface has to be maintained",
-      "Naming what you left out, and why, is part of the design. Scope choices are decisions, not gaps"
+      "Writing down what I left out, and why, saved re-arguing it later"
     ],
     images: []
   },
@@ -204,10 +204,10 @@ export const projects: Project[] = [
     testing: "Benchmarked six competitors across IA & navigation, enquiry & conversion, content strategy, visual design, and mobile experience. Singita, Abercrombie & Kent, and Extraordinary Journeys scored highest at 4.6 average. The scoring surfaced four strategic opportunities unoccupied across the entire competitive set.",
     outcome: "The deliverable is the architecture itself. A seven-layer content hierarchy that makes expertise machine-extractable, a nine-signal GEO framework, and six design implications ordered by leverage: surfacing the consultant early, distributing trust signals to every decision point, removing friction from the enquiry flow, extending multilingual continuity through to conversion, adding a spatial orientation layer, and building personalisation cues that signal the user is known.",
     learnings: [
-      "GEO is an information architecture discipline that gets filed under content marketing. The structure is the optimisation",
+      "GEO gets filed under content marketing. Most of it is information architecture",
       "Machines cannot infer authority. If expertise is not declared explicitly and consistently, it does not exist to a crawler",
-      "Understanding the ecosystem before designing a single page is not overhead. It is what makes the page decision defensible",
-      "The first hundred words carry the most weight. Leading with the answer rather than the preamble is both better UX and better machine legibility"
+      "Mapping the ecosystem first meant the page decisions were mostly already made",
+      "The first hundred words carry the most weight. Answering before the preamble helps readers and crawlers equally"
     ],
     images: []
   },
@@ -242,10 +242,10 @@ export const projects: Project[] = [
     ],
     research: "Immersed in the existing platform to map UX debt and misaligned historical decisions. Identified filtering inconsistencies across category levels and gaps in delivery and collection options. Mapped omnichannel dependencies across logistics, data availability, and legacy systems.",
     insights: [
-      "Dev-first culture created significant UX debt. Patterns changed between category levels",
+      "Dev-first decisions created UX debt. Patterns changed between category levels",
       "Design was constrained by data availability, not by user need",
       "Legacy M1 dependencies limited what was buildable on M2",
-      "Systems thinking was non-negotiable. Every decision had downstream consequences",
+      "Every decision had downstream consequences, so nothing could be designed in isolation",
       "Advocating for UX meant translating user needs into business and technical language"
     ],
     iaFlows: "",
@@ -254,9 +254,9 @@ export const projects: Project[] = [
     testing: "Ongoing. Designs are reviewed against M1 constraints, data availability, and omnichannel logistics before sign-off. Each feature requires cross-functional alignment across tech, product, and operations.",
     outcome: "Consistent filtering system shipped. Omnichannel collection and delivery options in progress. UX practice established in a previously dev-first environment. Project ongoing.",
     learnings: [
-      "Balancing UX ideals against data availability and technical constraints is its own skill",
-      "Systems thinking at scale means mapping dependencies before designing solutions",
-      "Low-UX-maturity environments need evidence-led advocacy, not assumption"
+      "Most of the work is weighing what should happen against what the data and the platform allow",
+      "Mapping dependencies first saved rework later",
+      "Arguments here need evidence behind them"
     ],
     images: [],
     externalLink: "https://innovate.faithful-to-nature.co.za/"
@@ -294,7 +294,7 @@ export const projects: Project[] = [
       "Engineers needed context, not more data",
       "Key components were siloed across separate views",
       "Actionable items were buried inside individual tools",
-      "Unfamiliar terminology required deep domain learning"
+      "The terminology was unfamiliar and had to be learned before anything could be designed"
     ],
     iaFlows: "Mapped how the key insight from each component could converge into a single dashboard, and defined which data from playbooks, catalog insights, notifications, and health checks should surface by default.",
     designExploration: "Explored different data visualisation methods to communicate system health. Moved from wireframes to structural design representations, testing how to balance density against clarity.",
@@ -302,7 +302,7 @@ export const projects: Project[] = [
     testing: "Reviewed designs with the Flanksource product team, iterating on information density and visual hierarchy from their feedback.",
     outcome: "A cohesive dashboard that gives engineering teams one entry point into system health, replacing the need to check five separate views.",
     learnings: [
-      "Domain immersion is non-negotiable for unfamiliar products",
+      "I could not have designed this without using the product first",
       "Data density requires strict visual hierarchy"
     ],
     images: [
@@ -348,7 +348,7 @@ export const projects: Project[] = [
     testing: "",
     outcome: "Final product signed off in 4 weeks.",
     learnings: [
-      "Quick iteration demands tight scope"
+      "Four weeks meant scope was the main design decision"
     ],
     images: []
   },
@@ -393,8 +393,8 @@ export const projects: Project[] = [
     testing: "",
     outcome: "The course went live on Masterstart. Seeing course content come to life in Articulate Rise, and knowing it was built for Stellenbosch Business School, is work I value.",
     learnings: [
-      "Designing for learning is designing for comprehension. The bar is higher than most design contexts",
-      "Collaboration with subject matter experts and learning designers sharpens the brief considerably",
+      "Designing for learning means designing for comprehension, and the bar is higher than in most design work",
+      "Working with an SME and a learning designer sharpened the brief",
       "Articulate Rise rewards visual restraint and clear hierarchy above anything else"
     ],
     images: [],
@@ -415,7 +415,7 @@ export const projects: Project[] = [
     tools: ["Figma", "Miro", "Articulate 360", "Adobe Creative Suite"],
     thumbnail: "/images/thumb-uni4.svg",
     outcomes: [
-      "Team productivity increased significantly",
+      "Team productivity improved",
       "KPIs met consistently",
       "Designer collaboration improved",
       "Aggregator platform designed and delivered"
@@ -432,7 +432,7 @@ export const projects: Project[] = [
     insights: [
       "Designers needed clearer project visibility",
       "Regular check-ins improved team morale",
-      "Users needed seamless navigation between brands",
+      "Users needed to move between brands without losing context",
       "Content consistency was what built trust across multiple educational brands"
     ],
     iaFlows: "Designed an information architecture that lets users move between brands while keeping clear context, with unified design patterns that work across all of them.",
@@ -441,8 +441,8 @@ export const projects: Project[] = [
     testing: "",
     outcome: "Team productivity increased significantly, KPIs were consistently met, and the aggregator platform received positive feedback from stakeholders.",
     learnings: [
-      "Leadership means balancing individual needs against team goals",
-      "Process improvements can dramatically change output quality and efficiency",
+      "Most of leading the team was balancing what individuals needed against what the team had to deliver",
+      "A process change moved output more than any design change did",
       "Platforms need flexibility for multi-brand contexts under one roof"
     ],
     externalLink: "https://www.uni4online.com/",
@@ -481,7 +481,7 @@ export const projects: Project[] = [
       "Students engage more deeply when briefs use real-world apps and contexts",
       "Foundational theory lands better when anchored to recognisable industry examples",
       "Marking rubrics need to be explicit to support fair and consistent assessment",
-      "Teaching UX sharpens your own articulation of what the discipline is and why it matters"
+      "Teaching it forces you to articulate what the discipline actually is"
     ],
     iaFlows: "Structured lesson content to build progressively. Roles and history laid the conceptual foundation. Assessments required students to apply research methods, competitive benchmarking, and wireframing in sequence.",
     designExploration: "",

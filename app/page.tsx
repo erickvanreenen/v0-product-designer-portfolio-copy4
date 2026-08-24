@@ -13,31 +13,31 @@ import { ArrowRight } from "lucide-react";
 const capabilities = [
   {
     name: "AI design workflows",
-    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch, used across research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
+    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch. I use them for research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
     href: "/about#tooling",
     cue: "Tooling",
   },
   {
     name: "GEO",
-    body: "Generative Engine Optimisation is an information architecture discipline that gets filed under content marketing. For Rhino Africa I defined seven content layers, ordered by the sequence a crawler reads them.",
+    body: "Generative Engine Optimisation usually gets filed under content marketing. Most of it is information architecture. For Rhino Africa I defined seven content layers, ordered by the sequence a crawler reads them.",
     href: "/projects/rhino-africa-geo",
     cue: "Rhino Africa",
   },
   {
     name: "Research",
-    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. It is how I uncover what people actually need, rather than what I assume they need.",
+    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. Usually more than one of them, because a single source rarely settles anything.",
     href: "/projects/ucook",
     cue: "UCOOK",
   },
   {
     name: "Systems thinking",
-    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and the anatomy of a document before drawing a single screen, which is what made the later decisions defensible.",
+    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and how a document breaks into sections before drawing any screens. Most of the screen decisions were settled by then.",
     href: "/projects/kurtosys-rule-builder",
     cue: "Kurtosys",
   },
   {
     name: "Design thinking",
-    body: "Creativity and empathy in the making, balanced against what can practically ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
+    body: "Working out what to make, against what can actually ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
     href: "/projects/ada-ux-design",
     cue: "Academy of Digital Arts",
   },

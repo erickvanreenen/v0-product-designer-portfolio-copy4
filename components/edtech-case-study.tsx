@@ -40,12 +40,11 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
               <p>
                 I worked alongside a subject matter expert and a learning designer on a
                 Business Systems Analysis course. The learning designer led content structure.
-                My job was to support that structure visually, generating infographic assets
+                My job was to support that structure visually, drawing infographic assets
                 that made the conceptual models clear.
               </p>
               <p>
-                This sits at the intersection of visual communication, instructional logic,
-                and layout discipline. Getting it right is mostly about what you take out.
+                Most of the work is deciding what to take out.
               </p>
             </Prose>
           </div>
@@ -63,8 +62,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Section>
           <Pullquote>
-            Complex conceptual models need visual simplification, not decoration. Infographics
-            that communicate well require constraint, not embellishment.
+            The models needed simplifying, not decorating.
           </Pullquote>
         </Section>
 
@@ -109,9 +107,8 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
 
         <Outcome>
           <p>
-            The course went live on Masterstart. Seeing course content come to life in
-            Articulate Rise, and knowing it was built for Stellenbosch Business School,
-            is work I value.
+            The course went live on Masterstart, built for Stellenbosch Business School.
+            I enjoyed this one.
           </p>
         </Outcome>
 

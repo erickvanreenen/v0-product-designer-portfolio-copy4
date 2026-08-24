@@ -41,15 +41,15 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
         <Section>
           <Lead>
             Flanksource began as a Kubernetes consulting firm, so they had seen the same
-            failure repeatedly. Teams were drowning in data and still could not answer
-            the only question that matters at 2am.
+            problem repeatedly. Teams had plenty of data and still could not tell what needed
+            attention.
           </Lead>
           <div className="mt-8">
             <Prose>
               <p>
-                Metrics dashboards, log tools, Git for config. Each one good at its job and
-                none of them tied together. Mission Control was built to close that gap,
-                and the dashboard is where the closing has to be visible.
+                Metrics dashboards, log tools, Git for config. Each fine on its own, none of
+                them connected. Mission Control was built to tie them together, and the
+                dashboard is where that has to be visible.
               </p>
             </Prose>
           </div>
@@ -58,7 +58,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
         <Section
           label="Domain first"
           title="Learning what the five things actually are"
-          intro="I logged into the beta and worked through each component before drawing anything. In an unfamiliar domain, the terminology is the design constraint. You cannot decide what surfaces by default until you know what each thing means to the person on call."
+          intro="I logged into the beta and worked through each component before drawing anything. I could not decide what should surface by default until I knew what each of these meant to the person on call."
         >
           <ol className="border-t border-line">
             {components.map((c, i) => (
@@ -122,9 +122,9 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         <Outcome>
           <p>
-            A dashboard that gives engineering teams one entry point into system health,
-            replacing the need to check five separate views. Reviewed with the Flanksource
-            product team and iterated on information density and hierarchy from their feedback.
+            One entry point into system health instead of five separate views. Reviewed with
+            the Flanksource product team, and iterated on density and hierarchy from their
+            feedback.
           </p>
         </Outcome>
 
