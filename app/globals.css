@@ -21,9 +21,9 @@
   --paper:        oklch(0.978 0.011 85);    /* warm cream, the page */
   --paper-sunk:   oklch(0.951 0.017 82);    /* recessed band */
   --surface:      oklch(1 0 0);             /* raised card */
-  --ink:          oklch(0.268 0.043 168);   /* deep green, the type */
-  --ink-deep:     oklch(0.208 0.038 168);   /* near-black green */
-  --ink-mid:      oklch(0.397 0.043 160);   /* secondary green */
+  --ink:          oklch(0.225 0.030 175);   /* deep green, the type */
+  --ink-deep:     oklch(0.170 0.026 175);   /* near-black green */
+  --ink-mid:      oklch(0.340 0.032 170);   /* secondary green */
 
   /*
     Accents come in two tiers.

@@ -30,7 +30,7 @@ function Scroller({ children, min = 560 }: { children: React.ReactNode; min?: nu
         aria-hidden="true"
         className="pointer-events-none absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-surface to-transparent sm:hidden"
       />
-      <p className="t-label text-ink/35 mt-3 sm:hidden">Swipe to see the rest</p>
+      <p className="t-label text-ink/75 mt-3 sm:hidden">Swipe to see the rest</p>
     </div>
   );
 }
@@ -74,7 +74,7 @@ export function DeadEnd() {
       <path d="M 272 59 l 14 16 M 286 59 l -14 16" stroke={INK} strokeOpacity="0.3"
         strokeWidth="1.5" strokeLinecap="round" />
 
-      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.82" textAnchor="middle">
         No recovery, no next step, no way back.
       </text>
     </svg>
@@ -93,7 +93,7 @@ export function ShiftingNav() {
       aria-label="The global navigation is arranged differently at three points in one sign-up">
       {bars.map((b, i) => (
         <g key={b.y}>
-          <text x="16" y={b.y + 10} fontSize="8.5" fontWeight="700" fill={INK} opacity="0.45">
+          <text x="16" y={b.y + 10} fontSize="8.5" fontWeight="700" fill={INK} opacity="0.75">
             {["STEP 1", "STEP 3", "STEP 5"][i]}
           </text>
           <rect x="66" y={b.y} width="218" height="18" rx="3"
@@ -108,7 +108,7 @@ export function ShiftingNav() {
           }, { x: 76, els: [] }).els}
         </g>
       ))}
-      <text x="150" y="142" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+      <text x="150" y="142" fontSize="9" fill={INK} opacity="0.82" textAnchor="middle">
         One journey. The furniture moves three times.
       </text>
     </svg>
@@ -120,7 +120,7 @@ export function StateMismatch() {
   return (
     <svg viewBox="0 0 300 150" className="w-full" style={{ fontFamily: MONO }} role="img"
       aria-label="A verified phone number, then an order summary showing the wrong configuration">
-      <text x="16" y="26" fontSize="8" fontWeight="700" fill={INK} opacity="0.4"
+      <text x="16" y="26" fontSize="8" fontWeight="700" fill={INK} opacity="0.75"
         letterSpacing="0.6">CONFIRMED</text>
       <rect x="16" y="34" width="118" height="56" rx="4" fill="var(--surface)"
         stroke={INK} strokeOpacity="0.16" strokeWidth="1.25" />
@@ -144,7 +144,7 @@ export function StateMismatch() {
       <rect x="200" y="59" width="70" height="5" rx="2.5" fill={ACCENT} fillOpacity="0.45" />
       <rect x="200" y="70" width="40" height="5" rx="2.5" fill={ACCENT} fillOpacity="0.45" />
 
-      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.55" textAnchor="middle">
+      <text x="150" y="122" fontSize="9" fill={INK} opacity="0.82" textAnchor="middle">
         The summary contradicted the step before it.
       </text>
     </svg>
@@ -163,7 +163,7 @@ export function ExpectationGap() {
         <rect x="40" y="76" width="150" height="56" rx="3" fill="var(--surface)"
           stroke={INK} strokeOpacity="0.25" strokeWidth="1.25" />
         <text x="56" y="98" fontSize="10" fontWeight="600" fill={INK} opacity="0.85">Finishes sign-up</text>
-        <text x="56" y="115" fontSize="9" fill={INK} opacity="0.5">Expects to pay now</text>
+        <text x="56" y="115" fontSize="9" fill={INK} opacity="0.82">Expects to pay now</text>
 
         {/* The gap */}
         <path d="M 190 104 L 452 104" stroke={ACCENT} strokeWidth="2" strokeDasharray="5 4" />
@@ -178,15 +178,15 @@ export function ExpectationGap() {
         <rect x="452" y="76" width="208" height="56" rx="3" fill="var(--accent-wash)"
           stroke={ACCENT} strokeOpacity="0.5" strokeWidth="1.25" />
         <text x="468" y="98" fontSize="10" fontWeight="600" fill={INK} opacity="0.85">First billing</text>
-        <text x="468" y="112" fontSize="9" fill={INK} opacity="0.55">56% of first billings</text>
-        <text x="468" y="124" fontSize="9" fill={INK} opacity="0.55">land in this window</text>
+        <text x="468" y="112" fontSize="9" fill={INK} opacity="0.82">56% of first billings</text>
+        <text x="468" y="124" fontSize="9" fill={INK} opacity="0.82">land in this window</text>
 
         {/* The consequence */}
         <line x1="40" y1="162" x2="660" y2="162" stroke={INK} strokeOpacity="0.12" />
         <text x="40" y="184" fontSize="11" fontWeight="600" fill={INK} opacity="0.85">
           Nothing in the flow told them they had not finished.
         </text>
-        <text x="40" y="200" fontSize="10" fill={INK} opacity="0.55">
+        <text x="40" y="200" fontSize="10" fill={INK} opacity="0.82">
           So they waited for a delivery against a subscription that was never activated.
         </text>
       </svg>
@@ -205,19 +205,19 @@ export function FunnelComparison() {
   return (
     <div>
       <div className="grid grid-cols-[1fr_auto_auto] gap-x-4 md:gap-x-8 pb-3 border-b border-line">
-        <span className="t-label text-ink/40">Measure</span>
-        <span className="t-label text-ink/40 w-24 md:w-32 text-right">Before</span>
+        <span className="t-label text-ink/75">Measure</span>
+        <span className="t-label text-ink/75 w-24 md:w-32 text-right">Before</span>
         <span className="t-label text-accent w-24 md:w-32 text-right">After</span>
       </div>
 
       {rows.map((r) => (
         <div key={r.label} className="py-6 border-b border-line">
           <div className="grid grid-cols-[1fr_auto_auto] gap-x-4 md:gap-x-8 items-baseline mb-3">
-            <span className="text-[15px] text-ink/80">{r.label}</span>
-            <span className="t-num text-lg text-ink/55 w-24 md:w-32 text-right">{r.before}</span>
+            <span className="text-[15px] text-ink/88">{r.label}</span>
+            <span className="t-num text-lg text-ink/82 w-24 md:w-32 text-right">{r.before}</span>
             <span
               className={`t-num text-lg w-24 md:w-32 text-right ${
-                r.lead ? "text-accent font-semibold" : "text-ink/80"
+                r.lead ? "text-accent font-semibold" : "text-ink/88"
               }`}
             >
               {r.after}
@@ -261,7 +261,7 @@ export function FilterDrift() {
   return (
     <Scroller min={640}>
       <svg viewBox="0 0 700 250" className="w-full" style={{ fontFamily: MONO }}>
-        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.4" letterSpacing="0.8">
+        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.75" letterSpacing="0.8">
           BEFORE
         </text>
 
@@ -274,7 +274,7 @@ export function FilterDrift() {
           <g key={lvl.label}>
             <rect x={lvl.x} y="26" width="186" height="94" rx="3"
               fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
-            <text x={lvl.x + 12} y="44" fontSize="9" fontWeight="700" fill={INK} opacity="0.45">
+            <text x={lvl.x + 12} y="44" fontSize="9" fontWeight="700" fill={INK} opacity="0.75">
               {lvl.label}
             </text>
 
@@ -313,7 +313,7 @@ export function FilterDrift() {
           </g>
         ))}
 
-        <text x="20" y="140" fontSize="10" fill={INK} opacity="0.55">
+        <text x="20" y="140" fontSize="10" fill={INK} opacity="0.82">
           Three levels, three patterns. The user relearns filtering on every step down.
         </text>
 
@@ -350,14 +350,14 @@ export function TwoSearchStreams() {
         {["Social", "Environmental", "Business", "Ingredient"].map((v, i) => (
           <g key={v}>
             <circle cx="42" cy={84 + i * 13} r="2" fill={ACCENT} opacity="0.6" />
-            <text x="52" y={87 + i * 13} fontSize="8.5" fill={INK} opacity="0.55">{v} values</text>
+            <text x="52" y={87 + i * 13} fontSize="8.5" fill={INK} opacity="0.82">{v} values</text>
           </g>
         ))}
 
         <rect x="20" y="146" width="220" height="30" rx="3"
           fill="var(--surface)" stroke={INK} strokeOpacity="0.2" strokeWidth="1.25" />
-        <text x="36" y="160" fontSize="10" fontWeight="700" fill={INK} opacity="0.5">02 · PRODUCT</text>
-        <text x="36" y="171" fontSize="8.5" fill={INK} opacity="0.5">Type, category, keyword</text>
+        <text x="36" y="160" fontSize="10" fontWeight="700" fill={INK} opacity="0.82">02 · PRODUCT</text>
+        <text x="36" y="171" fontSize="8.5" fill={INK} opacity="0.82">Type, category, keyword</text>
 
         <path d="M 240 79 C 320 79, 340 100, 420 100" fill="none" stroke={ACCENT} strokeWidth="1.5" />
         <path d="M 240 161 C 320 161, 340 100, 420 100" fill="none" stroke={INK} strokeWidth="1.5" strokeOpacity="0.25" />
@@ -367,7 +367,7 @@ export function TwoSearchStreams() {
         <text x="524" y="96" fontSize="11" fontWeight="700" fill={INK} textAnchor="middle" opacity="0.85">
           Product found
         </text>
-        <text x="524" y="113" fontSize="9" fill={INK} textAnchor="middle" opacity="0.5">
+        <text x="524" y="113" fontSize="9" fill={INK} textAnchor="middle" opacity="0.82">
           Same destination, same pattern
         </text>
       </svg>
@@ -391,7 +391,7 @@ export function Convergence() {
   return (
     <Scroller min={640}>
       <svg viewBox="0 0 700 300" className="w-full" style={{ fontFamily: MONO }}>
-        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.4" letterSpacing="0.8">
+        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.75" letterSpacing="0.8">
           FIVE PLACES TO LOOK
         </text>
 
@@ -404,7 +404,7 @@ export function Convergence() {
               <text x="36" y={y + 17} fontSize="10" fontWeight="600" fill={INK} opacity="0.8">
                 {s.name}
               </text>
-              <text x="36" y={y + 30} fontSize="8.5" fill={INK} opacity="0.45">
+              <text x="36" y={y + 30} fontSize="8.5" fill={INK} opacity="0.75">
                 {s.gives}
               </text>
               <path d={`M 220 ${y + 19} C 290 ${y + 19}, 300 150, 372 150`}
@@ -446,7 +446,7 @@ export function Convergence() {
           );
         })}
 
-        <text x="20" y="292" fontSize="10" fill={INK} opacity="0.55">
+        <text x="20" y="292" fontSize="10" fill={INK} opacity="0.82">
           Each tool keeps its depth. The dashboard only lifts the thing that needs a decision.
         </text>
       </svg>
@@ -481,13 +481,13 @@ export function AdvancingLanes() {
     <Scroller min={660}>
       <svg viewBox="0 0 700 470" className="w-full" style={{ fontFamily: MONO }}>
         {/* ── Panel 1: before ─────────────────────────── */}
-        <text x="20" y="20" fontSize="8.5" fontWeight="700" fill={INK} opacity="0.4" letterSpacing="0.7">
+        <text x="20" y="20" fontSize="8.5" fontWeight="700" fill={INK} opacity="0.75" letterSpacing="0.7">
           BEFORE, FOUR SEPARATE EMAIL THREADS
         </text>
 
         {lanes.map((lane, i) => (
           <g key={lane}>
-            <text x="20" y={laneY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.6">
+            <text x="20" y={laneY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.75">
               {lane}
             </text>
             <line x1="104" y1={laneY(i)} x2="620" y2={laneY(i)}
@@ -516,7 +516,7 @@ export function AdvancingLanes() {
           Show day
         </text>
 
-        <text x="20" y="222" fontSize="9.5" fill={INK} opacity="0.55">
+        <text x="20" y="222" fontSize="9.5" fill={INK} opacity="0.82">
           Four exchanges, four threads. Nothing holds the sequence.
         </text>
 
@@ -530,7 +530,7 @@ export function AdvancingLanes() {
 
         {lanes.map((lane, i) => (
           <g key={`after-${lane}`}>
-            <text x="20" y={roleY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.6">
+            <text x="20" y={roleY(i) + 4} fontSize="9.5" fontWeight="600" fill={INK} opacity="0.75">
               {lane}
             </text>
             {/* every role writes into and reads from the same record */}
@@ -560,7 +560,7 @@ export function AdvancingLanes() {
           Show day
         </text>
 
-        <text x="20" y="462" fontSize="9.5" fill={INK} opacity="0.55">
+        <text x="20" y="462" fontSize="9.5" fill={INK} opacity="0.82">
           The same four exchanges, in one place all three parties can see.
         </text>
       </svg>
@@ -582,7 +582,7 @@ export function SimplificationPass() {
           { x: 488, label: "WHAT THE LEARNER SEES" },
         ].map((c) => (
           <text key={c.label} x={c.x} y="16" fontSize="8.5" fontWeight="600"
-            fill={INK} opacity="0.4" letterSpacing="0.6">{c.label}</text>
+            fill={INK} opacity="0.75" letterSpacing="0.6">{c.label}</text>
         ))}
 
         {/* 1. the tangle */}
@@ -612,7 +612,7 @@ export function SimplificationPass() {
             )}
           </g>
         ))}
-        <text x="350" y="140" fontSize="8.5" fill={INK} opacity="0.45" textAnchor="middle">
+        <text x="350" y="140" fontSize="8.5" fill={INK} opacity="0.75" textAnchor="middle">
           Three parts, one direction
         </text>
 
@@ -654,7 +654,7 @@ export function BrandConsolidation() {
   return (
     <Scroller min={640}>
       <svg viewBox="0 0 700 250" className="w-full" style={{ fontFamily: MONO }}>
-        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.4" letterSpacing="0.8">
+        <text x="20" y="16" fontSize="9" fontWeight="600" fill={INK} opacity="0.75" letterSpacing="0.8">
           BEFORE · FOUR SITES, FOUR NAVIGATIONS
         </text>
         {[0, 1, 2, 3].map((i) => (
@@ -667,7 +667,7 @@ export function BrandConsolidation() {
             <rect x={28 + i * 74} y="72" width="28" height="4" rx="2" fill={INK} opacity="0.1" />
           </g>
         ))}
-        <text x="20" y="122" fontSize="9.5" fill={INK} opacity="0.5">
+        <text x="20" y="122" fontSize="9.5" fill={INK} opacity="0.82">
           A user moving between brands starts over each time.
         </text>
 
@@ -698,10 +698,10 @@ export function BrandConsolidation() {
           </g>
         ))}
 
-        <text x="392" y="208" fontSize="9.5" fill={INK} opacity="0.5">
+        <text x="392" y="208" fontSize="9.5" fill={INK} opacity="0.82">
           Shared navigation and patterns.
         </text>
-        <text x="392" y="224" fontSize="9.5" fill={INK} opacity="0.5">
+        <text x="392" y="224" fontSize="9.5" fill={INK} opacity="0.82">
           Brand identity kept where it carries meaning.
         </text>
       </svg>
@@ -732,7 +732,7 @@ export function LearningSequence() {
                 className={`w-6 h-6 flex items-center justify-center text-[11px] font-bold rounded-full ${
                   i === steps.length - 1
                     ? "bg-accent text-white"
-                    : "bg-ink/8 text-ink/55"
+                    : "bg-ink/8 text-ink/82"
                 }`}
               >
                 {i + 1}
@@ -740,8 +740,8 @@ export function LearningSequence() {
               {i < steps.length - 1 && <span className="h-px flex-1 bg-line" />}
             </div>
             <h3 className="text-[15px] font-bold text-ink leading-snug">{s.t}</h3>
-            <p className="t-label text-ink/40 mt-3">Produces</p>
-            <p className="text-[13px] text-ink/60 leading-relaxed mt-1">{s.o}</p>
+            <p className="t-label text-ink/75 mt-3">Produces</p>
+            <p className="text-[13px] text-ink/82 leading-relaxed mt-1">{s.o}</p>
           </li>
         ))}
       </ol>
@@ -779,7 +779,7 @@ export function ModuleMerge() {
 
         <rect x="250" y="56" width="146" height="82" rx="3"
           fill="var(--surface)" stroke={INK} strokeOpacity="0.25" strokeWidth="1.25" strokeDasharray="4 3" />
-        <text x="323" y="76" fontSize="9" fontWeight="700" fill={INK} opacity="0.5" textAnchor="middle">
+        <text x="323" y="76" fontSize="9" fontWeight="700" fill={INK} opacity="0.82" textAnchor="middle">
           EVALUATE
         </text>
         {[
@@ -808,12 +808,12 @@ export function ModuleMerge() {
             <rect x={452 + i * 30} y="78" width="22" height="22" rx="2"
               fill={ACCENT} opacity="0.25" />
             <text x={463 + i * 30} y="93" fontSize="8" fontWeight="700"
-              fill={INK} opacity="0.6" textAnchor="middle">{i + 1}</text>
+              fill={INK} opacity="0.75" textAnchor="middle">{i + 1}</text>
             <path d={`M ${463 + i * 30} 100 L ${463 + i * 30} 114 L 566 114 L 566 122`}
               fill="none" stroke={ACCENT} strokeWidth="1" strokeOpacity="0.35" />
           </g>
         ))}
-        <text x="452" y="112" fontSize="8" fill={INK} opacity="0.4">Six formative exercises</text>
+        <text x="452" y="112" fontSize="8" fill={INK} opacity="0.75">Six formative exercises</text>
 
         <rect x="512" y="122" width="108" height="22" rx="3" fill={ACCENT} />
         <text x="566" y="137" fontSize="9" fontWeight="700" fill="var(--surface)" textAnchor="middle">

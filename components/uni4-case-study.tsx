@@ -115,8 +115,8 @@ export function Uni4CaseStudy({ project, nextProject, prevProject }: Props) {
 
         {project.externalLink && (
           <div className="border-t border-line pt-12">
-            <p className="t-label text-ink/40 mb-3">Production site</p>
-            <p className="text-[16px] text-ink/70 mb-6 measure">
+            <p className="t-label text-ink/75 mb-3">Production site</p>
+            <p className="text-[16px] text-ink/82 mb-6 measure">
               The aggregator platform, live.
             </p>
             <LiveLink href={project.externalLink} label="Open UNi4 Online" />

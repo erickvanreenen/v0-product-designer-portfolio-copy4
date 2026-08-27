@@ -87,7 +87,7 @@ export function EdtechCaseStudy({ project, nextProject, prevProject }: Props) {
             ].map((item) => (
               <div key={item.label} className="border-r border-b border-line p-6 md:p-7 bg-surface">
                 <h3 className="text-base font-bold text-ink mb-2.5">{item.label}</h3>
-                <p className="text-[15px] text-ink/60 leading-relaxed">{item.desc}</p>
+                <p className="text-[15px] text-ink/82 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

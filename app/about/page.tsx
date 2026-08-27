@@ -60,7 +60,7 @@ function SectionHead({ label, title, intro }: { label?: string; title: string; i
     <header className="mb-12 md:mb-14">
       {label && <p className="t-label text-ember mb-4">{label}</p>}
       <h2 className="t-h2 text-3xl md:text-[42px] text-ink">{title}</h2>
-      {intro && <p className="text-[16px] text-ink/60 leading-relaxed measure mt-5">{intro}</p>}
+      {intro && <p className="text-[16px] text-ink/82 leading-relaxed measure mt-5">{intro}</p>}
     </header>
   );
 }
@@ -69,7 +69,7 @@ function Pills({ items }: { items: string[] }) {
   return (
     <ul className="flex flex-wrap gap-2">
       {items.map((s) => (
-        <li key={s} className="text-sm px-3.5 py-2 bg-surface border border-line text-ink/75">
+        <li key={s} className="text-sm px-3.5 py-2 bg-surface border border-line text-ink/85">
           {s}
         </li>
       ))}
@@ -96,7 +96,7 @@ export default function AboutPage() {
             Follow the curiosity.
           </h1>
 
-          <p className="text-xl md:text-2xl text-ink/70 measure leading-[1.4] font-light mb-14 md:mb-16">
+          <p className="text-xl md:text-2xl text-ink/82 measure leading-[1.4] font-light mb-14 md:mb-16">
             Fifteen years making and building things people use.
           </p>
 
@@ -108,11 +108,11 @@ export default function AboutPage() {
                   i % 2 === 1 ? "pl-5 border-l border-line md:pl-6" : ""
                 }`}
               >
-                <dt className="flex items-center gap-1.5 t-label text-ink/40 mb-2">
+                <dt className="flex items-center gap-1.5 t-label text-ink/75 mb-2">
                   <Icon name={item.icon} size={13} />
                   {item.label}
                 </dt>
-                <dd className="text-sm text-ink/85 leading-snug min-w-0 [overflow-wrap:anywhere]">
+                <dd className="text-sm text-ink/90 leading-snug min-w-0 [overflow-wrap:anywhere]">
                   {item.href ? (
                     <a
                       href={item.href}
@@ -141,7 +141,7 @@ export default function AboutPage() {
               I have worked in entrepreneurship, business development, branding, product
               design, visual and online education design, and UX/UI.
             </p>
-            <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
+            <div className="measure space-y-5 text-[17px] text-ink/82 leading-relaxed">
               <p>
                 Most of what I do comes down to working out how the pieces fit together, and
                 who they are for.
@@ -163,7 +163,7 @@ export default function AboutPage() {
               title="Artificial intelligence"
               intro="A working partner, not a shortcut."
             />
-            <div className="measure space-y-5 text-[17px] text-ink/70 leading-relaxed">
+            <div className="measure space-y-5 text-[17px] text-ink/82 leading-relaxed">
               <p>
                 I use AI throughout the process. Speeding up research, analysing qualitative
                 and quantitative data, exploring ideas, reviewing prototypes against usability
@@ -191,7 +191,7 @@ export default function AboutPage() {
 
             <div className="mb-16">
               <h3 className="text-xl font-bold text-ink tracking-[-0.015em]">Design and delivery</h3>
-              <p className="text-[15px] text-ink/60 leading-relaxed mt-2 measure">
+              <p className="text-[15px] text-ink/82 leading-relaxed mt-2 measure">
                 HTML is included in handover where it saves build time.
               </p>
               <figure className="mt-7">
@@ -203,7 +203,7 @@ export default function AboutPage() {
 
             <div>
               <h3 className="text-xl font-bold text-ink tracking-[-0.015em]">Design system</h3>
-              <p className="text-[15px] text-ink/60 leading-relaxed mt-2 measure">
+              <p className="text-[15px] text-ink/82 leading-relaxed mt-2 measure">
                 Built in Figma and in code, then checked against itself.
               </p>
               <figure className="mt-7">
@@ -228,11 +228,11 @@ export default function AboutPage() {
                     {i < arr.length - 1 && <span className="w-px flex-1 bg-line mt-2" />}
                   </div>
                   <div className="pb-10 grid md:grid-cols-[10rem_1fr] gap-x-8 gap-y-1 flex-1">
-                    <p className="t-label text-ink/40 md:pt-1">{exp.period}</p>
+                    <p className="t-label text-ink/75 md:pt-1">{exp.period}</p>
                     <div>
                       <h3 className="text-[17px] font-bold text-ink">{exp.title}</h3>
                       <p className="text-sm text-ember mb-2">{exp.company}</p>
-                      <p className="text-[15px] text-ink/60 leading-relaxed measure">{exp.desc}</p>
+                      <p className="text-[15px] text-ink/82 leading-relaxed measure">{exp.desc}</p>
                     </div>
                   </div>
                 </li>
@@ -253,17 +253,17 @@ export default function AboutPage() {
 
             <div className="grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-16">
               <div>
-                <p className="t-label text-ink/40 mb-5">Education</p>
+                <p className="t-label text-ink/75 mb-5">Education</p>
                 <dl className="border-t border-line">
                   {education.map((edu) => (
                     <div
                       key={edu.title}
                       className="grid grid-cols-[4.5rem_1fr] md:grid-cols-[6.5rem_1fr] gap-x-4 py-4 border-b border-line"
                     >
-                      <dt className="t-num text-sm text-ink/40 pt-0.5">{edu.year}</dt>
+                      <dt className="t-num text-sm text-ink/75 pt-0.5">{edu.year}</dt>
                       <dd>
                         <p className="text-[15px] font-bold text-ink leading-snug">{edu.title}</p>
-                        <p className="text-sm text-ink/55 mt-1">{edu.institution}</p>
+                        <p className="text-sm text-ink/82 mt-1">{edu.institution}</p>
                       </dd>
                     </div>
                   ))}
@@ -272,15 +272,15 @@ export default function AboutPage() {
 
               <div className="space-y-10">
                 <div>
-                  <p className="t-label text-ink/40 mb-5">Skills</p>
+                  <p className="t-label text-ink/75 mb-5">Skills</p>
                   <Pills items={skills} />
                 </div>
                 <div>
-                  <p className="t-label text-ink/40 mb-5">Tools</p>
+                  <p className="t-label text-ink/75 mb-5">Tools</p>
                   <Pills items={tools} />
                 </div>
                 <div>
-                  <p className="t-label text-ink/40 mb-5">AI</p>
+                  <p className="t-label text-ink/75 mb-5">AI</p>
                   <Pills items={aiTools} />
                 </div>
               </div>
@@ -292,11 +292,11 @@ export default function AboutPage() {
         <FadeIn>
           <section>
             <SectionHead label="Beyond work" title="What keeps the work steady" />
-            <p className="text-[17px] text-ink/70 leading-relaxed measure mb-16">
+            <p className="text-[17px] text-ink/82 leading-relaxed measure mb-16">
               I am a proud father. The rest of it is nature, Tai Chi, meditation, breathwork,
               trail running, and early morning swims in the Atlantic.
             </p>
-            <p className="text-[15px] text-ink/55 leading-relaxed mb-8 measure">
+            <p className="text-[15px] text-ink/82 leading-relaxed mb-8 measure">
               I make prints for free play.
             </p>
             <PrintsCarousel />

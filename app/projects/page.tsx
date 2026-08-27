@@ -26,7 +26,7 @@ export default function ProjectsPage() {
           <h1 className="t-display text-5xl md:text-7xl text-ink mb-6">
             Ten challenges.
           </h1>
-          <p className="text-lg text-ink/60 measure">
+          <p className="text-lg text-ink/82 measure">
             Each project is titled by the work it involved. The company is underneath.
             E-commerce, omnichannel platforms, investment reporting, data tooling, and education.
           </p>
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
               <div className="border-t border-line pt-14 mb-14">
                 <p className="t-label text-plum mb-3">Discipline</p>
                 <h2 className="t-h2 text-3xl md:text-4xl text-ink mb-3">Education</h2>
-                <p className="text-[15px] text-ink/55 measure">
+                <p className="text-[15px] text-ink/82 measure">
                   Four projects where the user is a learner, and comprehension is the thing
                   being designed for.
                 </p>
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
 
         {filteredProjects.length === 0 && (
           <div className="border border-line py-20 px-6 text-center">
-            <p className="text-ink/60 mb-2">Nothing tagged {activeTag} yet.</p>
+            <p className="text-ink/82 mb-2">Nothing tagged {activeTag} yet.</p>
             <button
               onClick={() => setActiveTag(null)}
               className="t-label text-ember hover:underline underline-offset-4 py-2.5 -my-2.5 inline-block"

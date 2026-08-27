@@ -123,19 +123,19 @@ function ExerciseCard({
       className={`border border-line p-6 md:p-8 ${summative ? "bg-accent-wash" : "bg-surface"}`}
     >
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-4">
-        <span className={`t-label ${summative ? "text-accent" : "text-ink/40"}`}>{ex.week}</span>
-        <span className="t-num text-xs text-ink/30">
+        <span className={`t-label ${summative ? "text-accent" : "text-ink/75"}`}>{ex.week}</span>
+        <span className="t-num text-xs text-ink/75">
           Exercise {String(index).padStart(2, "0")}
         </span>
       </div>
 
       <h3 className="text-xl font-bold text-ink tracking-[-0.015em] mb-2">{ex.title}</h3>
-      <p className="text-[15px] text-ink/65 leading-relaxed mb-7">{ex.objective}</p>
+      <p className="text-[15px] text-ink/82 leading-relaxed mb-7">{ex.objective}</p>
 
-      <p className="t-label text-ink/40 mb-3">Instructions</p>
+      <p className="t-label text-ink/75 mb-3">Instructions</p>
       <ul className="space-y-2.5 mb-7">
         {ex.instructions.map((i) => (
-          <li key={i} className="text-[14px] text-ink/70 leading-relaxed flex gap-3">
+          <li key={i} className="text-[14px] text-ink/82 leading-relaxed flex gap-3">
             <span className="mt-[8px] w-1 h-1 shrink-0 rounded-full bg-accent" />
             {i}
           </li>
@@ -144,12 +144,12 @@ function ExerciseCard({
 
       <dl className="grid sm:grid-cols-2 gap-6 pt-5 border-t border-line">
         <div>
-          <dt className="t-label text-ink/40 mb-2">Deliverable</dt>
-          <dd className="text-[14px] text-ink/70 leading-relaxed">{ex.deliverable}</dd>
+          <dt className="t-label text-ink/75 mb-2">Deliverable</dt>
+          <dd className="text-[14px] text-ink/82 leading-relaxed">{ex.deliverable}</dd>
         </div>
         <div>
-          <dt className="t-label text-ink/40 mb-2">Tools</dt>
-          <dd className="text-[14px] text-ink/70 leading-relaxed">{ex.tools}</dd>
+          <dt className="t-label text-ink/75 mb-2">Tools</dt>
+          <dd className="text-[14px] text-ink/82 leading-relaxed">{ex.tools}</dd>
         </div>
       </dl>
     </article>

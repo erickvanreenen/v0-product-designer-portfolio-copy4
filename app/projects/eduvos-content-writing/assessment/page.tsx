@@ -112,7 +112,7 @@ export default function AssessmentPage() {
         <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
           <Link
             href="/projects/eduvos-content-writing"
-            className="inline-flex items-center gap-2 text-sm text-ink/65 hover:text-ember transition-colors duration-200 mb-16 group"
+            className="inline-flex items-center gap-2 text-sm text-ink/82 hover:text-ember transition-colors duration-200 mb-16 group"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
             Back to project
@@ -120,14 +120,14 @@ export default function AssessmentPage() {
 
           <div className="flex flex-wrap gap-1.5 mb-6">
             {["EdTech", "Content Design", "Formative Assessment"].map((tag) => (
-              <span key={tag} className="text-xs text-ink/65">{tag}</span>
+              <span key={tag} className="text-xs text-ink/82">{tag}</span>
             ))}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-ink tracking-tight mb-4 max-w-2xl">
             Formative Assessment Brief
           </h1>
-          <p className="text-lg text-ink/70 max-w-xl leading-relaxed">
+          <p className="text-lg text-ink/82 max-w-xl leading-relaxed">
             Revamping a non-profit organisation's website.
           </p>
 
@@ -143,7 +143,7 @@ export default function AssessmentPage() {
               } ${
                 i === 1 || i === 2 ? "border-t md:border-t-0" : ""
               }`}>
-                <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-2">{item.label}</p>
+                <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-2">{item.label}</p>
                 <p className="text-sm text-ink break-words">{item.value}</p>
               </div>
             ))}
@@ -154,8 +154,8 @@ export default function AssessmentPage() {
       {/* Learning Objective */}
       <section className="bg-accent-wash">
         <div className="max-w-3xl mx-auto px-6 py-10">
-          <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-4">Learning Objective</p>
-          <p className="text-base text-ink/85 leading-relaxed">
+          <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-4">Learning Objective</p>
+          <p className="text-base text-ink/90 leading-relaxed">
             This brief aims to immerse you in the core principles of User Interface (UI) and User Experience (UX) design, applying them in a real-world scenario by revamping a non-profit organisation's website. Through a series of hands-on exercises, you will develop user personas, create mid-fidelity prototypes, and select the best platform for implementation. The project will culminate in usability testing, ensuring that your design enhances user interaction while staying true to the non-profit's mission and brand identity.
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function AssessmentPage() {
         {/* Brief Topic */}
         <section className="mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-ink tracking-tight mb-6">Brief topic</h2>
-          <p className="text-base text-ink/85 leading-relaxed">
+          <p className="text-base text-ink/90 leading-relaxed">
             You are tasked with identifying an existing non-profit organisation that has a poorly designed website. Your goal is to revamp the website, aligning it with modern UI and UX principles to improve user interaction and overall experience. The project includes developing user personas, creating a mid-fidelity prototype, and performing usability testing to validate your design. Finally, you will present your findings and design updates in a live presentation.
           </p>
         </section>
@@ -174,7 +174,7 @@ export default function AssessmentPage() {
         {/* Scope */}
         <section className="mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-ink tracking-tight mb-6">Scope</h2>
-          <p className="text-base text-ink/85 leading-relaxed">
+          <p className="text-base text-ink/90 leading-relaxed">
             This brief will consist of six exercises spanning six weeks, focusing on each step in the UI/UX design process. Each exercise will build on the skills and knowledge covered in class, helping you progress toward the final website revamp and usability testing. Completion of these exercises is essential to prepare for the final summative assessment in weeks 7 and 8.
           </p>
         </section>
@@ -189,8 +189,8 @@ export default function AssessmentPage() {
               "A digital prototype, screen recording, and documentation for usability testing results.",
             ].map((req, i) => (
               <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-ink/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-ink/85 leading-relaxed">{req}</p>
+                <span className="text-xs text-ink/75 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-ink/90 leading-relaxed">{req}</p>
               </div>
             ))}
           </div>
@@ -205,8 +205,8 @@ export default function AssessmentPage() {
               <div key={ex.label} className="bg-surface rounded-lg p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-xs text-ember font-medium uppercase tracking-widest">{ex.week}</span>
-                  <span className="text-ink/35">/</span>
-                  <span className="text-xs text-ink/65 font-medium uppercase tracking-widest">{ex.label}</span>
+                  <span className="text-ink/75">/</span>
+                  <span className="text-xs text-ink/82 font-medium uppercase tracking-widest">{ex.label}</span>
                 </div>
                 <h3 className="text-xl font-bold text-ink tracking-tight mb-3">{ex.title}</h3>
                 <p className="text-sm text-ember font-medium mb-6">{ex.objective}</p>
@@ -214,18 +214,18 @@ export default function AssessmentPage() {
                   {ex.instructions.map((ins, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-ember/40 mt-[0.4rem] shrink-0" />
-                      <p className="text-sm text-ink/80 leading-relaxed">{ins}</p>
+                      <p className="text-sm text-ink/88 leading-relaxed">{ins}</p>
                     </div>
                   ))}
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-line">
                   <div>
-                    <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-2">Deliverable</p>
-                    <p className="text-sm text-ink/85 leading-relaxed">{ex.deliverable}</p>
+                    <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-2">Deliverable</p>
+                    <p className="text-sm text-ink/90 leading-relaxed">{ex.deliverable}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-2">Tools</p>
-                    <p className="text-sm text-ink/85 leading-relaxed">{ex.tools}</p>
+                    <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-2">Tools</p>
+                    <p className="text-sm text-ink/90 leading-relaxed">{ex.tools}</p>
                   </div>
                 </div>
               </div>
@@ -242,8 +242,8 @@ export default function AssessmentPage() {
               <div key={ex.label} className="bg-surface rounded-lg p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-xs text-ember font-medium uppercase tracking-widest">{ex.week}</span>
-                  <span className="text-ink/35">/</span>
-                  <span className="text-xs text-ink/65 font-medium uppercase tracking-widest">{ex.label}</span>
+                  <span className="text-ink/75">/</span>
+                  <span className="text-xs text-ink/82 font-medium uppercase tracking-widest">{ex.label}</span>
                 </div>
                 <h3 className="text-xl font-bold text-ink tracking-tight mb-3">{ex.title}</h3>
                 <p className="text-sm text-ember font-medium mb-6">{ex.objective}</p>
@@ -251,18 +251,18 @@ export default function AssessmentPage() {
                   {ex.instructions.map((ins, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-ember/40 mt-[0.4rem] shrink-0" />
-                      <p className="text-sm text-ink/80 leading-relaxed">{ins}</p>
+                      <p className="text-sm text-ink/88 leading-relaxed">{ins}</p>
                     </div>
                   ))}
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-line">
                   <div>
-                    <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-2">Deliverable</p>
-                    <p className="text-sm text-ink/85 leading-relaxed">{ex.deliverable}</p>
+                    <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-2">Deliverable</p>
+                    <p className="text-sm text-ink/90 leading-relaxed">{ex.deliverable}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-ink/65 font-medium uppercase tracking-widest mb-2">Tools</p>
-                    <p className="text-sm text-ink/85 leading-relaxed">{ex.tools}</p>
+                    <p className="text-xs text-ink/82 font-medium uppercase tracking-widest mb-2">Tools</p>
+                    <p className="text-sm text-ink/90 leading-relaxed">{ex.tools}</p>
                   </div>
                 </div>
               </div>
@@ -280,8 +280,8 @@ export default function AssessmentPage() {
               "Usability testing should be thorough, with feedback well-documented and incorporated into the final prototype.",
             ].map((req, i) => (
               <div key={i} className="flex items-start gap-6">
-                <span className="text-xs text-ink/35 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-ink/85 leading-relaxed">{req}</p>
+                <span className="text-xs text-ink/75 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-ink/90 leading-relaxed">{req}</p>
               </div>
             ))}
           </div>
@@ -297,7 +297,7 @@ export default function AssessmentPage() {
             ].map((ins, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-ember/40 mt-[0.4rem] shrink-0" />
-                <p className="text-sm text-ink/80 leading-relaxed">{ins}</p>
+                <p className="text-sm text-ink/88 leading-relaxed">{ins}</p>
               </div>
             ))}
           </div>

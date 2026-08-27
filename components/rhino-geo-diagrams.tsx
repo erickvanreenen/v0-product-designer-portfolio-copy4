@@ -17,14 +17,14 @@ export function SearchShiftDiagram() {
 
         {/* ── Left: traditional search ── */}
         <text x="20" y="18" fontSize="9" fontWeight="700" fill={GREEN}
-          opacity="0.4" letterSpacing="0.8">TRADITIONAL SEARCH</text>
+          opacity="0.75" letterSpacing="0.8">TRADITIONAL SEARCH</text>
 
         {/* Query box */}
         <rect x="20" y="32" width="280" height="30" rx="4"
           fill="none" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1" />
         <circle cx="38" cy="47" r="5" fill="none" stroke={GREEN} strokeOpacity="0.4" strokeWidth="1.3" />
         <line x1="42" y1="51" x2="45" y2="54" stroke={GREEN} strokeOpacity="0.4" strokeWidth="1.3" />
-        <text x="54" y="51" fontSize="10" fill={GREEN} opacity="0.55">
+        <text x="54" y="51" fontSize="10" fill={GREEN} opacity="0.82">
           best time to visit Kruger
         </text>
 
@@ -35,7 +35,7 @@ export function SearchShiftDiagram() {
           return (
             <g key={i}>
               <text x="20" y={y + 8} fontSize="8" fontWeight="700"
-                fill={GREEN} opacity="0.3" textAnchor="middle" dx="6">{i + 1}</text>
+                fill={GREEN} opacity="0.75" textAnchor="middle" dx="6">{i + 1}</text>
               <rect x="34" y={y} width={w * 0.42} height="5" rx="2.5"
                 fill={GREEN} opacity="0.35" />
               <rect x="34" y={y + 9} width={w * 0.75} height="4" rx="2"
@@ -44,10 +44,10 @@ export function SearchShiftDiagram() {
           );
         })}
 
-        <text x="20" y="272" fontSize="9" fill={GREEN} opacity="0.5">
+        <text x="20" y="272" fontSize="9" fill={GREEN} opacity="0.82">
           The user scans, chooses, clicks through.
         </text>
-        <text x="20" y="287" fontSize="9" fill={GREEN} opacity="0.5">
+        <text x="20" y="287" fontSize="9" fill={GREEN} opacity="0.82">
           Ten chances to be found.
         </text>
 
@@ -64,7 +64,7 @@ export function SearchShiftDiagram() {
           fill="none" stroke={ORANGE} strokeOpacity="0.3" strokeWidth="1" />
         <circle cx="418" cy="47" r="5" fill="none" stroke={ORANGE} strokeOpacity="0.5" strokeWidth="1.3" />
         <line x1="422" y1="51" x2="425" y2="54" stroke={ORANGE} strokeOpacity="0.5" strokeWidth="1.3" />
-        <text x="434" y="51" fontSize="10" fill={GREEN} opacity="0.6">
+        <text x="434" y="51" fontSize="10" fill={GREEN} opacity="0.75">
           best time to visit Kruger
         </text>
 
@@ -78,7 +78,7 @@ export function SearchShiftDiagram() {
 
         {/* Citation chips */}
         <text x="416" y="152" fontSize="7.5" fontWeight="700" fill={GREEN}
-          opacity="0.35" letterSpacing="0.6">SOURCES</text>
+          opacity="0.75" letterSpacing="0.6">SOURCES</text>
         <rect x="416" y="160" width="86" height="18" rx="9"
           fill={ORANGE} fillOpacity="0.12" stroke={ORANGE} strokeOpacity="0.35" strokeWidth="1" />
         <text x="459" y="172" fontSize="8" fontWeight="700" fill={ORANGE}
@@ -90,10 +90,10 @@ export function SearchShiftDiagram() {
           fill={GREEN} fillOpacity="0.06" stroke={GREEN} strokeOpacity="0.18" strokeWidth="1" />
         <rect x="594" y="167" width="34" height="4" rx="2" fill={GREEN} opacity="0.2" />
 
-        <text x="400" y="222" fontSize="9" fill={GREEN} opacity="0.5">
+        <text x="400" y="222" fontSize="9" fill={GREEN} opacity="0.82">
           The machine reads, synthesises, cites.
         </text>
-        <text x="400" y="237" fontSize="9" fill={GREEN} opacity="0.5">
+        <text x="400" y="237" fontSize="9" fill={GREEN} opacity="0.82">
           Two or three chances. Sometimes one.
         </text>
 
@@ -171,11 +171,11 @@ export function GeoLayerStack() {
     <div>
       {/* Reading direction marker */}
       <div className="flex items-center gap-2 mb-5">
-        <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+        <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
           Crawler reading order
         </span>
         <div className="flex-1 h-px bg-line" />
-        <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+        <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
           Top → bottom
         </span>
       </div>
@@ -202,13 +202,13 @@ export function GeoLayerStack() {
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <h3 className="text-sm font-bold text-ink">{layer.title}</h3>
                   {layer.schema && (
-                    <code className="text-[10px] text-ink/55 font-mono bg-ink/6 px-1.5 py-0.5 rounded">
+                    <code className="text-[10px] text-ink/82 font-mono bg-ink/6 px-1.5 py-0.5 rounded">
                       {layer.schema}
                     </code>
                   )}
                 </div>
-                <p className="text-xs text-ink/50 mt-1 leading-relaxed">{layer.note}</p>
-                <p className="text-xs text-ink/75 mt-2 leading-relaxed border-l-2 pl-3"
+                <p className="text-xs text-ink/75 mt-1 leading-relaxed">{layer.note}</p>
+                <p className="text-xs text-ink/85 mt-2 leading-relaxed border-l-2 pl-3"
                   style={{ borderColor: `color-mix(in oklch, ${style.bar} 35%, transparent)` }}>
                   {layer.example}
                 </p>
@@ -228,7 +228,7 @@ export function GeoLayerStack() {
         ].map((item) => (
           <div key={item.l} className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-sm" style={{ background: item.c }} />
-            <span className="text-[11px] text-ink/55">{item.l}</span>
+            <span className="text-[11px] text-ink/82">{item.l}</span>
           </div>
         ))}
       </div>
@@ -276,7 +276,7 @@ export function PlatformIADiagram() {
             <text x={p.x} y="116" fontSize="9.5" fontWeight="700"
               fill={p.label === "Start Planning" ? ORANGE : GREEN}
               textAnchor="middle">{p.label}</text>
-            <text x={p.x} y="130" fontSize="7.5" fill={GREEN} opacity="0.45"
+            <text x={p.x} y="130" fontSize="7.5" fill={GREEN} opacity="0.75"
               textAnchor="middle">{p.sub}</text>
           </g>
         ))}
@@ -311,7 +311,7 @@ export function PlatformIADiagram() {
           textAnchor="middle" opacity="0.75">
           rhinoafrica.com/blog · WordPress subdomain
         </text>
-        <text x="360" y="306" fontSize="8" fill={GREEN} opacity="0.45" textAnchor="middle">
+        <text x="360" y="306" fontSize="8" fill={GREEN} opacity="0.75" textAnchor="middle">
           Mirrors the main taxonomy · 5 languages · top-of-funnel
         </text>
 
@@ -338,7 +338,7 @@ export function MultilingualBreakDiagram() {
 
         {/* Stage 1 — Blog */}
         <text x="20" y="16" fontSize="8" fontWeight="700" fill={GREEN}
-          opacity="0.4" letterSpacing="0.7">DISCOVERY · BLOG</text>
+          opacity="0.75" letterSpacing="0.7">DISCOVERY · BLOG</text>
         <rect x="20" y="28" width="180" height="86" rx="5"
           fill="var(--surface)" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
         {langs.map((l, i) => (
@@ -350,7 +350,7 @@ export function MultilingualBreakDiagram() {
               fontSize="9" fontWeight="700" fill={GREEN} textAnchor="middle">{l}</text>
           </g>
         ))}
-        <text x="110" y="130" fontSize="8.5" fill={GREEN} opacity="0.5" textAnchor="middle">
+        <text x="110" y="130" fontSize="8.5" fill={GREEN} opacity="0.82" textAnchor="middle">
           Five languages
         </text>
 
@@ -361,7 +361,7 @@ export function MultilingualBreakDiagram() {
 
         {/* Stage 2 — Main site */}
         <text x="256" y="16" fontSize="8" fontWeight="700" fill={GREEN}
-          opacity="0.4" letterSpacing="0.7">MAIN SITE</text>
+          opacity="0.75" letterSpacing="0.7">MAIN SITE</text>
         <rect x="256" y="28" width="150" height="86" rx="5"
           fill="var(--surface)" stroke={GREEN} strokeOpacity="0.25" strokeWidth="1.2" />
         {["EN", "PT"].map((l, i) => (
@@ -372,7 +372,7 @@ export function MultilingualBreakDiagram() {
               fill={GREEN} textAnchor="middle">{l}</text>
           </g>
         ))}
-        <text x="331" y="94" fontSize="8.5" fill={GREEN} opacity="0.5" textAnchor="middle">
+        <text x="331" y="94" fontSize="8.5" fill={GREEN} opacity="0.82" textAnchor="middle">
           Two locale alternates
         </text>
         <text x="331" y="130" fontSize="8.5" fill={AMBER} opacity="0.9" textAnchor="middle"
@@ -413,7 +413,7 @@ export function MultilingualBreakDiagram() {
         <text x="20" y="176" fontSize="10" fontWeight="700" fill={GREEN}>
           A German reader discovers in German, researches in English, and enquires in English.
         </text>
-        <text x="20" y="194" fontSize="10" fill={GREEN} opacity="0.55">
+        <text x="20" y="194" fontSize="10" fill={GREEN} opacity="0.82">
           The language drops away at the exact moment the user commits.
         </text>
       </svg>
@@ -442,19 +442,19 @@ export function CompetitorMatrix() {
         {/* Header */}
         <div className="flex items-end gap-2 pb-3 mb-1 border-b border-line">
           <div className="w-[190px] shrink-0">
-            <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
               Competitor
             </span>
           </div>
           {dimensions.map((d) => (
             <div key={d} className="flex-1 text-center">
-              <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+              <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
                 {d}
               </span>
             </div>
           ))}
           <div className="w-[52px] text-right shrink-0">
-            <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+            <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
               Avg
             </span>
           </div>
@@ -472,7 +472,7 @@ export function CompetitorMatrix() {
                 </span>
                 <span className="text-sm font-bold text-ink truncate">{c.name}</span>
               </div>
-              <p className="text-[10px] text-ink/40 mt-0.5">{c.stack}</p>
+              <p className="text-[10px] text-ink/75 mt-0.5">{c.stack}</p>
             </div>
 
             {c.scores.map((s, i) => (
@@ -499,7 +499,7 @@ export function CompetitorMatrix() {
           </div>
         ))}
 
-        <p className="text-[10px] text-ink/35 mt-4">
+        <p className="text-[10px] text-ink/75 mt-4">
           Scored 1–5 · 1 = weak · 5 = best in class
         </p>
       </div>
@@ -517,22 +517,22 @@ export function FaqBeforeAfter() {
       <div className="bg-surface p-5 md:p-6">
         <div className="flex items-center gap-2 mb-4">
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: GREEN, opacity: 0.3 }} />
-          <span className="text-[10px] text-ink/40 font-bold uppercase tracking-widest">
+          <span className="text-[10px] text-ink/75 font-bold uppercase tracking-widest">
             Current
           </span>
         </div>
-        <p className="text-xs text-ink/45 font-medium mb-2">
+        <p className="text-xs text-ink/75 font-medium mb-2">
           Q: When is the best time to visit Kruger?
         </p>
-        <p className="text-sm text-ink/60 leading-relaxed">
+        <p className="text-sm text-ink/82 leading-relaxed">
           &ldquo;The Kruger National Park is a year-round destination, and there is truly no bad
           time to experience its magic. That said, many travellers find that the seasons each
           offer something unique, and much depends on what you hope to see…&rdquo;
         </p>
         <div className="mt-5 pt-4 border-t border-line space-y-1.5">
-          <p className="text-[11px] text-ink/50">→ Preamble before the answer</p>
-          <p className="text-[11px] text-ink/50">→ No entity named as the source</p>
-          <p className="text-[11px] text-ink/50">→ Nothing clean to extract or cite</p>
+          <p className="text-[11px] text-ink/75">→ Preamble before the answer</p>
+          <p className="text-[11px] text-ink/75">→ No entity named as the source</p>
+          <p className="text-[11px] text-ink/75">→ Nothing clean to extract or cite</p>
         </div>
       </div>
 
@@ -544,17 +544,17 @@ export function FaqBeforeAfter() {
             Recommended
           </span>
         </div>
-        <p className="text-xs text-ink/45 font-medium mb-2">
+        <p className="text-xs text-ink/75 font-medium mb-2">
           Q: When is the best time to visit Kruger?
         </p>
-        <p className="text-sm text-ink/85 leading-relaxed">
+        <p className="text-sm text-ink/90 leading-relaxed">
           &ldquo;<strong style={{ color: ORANGE }}>Rhino Africa recommends</strong> May–September
           for Big 5 density; November–April for newborns and dramatic skies.&rdquo;
         </p>
         <div className="mt-5 pt-4 border-t border-line space-y-1.5">
-          <p className="text-[11px] text-ink/70">→ Entity leads the first sentence</p>
-          <p className="text-[11px] text-ink/70">→ Specific, self-contained, citable</p>
-          <p className="text-[11px] text-ink/70">→ Wrapped in FAQPage schema</p>
+          <p className="text-[11px] text-ink/82">→ Entity leads the first sentence</p>
+          <p className="text-[11px] text-ink/82">→ Specific, self-contained, citable</p>
+          <p className="text-[11px] text-ink/82">→ Wrapped in FAQPage schema</p>
         </div>
       </div>
     </div>
@@ -582,12 +582,12 @@ export function GeoSignals() {
       {signals.map((sig, i) => (
         <div key={sig.s}
           className="flex gap-4 md:gap-5 py-4 border-b border-line last:border-0">
-          <span className="text-xs text-ink/30 font-bold tabular-nums shrink-0 pt-0.5">
+          <span className="text-xs text-ink/75 font-bold tabular-nums shrink-0 pt-0.5">
             {String(i + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0">
             <h3 className="text-sm font-bold text-ink">{sig.s}</h3>
-            <p className="text-xs text-ink/55 mt-1 leading-relaxed">{sig.m}</p>
+            <p className="text-xs text-ink/82 mt-1 leading-relaxed">{sig.m}</p>
           </div>
         </div>
       ))}

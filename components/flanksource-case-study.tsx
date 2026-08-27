@@ -69,7 +69,7 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
                 <span className="t-num text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <div className="flex flex-col md:flex-row md:items-baseline md:gap-6">
                   <span className="text-[17px] font-bold text-ink md:w-44 shrink-0">{c.name}</span>
-                  <span className="text-[15px] text-ink/60 leading-relaxed">{c.role}</span>
+                  <span className="text-[15px] text-ink/82 leading-relaxed">{c.role}</span>
                 </div>
               </li>
             ))}

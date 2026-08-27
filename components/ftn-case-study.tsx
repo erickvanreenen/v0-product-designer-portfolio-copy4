@@ -67,7 +67,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
             {conditions.map((c) => (
               <div key={c.t} className="border-r border-b border-line p-6 md:p-7 bg-surface">
                 <h3 className="text-base font-bold text-ink mb-2.5">{c.t}</h3>
-                <p className="text-[15px] text-ink/60 leading-relaxed">{c.b}</p>
+                <p className="text-[15px] text-ink/82 leading-relaxed">{c.b}</p>
               </div>
             ))}
           </div>
@@ -91,7 +91,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
 
           <div className="mt-14">
             <h3 className="t-h2 text-2xl text-ink mb-4">Two ways to search, one destination</h3>
-            <p className="text-[16px] text-ink/65 leading-relaxed measure mb-8">
+            <p className="text-[16px] text-ink/82 leading-relaxed measure mb-8">
               Faithful to Nature sells on values as much as on product. The filtering system
               carries both entry points without splitting the catalogue in two.
             </p>
@@ -129,7 +129,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
           />
 
           <div className="mt-12">
-            <p className="t-label text-ink/40 mb-6">What each option has to clear</p>
+            <p className="t-label text-ink/75 mb-6">What each option has to clear</p>
             <ol className="border-t border-line">
               {[
                 { h: "Logistics", b: "What is executable given postcode, zone, and area parameters." },
@@ -144,7 +144,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
                   <span className="t-num text-sm text-accent pt-1">{String(i + 1).padStart(2, "0")}</span>
                   <div className="md:flex md:gap-6">
                     <span className="text-[16px] font-bold text-ink md:w-48 shrink-0">{r.h}</span>
-                    <span className="text-[15px] text-ink/60 leading-relaxed">{r.b}</span>
+                    <span className="text-[15px] text-ink/82 leading-relaxed">{r.b}</span>
                   </div>
                 </li>
               ))}
@@ -167,8 +167,8 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
 
         {project.externalLink && (
           <div className="border-t border-line pt-12">
-            <p className="t-label text-ink/40 mb-3">Production site</p>
-            <p className="text-[16px] text-ink/70 mb-6 measure">
+            <p className="t-label text-ink/75 mb-3">Production site</p>
+            <p className="text-[16px] text-ink/82 mb-6 measure">
               The current live experience, including the filtering system.
             </p>
             <LiveLink href={project.externalLink} label="Open the live site" />

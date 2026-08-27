@@ -48,7 +48,7 @@ export function CaseHero({
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-14 md:pt-16 md:pb-20">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 t-label text-ink/45 hover:text-accent transition-colors duration-200 mb-12 group py-2.5 -my-2.5 pr-3"
+          className="inline-flex items-center gap-2 t-label text-ink/75 hover:text-accent transition-colors duration-200 mb-12 group py-2.5 -my-2.5 pr-3"
         >
           <ArrowLeft size={13} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
           All work
@@ -65,7 +65,7 @@ export function CaseHero({
           {project.title}
         </h1>
 
-        <p className="text-xl md:text-2xl text-ink/70 measure leading-[1.35] font-light">
+        <p className="text-xl md:text-2xl text-ink/82 measure leading-[1.35] font-light">
           {project.subtitle}
         </p>
 
@@ -82,8 +82,8 @@ export function CaseHero({
                 i % 2 === 1 ? "pl-5 border-l border-line md:pl-6" : ""
               }`}
             >
-              <dt className="t-label text-ink/40 mb-2">{item.label}</dt>
-              <dd className="text-sm text-ink/85 leading-snug min-w-0 [overflow-wrap:anywhere]">
+              <dt className="t-label text-ink/75 mb-2">{item.label}</dt>
+              <dd className="text-sm text-ink/90 leading-snug min-w-0 [overflow-wrap:anywhere]">
                 {item.value}
               </dd>
             </div>
@@ -108,7 +108,7 @@ export function Premise({
       <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
         <div className="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-10 items-start">
           <div>
-            <p className="t-label text-ink/45 mb-4">The challenge</p>
+            <p className="t-label text-ink/75 mb-4">The challenge</p>
             <p className="text-lg md:text-xl text-ink leading-snug font-medium">
               {question}
             </p>
@@ -158,7 +158,7 @@ export function Section({
             <h2 className="t-h2 text-3xl md:text-[42px] text-ink mb-5">{title}</h2>
           )}
           {intro && (
-            <p className="text-[17px] text-ink/65 leading-relaxed measure">{intro}</p>
+            <p className="text-[17px] text-ink/82 leading-relaxed measure">{intro}</p>
           )}
         </header>
       )}
@@ -194,7 +194,7 @@ export function Figure({
 
 export function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <div className="measure space-y-5 text-[17px] text-ink/75 leading-relaxed">
+    <div className="measure space-y-5 text-[17px] text-ink/85 leading-relaxed">
       {children}
     </div>
   );
@@ -223,7 +223,7 @@ export function Findings({
 
   return (
     <div>
-      <p className="t-label text-ink/40 mb-6">{label}</p>
+      <p className="t-label text-ink/75 mb-6">{label}</p>
       <ol className="border-t border-line">
         {normalised.map((item, i) => (
           <li
@@ -238,7 +238,7 @@ export function Findings({
                 {item.head}
               </p>
               {item.body && (
-                <p className="text-[15px] text-ink/60 leading-relaxed mt-2 measure">
+                <p className="text-[15px] text-ink/82 leading-relaxed mt-2 measure">
                   {item.body}
                 </p>
               )}
@@ -277,14 +277,14 @@ export function Metrics({
         <div key={m.label} className="border-r border-b border-line bg-surface p-5 md:p-7 min-w-0">
           <p
             className={`t-num text-2xl sm:text-3xl md:text-[40px] font-semibold leading-none [overflow-wrap:anywhere] ${
-              m.lead ? "text-accent" : "text-ink/85"
+              m.lead ? "text-accent" : "text-ink/90"
             }`}
           >
             {m.value}
           </p>
-          <p className="t-label text-ink/45 mt-4">{m.label}</p>
+          <p className="t-label text-ink/75 mt-4">{m.label}</p>
           {m.note && (
-            <p className="text-[13px] text-ink/50 mt-2 leading-relaxed">{m.note}</p>
+            <p className="text-[13px] text-ink/75 mt-2 leading-relaxed">{m.note}</p>
           )}
         </div>
       ))}
@@ -314,18 +314,18 @@ export function Compare({
           }`}
         >
           <p
-            className={`t-label mb-5 ${col.accent ? "text-accent" : "text-ink/40"}`}
+            className={`t-label mb-5 ${col.accent ? "text-accent" : "text-ink/75"}`}
           >
             {col.label}
           </p>
           {col.title && (
             <p className="text-base font-bold text-ink mb-3">{col.title}</p>
           )}
-          <div className="text-[15px] text-ink/75 leading-relaxed">{col.body}</div>
+          <div className="text-[15px] text-ink/85 leading-relaxed">{col.body}</div>
           {col.notes && (
             <ul className="mt-6 pt-5 border-t border-line space-y-2">
               {col.notes.map((n) => (
-                <li key={n} className="text-[13px] text-ink/60 flex gap-2.5">
+                <li key={n} className="text-[13px] text-ink/82 flex gap-2.5">
                   <span
                     className={`mt-[7px] w-1 h-1 shrink-0 rounded-full ${
                       col.accent ? "bg-accent" : "bg-ink/30"
@@ -359,7 +359,7 @@ export function Steps({
           <h3 className="text-base font-bold text-ink mt-4 leading-snug">
             {s.title}
           </h3>
-          <p className="text-[14px] text-ink/60 leading-relaxed mt-2">{s.body}</p>
+          <p className="text-[14px] text-ink/82 leading-relaxed mt-2">{s.body}</p>
         </li>
       ))}
     </ol>
@@ -376,7 +376,7 @@ export function Pullquote({ children, attribution }: { children: React.ReactNode
         {children}
       </p>
       {attribution && (
-        <p className="t-label text-ink/40 mt-6">{attribution}</p>
+        <p className="t-label text-ink/75 mt-6">{attribution}</p>
       )}
     </blockquote>
   );
@@ -408,7 +408,7 @@ export function Reflection({ items }: { items: string[] }) {
             <span className="t-num text-sm text-accent pt-1 shrink-0">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <p className="text-[16px] text-ink/75 leading-relaxed">{l}</p>
+            <p className="text-[16px] text-ink/85 leading-relaxed">{l}</p>
           </li>
         ))}
       </ul>
@@ -452,14 +452,14 @@ export function CaseNav({
             href={`/projects/${prevProject.slug}`}
             className="group py-8 md:py-10 pr-4 border-r border-line"
           >
-            <span className="t-label text-ink/40 flex items-center gap-2 mb-3">
+            <span className="t-label text-ink/75 flex items-center gap-2 mb-3">
               <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform duration-200" />
               Previous
             </span>
             <span className="block text-xl md:text-2xl t-h2 text-ink group-hover:text-ember transition-colors duration-200">
               {prevProject.title}
             </span>
-            <span className="t-label text-ink/35">{prevProject.client}</span>
+            <span className="t-label text-ink/75">{prevProject.client}</span>
           </Link>
         ) : (
           <div className="border-r border-line" />
@@ -470,14 +470,14 @@ export function CaseNav({
             href={`/projects/${nextProject.slug}`}
             className="group py-8 md:py-10 pl-4 text-right"
           >
-            <span className="t-label text-ink/40 flex items-center justify-end gap-2 mb-3">
+            <span className="t-label text-ink/75 flex items-center justify-end gap-2 mb-3">
               Next
               <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-200" />
             </span>
             <span className="block text-xl md:text-2xl t-h2 text-ink group-hover:text-ember transition-colors duration-200">
               {nextProject.title}
             </span>
-            <span className="t-label text-ink/35">{nextProject.client}</span>
+            <span className="t-label text-ink/75">{nextProject.client}</span>
           </Link>
         ) : (
           <div />

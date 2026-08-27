@@ -40,9 +40,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="t-h2 text-2xl md:text-[26px] text-ink group-hover:text-accent transition-colors duration-200 break-words">
             {project.title}
           </h3>
-          <p className="t-label text-ink/45 mt-1.5 break-words">{project.client}</p>
+          <p className="t-label text-ink/75 mt-1.5 break-words">{project.client}</p>
 
-          <p className="text-[15px] text-ink/65 leading-relaxed mt-3.5 mb-5">
+          <p className="text-[15px] text-ink/82 leading-relaxed mt-3.5 mb-5">
             {project.subtitle}
           </p>
 
@@ -56,7 +56,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 */}
                 {project.metric.from ? (
                   <span className="t-num text-lg font-semibold flex items-baseline gap-2">
-                    <span className="text-ink/45">{project.metric.from}</span>
+                    <span className="text-ink/75">{project.metric.from}</span>
                     <span aria-hidden="true" className="text-positive">
                       &rarr;
                     </span>
@@ -67,10 +67,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     {project.metric.value}
                   </span>
                 )}
-                <span className="t-label text-ink/45">{project.metric.label}</span>
+                <span className="t-label text-ink/75">{project.metric.label}</span>
               </div>
             ) : (
-              <p className="text-[13px] text-ink/50 leading-relaxed">
+              <p className="text-[13px] text-ink/75 leading-relaxed">
                 {project.outcomes[0]}
               </p>
             )}

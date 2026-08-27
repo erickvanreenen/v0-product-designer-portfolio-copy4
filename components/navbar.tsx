@@ -24,7 +24,7 @@ export function Navbar() {
         <Link href="/" className="group flex items-center gap-2.5 py-2.5 -my-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/erick-logo.svg" width={18} height={18} alt="" className="opacity-70 group-hover:opacity-100 transition-opacity duration-200" />
-          <span className="text-sm font-semibold text-ink/65 group-hover:text-ink transition-colors duration-200 tracking-tight">
+          <span className="text-sm font-semibold text-ink/82 group-hover:text-ink transition-colors duration-200 tracking-tight">
             Erick van Reenen
           </span>
         </Link>
@@ -41,7 +41,7 @@ export function Navbar() {
                     "group/nav text-sm transition-colors duration-200 relative pb-px",
                     pathname === item.href
                       ? "text-ink font-semibold"
-                      : "text-ink/55 hover:text-ink"
+                      : "text-ink/82 hover:text-ink"
                   )}
                 >
                   {item.label}
@@ -87,7 +87,7 @@ export function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-1.5 text-ink/50 hover:text-ink transition-colors duration-200"
+          className="md:hidden p-1.5 text-ink/75 hover:text-ink transition-colors duration-200"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -110,7 +110,7 @@ export function Navbar() {
                     "flex items-center justify-between text-base py-2.5 transition-colors duration-200 group",
                     pathname === item.href
                       ? "text-ink font-semibold"
-                      : "text-ink/60 hover:text-ink"
+                      : "text-ink/82 hover:text-ink"
                   )}
                 >
                   {item.label}
@@ -127,7 +127,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-base py-2.5 text-ink/60 hover:text-ember transition-colors duration-200"
+                  className="block text-base py-2.5 text-ink/82 hover:text-ember transition-colors duration-200"
                 >
                   Behance
                 </Link>
@@ -139,7 +139,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-base py-2.5 text-ink/60 hover:text-ember transition-colors duration-200"
+                className="block text-base py-2.5 text-ink/82 hover:text-ember transition-colors duration-200"
               >
                 LinkedIn
               </Link>

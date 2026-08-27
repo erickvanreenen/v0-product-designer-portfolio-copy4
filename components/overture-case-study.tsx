@@ -74,7 +74,7 @@ export function OvertureCaseStudy({ project, nextProject, prevProject }: Props) 
             ].map((c) => (
               <div key={c.t} className="border-r border-b border-line p-6 md:p-8 bg-surface">
                 <h3 className="text-base font-bold text-ink mb-3">{c.t}</h3>
-                <p className="text-[15px] text-ink/65 leading-relaxed">{c.b}</p>
+                <p className="text-[15px] text-ink/82 leading-relaxed">{c.b}</p>
               </div>
             ))}
           </div>

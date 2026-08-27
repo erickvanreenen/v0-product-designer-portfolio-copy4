@@ -152,12 +152,12 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
                   <span className="t-label text-accent">{lesson.module}</span>
                   <h3 className="t-h2 text-2xl text-ink">{lesson.title}</h3>
                 </div>
-                <p className="text-[15px] text-ink/60 mb-8 measure">{lesson.description}</p>
+                <p className="text-[15px] text-ink/82 mb-8 measure">{lesson.description}</p>
                 <dl className="grid sm:grid-cols-2 border-t border-l border-line">
                   {lesson.topics.map((t) => (
                     <div key={t.label} className="border-r border-b border-line p-5 bg-surface">
                       <dt className="text-[15px] font-bold text-ink">{t.label}</dt>
-                      <dd className="text-[13px] text-ink/60 leading-relaxed mt-1.5">{t.desc}</dd>
+                      <dd className="text-[13px] text-ink/82 leading-relaxed mt-1.5">{t.desc}</dd>
                     </div>
                   ))}
                 </dl>
@@ -179,12 +179,12 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
               <article key={a.code} className="border border-line bg-surface p-6 md:p-9">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-5">
                   <span className="t-label text-accent">{a.code}</span>
-                  <span className="t-label text-ink/40">{a.level}</span>
-                  <span className="t-label text-ink/40">{a.weighting}</span>
+                  <span className="t-label text-ink/75">{a.level}</span>
+                  <span className="t-label text-ink/75">{a.weighting}</span>
                 </div>
 
                 <h3 className="t-h2 text-2xl text-ink mb-4">{a.title}</h3>
-                <p className="text-[16px] text-ink/70 leading-relaxed measure mb-9">
+                <p className="text-[16px] text-ink/82 leading-relaxed measure mb-9">
                   {a.description}
                 </p>
 
@@ -198,20 +198,20 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
                         ["Role", a.persona.role],
                       ].map(([k, v]) => (
                         <div key={k}>
-                          <p className="t-label text-ink/40 mb-1">{k}</p>
+                          <p className="t-label text-ink/75 mb-1">{k}</p>
                           <p className="text-[15px] font-semibold text-ink">{v}</p>
                         </div>
                       ))}
                     </div>
-                    <p className="text-[14px] text-ink/65 leading-relaxed">{a.persona.context}</p>
+                    <p className="text-[14px] text-ink/82 leading-relaxed">{a.persona.context}</p>
                   </div>
                 )}
 
                 {a.apps && (
                   <div className="flex items-center gap-3 mb-9">
-                    <span className="t-label text-ink/40">Apps benchmarked</span>
+                    <span className="t-label text-ink/75">Apps benchmarked</span>
                     {a.apps.map((app) => (
-                      <span key={app} className="t-label px-2.5 py-1 bg-ink/6 text-ink/70">
+                      <span key={app} className="t-label px-2.5 py-1 bg-ink/6 text-ink/82">
                         {app}
                       </span>
                     ))}
@@ -220,10 +220,10 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
 
                 <div className="grid md:grid-cols-2 gap-10">
                   <div>
-                    <p className="t-label text-ink/40 mb-5">Deliverables</p>
+                    <p className="t-label text-ink/75 mb-5">Deliverables</p>
                     <ul className="space-y-3">
                       {a.deliverables.map((d) => (
-                        <li key={d} className="text-[14px] text-ink/70 leading-relaxed flex gap-3">
+                        <li key={d} className="text-[14px] text-ink/82 leading-relaxed flex gap-3">
                           <span className="mt-[8px] w-1 h-1 shrink-0 rounded-full bg-accent" />
                           {d}
                         </li>
@@ -231,14 +231,14 @@ export function AdaCaseStudy({ project, nextProject, prevProject }: Props) {
                     </ul>
                   </div>
                   <div>
-                    <p className="t-label text-ink/40 mb-5">Marking</p>
+                    <p className="t-label text-ink/75 mb-5">Marking</p>
                     <dl>
                       {a.marking.map((m) => (
                         <div
                           key={m.criterion}
                           className="flex items-baseline justify-between gap-4 py-2.5 border-b border-line"
                         >
-                          <dt className="text-[14px] text-ink/70">{m.criterion}</dt>
+                          <dt className="text-[14px] text-ink/82">{m.criterion}</dt>
                           <dd className="t-num text-[14px] font-semibold text-ink">{m.weight}</dd>
                         </div>
                       ))}

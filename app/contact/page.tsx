@@ -6,9 +6,9 @@ import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 
 const inputClass =
-  "w-full px-4 py-3 bg-surface border border-line text-ink placeholder:text-ink/30 focus:outline-none focus:border-ember focus:ring-2 focus:ring-ember/15 transition-all duration-200 text-[15px]";
+  "w-full px-4 py-3 bg-surface border border-line text-ink placeholder:text-ink/75 focus:outline-none focus:border-ember focus:ring-2 focus:ring-ember/15 transition-all duration-200 text-[15px]";
 
-const labelClass = "block t-label text-ink/45 mb-2.5";
+const labelClass = "block t-label text-ink/75 mb-2.5";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -57,7 +57,7 @@ export default function ContactPage() {
               &ldquo;The world needs dreamers and the world needs doers. But above all, what
               the world needs most are dreamers that do.&rdquo;
             </p>
-            <cite className="block t-label text-ink/40 mt-5 not-italic">
+            <cite className="block t-label text-ink/75 mt-5 not-italic">
               Sarah Ban Breathnach
             </cite>
           </blockquote>
@@ -73,10 +73,10 @@ export default function ContactPage() {
                 <div className="border border-line bg-surface p-8 md:p-10">
                   <p className="t-label text-ember mb-4">Sent</p>
                   <h2 className="t-h2 text-3xl text-ink mb-3">Message received.</h2>
-                  <p className="text-ink/60 mb-8">I&apos;ll respond within 48 hours.</p>
+                  <p className="text-ink/82 mb-8">I&apos;ll respond within 48 hours.</p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-sm text-ink/55 hover:text-ink transition-colors duration-200 underline underline-offset-4"
+                    className="text-sm text-ink/82 hover:text-ink transition-colors duration-200 underline underline-offset-4"
                   >
                     Send another
                   </button>
@@ -146,18 +146,18 @@ export default function ContactPage() {
           <FadeIn delay={120}>
             <aside className="space-y-10">
               <div>
-                <h2 className="t-label text-ink/40 mb-4">Direct</h2>
+                <h2 className="t-label text-ink/75 mb-4">Direct</h2>
                 <div className="space-y-3.5">
                   <Link
                     href="mailto:erickvanreenen@gmail.com"
-                    className="flex items-center gap-3 text-ink/75 hover:text-ember transition-colors duration-200 min-w-0"
+                    className="flex items-center gap-3 text-ink/85 hover:text-ember transition-colors duration-200 min-w-0"
                   >
                     <Mail size={15} className="shrink-0" />
                     <span className="text-sm truncate">erickvanreenen@gmail.com</span>
                   </Link>
                   <Link
                     href="tel:+27620969497"
-                    className="flex items-center gap-3 text-ink/75 hover:text-ember transition-colors duration-200"
+                    className="flex items-center gap-3 text-ink/85 hover:text-ember transition-colors duration-200"
                   >
                     <Phone size={15} className="shrink-0" />
                     <span className="text-sm">+27 620 969 497</span>
@@ -166,31 +166,31 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h2 className="t-label text-ink/40 mb-4">Location</h2>
+                <h2 className="t-label text-ink/75 mb-4">Location</h2>
                 <a
                   href="https://maps.google.com/?q=Cape+Town,+South+Africa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-ink/75 hover:text-ember transition-colors duration-200"
+                  className="text-sm text-ink/85 hover:text-ember transition-colors duration-200"
                 >
                   Cape Town, South Africa
                 </a>
               </div>
 
               <div>
-                <h2 className="t-label text-ink/40 mb-4">Social</h2>
+                <h2 className="t-label text-ink/75 mb-4">Social</h2>
                 <Link
                   href="https://www.linkedin.com/in/erick-van-reenen-b549061a6/"
                   target="_blank" rel="noopener noreferrer"
-                  className="text-sm text-ink/75 hover:text-ember transition-colors duration-200"
+                  className="text-sm text-ink/85 hover:text-ember transition-colors duration-200"
                 >
                   LinkedIn
                 </Link>
               </div>
 
               <div className="pt-8 border-t border-line">
-                <p className="t-label text-ink/40 mb-3">Availability</p>
-                <p className="text-sm text-ink/60 leading-relaxed">
+                <p className="t-label text-ink/75 mb-3">Availability</p>
+                <p className="text-sm text-ink/82 leading-relaxed">
                   Open to full-time roles, contract work, and interesting challenges.
                 </p>
               </div>

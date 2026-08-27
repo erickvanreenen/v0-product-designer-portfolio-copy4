@@ -24,7 +24,7 @@ export function ModelComplexity() {
 
   return (
     <div>
-      <p className="text-[10px] text-ink/40 font-bold uppercase tracking-widest mb-8">
+      <p className="text-[10px] text-ink/75 font-bold uppercase tracking-widest mb-8">
         Model complexity
       </p>
 
@@ -47,7 +47,7 @@ export function ModelComplexity() {
           </div>
           <div>
             <p className="text-sm font-bold" style={{ color: deliveryColor }}>Delivery cycle</p>
-            <p className="text-xs text-ink/50">Weekly › Sunday or Monday</p>
+            <p className="text-xs text-ink/75">Weekly › Sunday or Monday</p>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export function ModelComplexity() {
                 fontSize="9"
                 fontWeight="700"
                 fill={deliveryColor}
-                opacity="0.4"
+                opacity="0.75"
                 letterSpacing="0.5"
               >
                 {day}
@@ -111,7 +111,7 @@ export function ModelComplexity() {
               WEEK START
             </text>
             <text x={dxStart} y="111" textAnchor="middle"
-              fontSize="9" fill={deliveryColor} opacity="0.5">
+              fontSize="9" fill={deliveryColor} opacity="0.82">
               Monday
             </text>
 
@@ -125,13 +125,13 @@ export function ModelComplexity() {
               DELIVERY
             </text>
             <text x={dxSun} y="111" textAnchor="middle"
-              fontSize="9" fill={deliveryColor} opacity="0.5">
+              fontSize="9" fill={deliveryColor} opacity="0.82">
               Sunday
             </text>
 
             {/* "or" between the two delivery options */}
             <text x="640" y="105" textAnchor="middle"
-              fontSize="9" fill={deliveryColor} opacity="0.4">
+              fontSize="9" fill={deliveryColor} opacity="0.75">
               or
             </text>
 
@@ -145,7 +145,7 @@ export function ModelComplexity() {
               DELIVERY
             </text>
             <text x={dxMon2} y="111" textAnchor="middle"
-              fontSize="9" fill={deliveryColor} opacity="0.4">
+              fontSize="9" fill={deliveryColor} opacity="0.75">
               Monday
             </text>
 
@@ -164,7 +164,7 @@ export function ModelComplexity() {
               1 WEEK DELIVERY CYCLE
             </text>
             <text x={dBracketCenter} y="163" textAnchor="middle"
-              fontSize="9" fill={deliveryColor} opacity="0.5">
+              fontSize="9" fill={deliveryColor} opacity="0.82">
               Weekly › Sunday or Monday
             </text>
           </svg>
@@ -193,7 +193,7 @@ export function ModelComplexity() {
           </div>
           <div>
             <p className="text-sm font-bold" style={{ color: billingColor }}>Billing cycle</p>
-            <p className="text-xs text-ink/50">Wednesday 9am › Wednesday 9am</p>
+            <p className="text-xs text-ink/75">Wednesday 9am › Wednesday 9am</p>
           </div>
         </div>
 
@@ -214,7 +214,7 @@ export function ModelComplexity() {
                 fontSize="9"
                 fontWeight="700"
                 fill="var(--ink)"
-                opacity="0.4"
+                opacity="0.75"
                 letterSpacing="0.5"
               >
                 {day}
@@ -249,7 +249,7 @@ export function ModelComplexity() {
               BILLING START
             </text>
             <text x={bxWed1} y="111" textAnchor="middle"
-              fontSize="9" fill={billingColor} opacity="0.5">
+              fontSize="9" fill={billingColor} opacity="0.82">
               Wednesday 9am
             </text>
 
@@ -263,7 +263,7 @@ export function ModelComplexity() {
               BILLING END
             </text>
             <text x={bxWed2} y="111" textAnchor="middle"
-              fontSize="9" fill={billingColor} opacity="0.5">
+              fontSize="9" fill={billingColor} opacity="0.82">
               Wednesday 9am
             </text>
 
@@ -282,7 +282,7 @@ export function ModelComplexity() {
               1 WEEK BILLING CYCLE
             </text>
             <text x={bBracketCenter} y="163" textAnchor="middle"
-              fontSize="9" fill={billingColor} opacity="0.5">
+              fontSize="9" fill={billingColor} opacity="0.82">
               Wednesday 9am › Wednesday 9am
             </text>
           </svg>

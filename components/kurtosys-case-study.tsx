@@ -101,7 +101,7 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
               >
                 <span className="t-num text-sm text-accent">0{i + 1}</span>
                 <p className="text-[17px] font-bold text-ink mt-2">{d.level}</p>
-                <p className="text-[14px] text-ink/60 leading-relaxed mt-1">{d.detail}</p>
+                <p className="text-[14px] text-ink/82 leading-relaxed mt-1">{d.detail}</p>
               </li>
             ))}
           </ol>
@@ -159,8 +159,8 @@ export function KurtosysCaseStudy({ project, nextProject, prevProject }: Props) 
                 <h3 className="text-[19px] font-bold text-ink leading-snug mb-1.5">
                   {s.name}
                 </h3>
-                <p className="t-label text-ink/45 mb-4">{s.state}</p>
-                <p className="text-[14px] text-ink/65 leading-relaxed mt-auto">{s.body}</p>
+                <p className="t-label text-ink/75 mb-4">{s.state}</p>
+                <p className="text-[14px] text-ink/82 leading-relaxed mt-auto">{s.body}</p>
               </div>
             ))}
           </div>

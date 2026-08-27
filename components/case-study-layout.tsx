@@ -89,7 +89,7 @@ export function CaseStudyLayout({ project, nextProject, prevProject }: Props) {
 
         {project.externalLink && (
           <div className="border-t border-line pt-12">
-            <p className="t-label text-ink/40 mb-6">Production site</p>
+            <p className="t-label text-ink/75 mb-6">Production site</p>
             <LiveLink href={project.externalLink} />
           </div>
         )}

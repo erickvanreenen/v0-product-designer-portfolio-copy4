@@ -72,7 +72,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-200 underline underline-offset-4 decoration-foreground/20 hover:decoration-foreground/60"
+              className="text-sm font-medium text-foreground/82 hover:text-foreground transition-colors duration-200 underline underline-offset-4 decoration-foreground/20 hover:decoration-foreground/60"
             >
               Get in touch
             </Link>
@@ -128,8 +128,8 @@ export default function HomePage() {
                     </h3>
 
                     <div>
-                      <p className="text-[14.5px] text-ink/75 leading-relaxed">{item.body}</p>
-                      <span className="inline-flex items-center gap-1.5 t-label text-ink/70 mt-3 group-hover:text-ember-deep transition-colors duration-200">
+                      <p className="text-[14.5px] text-ink/85 leading-relaxed">{item.body}</p>
+                      <span className="inline-flex items-center gap-1.5 t-label text-ink/82 mt-3 group-hover:text-ember-deep transition-colors duration-200">
                         {item.cue}
                         <ArrowRight
                           size={12}
@@ -153,13 +153,13 @@ export default function HomePage() {
               <h2 className="t-h2 text-3xl md:text-[40px] text-ink">Selected work</h2>
               <Link
                 href="/projects"
-                className="text-sm text-ink/55 hover:text-ember transition-colors duration-200 flex items-center gap-1.5 group pb-1.5"
+                className="text-sm text-ink/82 hover:text-ember transition-colors duration-200 flex items-center gap-1.5 group pb-1.5"
               >
                 All ten projects
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </Link>
             </div>
-            <p className="text-[15px] text-ink/55 measure mb-14 md:mb-16">
+            <p className="text-[15px] text-ink/82 measure mb-14 md:mb-16">
               Each one is named for the work it involved, not the company that paid for it.
             </p>
           </FadeIn>
@@ -181,7 +181,7 @@ export default function HomePage() {
             <h2 className="t-display text-5xl md:text-6xl lg:text-7xl text-ink mb-8 max-w-2xl">
               Let&apos;s build delightful experiences together.
             </h2>
-            <p className="text-ink/55 mb-10 max-w-sm">
+            <p className="text-ink/82 mb-10 max-w-sm">
               Full-time, contract, or something interesting. Cape Town and remote.
             </p>
             <Link

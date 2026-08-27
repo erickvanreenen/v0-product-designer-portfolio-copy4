@@ -32,7 +32,7 @@ export function DeliveryWorkflowDiagram() {
               <text x={s.x} y="80" fontSize="10" fontWeight="700" fill={GREEN}>{s.label}</text>
               {s.sub.map((line, i) => (
                 <text key={i} x={s.x} y={94 + i * 12} fontSize="8.5"
-                  fill={GREEN} opacity="0.5">{line}</text>
+                  fill={GREEN} opacity="0.82">{line}</text>
               ))}
             </g>
           ))}
@@ -78,7 +78,7 @@ export function DesignSystemDiagram() {
               <text x={s.x} y="80" fontSize="10" fontWeight="700" fill={GREEN}>{s.label}</text>
               {s.sub.map((line, i) => (
                 <text key={i} x={s.x} y={94 + i * 12} fontSize="8.5"
-                  fill={GREEN} opacity="0.5">{line}</text>
+                  fill={GREEN} opacity="0.82">{line}</text>
               ))}
             </g>
           ))}
@@ -89,7 +89,7 @@ export function DesignSystemDiagram() {
         <text x="690" y="49" fontSize="10" fontWeight="700" fill={GREEN} textAnchor="middle">
           The workflow repeats
         </text>
-        <text x="690" y="64" fontSize="8.5" fill={GREEN} opacity="0.55" textAnchor="middle">
+        <text x="690" y="64" fontSize="8.5" fill={GREEN} opacity="0.82" textAnchor="middle">
           output governed by the system
         </text>
       </svg>
@@ -101,26 +101,26 @@ export function DesignSystemDiagram() {
 export function SemanticLayerNote() {
   return (
     <div className="border-t border-line mt-4 pt-6">
-      <p className="text-[10px] text-ink/40 font-bold uppercase tracking-widest mb-2">
+      <p className="text-[10px] text-ink/75 font-bold uppercase tracking-widest mb-2">
         The semantic layer
       </p>
-      <p className="text-xs text-ink/50 leading-relaxed">
+      <p className="text-xs text-ink/75 leading-relaxed">
         The same colour, named three ways.
       </p>
       <div className="flex items-center gap-2.5 flex-wrap my-3.5">
-        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/75">
+        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/85">
           var(--accent)
         </code>
-        <span className="text-ink/30 text-xs">&rarr;</span>
-        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/75">
+        <span className="text-ink/75 text-xs">&rarr;</span>
+        <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--paper-sunk)] text-ink/85">
           orange-600
         </code>
-        <span className="text-ink/30 text-xs">&rarr;</span>
+        <span className="text-ink/75 text-xs">&rarr;</span>
         <code className="text-xs font-mono px-2.5 py-1.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] font-bold">
           action.primary
         </code>
       </div>
-      <p className="text-xs text-ink/50 leading-relaxed">
+      <p className="text-xs text-ink/75 leading-relaxed">
         Only the last one still holds after a rebrand. It names the decision rather than
         the value, which is what makes generated output predictable.
       </p>

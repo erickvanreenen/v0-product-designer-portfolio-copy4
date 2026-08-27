@@ -158,7 +158,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
             <h3 className="t-h2 text-2xl text-ink mb-3">
               The language drops away at the moment the user commits
             </h3>
-            <p className="text-[16px] text-ink/65 leading-relaxed measure mb-8">
+            <p className="text-[16px] text-ink/82 leading-relaxed measure mb-8">
               The blog is in five languages. The main site declares two locale alternates. The
               enquiry form is English only.
             </p>
@@ -193,7 +193,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
                 }`}
               >
                 <span
-                  className={`t-num text-sm pt-1 ${p.primary ? "text-accent" : "text-ink/30"}`}
+                  className={`t-num text-sm pt-1 ${p.primary ? "text-accent" : "text-ink/75"}`}
                 >
                   {p.key}
                 </span>
@@ -203,7 +203,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
                     {p.primary && <span className="t-label text-accent">Primary</span>}
                   </div>
                   <p className="t-caption mt-1.5">{p.profile}</p>
-                  <p className="text-[15px] text-ink/70 mt-2 leading-relaxed measure">{p.need}</p>
+                  <p className="text-[15px] text-ink/82 mt-2 leading-relaxed measure">{p.need}</p>
                 </div>
               </div>
             ))}
@@ -213,7 +213,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
             <Pullquote attribution="The finding that reorders every other decision">
               The consultant is the product.
             </Pullquote>
-            <p className="text-[16px] text-ink/65 leading-relaxed measure mt-6">
+            <p className="text-[16px] text-ink/82 leading-relaxed measure mt-6">
               Across all five buckets, people name their consultant. The platform&apos;s job is to
               get someone to that first conversation without losing them on the way.
             </p>
@@ -239,11 +239,11 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
             <p className="t-label text-accent mb-6">Page identity</p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <p className="t-label text-ink/40 mb-3">Current</p>
-                <p className="text-[15px] text-ink/60 leading-relaxed">
+                <p className="t-label text-ink/75 mb-3">Current</p>
+                <p className="text-[15px] text-ink/82 leading-relaxed">
                   &ldquo;Kruger National Park, A Transformative Luxury Safari&rdquo;
                 </p>
-                <p className="text-[13px] text-ink/45 mt-3">
+                <p className="text-[13px] text-ink/75 mt-3">
                   Rhino Africa is not named. No authority claim.
                 </p>
               </div>
@@ -253,7 +253,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
                   &ldquo;Kruger National Park Safaris: Expert-Planned Luxury Big 5 Experiences
                   by Rhino Africa&rdquo;
                 </p>
-                <p className="text-[13px] text-ink/60 mt-3">
+                <p className="text-[13px] text-ink/82 mt-3">
                   Entity and authority in the first sentence a crawler reads.
                 </p>
               </div>
@@ -267,7 +267,7 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
           intro="Each signal is something a machine can detect, and something you can structure a page around."
         >
           <GeoSignals />
-          <p className="text-[13px] text-ink/45 mt-8 leading-relaxed measure">
+          <p className="text-[13px] text-ink/75 mt-8 leading-relaxed measure">
             E-E-A-T began as E-A-T in 2014. Google added Experience in 2022 to reward genuine,
             lived involvement over aggregated or AI-generated content.
           </p>
@@ -296,12 +296,12 @@ export function RhinoAfricaCaseStudy({ project, nextProject, prevProject }: Prop
               <div key={imp.title} className="border-r border-b border-line bg-surface p-6">
                 <div className="flex items-center gap-2.5 mb-4">
                   <Icon name={imp.icon} size={16} className="text-accent" />
-                  <span className="t-num text-xs text-ink/30">
+                  <span className="t-num text-xs text-ink/75">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <h3 className="text-[16px] font-bold text-ink leading-snug">{imp.title}</h3>
-                <p className="text-[14px] text-ink/60 mt-2.5 leading-relaxed">{imp.body}</p>
+                <p className="text-[14px] text-ink/82 mt-2.5 leading-relaxed">{imp.body}</p>
               </div>
             ))}
           </div>

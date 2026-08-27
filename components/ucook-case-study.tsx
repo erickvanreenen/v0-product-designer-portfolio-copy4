@@ -201,7 +201,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
                 </div>
                 <figcaption className="mt-4">
                   <span className="t-label text-accent">{cluster}</span>
-                  <p className="text-[14px] text-ink/65 leading-relaxed mt-2">{finding}</p>
+                  <p className="text-[14px] text-ink/82 leading-relaxed mt-2">{finding}</p>
                 </figcaption>
               </figure>
             ))}
@@ -254,10 +254,10 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
                 key={step}
                 className={`border-r border-b border-line p-4 ${i === 4 ? "bg-accent-wash" : "bg-surface"}`}
               >
-                <p className={`t-num text-xs mb-2 ${i === 4 ? "text-accent" : "text-ink/35"}`}>
+                <p className={`t-num text-xs mb-2 ${i === 4 ? "text-accent" : "text-ink/75"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <p className={`text-[13px] leading-snug ${i === 4 ? "text-ink font-semibold" : "text-ink/70"}`}>
+                <p className={`text-[13px] leading-snug ${i === 4 ? "text-ink font-semibold" : "text-ink/82"}`}>
                   {step}
                 </p>
               </div>
@@ -293,7 +293,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
 
           <div className="mt-14">
             <h3 className="t-h2 text-2xl text-ink mb-2">Four entry paths, one outcome</h3>
-            <p className="text-[15px] text-ink/60 mb-8 measure">
+            <p className="text-[15px] text-ink/82 mb-8 measure">
               People arrive at sign-up from four different places. All four now end in the same
               activated state.
             </p>
@@ -311,14 +311,14 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
                   <div className="flex items-center gap-2 flex-wrap min-w-0">
                     {steps.map((step, j) => (
                       <React.Fragment key={j}>
-                        <span className="text-[14px] text-ink/80">{step}</span>
-                        <span className="text-ink/25 text-xs">→</span>
+                        <span className="text-[14px] text-ink/88">{step}</span>
+                        <span className="text-ink/75 text-xs">→</span>
                       </React.Fragment>
                     ))}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <span className="t-label px-2.5 py-1 bg-ink text-paper">Plans</span>
-                    <span className="text-ink/25 text-xs">→</span>
+                    <span className="text-ink/75 text-xs">→</span>
                     <span className="t-label px-2.5 py-1 bg-accent text-white">Activated</span>
                   </div>
                 </div>
@@ -350,7 +350,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
                 </div>
                 <figcaption className="mt-2 flex items-baseline gap-1.5">
                   <span className="t-num text-[10px] text-accent shrink-0">{screen.step}</span>
-                  <span className="text-[11px] text-ink/55 truncate">{screen.label}</span>
+                  <span className="text-[11px] text-ink/82 truncate">{screen.label}</span>
                 </figcaption>
               </figure>
             ))}
@@ -371,7 +371,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
             ].map((spec) => (
               <div key={spec.title} className="border-r border-b border-line p-5 md:p-6 bg-surface">
                 <p className="font-mono text-[14px] font-semibold text-ink">{spec.title}</p>
-                <p className="text-[14px] text-ink/60 mt-1.5">{spec.desc}</p>
+                <p className="text-[14px] text-ink/82 mt-1.5">{spec.desc}</p>
               </div>
             ))}
           </div>
@@ -391,7 +391,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
                   <h3 className="t-label text-accent mb-4">{s.title}</h3>
                   <ul className="space-y-2.5">
                     {s.items.map((it) => (
-                      <li key={it} className="text-[13px] text-ink/65 leading-relaxed flex gap-2.5">
+                      <li key={it} className="text-[13px] text-ink/82 leading-relaxed flex gap-2.5">
                         <span className="mt-[7px] w-1 h-1 shrink-0 rounded-full bg-ink/25" />
                         {it}
                       </li>
@@ -409,30 +409,30 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: Props) {
           <div className="grid sm:grid-cols-2 gap-10 mt-14">
             <div>
               <p className="t-num text-5xl md:text-6xl font-semibold text-accent leading-none">+5.6%</p>
-              <p className="t-label text-ink/45 mt-5">Absolute increase in completion</p>
-              <p className="text-[15px] text-ink/60 leading-relaxed mt-3">
+              <p className="t-label text-ink/75 mt-5">Absolute increase in completion</p>
+              <p className="text-[15px] text-ink/82 leading-relaxed mt-3">
                 Top-of-funnel abandonment dropped from 91.1% to 75%, so more people reached
                 the later steps.
               </p>
             </div>
             <div>
               <p className="t-num text-5xl md:text-6xl font-semibold text-accent leading-none">~R255k</p>
-              <p className="t-label text-ink/45 mt-5">Six-month impact, Aug 2025 to Jan 2026</p>
-              <p className="text-[15px] text-ink/60 leading-relaxed mt-3">
+              <p className="t-label text-ink/75 mt-5">Six-month impact, Aug 2025 to Jan 2026</p>
+              <p className="text-[15px] text-ink/82 leading-relaxed mt-3">
                 R405k × 63%, the relative lift from 3.7% to 9.3%.
               </p>
             </div>
           </div>
 
           <div className="mt-14 pt-10 border-t border-line">
-            <p className="t-label text-ink/40 mb-5">Still open</p>
+            <p className="t-label text-ink/75 mb-5">Still open</p>
             <ul className="space-y-2.5">
               {[
                 "Payment timing decision outcomes",
                 "A/B testing results",
                 "Post-release refund and billing impact",
               ].map((p) => (
-                <li key={p} className="text-[15px] text-ink/60 flex gap-3">
+                <li key={p} className="text-[15px] text-ink/82 flex gap-3">
                   <span className="mt-[9px] w-1 h-1 shrink-0 rounded-full bg-ink/30" />
                   {p}
                 </li>

@@ -88,7 +88,7 @@ export function PrintsCarousel() {
       aria-label="Print viewer"
     >
       {/* Counter */}
-      <p className="absolute top-5 left-5 text-xs text-white/50 font-medium tabular-nums pointer-events-none">
+      <p className="absolute top-5 left-5 text-xs text-white/70 font-medium tabular-nums pointer-events-none">
         {lightboxIndex + 1} / {prints.length}
       </p>
 
@@ -163,7 +163,7 @@ export function PrintsCarousel() {
         {canScrollLeft && (
           <button
             onClick={() => scrollCarousel("left")}
-            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/60 hover:text-ink"
+            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/82 hover:text-ink"
             aria-label="Scroll left"
           >
             <Icon name="chevron_left" size={18} />
@@ -212,7 +212,7 @@ export function PrintsCarousel() {
         {canScrollRight && (
           <button
             onClick={() => scrollCarousel("right")}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/60 hover:text-ink"
+            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface shadow-sm border border-line flex items-center justify-center hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/82 hover:text-ink"
             aria-label="Scroll right"
           >
             <Icon name="chevron_right" size={18} />
@@ -222,7 +222,7 @@ export function PrintsCarousel() {
       </div>
 
       {/* Print count */}
-      <p className="text-xs text-ink/35 mt-3">{prints.length} prints</p>
+      <p className="text-xs text-ink/75 mt-3">{prints.length} prints</p>
 
       {/* Lightbox — portalled to document.body to escape any parent transform context */}
       {mounted && createPortal(lightbox, document.body)}
