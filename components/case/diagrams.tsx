@@ -178,7 +178,8 @@ export function ExpectationGap() {
         <rect x="452" y="76" width="208" height="56" rx="3" fill="var(--accent-wash)"
           stroke={ACCENT} strokeOpacity="0.5" strokeWidth="1.25" />
         <text x="468" y="98" fontSize="10" fontWeight="600" fill={INK} opacity="0.85">First billing</text>
-        <text x="468" y="115" fontSize="9" fill={INK} opacity="0.55">56% of first billings land in this window</text>
+        <text x="468" y="112" fontSize="9" fill={INK} opacity="0.55">56% of first billings</text>
+        <text x="468" y="124" fontSize="9" fill={INK} opacity="0.55">land in this window</text>
 
         {/* The consequence */}
         <line x1="40" y1="162" x2="660" y2="162" stroke={INK} strokeOpacity="0.12" />
@@ -697,8 +698,11 @@ export function BrandConsolidation() {
           </g>
         ))}
 
-        <text x="392" y="212" fontSize="9.5" fill={INK} opacity="0.5">
-          Shared navigation and patterns. Brand identity kept where it carries meaning.
+        <text x="392" y="208" fontSize="9.5" fill={INK} opacity="0.5">
+          Shared navigation and patterns.
+        </text>
+        <text x="392" y="224" fontSize="9.5" fill={INK} opacity="0.5">
+          Brand identity kept where it carries meaning.
         </text>
       </svg>
     </Scroller>
@@ -722,7 +726,7 @@ export function LearningSequence() {
     <div>
       <ol className="grid sm:grid-cols-2 lg:grid-cols-5 border-t border-l border-line">
         {steps.map((s, i) => (
-          <li key={s.t} className="border-r border-b border-line p-5">
+          <li key={s.t} className="border-r border-b border-line bg-surface p-5">
             <div className="flex items-center gap-2 mb-4">
               <span
                 className={`w-6 h-6 flex items-center justify-center text-[11px] font-bold rounded-full ${

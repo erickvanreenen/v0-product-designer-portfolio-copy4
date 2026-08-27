@@ -58,7 +58,7 @@ export default function HomePage() {
   return (
     <div className="page-entry">
       {/* Hero. Content and layout unchanged, background moved to white. */}
-      <section className="bg-surface border-b border-line">
+      <section className="bg-surface">
         <div className="max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
           <HeroHeadline />
 
@@ -85,9 +85,9 @@ export default function HomePage() {
 
         A pale green band rather than the near-black one that used to sit here.
         Lightness contrast against the cream page is slight by design, so the
-        separation comes from hue and from a rule top and bottom.
+        separation comes from hue alone at the top, and a rule at the foot.
       */}
-      <section className="bg-band text-ink border-y border-ink/12">
+      <section className="bg-band text-ink border-b border-ink/12">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           {/*
             No standfirst here. The line that used to sit under this heading

@@ -23,7 +23,7 @@ export function ModelComplexity() {
   const bBracketCenter = (bxWed1 + bxWed2) / 2; // ~421
 
   return (
-    <div className="mt-10 pt-8 border-t border-line">
+    <div>
       <p className="text-[10px] text-ink/40 font-bold uppercase tracking-widest mb-8">
         Model complexity
       </p>

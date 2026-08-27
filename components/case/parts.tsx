@@ -274,7 +274,7 @@ export function Metrics({
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-line">
       {items.map((m) => (
-        <div key={m.label} className="border-r border-b border-line p-5 md:p-7 min-w-0">
+        <div key={m.label} className="border-r border-b border-line bg-surface p-5 md:p-7 min-w-0">
           <p
             className={`t-num text-2xl sm:text-3xl md:text-[40px] font-semibold leading-none [overflow-wrap:anywhere] ${
               m.lead ? "text-accent" : "text-ink/85"
@@ -352,7 +352,7 @@ export function Steps({
   return (
     <ol className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-line">
       {items.map((s, i) => (
-        <li key={s.title} className="border-r border-b border-line p-6 md:p-7">
+        <li key={s.title} className="border-r border-b border-line bg-surface p-6 md:p-7">
           <span className="t-num text-sm text-accent">
             {String(i + 1).padStart(2, "0")}
           </span>
