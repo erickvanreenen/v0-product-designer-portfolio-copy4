@@ -1,3 +1,5 @@
+import { DiagramFrame } from "@/components/case/diagram-frame";
+
 const GREEN = "var(--ink)";
 const ORANGE = "var(--accent)";
 
@@ -14,7 +16,7 @@ export function DeliveryWorkflowDiagram() {
   ];
 
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <svg viewBox="0 0 800 118" className="w-full min-w-[700px]"
         xmlns="http://www.w3.org/2000/svg"
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
@@ -38,7 +40,7 @@ export function DeliveryWorkflowDiagram() {
           ))}
         </g>
       </svg>
-    </div>
+    </DiagramFrame>
   );
 }
 
@@ -52,7 +54,7 @@ export function DesignSystemDiagram() {
   ];
 
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <svg viewBox="0 0 800 130" className="w-full min-w-[700px]"
         xmlns="http://www.w3.org/2000/svg"
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
@@ -93,7 +95,7 @@ export function DesignSystemDiagram() {
           output governed by the system
         </text>
       </svg>
-    </div>
+    </DiagramFrame>
   );
 }
 

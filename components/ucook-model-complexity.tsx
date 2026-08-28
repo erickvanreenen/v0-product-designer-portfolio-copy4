@@ -1,3 +1,5 @@
+import { DiagramFrame } from "@/components/case/diagram-frame";
+
 export function ModelComplexity() {
   const deliveryColor = "var(--ink)";
   const billingColor = "var(--accent)";
@@ -51,7 +53,7 @@ export function ModelComplexity() {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <DiagramFrame>
           <svg
             viewBox="0 0 720 175"
             className="w-full min-w-[480px]"
@@ -168,7 +170,7 @@ export function ModelComplexity() {
               Weekly › Sunday or Monday
             </text>
           </svg>
-        </div>
+        </DiagramFrame>
       </div>
 
       {/* Divider */}
@@ -197,7 +199,7 @@ export function ModelComplexity() {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        <DiagramFrame>
           <svg
             viewBox="0 0 720 175"
             className="w-full min-w-[480px]"
@@ -286,7 +288,7 @@ export function ModelComplexity() {
               Wednesday 9am › Wednesday 9am
             </text>
           </svg>
-        </div>
+        </DiagramFrame>
       </div>
     </div>
   );

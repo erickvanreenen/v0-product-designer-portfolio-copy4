@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { DiagramFrame } from "@/components/case/diagram-frame";
 
 /*
   Diagrams carry the argument. Each one is here because a paragraph was
@@ -21,18 +22,7 @@ const MONO = "var(--font-mono-face), ui-monospace, monospace";
   the hint and the fade.
 */
 function Scroller({ children, min = 560 }: { children: React.ReactNode; min?: number }) {
-  return (
-    <div className="relative">
-      <div className="overflow-x-auto">
-        <div style={{ minWidth: min }}>{children}</div>
-      </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-surface to-transparent sm:hidden"
-      />
-      <p className="t-label text-ink/75 mt-3 sm:hidden">Swipe to see the rest</p>
-    </div>
-  );
+  return <DiagramFrame min={min}>{children}</DiagramFrame>;
 }
 
 /* ══════════════════════════════════════════════════════════

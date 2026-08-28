@@ -1,4 +1,5 @@
 import React from "react";
+import { DiagramFrame } from "@/components/case/diagram-frame";
 
 /*
   Kurtosys design artefacts, rebuilt.
@@ -65,16 +66,7 @@ export function KFrame({
 }
 
 function Scroll({ children, min }: { children: React.ReactNode; min: number }) {
-  return (
-    <div className="relative">
-      <div className="overflow-x-auto">
-        <div style={{ minWidth: min }}>{children}</div>
-      </div>
-      <p className="text-[10px] font-bold uppercase tracking-[1.4px] mt-3 sm:hidden" style={{ color: K.grey }}>
-        Swipe to see the rest
-      </p>
-    </div>
-  );
+  return <DiagramFrame min={min}>{children}</DiagramFrame>;
 }
 
 /* ── 1. Platform placement ────────────────────────────

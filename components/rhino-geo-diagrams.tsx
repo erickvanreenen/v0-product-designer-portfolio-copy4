@@ -1,5 +1,7 @@
 "use client";
 
+import { DiagramFrame } from "@/components/case/diagram-frame";
+
 const GREEN = "var(--ink)";
 const ORANGE = "var(--accent)";
 const AMBER = "var(--ochre)";
@@ -11,7 +13,7 @@ const FONT = "var(--font-mono-face), ui-monospace, monospace";
    ──────────────────────────────────────────────────────────── */
 export function SearchShiftDiagram() {
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <svg viewBox="0 0 720 300" className="w-full min-w-[560px]"
         xmlns="http://www.w3.org/2000/svg" style={{ fontFamily: FONT }}>
 
@@ -106,7 +108,7 @@ export function SearchShiftDiagram() {
           Structure gets you in the answer.
         </text>
       </svg>
-    </div>
+    </DiagramFrame>
   );
 }
 
@@ -249,7 +251,7 @@ export function PlatformIADiagram() {
   ];
 
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <svg viewBox="0 0 720 340" className="w-full min-w-[600px]"
         xmlns="http://www.w3.org/2000/svg" style={{ fontFamily: FONT }}>
 
@@ -321,7 +323,7 @@ export function PlatformIADiagram() {
           the seam
         </text>
       </svg>
-    </div>
+    </DiagramFrame>
   );
 }
 
@@ -332,7 +334,7 @@ export function MultilingualBreakDiagram() {
   const langs = ["EN", "DE", "FR", "ES", "PT"];
 
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <svg viewBox="0 0 720 210" className="w-full min-w-[560px]"
         xmlns="http://www.w3.org/2000/svg" style={{ fontFamily: FONT }}>
 
@@ -417,7 +419,7 @@ export function MultilingualBreakDiagram() {
           The language drops away at the exact moment the user commits.
         </text>
       </svg>
-    </div>
+    </DiagramFrame>
   );
 }
 
@@ -437,7 +439,7 @@ const dimensions = ["IA & Nav", "Enquiry", "Content", "Visual", "Mobile"];
 
 export function CompetitorMatrix() {
   return (
-    <div className="overflow-x-auto">
+    <DiagramFrame>
       <div className="min-w-[560px]">
         {/* Header */}
         <div className="flex items-end gap-2 pb-3 mb-1 border-b border-line">
@@ -503,7 +505,7 @@ export function CompetitorMatrix() {
           Scored 1–5 · 1 = weak · 5 = best in class
         </p>
       </div>
-    </div>
+    </DiagramFrame>
   );
 }
 
