@@ -2,135 +2,24 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { X, ArrowUpRight } from "lucide-react";
+import { Icon } from "@/components/material-icon";
 
 /*
   Shared frame for the wide diagrams.
 
-  On a phone these are wider than the screen. Previously the only sign of that
-  was a line of text reading "swipe to see the rest", which is easy to miss and
-  says nothing about which way or how much further. This adds three things:
+  One affordance, not two. Scrolling is signalled the way the prints carousel
+  signals it: a round chevron on each side, each present only while there is
+  something further that way. Nothing appears at all on a screen wide enough
+  to show the whole drawing.
 
-  1. Edge fades that appear only on the side where there is more to see, and
-     disappear as you reach each end.
-  2. A scroll position bar, so the amount left to see is legible at a glance.
-  3. Expand, which opens the diagram over the whole screen. On a phone held
-     upright the diagram is turned on its side, so a wide drawing gets the long
-     axis of the screen instead of the short one.
-
-  The controls only render once we have measured real overflow, so a diagram
-  that already fits shows no swipe cue.
+  Open full size borrows its wording from the Kurtosys screens and its viewer
+  from the prints lightbox. Dark backdrop, the diagram scaled to fit whole,
+  close top right, escape or a tap outside to leave. No rotation: an earlier
+  version turned the drawing on its side and it fell apart on a real phone.
 */
 
-function ExpandIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
-      <path d="M18 6 6 18M6 6l12 12" />
-    </svg>
-  );
-}
-
-function SwipeIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-/* ── The full-screen view ─────────────────────────────
-   Rendered only while open. Rotation is done in CSS rather than through the
-   Screen Orientation API, which needs full-screen permission and behaves
-   differently on every browser. The close button sits outside the rotated
-   wrapper so it stays at the top right of the screen, not of the drawing.
-*/
-function Expanded({
-  children,
-  onClose,
-  min,
-}: {
-  children: React.ReactNode;
-  onClose: () => void;
-  min: number;
-}) {
-  const [rotate, setRotate] = useState(false);
-
-  useEffect(() => {
-    const decide = () => {
-      const portrait = window.innerHeight > window.innerWidth;
-      setRotate(portrait && window.innerWidth < 820);
-    };
-    decide();
-    window.addEventListener("resize", decide);
-    window.addEventListener("orientationchange", decide);
-    return () => {
-      window.removeEventListener("resize", decide);
-      window.removeEventListener("orientationchange", decide);
-    };
-  }, []);
-
-  // Escape to close, and hold the page still behind the overlay.
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Diagram, expanded"
-      className="fixed inset-0 z-[100] bg-ink-deep/95 grid place-items-center"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        aria-label="Close expanded diagram"
-        className="absolute top-4 right-4 z-10 w-11 h-11 grid place-items-center
-                   bg-paper text-ink-deep hover:bg-ember hover:text-white
-                   transition-colors duration-200 shadow-lg"
-      >
-        <CloseIcon />
-      </button>
-
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={
-          rotate
-            ? { width: "100dvh", height: "100dvw", transform: "rotate(90deg)" }
-            : { width: "100%", height: "100%" }
-        }
-        className="grid place-items-center p-4 sm:p-8"
-      >
-        <div className="w-full max-h-full overflow-auto bg-surface p-4 sm:p-6">
-          <div style={min ? { minWidth: min } : undefined}>{children}</div>
-        </div>
-      </div>
-
-      <p className="absolute bottom-4 left-0 right-0 text-center t-label text-paper/45 pointer-events-none">
-        Tap anywhere to close
-      </p>
-    </div>
-  );
-}
+const STEP_RATIO = 0.72; // how much of the visible width one chevron press moves
 
 export function DiagramFrame({
   children,
@@ -142,111 +31,162 @@ export function DiagramFrame({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [overflows, setOverflows] = useState(false);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const measure = useCallback(() => {
+  useEffect(() => setMounted(true), []);
+
+  const update = useCallback(() => {
     const el = ref.current;
     if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setOverflows(max > 4);
-    setAtStart(el.scrollLeft <= 2);
-    setAtEnd(el.scrollLeft >= max - 2);
-    setProgress(max > 0 ? el.scrollLeft / max : 0);
+    setCanLeft(el.scrollLeft > 1);
+    setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   }, []);
 
-  /* Measure after layout rather than only on mount. A single measurement on
-     mount can land before the browser has sized the drawing, which leaves the
-     frame believing it fits and hiding the swipe cue. */
+  /* Measured after layout, not only on mount. A single measurement on mount can
+     land before the drawing has been sized, which leaves the frame believing it
+     fits and showing no chevron at all. */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    measure();
+    update();
     const raf = requestAnimationFrame(() => {
-      measure();
-      requestAnimationFrame(measure);
+      update();
+      requestAnimationFrame(update);
     });
-    const settle = setTimeout(measure, 400);
+    const settle = setTimeout(update, 400);
 
-    const ro = new ResizeObserver(measure);
+    const ro = new ResizeObserver(update);
     ro.observe(el);
     if (el.firstElementChild) ro.observe(el.firstElementChild);
-    window.addEventListener("resize", measure);
-
-    // Web fonts change text metrics, which changes how wide a diagram sits.
-    document.fonts?.ready?.then(measure).catch(() => {});
+    window.addEventListener("resize", update);
+    // Native listener rather than the onScroll prop: scroll does not bubble,
+    // and the prop was not firing here. This is what the prints carousel uses.
+    el.addEventListener("scroll", update, { passive: true });
+    document.fonts?.ready?.then(update).catch(() => {});
 
     return () => {
       cancelAnimationFrame(raf);
       clearTimeout(settle);
       ro.disconnect();
-      window.removeEventListener("resize", measure);
+      window.removeEventListener("resize", update);
+      el.removeEventListener("scroll", update);
     };
-  }, [measure]);
+  }, [update]);
+
+  const nudge = (dir: "left" | "right") => {
+    const el = ref.current;
+    if (!el) return;
+    const step = Math.round(el.clientWidth * STEP_RATIO);
+    el.scrollBy({ left: dir === "right" ? step : -step, behavior: "smooth" });
+  };
+
+  // The page stays put while the viewer is open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const viewer = open ? (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Diagram, full size"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
+      onClick={() => setOpen(false)}
+    >
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen(false);
+        }}
+        aria-label="Close"
+        className="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface/10 hover:bg-surface/20
+                   transition-colors duration-200 flex items-center justify-center text-white"
+      >
+        <X size={16} />
+      </button>
+
+      {/* No min-width in here, so the whole drawing is on screen at once. */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-surface p-4 sm:p-6 w-full overflow-auto"
+        style={{ maxWidth: "min(96vw, 1100px)", maxHeight: "86vh" }}
+      >
+        {children}
+      </div>
+    </div>
+  ) : null;
 
   return (
     <div className={`relative ${className}`}>
-      <div ref={ref} onScroll={measure} className="overflow-x-auto">
-        <div style={min ? { minWidth: min } : undefined}>{children}</div>
-      </div>
-
-      {/* Fades sit over the drawing, on whichever side still has content. */}
-      {overflows && !atStart && (
-        <div aria-hidden="true"
-          className="pointer-events-none absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-surface to-transparent" />
-      )}
-      {overflows && !atEnd && (
-        <div aria-hidden="true"
-          className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-surface to-transparent" />
-      )}
-
-      <div className="mt-3 flex items-center justify-between gap-4">
-        {overflows ? (
-          <div className="flex items-center gap-3 min-w-0">
-            <span className="t-label text-ink/45 flex items-center gap-1.5 shrink-0">
-              Swipe
-              <span className={atEnd ? "opacity-0" : "opacity-100 transition-opacity duration-200"}>
-                <SwipeIcon />
-              </span>
-            </span>
-            {/* How far along the drawing you are. */}
-            <span aria-hidden="true" className="relative h-px w-16 bg-ink/15 shrink-0">
-              <span
-                className="absolute top-[-1.5px] h-[4px] w-6 bg-accent transition-[left] duration-150"
-                style={{ left: `calc(${progress * 100}% - ${progress * 24}px)` }}
-              />
-            </span>
-          </div>
-        ) : (
-          <span />
+      <div className="relative">
+        {canLeft && (
+          <button
+            onClick={() => nudge("left")}
+            aria-label="Scroll diagram left"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface
+                       shadow-sm border border-line flex items-center justify-center
+                       hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/82 hover:text-ink"
+          >
+            <Icon name="chevron_left" size={18} />
+          </button>
         )}
 
+        <div ref={ref} className="overflow-x-auto scroll-smooth">
+          <div style={min ? { minWidth: min } : undefined}>{children}</div>
+        </div>
+
+        {/* Fade and chevron both go once there is nothing further right. */}
+        {canRight && (
+          <>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-surface to-transparent"
+            />
+            <button
+              onClick={() => nudge("right")}
+              aria-label="Scroll diagram right"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface
+                         shadow-sm border border-line flex items-center justify-center
+                         hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/82 hover:text-ink"
+            >
+              <Icon name="chevron_right" size={18} />
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Quiet text link, matching the Kurtosys screens rather than competing
+          with the chevrons for attention. */}
+      <div className="mt-3 flex justify-end">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="t-label text-ink/55 hover:text-accent transition-colors duration-200
-                     inline-flex items-center gap-1.5 py-2 -my-2 shrink-0"
+          className="t-caption inline-flex items-center gap-1 text-accent hover:underline
+                     underline-offset-4 py-1"
         >
-          <ExpandIcon />
-          Expand
+          Open full size
+          <ArrowUpRight size={12} aria-hidden="true" />
         </button>
       </div>
 
-      {/* Portalled to the body. The diagrams sit inside FadeIn, which sets a
-          CSS transform, and a transformed ancestor becomes the containing block
-          for position:fixed. Without the portal the overlay would be trapped
-          inside the section instead of covering the screen. */}
-      {open &&
-        createPortal(
-          <Expanded min={min} onClose={() => setOpen(false)}>
-            {children}
-          </Expanded>,
-          document.body
-        )}
+      {/* Portalled to the body: the diagrams sit inside FadeIn, which sets a CSS
+          transform, and a transformed ancestor becomes the containing block for
+          position:fixed. Without this the viewer is trapped in its section. */}
+      {mounted && createPortal(viewer, document.body)}
     </div>
   );
 }
