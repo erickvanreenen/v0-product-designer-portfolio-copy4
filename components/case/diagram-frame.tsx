@@ -84,9 +84,9 @@ export function DiagramFrame({
           }}
           aria-label="Scroll the diagram to see the rest"
           className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full
-                     bg-surface/70 backdrop-blur-[2px] border border-ink/10 shadow-sm
+                     bg-band/40 backdrop-blur-[2px] border border-ink/10 shadow-sm
                      flex items-center justify-center text-ink/70
-                     hover:bg-surface/90 hover:text-ink transition-colors duration-200"
+                     hover:bg-band/60 hover:text-ink transition-colors duration-200"
         >
           <Icon name="chevron_right" size={18} />
         </button>
