@@ -7,13 +7,12 @@ import { Icon } from "@/components/material-icon";
   Shared frame for the wide diagrams.
 
   A single hint, and only until it has done its job. On a narrow screen a
-  diagram that is wider than the column shows one chevron on the left, and it
+  diagram that is wider than the column shows one chevron, and it
   goes for good the moment the reader scrolls. Once you know a thing scrolls
   you do not need to be told again, and the arrow was sitting over the part of
   the drawing you were trying to reach.
 
-  It sits on the left rather than the right for the same reason: the right edge
-  is where the drawing is cut off, and that is the part worth seeing.
+  It points right and sits on the right, in the direction of travel.
 
   Nothing renders at all on a screen wide enough to show the whole drawing.
 */
@@ -82,7 +81,7 @@ export function DiagramFrame({
             el.scrollBy({ left: Math.round(el.clientWidth * 0.72), behavior: "smooth" });
           }}
           aria-label="Scroll the diagram to see the rest"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-surface
                      shadow-sm border border-line flex items-center justify-center
                      hover:bg-[var(--paper-sunk)] transition-colors duration-200 text-ink/82 hover:text-ink"
         >
