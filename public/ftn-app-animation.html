@@ -20,6 +20,7 @@
 :root { --ground:#006654; --main:#81BF99; --white:#FFFFFF; --accent:#EFDCCE; --sub:#D1E4E0; --tagline:#E0EDEA; --water:#31886E; --soft:#278169; }
 html, body { margin:0; }
 html.framed, html.framed body { overflow:hidden; background:transparent; }
+html.framed .ftn { height:100vh; max-height:none; aspect-ratio:auto; } /* embedded: fill the iframe, the page sets its size */
 .ftn { position:relative; width:100%; height:clamp(320px, 30vw, 480px); overflow:hidden; background:var(--ground); color:var(--white); font-family:"FtN Open Sans", "Open Sans", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
 @media (max-width:767px) { .ftn { height:auto; aspect-ratio:4 / 5; max-height:560px; } }
 .ftn-stage { position:absolute; left:0; top:0; transform-origin:0 0; overflow:visible; }
