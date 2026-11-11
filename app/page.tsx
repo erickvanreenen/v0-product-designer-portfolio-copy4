@@ -60,7 +60,7 @@ export default function HomePage() {
           <FadeIn>
             <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-4">Selected work</h2>
             <p className="text-[15px] text-ink/82 measure mb-12 md:mb-14">
-              Each one is named for the work it involved, not the company that paid for it.
+              Each one is named for the work it involved.
             </p>
           </FadeIn>
 
