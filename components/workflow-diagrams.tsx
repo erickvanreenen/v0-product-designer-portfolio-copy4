@@ -85,7 +85,7 @@ export function DesignSystemDiagram() {
         </g>
 
         {/* Outcome */}
-        <rect x="596" y="30" width="188" height="46" rx="6" fill="var(--accent-wash)" />
+        <rect x="596" y="30" width="188" height="46" rx="6" fill="var(--band)" />
         <text x="690" y="49" fontSize="10" fontWeight="700" fill={GREEN} textAnchor="middle">
           The workflow repeats
         </text>
