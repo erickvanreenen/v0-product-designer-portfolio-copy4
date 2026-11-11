@@ -18,8 +18,9 @@ import { DELIVERY_STEPS } from "@/lib/workflow";
   it settles to black. The last step stays orange.
 
   Each step's text sits in its own outlined container, which wraps the text
-  inside its column so nothing hangs past the right edge. On wide screens the
-  row runs further right than the text column, so the steps get more room.
+  inside its column so nothing hangs past the right edge. Dots sit centred over
+  their containers, so the line runs from the middle of the first to the middle
+  of the last and the row stays balanced.
 
   The page renders in the finished state, so without JavaScript, or with
   reduced motion, the reader sees the whole workflow.
@@ -90,7 +91,7 @@ export function AiWorkflowBand() {
         <ol
           ref={ref}
           aria-label="Design and delivery workflow"
-          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7 xl:-mr-24"
+          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7 md:gap-3"
         >
           {DELIVERY_STEPS.map((s, i) => {
             const last = i === total - 1;
@@ -107,7 +108,7 @@ export function AiWorkflowBand() {
               <li
                 key={s.n}
                 className="relative grid grid-cols-[14px_1fr] gap-x-4 pb-4 last:pb-0
-                           md:flex md:flex-col md:pb-0"
+                           md:flex md:flex-col md:items-center md:text-center md:pb-0"
               >
                 {/* phone: vertical line from this dot's centre to the next one's */}
                 {!last && (
@@ -130,14 +131,14 @@ export function AiWorkflowBand() {
                 {/* Dot, plus the line to the next step */}
                 <span className="relative self-start mt-[10px] md:mt-0 w-[14px] h-[14px] md:w-full">
                   {!last && (
-                    <span aria-hidden="true" className="hidden md:block absolute top-[6.5px] left-[7px] w-full h-px bg-ink/15">
+                    <span aria-hidden="true" className="hidden md:block absolute top-[6.5px] left-1/2 w-[calc(100%+0.75rem)] h-px bg-ink/15">
                       <span
                         className="absolute inset-0 bg-ink origin-left"
                         style={{ transform: `scaleX(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
                       />
                     </span>
                   )}
-                  <span className="absolute left-0 top-0 w-[14px] h-[14px]">
+                  <span className="absolute left-0 md:left-1/2 md:-ml-[7px] top-0 w-[14px] h-[14px]">
                     {/* a soft pulse behind the dot while it is the current step */}
                     {running && active && (
                       <span aria-hidden="true" className="absolute inset-0 rounded-full bg-ember-deep/30 animate-ping" />
@@ -156,7 +157,7 @@ export function AiWorkflowBand() {
 
                 {/* Outlined container, appearing as the line reaches the step */}
                 <span
-                  className={`block border p-3 md:mt-4 md:flex-1 ${box} ${last ? "" : "md:mr-3"}`}
+                  className={`block border p-3 md:mt-4 md:flex-1 md:w-full ${box}`}
                   style={{
                     opacity: shown ? 1 : 0,
                     transform: shown ? "translateY(0) scale(1)" : "translateY(8px) scale(.94)",
