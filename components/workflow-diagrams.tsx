@@ -1,19 +1,17 @@
 import { DiagramFrame } from "@/components/case/diagram-frame";
+import { DELIVERY_STEPS } from "@/lib/workflow";
 
 const GREEN = "var(--ink)";
 const ORANGE = "var(--accent)";
 
 /* ── Design and delivery: seven steps ─────────────────── */
 export function DeliveryWorkflowDiagram() {
-  const steps = [
-    { x: 65, n: "01", label: "POC and prototype", sub: ["Claude Code, Cowork"] },
-    { x: 176, n: "02", label: "Refine", sub: [] },
-    { x: 287, n: "03", label: "Present", sub: [] },
-    { x: 398, n: "04", label: "Editable frames", sub: ["written to Figma"] },
-    { x: 509, n: "05", label: "Align to system", sub: ["1:1, then refine as a whole"] },
-    { x: 620, n: "06", label: "Annotations", sub: ["for developers"] },
-    { x: 731, n: "07", label: "Handover", sub: ["with documentation"], end: true },
-  ];
+  // Shared with the home page band. Positions keep the original 111px spacing.
+  const steps = DELIVERY_STEPS.map((s, i) => ({
+    ...s,
+    x: 65 + i * 111,
+    end: i === DELIVERY_STEPS.length - 1,
+  }));
 
   return (
     <DiagramFrame>

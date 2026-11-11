@@ -1,59 +1,26 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
-import { ProjectCard } from "@/components/project-card";
 import { FadeIn } from "@/components/fade-in";
 import { HeroHeadline } from "@/components/hero-headline";
+import { AiWorkflowBand } from "@/components/home/ai-workflow-band";
+import { WorkCard } from "@/components/home/work-card";
 import { ArrowRight } from "lucide-react";
 
 /*
-  The six areas the work groups into. Every line here is drawn from an
-  existing case study or the About page, so each one has somewhere real to
-  point at.
+  The four featured projects, each with the capability it shows. This replaces
+  the old "What I do" list, which claimed six capabilities in the abstract.
 */
-const capabilities = [
-  {
-    name: "AI design workflows",
-    body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch. I use them for research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
-    href: "/about#workflow",
-    cue: "Workflow",
-  },
-  {
-    name: "GEO",
-    body: "Generative Engine Optimisation usually gets filed under content marketing. Most of it is information architecture. For Rhino Africa I defined seven content layers, ordered by the sequence a crawler reads them.",
-    href: "/projects/rhino-africa-geo",
-    cue: "Rhino Africa",
-  },
-  {
-    name: "Research",
-    body: "Customer interviews, heatmaps, usability testing, internal surveys and competitive benchmarking. Usually more than one of them, because a single source rarely settles anything.",
-    href: "/projects/ucook",
-    cue: "UCOOK",
-  },
-  {
-    name: "Systems thinking",
-    body: "Mapping dependencies before designing anything inside them. For Kurtosys I mapped the platform, the data flow and how a document breaks into sections before drawing any screens. Most of the screen decisions were settled by then.",
-    href: "/projects/kurtosys-rule-builder",
-    cue: "Kurtosys",
-  },
-  {
-    name: "Design thinking",
-    body: "Working out what to make, against what can actually ship. I teach the process too, across two academic terms at the Academy of Digital Arts.",
-    href: "/projects/ada-ux-design",
-    cue: "Academy of Digital Arts",
-  },
-  {
-    name: "Design",
-    body: "Interface, interaction and design systems. On Flanksource that meant working out how much density a dashboard could carry before it stopped being scannable.",
-    href: "/projects/flanksource",
-    cue: "Flanksource",
-  },
+const FEATURED: { slug: string; shows: string }[] = [
+  { slug: "ucook", shows: "Research" },
+  { slug: "faithful-to-nature", shows: "UX strategy" },
+  { slug: "rhino-africa-geo", shows: "Information architecture" },
+  { slug: "kurtosys-rule-builder", shows: "Systems thinking" },
 ];
 
 export default function HomePage() {
-  const featuredSlugs = ["ucook", "faithful-to-nature", "rhino-africa-geo", "kurtosys-rule-builder"];
-  const featuredProjects = featuredSlugs
-    .map((slug) => projects.find((p) => p.slug === slug))
-    .filter(Boolean) as typeof projects;
+  const featured = FEATURED.map((f) => ({ ...f, project: projects.find((p) => p.slug === f.slug) })).filter(
+    (f): f is { slug: string; shows: string; project: (typeof projects)[number] } => Boolean(f.project)
+  );
 
   return (
     <div className="page-entry">
@@ -80,97 +47,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/*
-        What I do.
-
-        A pale green band rather than the near-black one that used to sit here.
-        Lightness contrast against the cream page is slight by design, so the
-        separation comes from hue alone at the top, and a rule at the foot.
-      */}
-      <section className="bg-band text-ink border-b border-ink/12">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          {/*
-            No standfirst here. The line that used to sit under this heading
-            restated the list without adding to it, so the heading carries the
-            section on its own and the rule holds the orange.
-          */}
-          <FadeIn>
-            <div
-              aria-hidden="true"
-              className="h-[3px] w-10 bg-ember-deep mb-7"
-            />
-            <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-12 md:mb-16">
-              What I do
-            </h2>
-          </FadeIn>
-
-          {/*
-            A list rather than a card grid. Six items would make a lopsided grid,
-            and each one earns a full line of explanation anyway.
-          */}
-          <ul className="border-t border-ink/15">
-            {capabilities.map((item, i) => (
-              <FadeIn key={item.name} delay={i * 70}>
-                <li>
-                  <Link
-                    href={item.href}
-                    className="group grid md:grid-cols-[auto_1fr_1.5fr] gap-x-8 lg:gap-x-12 gap-y-3
-                               px-3 -mx-3 py-7 md:py-8 border-b border-ink/15 items-baseline
-                               transition-colors duration-200
-                               hover:bg-ink/[0.045] focus-visible:outline-none focus-visible:bg-ink/[0.045]"
-                  >
-                    <span className="t-num text-sm font-semibold text-ember-deep md:pt-1">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                    <h3 className="text-[21px] md:text-[23px] font-bold text-ink-deep leading-snug tracking-[-0.015em] group-hover:text-ember-deep transition-colors duration-200">
-                      {item.name}
-                    </h3>
-
-                    <div>
-                      <p className="text-[14.5px] text-ink/85 leading-relaxed">{item.body}</p>
-                      <span className="inline-flex items-center gap-1.5 t-label text-ink/82 mt-3 group-hover:text-ember-deep transition-colors duration-200">
-                        {item.cue}
-                        <ArrowRight
-                          size={12}
-                          className="group-hover:translate-x-0.5 transition-transform duration-200"
-                        />
-                      </span>
-                    </div>
-                  </Link>
-                </li>
-              </FadeIn>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* AI design workflows, in the green band where "What I do" used to sit */}
+      <AiWorkflowBand />
 
       {/* Selected work */}
       <section className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-6">
           <FadeIn>
-            <div className="flex items-end justify-between mb-4">
-              <h2 className="t-h2 text-3xl md:text-[40px] text-ink">Selected work</h2>
-              <Link
-                href="/projects"
-                className="text-sm text-ink/82 hover:text-ember transition-colors duration-200 flex items-center gap-1.5 group pb-1.5"
-              >
-                All ten projects
-                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-              </Link>
-            </div>
-            <p className="text-[15px] text-ink/82 measure mb-14 md:mb-16">
+            <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-4">Selected work</h2>
+            <p className="text-[15px] text-ink/82 measure mb-12 md:mb-14">
               Each one is named for the work it involved, not the company that paid for it.
             </p>
           </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-12">
-            {featuredProjects.map((project, i) => (
-              <FadeIn key={project.slug} delay={i * 70} className="h-full">
-                <ProjectCard project={project} />
+          {/* Four in a row on desktop, two by two on a tablet, stacked on a phone. */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featured.map((f, i) => (
+              <FadeIn key={f.slug} delay={i * 70} className="h-full">
+                <WorkCard project={f.project} shows={f.shows} />
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn>
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 mt-12 border border-ink text-ink text-sm font-medium px-6 py-3 hover:bg-ink hover:text-paper transition-colors duration-200"
+            >
+              See all work
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
