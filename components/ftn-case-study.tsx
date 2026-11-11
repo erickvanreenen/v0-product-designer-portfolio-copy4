@@ -42,7 +42,7 @@ export function FtnCaseStudy({ project, nextProject, prevProject }: Props) {
           src="/ftn-app-animation.html"
           title="Faithful to Nature app walkthrough"
           loading="lazy"
-          className="block w-full border-0 aspect-[4/5] max-h-[560px] md:aspect-auto md:max-h-none md:h-[clamp(384px,36vw,576px)]"
+          className="block w-full border-0 aspect-[4/5] max-h-[560px] md:aspect-auto md:max-h-none md:h-[clamp(440px,43vw,900px)]"
         />
       </section>
 
