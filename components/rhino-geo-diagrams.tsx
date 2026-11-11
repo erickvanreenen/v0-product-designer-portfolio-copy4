@@ -242,13 +242,16 @@ export function GeoLayerStack() {
    03 · Platform information architecture — and the seam
    ──────────────────────────────────────────────────────────── */
 export function PlatformIADiagram() {
+  // Centred under the root at x=360, five boxes 124 wide on a 132 pitch.
   const pillars = [
-    { x: 60, label: "Destinations", sub: "Country → region → park" },
-    { x: 192, label: "Experiences", sub: "Experience-led entry" },
-    { x: 324, label: "Tours & Safaris", sub: "Multi-destination" },
-    { x: 456, label: "About Us", sub: "Trust content" },
-    { x: 588, label: "Start Planning", sub: "Conversion endpoint" },
+    { x: 96, label: "Destinations", sub: "Country → region → park" },
+    { x: 228, label: "Experiences", sub: "Experience-led entry" },
+    { x: 360, label: "Tours & Safaris", sub: "Multi-destination" },
+    { x: 492, label: "About Us", sub: "Trust content" },
+    { x: 624, label: "Start Planning", sub: "Conversion endpoint" },
   ];
+  const W = 124;
+  const END = 624; // Start Planning, where every path funnels
 
   return (
     <DiagramFrame>
@@ -264,50 +267,53 @@ export function PlatformIADiagram() {
         {/* Trunk */}
         <line x1="360" y1="54" x2="360" y2="76" stroke={GREEN}
           strokeOpacity="0.35" strokeWidth="1.3" />
-        <line x1="60" y1="76" x2="588" y2="76" stroke={GREEN}
+        <line x1={pillars[0].x} y1="76" x2={END} y2="76" stroke={GREEN}
           strokeOpacity="0.35" strokeWidth="1.3" />
 
-        {/* Pillars */}
-        {pillars.map((p) => (
-          <g key={p.label}>
-            <line x1={p.x} y1="76" x2={p.x} y2="98" stroke={GREEN}
-              strokeOpacity="0.35" strokeWidth="1.3" />
-            <rect x={p.x - 54} y="98" width="108" height="42" rx="4"
-              fill="var(--surface)" stroke={p.label === "Start Planning" ? ORANGE : GREEN}
-              strokeOpacity={p.label === "Start Planning" ? 0.6 : 0.25} strokeWidth="1.2" />
-            <text x={p.x} y="116" fontSize="9.5" fontWeight="700"
-              fill={p.label === "Start Planning" ? ORANGE : GREEN}
-              textAnchor="middle">{p.label}</text>
-            <text x={p.x} y="130" fontSize="7.5" fill={GREEN} opacity="0.75"
-              textAnchor="middle">{p.sub}</text>
-          </g>
+        {/* Funnel lines to conversion, drawn first so labels sit on top */}
+        {pillars.slice(0, 4).map((p) => (
+          <path key={p.x} d={`M ${p.x} 140 Q ${p.x} 222 ${END} 222`}
+            fill="none" stroke={ORANGE} strokeOpacity="0.22" strokeWidth="1" />
         ))}
-
-        {/* Interdependency: Destinations ↔ Tours */}
-        <path d="M 60 140 Q 60 176 192 176 Q 324 176 324 140"
-          fill="none" stroke={AMBER} strokeWidth="1.3" strokeDasharray="3 2.5" />
-        <text x="192" y="192" fontSize="8" fill={AMBER} textAnchor="middle" fontWeight="700">
-          tightly interdependent
-        </text>
-
-        {/* Funnel arrows to conversion */}
-        {[60, 192, 324, 456].map((x) => (
-          <path key={x} d={`M ${x} 140 Q ${x} 214 588 214`}
-            fill="none" stroke={ORANGE} strokeOpacity="0.16" strokeWidth="1" />
-        ))}
-        <line x1="588" y1="140" x2="588" y2="214" stroke={ORANGE}
-          strokeOpacity="0.4" strokeWidth="1.2" />
-        <circle cx="588" cy="214" r="5" fill={ORANGE} />
-        <text x="588" y="232" fontSize="8" fill={ORANGE} textAnchor="middle" fontWeight="700">
+        <line x1={END} y1="140" x2={END} y2="222" stroke={ORANGE}
+          strokeOpacity="0.45" strokeWidth="1.2" />
+        <circle cx={END} cy="222" r="5" fill={ORANGE} />
+        <text x={END} y="240" fontSize="8" fill={ORANGE} textAnchor="middle" fontWeight="700">
           every path funnels here
         </text>
 
-        {/* ── The seam: blog subdomain ── */}
-        <line x1="360" y1="256" x2="360" y2="272" stroke={GREEN}
-          strokeOpacity="0.2" strokeWidth="1" strokeDasharray="3 3" />
+        {/* Pillars */}
+        {pillars.map((p) => {
+          const end = p.x === END;
+          return (
+            <g key={p.label}>
+              <line x1={p.x} y1="76" x2={p.x} y2="98" stroke={GREEN}
+                strokeOpacity="0.35" strokeWidth="1.3" />
+              <rect x={p.x - W / 2} y="98" width={W} height="42" rx="4"
+                fill="var(--surface)" stroke={end ? ORANGE : GREEN}
+                strokeOpacity={end ? 0.6 : 0.25} strokeWidth="1.2" />
+              <text x={p.x} y="116" fontSize="9.5" fontWeight="700"
+                fill={end ? ORANGE : GREEN} textAnchor="middle">{p.label}</text>
+              <text x={p.x} y="130" fontSize="7.5" fill={GREEN} opacity="0.75"
+                textAnchor="middle">{p.sub}</text>
+            </g>
+          );
+        })}
+
+        {/* Interdependency: Destinations ↔ Tours, label on a backing so no line crosses it */}
+        <path d="M 96 140 Q 96 176 228 176 Q 360 176 360 140"
+          fill="none" stroke={AMBER} strokeWidth="1.3" strokeDasharray="3 2.5" />
+        <rect x="170" y="181" width="116" height="14" fill="var(--surface)" />
+        <text x="228" y="191" fontSize="8" fill={AMBER} textAnchor="middle" fontWeight="700">
+          tightly interdependent
+        </text>
+
+        {/* ── The seam: blog subdomain, joined to the root by a dashed link ── */}
+        <path d="M 272 37 L 18 37 L 18 295 L 196 295" fill="none" stroke={GREEN}
+          strokeOpacity="0.3" strokeWidth="1" strokeDasharray="3 3" />
 
         <rect x="196" y="272" width="328" height="46" rx="5"
-          fill="none" stroke={GREEN} strokeOpacity="0.3" strokeWidth="1.2"
+          fill="var(--surface)" stroke={GREEN} strokeOpacity="0.3" strokeWidth="1.2"
           strokeDasharray="5 3" />
         <text x="360" y="291" fontSize="10" fontWeight="700" fill={GREEN}
           textAnchor="middle" opacity="0.75">
@@ -317,9 +323,9 @@ export function PlatformIADiagram() {
           Mirrors the main taxonomy · 5 languages · top-of-funnel
         </text>
 
-        {/* Seam marker */}
-        <circle cx="360" cy="264" r="4.5" fill="var(--surface)" stroke={ORANGE} strokeWidth="1.8" />
-        <text x="378" y="268" fontSize="8" fontWeight="700" fill={ORANGE}>
+        {/* Seam marker, on the link between the main site and the blog */}
+        <circle cx="107" cy="295" r="4.5" fill="var(--surface)" stroke={ORANGE} strokeWidth="1.8" />
+        <text x="107" y="284" fontSize="8" fontWeight="700" fill={ORANGE} textAnchor="middle">
           the seam
         </text>
       </svg>
