@@ -15,6 +15,10 @@ const FEATURED: { slug: string; shows: string }[] = [
   { slug: "faithful-to-nature", shows: "UX strategy" },
   { slug: "rhino-africa-geo", shows: "Information architecture" },
   { slug: "kurtosys-rule-builder", shows: "Systems thinking" },
+  { slug: "flanksource", shows: "Dashboard design" },
+  { slug: "overture", shows: "App design" },
+  { slug: "uni4-online", shows: "Leadership" },
+  { slug: "edtech-interactive-learning", shows: "Visual design" },
 ];
 
 export default function HomePage() {
@@ -60,10 +64,11 @@ export default function HomePage() {
             </p>
           </FadeIn>
 
-          {/* Four in a row on desktop, two by two on a tablet, stacked on a phone. */}
+          {/* Two rows of four on desktop, two across on a tablet, and the first
+              four stacked on a phone, where See all work picks up the rest. */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featured.map((f, i) => (
-              <FadeIn key={f.slug} delay={i * 70} className="h-full">
+              <FadeIn key={f.slug} delay={(i % 4) * 70} className={`h-full ${i >= 4 ? "hidden sm:block" : ""}`}>
                 <WorkCard project={f.project} shows={f.shows} />
               </FadeIn>
             ))}

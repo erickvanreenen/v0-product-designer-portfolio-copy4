@@ -12,27 +12,31 @@ import { DELIVERY_STEPS } from "@/lib/workflow";
   It shows the workflow rather than claiming it. The seven steps are the same
   ones as the About page diagram, read from one shared list.
 
-  Motion explains the sequence: when the band comes into view, the steps light
-  up one after another and the line draws between them. The page is rendered
-  with every step lit, so without JavaScript, or with reduced motion, the
-  reader sees the finished workflow.
+  Motion explains the sequence. Each step pops into its own box, left to right;
+  the line then draws out to the right, and the next box pops in where it lands.
+  On a phone the same sequence runs top to bottom.
+
+  The page renders with everything shown, so without JavaScript, or with reduced
+  motion, the reader sees the finished workflow.
 */
 
-const STEP_MS = 280;
+const BEAT_MS = 300;   // one beat is either a box arriving or a line drawing
+const POP = "cubic-bezier(.34,1.56,.64,1)"; // overshoot, so arrivals pop
 
 export function AiWorkflowBand() {
   const ref = useRef<HTMLOListElement>(null);
   const total = DELIVERY_STEPS.length;
-  const [lit, setLit] = useState(total);
+  const beats = total * 2 - 1;   // box, line, box, line, ... box
+  const [beat, setBeat] = useState(beats);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Without IntersectionObserver the sequence could never start, so stay lit.
+    // Without IntersectionObserver the sequence could never start, so stay shown.
     if (!("IntersectionObserver" in window)) return;
 
-    setLit(0);
+    setBeat(-1);
     let timer: ReturnType<typeof setInterval> | undefined;
 
     // Count the viewport's share as well as the list's, so a list taller than
@@ -41,17 +45,17 @@ export function AiWorkflowBand() {
       (entries) => {
         const x = entries[0];
         const viewH = x.rootBounds ? x.rootBounds.height : window.innerHeight;
-        const enough = x.intersectionRatio >= 0.4 || x.intersectionRect.height >= 0.4 * viewH;
+        const enough = x.intersectionRatio >= 0.35 || x.intersectionRect.height >= 0.35 * viewH;
         if (!x.isIntersecting || !enough) return;
         io.disconnect();
-        let k = 0;
+        let k = -1;
         timer = setInterval(() => {
           k += 1;
-          setLit(k);
-          if (k >= total && timer) clearInterval(timer);
-        }, STEP_MS);
+          setBeat(k);
+          if (k >= beats - 1 && timer) clearInterval(timer);
+        }, BEAT_MS);
       },
-      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
+      { threshold: [0, 0.2, 0.35, 0.5, 0.75, 1] }
     );
     io.observe(el);
 
@@ -59,7 +63,7 @@ export function AiWorkflowBand() {
       io.disconnect();
       if (timer) clearInterval(timer);
     };
-  }, [total]);
+  }, [beats]);
 
   return (
     <section className="bg-band text-ink border-b border-ink/12">
@@ -76,74 +80,58 @@ export function AiWorkflowBand() {
         <ol
           ref={ref}
           aria-label="Design and delivery workflow"
-          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7"
+          className="mt-12 md:mt-16 grid gap-4 md:grid-cols-7 md:gap-4"
         >
           {DELIVERY_STEPS.map((s, i) => {
-            const on = lit > i;
+            const shown = beat >= i * 2;
+            const lineOn = beat >= i * 2 + 1;
             const last = i === total - 1;
-            const lineOn = lit > i + 1;
-            const dotRing = on ? (last ? "border-ember-deep" : "border-ink") : "border-ink/25";
-            const dotCore = on ? (last ? "bg-ember-deep" : "bg-ink") : "bg-ink/20";
 
             return (
-              <li
-                key={s.n}
-                className="relative grid grid-cols-[14px_1fr] gap-x-4 pb-7 last:pb-0
-                           md:flex md:flex-col md:items-center md:text-center md:pb-0 md:px-1"
-              >
-                {/* phone: vertical line from this dot's centre to the next one's.
-                    Sized to the whole step, so a step with a second line of
-                    text still reaches the next dot. */}
-                {!last && (
-                  <span aria-hidden="true" className="md:hidden absolute left-[6.5px] top-[10px] -bottom-[10px] w-px bg-ink/15">
-                    <span
-                      className="absolute inset-0 bg-ink origin-top transition-transform ease-out"
-                      style={{ transform: `scaleY(${lineOn ? 1 : 0})`, transitionDuration: `${STEP_MS}ms` }}
-                    />
-                  </span>
-                )}
-
-                {/* Number: above the dot on desktop, beside the label on a phone */}
-                <span
-                  className={`hidden md:block t-num text-[12px] font-semibold mb-3 transition-opacity duration-300 ${
-                    on ? "text-ember-deep opacity-100" : "text-ember-deep opacity-40"
+              <li key={s.n} className="relative">
+                <div
+                  className={`h-full bg-surface border p-4 md:p-3.5 shadow-[0_1px_2px_rgba(0,0,0,.04)] ${
+                    last ? "border-ember-deep/60" : "border-ink/12"
                   }`}
+                  style={{
+                    opacity: shown ? 1 : 0,
+                    transform: shown ? "translateY(0) scale(1)" : "translateY(10px) scale(.86)",
+                    transition: `opacity 260ms ease, transform 460ms ${POP}`,
+                  }}
                 >
-                  {s.n}
-                </span>
-
-                {/* Dot, plus the line to the next step */}
-                <span className="relative self-start mt-[3px] md:mt-0 w-[14px] h-[14px] md:w-full md:h-[14px] flex md:justify-center">
-                  {!last && (
-                    /* desktop: horizontal line across to the next dot */
-                    <span
-                      aria-hidden="true"
-                      className="hidden md:block absolute top-[6.5px] left-1/2 w-full h-px bg-ink/15"
-                    >
-                      <span
-                        className="absolute inset-0 bg-ink origin-left transition-transform ease-out"
-                        style={{ transform: `scaleX(${lineOn ? 1 : 0})`, transitionDuration: `${STEP_MS}ms` }}
-                      />
-                    </span>
-                  )}
-                  <span
-                    className={`relative z-10 w-[14px] h-[14px] rounded-full border-[1.5px] bg-band grid place-items-center transition-colors duration-300 ${dotRing}`}
-                  >
-                    <span className={`w-[5px] h-[5px] rounded-full transition-colors duration-300 ${dotCore}`} />
-                  </span>
-                </span>
-
-                <span className={`md:mt-4 transition-opacity duration-300 ${on ? "opacity-100" : "opacity-40"}`}>
-                  <span className="block text-[15px] md:text-[14px] font-bold text-ink-deep leading-snug">
-                    <span className="md:hidden t-num text-[12px] font-semibold text-ember-deep mr-2">{s.n}</span>
+                  <span className="block t-num text-[12px] font-semibold text-ember-deep">{s.n}</span>
+                  <span className="block mt-2 text-[15px] md:text-[13.5px] font-bold text-ink-deep leading-snug">
                     {s.label}
                   </span>
                   {s.sub.map((line) => (
-                    <span key={line} className="block text-[13px] md:text-[12px] text-ink/75 leading-snug mt-1">
+                    <span key={line} className="block mt-1 text-[13px] md:text-[11.5px] text-ink/75 leading-snug">
                       {line}
                     </span>
                   ))}
-                </span>
+                </div>
+
+                {!last && (
+                  <>
+                    {/* desktop: line across the gap to the next box */}
+                    <span
+                      aria-hidden="true"
+                      className="hidden md:block absolute top-[22px] left-full w-4 h-[1.5px] bg-ink origin-left"
+                      style={{
+                        transform: `scaleX(${lineOn ? 1 : 0})`,
+                        transition: `transform ${BEAT_MS}ms ease-out`,
+                      }}
+                    />
+                    {/* phone: line down the gap to the next box */}
+                    <span
+                      aria-hidden="true"
+                      className="md:hidden absolute top-full left-6 w-[1.5px] h-4 bg-ink origin-top"
+                      style={{
+                        transform: `scaleY(${lineOn ? 1 : 0})`,
+                        transition: `transform ${BEAT_MS}ms ease-out`,
+                      }}
+                    />
+                  </>
+                )}
               </li>
             );
           })}

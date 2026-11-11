@@ -16,11 +16,13 @@ export function WorkCard({ project, shows }: { project: Project; shows: string }
     <Link
       href={`/projects/${project.slug}`}
       data-accent={project.accent}
-      className="group flex flex-col h-full bg-surface border border-line transition-colors duration-300
-                 hover:border-accent/45 focus-visible:outline-none focus-visible:border-accent"
+      className="group flex flex-col h-full bg-surface border border-line
+                 transition-[transform,box-shadow,border-color] duration-300 ease-out
+                 hover:border-accent hover:shadow-[0_14px_30px_-14px_rgba(9,51,44,.35)] motion-safe:hover:-translate-y-1
+                 focus-visible:outline-none focus-visible:border-accent focus-visible:shadow-[0_14px_30px_-14px_rgba(9,51,44,.35)]"
     >
       <div className="relative overflow-hidden aspect-[8/5] bg-accent-wash">
-        <div className="absolute inset-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]">
+        <div className="absolute inset-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]">
           <CardVisual slug={project.slug} />
         </div>
       </div>
