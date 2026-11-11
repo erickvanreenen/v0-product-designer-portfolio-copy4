@@ -189,7 +189,7 @@ export default function AboutPage() {
               intro="From proof of concept through to developer handover, and how the design system keeps it consistent."
             />
 
-            <div className="mb-16">
+            <div id="workflow" className="mb-16 scroll-mt-24">
               <h3 className="text-xl font-bold text-ink tracking-[-0.015em]">Design and delivery</h3>
               <p className="text-[15px] text-ink/82 leading-relaxed mt-2 measure">
                 HTML is included in handover where it saves build time.

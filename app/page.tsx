@@ -14,7 +14,7 @@ const capabilities = [
   {
     name: "AI design workflows",
     body: "Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch. I use them for research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.",
-    href: "/about#tooling",
+    href: "/about#workflow",
     cue: "Tooling",
   },
   {
