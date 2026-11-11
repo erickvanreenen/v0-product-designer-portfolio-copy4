@@ -12,30 +12,37 @@ import { DELIVERY_STEPS } from "@/lib/workflow";
   It shows the workflow rather than claiming it. The seven steps are the same
   ones as the About page diagram, read from one shared list.
 
-  Desktop steps are left-aligned, so the first one lines up with the text
-  above and no label hangs past either edge.
+  Motion explains the sequence. When the band comes into view, the first dot
+  lights up orange and its outlined container appears beneath it. The line
+  then draws to the next step. As that step lights up orange, the one before
+  it settles to black. The last step stays orange.
 
-  Motion explains the sequence: when the band comes into view, the steps light
-  up one after another and the line draws between them. The page is rendered
-  with every step lit, so without JavaScript, or with reduced motion, the
-  reader sees the finished workflow.
+  Each step's text sits in its own outlined container, which wraps the text
+  inside its column so nothing hangs past the right edge. On wide screens the
+  row runs further right than the text column, so the steps get more room.
+
+  The page renders in the finished state, so without JavaScript, or with
+  reduced motion, the reader sees the whole workflow.
 */
 
-const STEP_MS = 280;
+const BEAT_MS = 340; // one beat: a step lighting up, or a line drawing
+const POP = "cubic-bezier(.34,1.56,.64,1)"; // overshoot, so arrivals pop
 
 export function AiWorkflowBand() {
   const ref = useRef<HTMLOListElement>(null);
   const total = DELIVERY_STEPS.length;
-  const [lit, setLit] = useState(total);
+  const end = (total - 1) * 2; // last step lit, every line drawn
+  const [phase, setPhase] = useState(end);
+  const [running, setRunning] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Without IntersectionObserver the sequence could never start, so stay lit.
+    // Without IntersectionObserver the sequence could never start, so stay finished.
     if (!("IntersectionObserver" in window)) return;
 
-    setLit(0);
+    setPhase(-1);
     let timer: ReturnType<typeof setInterval> | undefined;
 
     // Count the viewport's share as well as the list's, so a list taller than
@@ -44,17 +51,21 @@ export function AiWorkflowBand() {
       (entries) => {
         const x = entries[0];
         const viewH = x.rootBounds ? x.rootBounds.height : window.innerHeight;
-        const enough = x.intersectionRatio >= 0.4 || x.intersectionRect.height >= 0.4 * viewH;
+        const enough = x.intersectionRatio >= 0.35 || x.intersectionRect.height >= 0.35 * viewH;
         if (!x.isIntersecting || !enough) return;
         io.disconnect();
-        let k = 0;
+        setRunning(true);
+        let k = -1;
         timer = setInterval(() => {
           k += 1;
-          setLit(k);
-          if (k >= total && timer) clearInterval(timer);
-        }, STEP_MS);
+          setPhase(k);
+          if (k >= end) {
+            if (timer) clearInterval(timer);
+            setRunning(false);
+          }
+        }, BEAT_MS);
       },
-      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
+      { threshold: [0, 0.2, 0.35, 0.5, 0.75, 1] }
     );
     io.observe(el);
 
@@ -62,7 +73,7 @@ export function AiWorkflowBand() {
       io.disconnect();
       if (timer) clearInterval(timer);
     };
-  }, [total]);
+  }, [end]);
 
   return (
     <section className="bg-band text-ink border-b border-ink/12">
@@ -79,70 +90,85 @@ export function AiWorkflowBand() {
         <ol
           ref={ref}
           aria-label="Design and delivery workflow"
-          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7"
+          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7 xl:-mr-24"
         >
           {DELIVERY_STEPS.map((s, i) => {
-            const on = lit > i;
             const last = i === total - 1;
-            const lineOn = lit > i + 1;
-            const dotRing = on ? (last ? "border-ember-deep" : "border-ink") : "border-ink/25";
-            const dotCore = on ? (last ? "bg-ember-deep" : "bg-ink") : "bg-ink/20";
+            const shown = phase >= i * 2;
+            const done = !last && phase >= i * 2 + 2;
+            const active = shown && !done;
+            const lineOn = phase >= i * 2 + 1;
+
+            const ring = active ? "border-ember-deep" : done ? "border-ink" : "border-ink/25";
+            const core = active ? "bg-ember-deep" : done ? "bg-ink" : "bg-transparent";
+            const box = active ? "border-ember-deep/55" : "border-ink/20";
 
             return (
               <li
                 key={s.n}
-                className="relative grid grid-cols-[14px_1fr] gap-x-4 pb-7 last:pb-0
-                           md:flex md:flex-col md:items-start md:pb-0"
+                className="relative grid grid-cols-[14px_1fr] gap-x-4 pb-4 last:pb-0
+                           md:flex md:flex-col md:pb-0"
               >
-                {/* phone: vertical line from this dot's centre to the next one's.
-                    Sized to the whole step, so a step with a second line of
-                    text still reaches the next dot. */}
+                {/* phone: vertical line from this dot's centre to the next one's */}
                 {!last && (
-                  <span aria-hidden="true" className="md:hidden absolute left-[6.5px] top-[10px] -bottom-[10px] w-px bg-ink/15">
+                  <span aria-hidden="true" className="md:hidden absolute left-[6.5px] top-[17px] -bottom-[17px] w-px bg-ink/15">
                     <span
-                      className="absolute inset-0 bg-ink origin-top transition-transform ease-out"
-                      style={{ transform: `scaleY(${lineOn ? 1 : 0})`, transitionDuration: `${STEP_MS}ms` }}
+                      className="absolute inset-0 bg-ink origin-top"
+                      style={{ transform: `scaleY(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
                     />
                   </span>
                 )}
 
-                {/* Number: above the dot on desktop, beside the label on a phone */}
+                {/* Number, above the dot on desktop */}
                 <span
-                  className={`hidden md:block t-num text-[12px] font-semibold mb-3 transition-opacity duration-300 ${
-                    on ? "text-ember-deep opacity-100" : "text-ember-deep opacity-40"
-                  }`}
+                  className="hidden md:block t-num text-[12px] font-semibold text-ember-deep mb-3 transition-opacity duration-300"
+                  style={{ opacity: shown ? 1 : 0.35 }}
                 >
                   {s.n}
                 </span>
 
                 {/* Dot, plus the line to the next step */}
-                <span className="relative self-start mt-[3px] md:mt-0 w-[14px] h-[14px] md:w-full md:h-[14px] flex">
+                <span className="relative self-start mt-[10px] md:mt-0 w-[14px] h-[14px] md:w-full">
                   {!last && (
-                    /* desktop: horizontal line across to the next dot */
-                    <span
-                      aria-hidden="true"
-                      className="hidden md:block absolute top-[6.5px] left-[7px] w-full h-px bg-ink/15"
-                    >
+                    <span aria-hidden="true" className="hidden md:block absolute top-[6.5px] left-[7px] w-full h-px bg-ink/15">
                       <span
-                        className="absolute inset-0 bg-ink origin-left transition-transform ease-out"
-                        style={{ transform: `scaleX(${lineOn ? 1 : 0})`, transitionDuration: `${STEP_MS}ms` }}
+                        className="absolute inset-0 bg-ink origin-left"
+                        style={{ transform: `scaleX(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
                       />
                     </span>
                   )}
-                  <span
-                    className={`relative z-10 w-[14px] h-[14px] rounded-full border-[1.5px] bg-band grid place-items-center transition-colors duration-300 ${dotRing}`}
-                  >
-                    <span className={`w-[5px] h-[5px] rounded-full transition-colors duration-300 ${dotCore}`} />
+                  <span className="absolute left-0 top-0 w-[14px] h-[14px]">
+                    {/* a soft pulse behind the dot while it is the current step */}
+                    {running && active && (
+                      <span aria-hidden="true" className="absolute inset-0 rounded-full bg-ember-deep/30 animate-ping" />
+                    )}
+                    <span
+                      className={`relative z-10 w-[14px] h-[14px] rounded-full border-[1.5px] bg-band grid place-items-center ${ring}`}
+                      style={{
+                        transform: running && active ? "scale(1.3)" : "scale(1)",
+                        transition: `transform 380ms ${POP}, border-color 200ms, background-color 200ms`,
+                      }}
+                    >
+                      <span className={`w-[5px] h-[5px] rounded-full transition-colors duration-200 ${core}`} />
+                    </span>
                   </span>
                 </span>
 
-                <span className={`md:mt-4 md:pr-4 transition-opacity duration-300 ${on ? "opacity-100" : "opacity-40"}`}>
-                  <span className="block text-[15px] md:text-[14px] font-bold text-ink-deep leading-snug">
+                {/* Outlined container, appearing as the line reaches the step */}
+                <span
+                  className={`block border p-3 md:mt-4 md:flex-1 ${box} ${last ? "" : "md:mr-3"}`}
+                  style={{
+                    opacity: shown ? 1 : 0,
+                    transform: shown ? "translateY(0) scale(1)" : "translateY(8px) scale(.94)",
+                    transition: `opacity 240ms ease, transform 420ms ${POP}, border-color 200ms`,
+                  }}
+                >
+                  <span className="block text-[15px] md:text-[13.5px] font-bold text-ink-deep leading-snug">
                     <span className="md:hidden t-num text-[12px] font-semibold text-ember-deep mr-2">{s.n}</span>
                     {s.label}
                   </span>
                   {s.sub.map((line) => (
-                    <span key={line} className="block text-[13px] md:text-[12px] text-ink/75 leading-snug mt-1">
+                    <span key={line} className="block text-[13px] md:text-[11.5px] text-ink/75 leading-snug mt-1">
                       {line}
                     </span>
                   ))}
