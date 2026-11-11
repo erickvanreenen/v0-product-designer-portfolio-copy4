@@ -138,18 +138,27 @@ export default function AboutPage() {
         <FadeIn>
           <section className="mb-24 md:mb-28 pb-20 border-b border-line">
             <p className="text-xl md:text-2xl text-ink leading-[1.45] font-medium measure mb-8">
-              I have worked in entrepreneurship, business development, branding, product
-              design, visual and online education design, and UX/UI.
+              I&apos;m an experienced digital product designer with a background in UX/UI,
+              branding, entrepreneurship, business development, e-commerce and online education.
             </p>
             <div className="measure space-y-5 text-[17px] text-ink/82 leading-relaxed">
               <p>
-                Most of what I do comes down to working out how the pieces fit together, and
-                who they are for.
+                My approach is grounded in curiosity, research and systems thinking, which I use
+                to understand user needs, find opportunities and uncover the underlying problems
+                that affect product performance and conversion.
               </p>
               <p>
-                Research is mostly how I check whether what I think is happening is what is
-                actually happening. The rest is working out what can realistically ship, and
-                arguing for the version still worth building.
+                I combine UX research, information architecture, design thinking, analytics and
+                AI-integrated workflows to help organisations simplify complexity, reduce friction
+                and make better product decisions.
+              </p>
+              <p>
+                I balance user needs, business objectives and technical realities, work out what
+                can realistically ship, and argue for the version still worth building.
+              </p>
+              <p>
+                I&apos;m at my best with teams that value curiosity, evidence and thoughtful product
+                design.
               </p>
             </div>
           </section>
