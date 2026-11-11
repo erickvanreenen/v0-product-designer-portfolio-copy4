@@ -12,15 +12,15 @@ import { DELIVERY_STEPS } from "@/lib/workflow";
   It shows the workflow rather than claiming it. The seven steps are the same
   ones as the About page diagram, read from one shared list.
 
-  Motion explains the sequence. When the band comes into view, the first dot
-  lights up orange and its outlined container appears beneath it. The line
-  then draws to the next step. As that step lights up orange, the one before
-  it settles to black. The last step stays orange.
+  Each step is a number and a dot, centred above an outlined container. There
+  is no line along the top; the line runs through the middle of the boxes,
+  across the gap from one to the next.
 
-  Each step's text sits in its own outlined container, which wraps the text
-  inside its column so nothing hangs past the right edge. Dots sit centred over
-  their containers, so the line runs from the middle of the first to the middle
-  of the last and the row stays balanced.
+  Motion explains the sequence. When the band comes into view, the first
+  step's container appears and its number and dot light up orange. The line
+  then draws across the gap to the next step. As that one lights orange, the
+  one before settles to black. The last stays orange. On a phone the same
+  runs top to bottom.
 
   The page renders in the finished state, so without JavaScript, or with
   reduced motion, the reader sees the whole workflow.
@@ -91,7 +91,7 @@ export function AiWorkflowBand() {
         <ol
           ref={ref}
           aria-label="Design and delivery workflow"
-          className="mt-12 md:mt-16 flex flex-col md:grid md:grid-cols-7 md:gap-3"
+          className="mt-12 md:mt-16 flex flex-col gap-4 md:grid md:grid-cols-7 md:gap-5"
         >
           {DELIVERY_STEPS.map((s, i) => {
             const last = i === total - 1;
@@ -99,81 +99,71 @@ export function AiWorkflowBand() {
             const done = !last && phase >= i * 2 + 2;
             const active = shown && !done;
             const lineOn = phase >= i * 2 + 1;
+            const pop = running && active ? "scale(1.25)" : "scale(1)";
 
+            const num = active ? "text-ember-deep" : done ? "text-ink" : "text-ink/30";
             const ring = active ? "border-ember-deep" : done ? "border-ink" : "border-ink/25";
             const core = active ? "bg-ember-deep" : done ? "bg-ink" : "bg-transparent";
             const box = active ? "border-ember-deep/55" : "border-ink/20";
 
             return (
-              <li
-                key={s.n}
-                className="relative grid grid-cols-[14px_1fr] gap-x-4 pb-4 last:pb-0
-                           md:flex md:flex-col md:items-center md:text-center md:pb-0"
-              >
-                {/* phone: vertical line from this dot's centre to the next one's */}
-                {!last && (
-                  <span aria-hidden="true" className="md:hidden absolute left-[6.5px] top-[17px] -bottom-[17px] w-px bg-ink/15">
-                    <span
-                      className="absolute inset-0 bg-ink origin-top"
-                      style={{ transform: `scaleY(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
-                    />
-                  </span>
-                )}
-
-                {/* Number, above the dot on desktop */}
-                <span
-                  className="hidden md:block t-num text-[12px] font-semibold text-ember-deep mb-3 transition-opacity duration-300"
-                  style={{ opacity: shown ? 1 : 0.35 }}
-                >
+              <li key={s.n} className="md:flex md:flex-col md:items-center md:text-center">
+                {/* Number and dot, centred above the box on desktop */}
+                <span className={`hidden md:block t-num text-[12px] font-semibold mb-3 transition-colors duration-200 ${num}`}>
                   {s.n}
                 </span>
+                <span className="hidden md:block relative w-[14px] h-[14px] mb-4">
+                  {running && active && (
+                    <span aria-hidden="true" className="absolute inset-0 rounded-full bg-ember-deep/30 animate-ping" />
+                  )}
+                  <span
+                    className={`relative w-[14px] h-[14px] rounded-full border-[1.5px] bg-band grid place-items-center ${ring}`}
+                    style={{ transform: pop, transition: `transform 380ms ${POP}, border-color 200ms` }}
+                  >
+                    <span className={`w-[5px] h-[5px] rounded-full transition-colors duration-200 ${core}`} />
+                  </span>
+                </span>
 
-                {/* Dot, plus the line to the next step */}
-                <span className="relative self-start mt-[10px] md:mt-0 w-[14px] h-[14px] md:w-full">
+                <div className="relative md:w-full md:flex-1 flex flex-col">
+                  {/* Outlined container, appearing as the line reaches it */}
+                  <span
+                    className={`block flex-1 border p-3 ${box}`}
+                    style={{
+                      opacity: shown ? 1 : 0,
+                      transform: shown ? "translateY(0) scale(1)" : "translateY(8px) scale(.94)",
+                      transition: `opacity 240ms ease, transform 420ms ${POP}, border-color 200ms`,
+                    }}
+                  >
+                    <span className="block text-[15px] md:text-[13.5px] font-bold text-ink-deep leading-snug">
+                      <span className={`md:hidden t-num text-[12px] font-semibold mr-2 transition-colors duration-200 ${num}`}>
+                        {s.n}
+                      </span>
+                      {s.label}
+                    </span>
+                    {s.sub.map((line) => (
+                      <span key={line} className="block text-[13px] md:text-[11.5px] text-ink/75 leading-snug mt-1">
+                        {line}
+                      </span>
+                    ))}
+                  </span>
+
                   {!last && (
-                    <span aria-hidden="true" className="hidden md:block absolute top-[6.5px] left-1/2 w-[calc(100%+0.75rem)] h-px bg-ink/15">
+                    <>
+                      {/* desktop: line across the gap, through the box's middle */}
                       <span
-                        className="absolute inset-0 bg-ink origin-left"
+                        aria-hidden="true"
+                        className="hidden md:block absolute top-1/2 left-full w-5 h-px bg-ink origin-left"
                         style={{ transform: `scaleX(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
                       />
-                    </span>
+                      {/* phone: line down the gap, through the box's middle */}
+                      <span
+                        aria-hidden="true"
+                        className="md:hidden absolute top-full left-1/2 h-4 w-px bg-ink origin-top"
+                        style={{ transform: `scaleY(${lineOn ? 1 : 0})`, transition: `transform ${BEAT_MS}ms ease-out` }}
+                      />
+                    </>
                   )}
-                  <span className="absolute left-0 md:left-1/2 md:-ml-[7px] top-0 w-[14px] h-[14px]">
-                    {/* a soft pulse behind the dot while it is the current step */}
-                    {running && active && (
-                      <span aria-hidden="true" className="absolute inset-0 rounded-full bg-ember-deep/30 animate-ping" />
-                    )}
-                    <span
-                      className={`relative z-10 w-[14px] h-[14px] rounded-full border-[1.5px] bg-band grid place-items-center ${ring}`}
-                      style={{
-                        transform: running && active ? "scale(1.3)" : "scale(1)",
-                        transition: `transform 380ms ${POP}, border-color 200ms, background-color 200ms`,
-                      }}
-                    >
-                      <span className={`w-[5px] h-[5px] rounded-full transition-colors duration-200 ${core}`} />
-                    </span>
-                  </span>
-                </span>
-
-                {/* Outlined container, appearing as the line reaches the step */}
-                <span
-                  className={`block border p-3 md:mt-4 md:flex-1 md:w-full ${box}`}
-                  style={{
-                    opacity: shown ? 1 : 0,
-                    transform: shown ? "translateY(0) scale(1)" : "translateY(8px) scale(.94)",
-                    transition: `opacity 240ms ease, transform 420ms ${POP}, border-color 200ms`,
-                  }}
-                >
-                  <span className="block text-[15px] md:text-[13.5px] font-bold text-ink-deep leading-snug">
-                    <span className="md:hidden t-num text-[12px] font-semibold text-ember-deep mr-2">{s.n}</span>
-                    {s.label}
-                  </span>
-                  {s.sub.map((line) => (
-                    <span key={line} className="block text-[13px] md:text-[11.5px] text-ink/75 leading-snug mt-1">
-                      {line}
-                    </span>
-                  ))}
-                </span>
+                </div>
               </li>
             );
           })}
