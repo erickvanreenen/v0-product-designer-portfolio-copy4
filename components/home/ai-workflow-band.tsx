@@ -83,8 +83,7 @@ export function AiWorkflowBand() {
           <div aria-hidden="true" className="h-[3px] w-10 bg-ember-deep mb-7" />
           <h2 className="t-h2 text-3xl md:text-[40px] text-ink mb-5">AI design workflows</h2>
           <p className="text-[16px] text-ink/85 leading-relaxed measure">
-            Perplexity, ChatGPT, Claude, NotebookLM, Figma Make and Stitch. I use them for
-            research, synthesis and exploration. I studied AI Fundamentals for UX in 2025.
+            An integrated AI design workflow, from prototype to handover.
           </p>
         </FadeIn>
 
