@@ -31,22 +31,22 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Erick van Reenen | UX/UI Designer",
+  title: "Erick van Reenen | Digital Product Designer",
   description:
-    "UX/UI Designer. E-commerce, omnichannel platforms and design systems. Cape Town, South Africa.",
+    "Digital Product Designer. E-commerce, omnichannel platforms and design systems. Cape Town, South Africa.",
   generator: "v0.app",
   openGraph: {
-    title: "Erick van Reenen | UX/UI Designer",
+    title: "Erick van Reenen | Digital Product Designer",
     description:
-      "UX/UI Designer. E-commerce, omnichannel platforms and design systems.",
+      "Digital Product Designer. E-commerce, omnichannel platforms and design systems.",
     type: "website",
     locale: "en_ZA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Erick van Reenen | UX/UI Designer",
+    title: "Erick van Reenen | Digital Product Designer",
     description:
-      "UX/UI Designer. E-commerce, omnichannel platforms and design systems.",
+      "Digital Product Designer. E-commerce, omnichannel platforms and design systems.",
   },
   icons: {
     icon: [

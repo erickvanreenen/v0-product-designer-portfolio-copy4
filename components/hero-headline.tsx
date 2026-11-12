@@ -35,7 +35,7 @@ export function HeroHeadline() {
           className="text-sm tracking-wide"
           style={style(2)}
         >
-          <span className="font-bold" style={{ color: "#006A4E" }}>UX/UI Designer</span>
+          <span className="font-bold" style={{ color: "#006A4E" }}>Digital Product Designer</span>
           <span className="mx-2 font-bold" style={{ color: "#E53E3E" }}>•</span>
           <span className="font-bold" style={{ color: "#006A4E" }}>E-commerce, Omnichannel, EdTech</span>
         </p>
